@@ -28,9 +28,22 @@ for (const centerId of ["hexagram:02", "hexagram:11", "hexagram:12"]) {
 
 for (const centerId of ["trigram:qian", "trigram:kan", "trigram:li"]) {
   const graph = buildLocalGraph({ centerId, nodes, relations });
-  assert.equal(graph.directNeighborCount, 16, `${centerId} should expose its 15 hexagrams and the classic`);
-  assert.equal(graph.omittedNodeCount, 0);
+  assert.equal(graph.directNeighborCount, 19, `${centerId} should retain Yijing neighbors and add only its supported Heluo correspondences`);
+  assert.equal(graph.omittedNodeCount, 1);
   assert.ok(graph.edges.every((edge) => edge.label.length > 0));
+}
+
+for (const [centerId, expectedNeighbors] of [
+  ["heavenly-stem:jia", 3],
+  ["element:wood", 14],
+  ["earthly-branch:zi", 3],
+  ["concept:hetu", 12],
+  ["concept:luoshu", 11],
+] as const) {
+  const graph = buildLocalGraph({ centerId, nodes, relations });
+  assert.equal(graph.directNeighborCount, expectedNeighbors, `${centerId} local graph neighbor count changed unexpectedly`);
+  assert.equal(graph.omittedNodeCount, 0);
+  assert.ok(graph.nodes.every((node) => node.label && node.typeLabel && node.description && node.href?.startsWith("/")));
 }
 
 const classic = buildLocalGraph({ centerId: "classic:yijing", nodes, relations });
@@ -52,9 +65,9 @@ assert.ok(classic.edges.every((edge) => !rawEnums.test(edge.label)), "public edg
 console.log(JSON.stringify({
   graphNodesAvailable: nodes.length,
   relationsAvailable: relations.length,
-  representativeCenters: 7,
+  representativeCenters: 12,
   qianVisibleNodes: qian.nodes.length,
-  trigramDirectNeighbors: 16,
+  trigramDirectNeighbors: 19,
   classicDirectNeighbors: classic.directNeighborCount,
   classicVisibleNeighbors: classic.nodes.length - 1,
   classicOmittedNeighbors: classic.omittedNodeCount,

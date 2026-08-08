@@ -24,7 +24,7 @@ main { min-height: calc(100vh - 130px); }
 .kicker { font-size: 12px; letter-spacing: .22em; color: var(--jade); font-weight: 800; text-transform: uppercase; margin: 0 0 10px; }
 .hero-shell h1, .lesson-header h1 { font-family: "Noto Serif TC", serif; font-size: clamp(42px, 7vw, 78px); line-height: 1.13; margin: 0; letter-spacing: -.04em; }
 .hero-shell > p:not(.kicker) { max-width: 650px; color: var(--soft); font-size: 17px; }
-.hero-actions { display: flex; gap: 12px; margin-top: 28px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .hero-actions a { padding: 10px 17px; border: 1px solid var(--seal); text-decoration: none; color: var(--seal); }
 .hero-actions a:first-child { background: var(--seal); color: #fff; }
 .search-panel { padding: 28px; border: 1px solid var(--line); background: var(--card); display: grid; grid-template-columns: 1fr 1.3fr; gap: 22px; }
@@ -116,6 +116,32 @@ main { min-height: calc(100vh - 130px); }
 .graph-node-detail a { grid-column: 2; grid-row: 1 / 4; align-self: center; padding: 8px 12px; border: 1px solid var(--seal); color: var(--seal); text-decoration: none; }
 .graph-keyboard-hint { margin: 0 !important; padding: 8px 16px; border-top: 1px solid var(--line); color: var(--soft); font-size: 11px; }
 .graph-limit-note { border-left: 3px solid var(--gold); padding-left: 12px; font-size: 13px; }
+.structured-lesson > h2:first-child { margin-top: 30px; }
+.learning-entity-grid, .ten-god-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 18px 0 32px; }
+.learning-entity-grid a, .ten-god-grid a { display: grid; gap: 3px; padding: 13px 15px; border: 1px solid var(--line); background: var(--card); text-decoration: none; }
+.learning-entity-grid a:hover, .ten-god-grid a:hover { border-color: var(--jade); }
+.learning-entity-grid a:focus-visible, .ten-god-grid a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.learning-entity-grid strong, .ten-god-grid strong { font-family: "Noto Serif TC", serif; font-size: 20px; color: var(--ink); }
+.learning-entity-grid span, .ten-god-grid span { color: var(--soft); font-size: 12px; }
+.learning-next { border-left: 4px solid var(--jade); padding: 14px 18px; background: var(--card); }
+.knowledge-visual { margin: 22px 0 34px; border: 1px solid var(--line); background: #f8f2e5; padding: 14px; }
+.knowledge-visual svg { display: block; width: 100%; height: auto; max-height: 540px; }
+.knowledge-visual figcaption { text-align: center; color: var(--soft); font-size: 12px; }
+.element-generating line { stroke: var(--jade); stroke-width: 4; }
+.element-generating marker path { fill: var(--jade); }
+.element-controlling line { stroke: var(--seal); stroke-width: 3; stroke-dasharray: 9 7; }
+.element-controlling marker path { fill: var(--seal); }
+.element-node circle { fill: var(--card); stroke: var(--ink); stroke-width: 2; }
+.element-node text { font-family: "Noto Serif TC", serif; font-size: 25px; font-weight: 800; fill: var(--ink); }
+.element-legend line { stroke: var(--jade); stroke-width: 4; }
+.element-legend line.control { stroke: var(--seal); stroke-width: 3; stroke-dasharray: 8 6; }
+.element-legend text { font-size: 12px; fill: var(--soft); }
+.heluo-visuals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.heluo-axis { fill: none; stroke: var(--line); stroke-width: 2; }
+.heluo-node circle { fill: var(--card); stroke: var(--jade); stroke-width: 2; }
+.heluo-node text, .luoshu-cell text { font-size: 13px; fill: var(--soft); }
+.heluo-node .heluo-number, .luoshu-cell .heluo-number { font-family: "Noto Serif TC", serif; font-size: 23px; font-weight: 800; fill: var(--ink); }
+.luoshu-cell rect { fill: var(--card); stroke: var(--line); stroke-width: 2; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 @media (max-width: 760px) {
@@ -138,4 +164,5 @@ main { min-height: calc(100vh - 130px); }
   .graph-viewport svg { width: 650px; max-width: none; position: relative; left: 50%; transform: translateX(-50%); }
   .graph-node-detail { grid-template-columns: 1fr; min-height: 154px; }
   .graph-node-detail a { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 6px; }
+  .learning-entity-grid, .ten-god-grid, .heluo-visuals { grid-template-columns: 1fr; }
 }

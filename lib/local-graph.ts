@@ -33,11 +33,17 @@ const typePriority: Record<KnowledgeNode["type"], number> = {
   course: 0,
   classic: 1,
   lesson: 2,
-  trigram: 3,
-  hexagram: 4,
-  concept: 5,
-  formula: 6,
-  herb: 7,
+  concept: 3,
+  trigram: 4,
+  hexagram: 5,
+  heavenly_stem: 6,
+  earthly_branch: 7,
+  element: 8,
+  yin_yang: 9,
+  ten_god: 10,
+  direction: 11,
+  formula: 12,
+  herb: 13,
 };
 
 function publicHref(node: KnowledgeNode): string | null {

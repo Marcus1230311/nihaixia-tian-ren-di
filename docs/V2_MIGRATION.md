@@ -6,9 +6,9 @@
 
 課程正文不重新生成。`lib/v1-content.ts` 在建置階段讀取既有 `<article class="classic">`，新的公開路由提供搜尋、麵包屑、前後篇、來源說明和知識條目入口。
 
-## Schema Freeze 1.0.0
+## Schema Freeze 1.1.0
 
-Entity、Relation、Source／Provenance 與 i18n 合約已凍結為 1.0.0。詳細欄位、展示對照、圖譜／搜尋條件及版本規則見 [`KNOWLEDGE_MODEL.md`](KNOWLEDGE_MODEL.md)。後續匯入和引導研讀要求見 [`CONTENT_GUIDELINES.md`](CONTENT_GUIDELINES.md)。
+Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.1.0。1.0.0 的易經資料與 ID 保持不變；小版本只增加八字／河洛所需 entity type 及兩個通用關係。詳細欄位、展示對照、圖譜／搜尋條件及版本規則見 [`KNOWLEDGE_MODEL.md`](KNOWLEDGE_MODEL.md)。後續匯入和引導研讀要求見 [`CONTENT_GUIDELINES.md`](CONTENT_GUIDELINES.md)。
 
 《易經》結構化層目前包含：5 篇研讀課程、天紀課程主線、周易經典、8 個八卦、64 個六十四卦、206 條關係與 4 筆獨立來源。搜尋索引共有 79 筆（5 lessons + 74 non-lesson entities）。本次只擴充卦象結構，沒有開始八字、河洛、人紀、地紀或全域圖譜。
 
@@ -34,4 +34,12 @@ Entity、Relation、Source／Provenance 與 i18n 合約已凍結為 1.0.0。詳�
 
 ## 延後事項
 
-全域／局部知識圖譜、八字、河洛、人紀、地紀、資料庫、身份驗證、AI、CMS、完整簡體網站、PDF 批次匯入與經典全文重製均刻意延後。開始任何一項之前，必須按內容規範先完成來源盤點與小樣本驗證。
+全域知識圖譜、八字排盤與個人解讀、曆法換算、藏干／合沖刑害等進階關係、河洛流派延伸、人紀、地紀、資料庫、身份驗證、AI、CMS、完整簡體網站、PDF 批次匯入與經典全文重製均刻意延後。開始任何一項之前，必須按內容規範先完成來源盤點與小樣本驗證。
+
+## V2.4 天紀八字與河洛結構化擴充
+
+新增 3 篇最小導讀頁：天干地支、十神、河圖洛書。頁面不複製長篇典藏正文，而以學習順序、第一級條目、可重用圖解與典藏深讀入口組成。新增 65 個可搜尋節點（62 個非 lesson entity + 3 lessons）：10 天干、12 地支、5 共用五行、2 共用陰陽、10 十神、9 共用方位、10 個河洛語意數字、河圖、洛書及八字／河洛兩個系統節點。總計 144 個節點、386 條關係、8 筆來源，搜尋索引 144 筆。
+
+新增 `FiveElementCycle` 與 `HeluoDiagrams` 兩個無客戶端 JavaScript 的程式化 SVG。前者只呈現五行相生／相剋，後者分開呈現河圖五方生成數與北方朝上的洛書九宮。來源採既有天紀頁的 editorial 邊界，再以 derived source 記錄表格到穩定 ID／關係的轉換；沒有把廣泛傳統對應標成倪海廈逐字講授。
+
+Schema 由 1.0.0 升至向後相容的 1.1.0：新增 6 個 entity enum 與 `generates`、`controls` 兩個 generic relation enum，未新增欄位、source category 或 domain-specific relation。五行、陰陽、方位與八卦均重用單一身份；河洛 1–10 以 namespaced `concept` 區別於普通數值。

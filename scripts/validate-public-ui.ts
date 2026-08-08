@@ -15,6 +15,7 @@ const forbiddenPublicText = [
   "V2", "分批遷移", "代表性遷移", "首批", "已遷移", "本批次", "內容對帳", "開發中", "pilot",
   "part_of", "belongs_to", "appears_in", "sourced_from", "contains_herb", "related_formula",
   "corresponds_to", "element_of", "upper_trigram", "lower_trigram", "related_to",
+  "generates", "controls", "heavenly_stem", "earthly_branch", "yin_yang", "ten_god",
 ];
 
 function routeFile(route: string) {
@@ -56,5 +57,21 @@ for (const route of expectedRoutes) {
   }
 }
 
+const searchIndexFile = path.join(root, "search-index.json");
+if (!fs.existsSync(searchIndexFile)) errors.push("缺少公開搜尋索引");
+else {
+  const records = JSON.parse(fs.readFileSync(searchIndexFile, "utf8")) as Array<{ labels: Record<string, string>; descriptions: Record<string, string>; keywords: Record<string, string[]> }>;
+  if (records.length !== entities.length + lessons.length) errors.push(`搜尋索引數量錯誤：${records.length}`);
+  for (const query of ["甲", "伤官", "河图", "洛书", "北方"]) {
+    const found = records.some((record) => JSON.stringify(record).includes(query));
+    if (!found) errors.push(`搜尋索引缺少繁簡或別名查找詞：${query}`);
+  }
+}
+
+const baziLessonHtml = fs.readFileSync(routeFile("/lessons/tianji/bazi/01-tiangan-dizhi/"), "utf8");
+if (!baziLessonHtml.includes("five-element-visual") || !baziLessonHtml.includes("structured-lesson")) errors.push("八字基礎頁缺少結構化導讀或五行圖");
+const heluoLessonHtml = fs.readFileSync(routeFile("/lessons/tianji/heluo/01-hetu-luoshu/"), "utf8");
+if (!heluoLessonHtml.includes("heluo-visuals") || !heluoLessonHtml.includes("structured-lesson")) errors.push("河圖洛書頁缺少結構化導讀或數字圖");
+
 if (errors.length) throw new Error(`公開頁驗證失敗：\n${errors.join("\n")}`);
-console.log(JSON.stringify({ routes: expectedRoutes.length, brokenLinks: 0, forbiddenPublicText: 0, singleH1: true }, null, 2));
+console.log(JSON.stringify({ routes: expectedRoutes.length, searchIndex: entities.length + lessons.length, brokenLinks: 0, forbiddenPublicText: 0, singleH1: true, structuredVisualLessons: 2 }, null, 2));

@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const supportedLocales = ["zh-Hant", "zh-Hans"] as const;
-export const entityTypes = ["course", "classic", "lesson", "trigram", "hexagram", "concept", "formula", "herb"] as const;
-export const nonLessonEntityTypes = ["course", "classic", "trigram", "hexagram", "concept", "formula", "herb"] as const;
+export const entityTypes = ["course", "classic", "lesson", "trigram", "hexagram", "heavenly_stem", "earthly_branch", "element", "yin_yang", "ten_god", "direction", "concept", "formula", "herb"] as const;
+export const nonLessonEntityTypes = ["course", "classic", "trigram", "hexagram", "heavenly_stem", "earthly_branch", "element", "yin_yang", "ten_god", "direction", "concept", "formula", "herb"] as const;
 export const relationTypes = [
   "part_of",
   "belongs_to",
@@ -16,6 +16,8 @@ export const relationTypes = [
   "upper_trigram",
   "lower_trigram",
   "related_to",
+  "generates",
+  "controls",
 ] as const;
 export const sourceCategories = ["nihaixia", "classical", "editorial", "reference", "derived"] as const;
 
@@ -95,7 +97,7 @@ export const relationSchema = z.object({
 }).strict();
 
 export const knowledgeGraphSchema = z.object({
-  schemaVersion: z.literal("1.0.0"),
+  schemaVersion: z.literal("1.1.0"),
   sources: z.array(sourceSchema),
   entities: z.array(knowledgeNodeSchema),
   relations: z.array(relationSchema),

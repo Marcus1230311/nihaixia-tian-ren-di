@@ -1,6 +1,6 @@
-# 知識模型 V1（已凍結）
+# 知識模型 V1.1（已凍結）
 
-本文件記錄 1.0.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。現有資料涵蓋《易經》5 篇研讀課程、8 個八卦與 64 個六十四卦條目，不代表其他模組已完成建模。
+本文件記錄 1.1.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。1.1.0 是在 1.0.0 上加入天紀八字／河洛所需 enum 的向後相容小版本，沒有移除欄位或改變既有 ID。現有資料涵蓋易經、八字核心與河圖洛書入門，不代表人紀或地紀已開始建模。
 
 ## Entity Schema V1
 
@@ -8,7 +8,7 @@
 
 - `id`：語言無關、具命名空間的穩定識別碼，例如 `trigram:qian`。顯示名稱變更時不得更換 ID。
 - `slug`：Windows 與網址皆安全的 kebab-case 路徑片段；與 ID 分離。
-- `type`：`course | classic | lesson | trigram | hexagram | concept | formula | herb`。
+- `type`：`course | classic | lesson | trigram | hexagram | heavenly_stem | earthly_branch | element | yin_yang | ten_god | direction | concept | formula | herb`。
 - `labels`、`descriptions`：本地化文字物件；`zh-Hant` 必填，`zh-Hans` 可選。
 - `aliases`：按語系分組的別名陣列。
 - `metadata`：小型結構化屬性；鍵名必須先有展示名稱對照，禁止把內部鍵直接顯示給讀者。
@@ -21,7 +21,7 @@ lesson 另有 `courseId`、`moduleId`、`order`、`route`、`legacyPath` 與 `re
 
 關係是有方向的 edge，固定欄位為 `id`、`type`、`from`、`to`、`sourceIds`，並可選擇加入本地化 `notes` 與 `confidence`。端點必須存在，關係不得指向自身，ID 不得重複。
 
-V1 詞彙固定為：`part_of`、`belongs_to`、`contains`、`appears_in`、`sourced_from`、`contains_herb`、`related_formula`、`corresponds_to`、`element_of`、`upper_trigram`、`lower_trigram`、`related_to`。
+V1.1 詞彙為：`part_of`、`belongs_to`、`contains`、`appears_in`、`sourced_from`、`contains_herb`、`related_formula`、`corresponds_to`、`element_of`、`upper_trigram`、`lower_trigram`、`related_to`、`generates`、`controls`。新增的 `generates`／`controls` 是跨領域且有方向的通用關係；`corresponds_to` 無法清楚區分相生與相剋，因此沒有以模糊標籤取代。
 
 公開介面一律使用 `lib/presentation.ts` 的繁簡展示對照，例如 `part_of` 顯示「屬於／属于」、`appears_in` 顯示「見於／见于」；不可直接輸出 enum 值。
 
@@ -67,3 +67,11 @@ Schema V1 已用完整 8 個八卦與 64 個六十四卦進行擴量驗證，未
 ## V1 變更規則
 
 允許：補齊 `zh-Hans`、修正文案、增加符合既有詞彙的 entity／relation／source、補充來源定位欄位。禁止：重用 ID 表示不同事物、依名稱改 ID、刪改 enum 語意、把來源內嵌回 entity、讓無來源資料通過驗證。需要禁止事項時，建立下一版本並提供可重現的資料遷移。
+
+## V1.1 八字／河洛壓力測試
+
+本次新增 6 種 entity type：`heavenly_stem`、`earthly_branch`、`element`、`yin_yang`、`ten_god`、`direction`。河圖、洛書、八字／河洛系統節點與帶有特定河洛語意的 1–10 使用既有 `concept`；沒有建立一般整數型別。資料欄位不需新增，所有新條目仍使用 labels、descriptions、aliases、metadata、sourceIds 與 relatedLessonIds。
+
+五行與陰陽各只有一組穩定 ID，易經課程、天干地支、河洛數字、方位與八卦透過同一批節點交叉連結。十神被建模為相對日主的分類概念，未固定綁到某一天干或地支。藏干、五合、六合、三合、三會、沖、刑、害、破及十神推導均刻意延後；現有來源雖提及部分術語，但不足以在同一里程碑建立一致而不誤導的完整關係集。
+
+結論：Schema V1 的共同欄位、來源、i18n、ID 與 generic relation 架構仍可承載第二領域；摩擦集中在 enum 擴充，而非 domain-specific 欄位。以 1.1.0 記錄新增 enum 後，模型仍適合作為人紀小樣本的起點，但人紀開始前仍須先做來源盤點，不能把本次五行對應直接外推為醫療關係。

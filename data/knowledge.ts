@@ -1,5 +1,6 @@
 import type { KnowledgeEntity, KnowledgeGraph, KnowledgeRelation, Lesson, Source } from "@/lib/knowledge-schema";
 import { hexagramRows } from "@/data/yijing-hexagrams";
+import { tianjiStructuredEntities, tianjiStructuredLessons, tianjiStructuredRelations, tianjiStructuredSources } from "@/data/tianji-structured";
 
 const editorialSourceId = "source:project:yijing-notes";
 const classicalSourceId = "source:classical:zhouyi";
@@ -41,6 +42,7 @@ export const sources: Source[] = [
       "zh-Hans": "依《周易》通行卦序与上下卦组合，将六爻由下而上转为机器可读结构；精简说明沿用本站既有《易经》课程导读。",
     },
   },
+  ...tianjiStructuredSources,
 ];
 
 const lessonRows = [
@@ -55,7 +57,7 @@ const lessonIds = lessonRows.map(([order]) => `lesson:tianji:yijing:${String(ord
 const trigramIds = ["qian", "kun", "zhen", "xun", "kan", "li", "gen", "dui"].map((id) => `trigram:${id}`);
 const hexagramIds = hexagramRows.map(([number]) => `hexagram:${String(number).padStart(2, "0")}`);
 
-export const lessons: Lesson[] = lessonRows.map(([order, titleHant, titleHans, summaryHant, summaryHans, file]) => ({
+const yijingLessons: Lesson[] = lessonRows.map(([order, titleHant, titleHans, summaryHant, summaryHans, file]) => ({
   id: `lesson:tianji:yijing:${String(order).padStart(2, "0")}`,
   slug: `lesson-tianji-yijing-${String(order).padStart(2, "0")}`,
   type: "lesson",
@@ -71,13 +73,17 @@ export const lessons: Lesson[] = lessonRows.map(([order, titleHant, titleHans, s
   route: ["tianji", "yijing", file],
   legacyPath: `tianji/yijing/${file}.html`,
   relatedEntityIds: order === 1
-    ? ["classic:yijing", ...trigramIds]
+    ? ["classic:yijing", ...trigramIds, "yin-yang:yin", "yin-yang:yang"]
     : order === 2
       ? ["classic:yijing", ...hexagramIds.slice(0, 30)]
       : order === 3
         ? ["classic:yijing", ...hexagramIds.slice(30)]
-        : ["classic:yijing"],
+        : order === 5
+          ? ["classic:yijing", "element:wood", "element:fire", "element:earth", "element:metal", "element:water"]
+          : ["classic:yijing"],
 }));
+
+export const lessons: Lesson[] = [...yijingLessons, ...tianjiStructuredLessons];
 
 const trigramRows = [
   ["qian", "乾", "乾", "☰", "111", "天", "天", "健", "健"],
@@ -130,7 +136,7 @@ export const entities: KnowledgeEntity[] = [
     aliases: { "zh-Hant": [], "zh-Hans": [] },
     metadata: { order: 1 },
     sourceIds: [editorialSourceId],
-    relatedLessonIds: lessonIds,
+    relatedLessonIds: lessons.map((lesson) => lesson.id),
   },
   {
     id: "classic:yijing",
@@ -163,8 +169,9 @@ export const entities: KnowledgeEntity[] = [
       quality: { "zh-Hant": qualityHant, "zh-Hans": qualityHans },
     },
     sourceIds: [classicalSourceId, derivedSourceId],
-    relatedLessonIds: [lessonIds[0]],
+    relatedLessonIds: [lessonIds[0], "lesson:tianji:heluo:01"],
   })),
+  ...tianjiStructuredEntities,
   ...hexagrams,
 ];
 
@@ -176,11 +183,25 @@ export const relations: KnowledgeRelation[] = [
     to: "course:tianji",
     sourceIds: [editorialSourceId],
   },
-  ...lessons.map((lesson) => ({
+  ...yijingLessons.map((lesson) => ({
     id: `relation:${lesson.slug}:part-of:classic-yijing`,
     type: "part_of" as const,
     from: lesson.id,
     to: "classic:yijing",
+    sourceIds: [editorialSourceId],
+  })),
+  ...["yin", "yang"].map((polarity) => ({
+    id: `relation:lesson-tianji-yijing-01:contains:yin-yang-${polarity}`,
+    type: "contains" as const,
+    from: "lesson:tianji:yijing:01",
+    to: `yin-yang:${polarity}`,
+    sourceIds: [editorialSourceId],
+  })),
+  ...["wood", "fire", "earth", "metal", "water"].map((element) => ({
+    id: `relation:lesson-tianji-yijing-05:contains:element-${element}`,
+    type: "contains" as const,
+    from: "lesson:tianji:yijing:05",
+    to: `element:${element}`,
     sourceIds: [editorialSourceId],
   })),
   ...trigramRows.map(([id]) => ({
@@ -216,10 +237,11 @@ export const relations: KnowledgeRelation[] = [
       },
     ];
   }),
+  ...tianjiStructuredRelations,
 ];
 
 export const knowledgeGraph: KnowledgeGraph = {
-  schemaVersion: "1.0.0",
+  schemaVersion: "1.1.0",
   sources,
   entities: [...lessons, ...entities],
   relations,

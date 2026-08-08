@@ -25,7 +25,7 @@ const records = [
     descriptions: lesson.descriptions,
     href: `/lessons/${lesson.route.join("/")}/`,
     keywords: {
-      "zh-Hant": [stripHtml(readLegacyArticle(lesson.legacyPath)).slice(0, 12000), lesson.moduleId, ...lesson.relatedEntityIds, ...lesson.aliases["zh-Hant"]],
+      "zh-Hant": [...(lesson.route[1] === "yijing" ? [stripHtml(readLegacyArticle(lesson.legacyPath)).slice(0, 12000)] : []), lesson.moduleId, ...lesson.relatedEntityIds, ...lesson.aliases["zh-Hant"]],
       "zh-Hans": lesson.aliases["zh-Hans"] ?? [],
     },
   })),

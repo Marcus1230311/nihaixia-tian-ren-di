@@ -24,7 +24,7 @@ export function SearchPanel() {
   return (
     <section className="search-panel" aria-labelledby="search-title">
       <div><p className="kicker">站內索引</p><h2 id="search-title">搜尋課程與知識條目</h2></div>
-      <label><span className="sr-only">搜尋</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="試試：乾、八卦、筮法、中醫" /></label>
+      <label><span className="sr-only">搜尋</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="試試：乾、甲、十神、河圖、北方" /></label>
       <div className="search-results" aria-live="polite">
         {results.map((record) => <a key={record.id} href={record.href}><span>{record.typeLabels["zh-Hant"]}</span><strong>{record.labels["zh-Hant"]}</strong><small>{record.descriptions["zh-Hant"]}</small></a>)}
         {query && results.length === 0 && <p>索引中沒有相符結果，請換一個關鍵詞。</p>}
