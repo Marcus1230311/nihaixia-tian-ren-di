@@ -8,6 +8,7 @@
     "prepare:v1": "tsx scripts/sync-v1-public.ts",
     "validate:data": "tsx scripts/validate-knowledge.ts",
     "validate:graph": "tsx scripts/validate-local-graph.ts",
+    "validate:teaching": "tsx scripts/validate-teaching.ts",
     "validate:public": "tsx scripts/validate-public-ui.ts",
     "validate:v1": "node tools/validate-site.js",
     "acupuncture:build-imports": "tsx tools/acupuncture/build-primary-imports.ts",
@@ -15,7 +16,7 @@
     "acupuncture:validate": "tsx tools/acupuncture/cli.ts validate && tsx tools/acupuncture/run-primary-batches.ts --validate && tsx tools/acupuncture/cli.ts validate data/import/acupuncture/primary-meridians.json",
     "acupuncture:dry-run": "tsx tools/acupuncture/cli.ts dry-run",
     "acupuncture:generate": "tsx tools/acupuncture/cli.ts generate",
-    "build": "npm run validate:v1 && npm run validate:data && npm run validate:graph && npm run acupuncture:validate && npm run prepare:v1 && npm run build:search && next build && npm run validate:public",
+    "build": "npm run validate:v1 && npm run validate:data && npm run validate:graph && npm run validate:teaching && npm run acupuncture:validate && npm run prepare:v1 && npm run build:search && next build && npm run validate:public",
     "start": "next start"
   },
   "dependencies": {

@@ -7,7 +7,9 @@ import { StructuredRenjiLesson } from "@/components/structured-renji-lesson";
 import { StructuredShanghanLesson } from "@/components/structured-shanghan-lesson";
 import { StructuredJinguiLesson } from "@/components/structured-jingui-lesson";
 import { StructuredBencaoLesson } from "@/components/structured-bencao-lesson";
+import { GuidedLearning } from "@/components/guided-learning";
 import { entities, lessons, relations, sources } from "@/data/knowledge";
+import { getTeachingGuide } from "@/data/teaching";
 import type { LocalizedText } from "@/lib/knowledge-schema";
 import { localize, sourceCategoryLabels } from "@/lib/presentation";
 import { readLegacyArticle } from "@/lib/v1-content";
@@ -47,11 +49,13 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
   const moduleOrder = typeof lesson.metadata.order === "number" ? lesson.metadata.order : lesson.order;
   const course = entities.find((entity) => entity.id === lesson.courseId);
   const courseLabel = course ? localize(course.labels) : "知識研讀";
+  const teachingGuide = getTeachingGuide(lesson.id);
 
   return (
     <div className="page-shell">
       <Breadcrumbs items={[{ label: "首頁", href: "/" }, { label: courseLabel }, { label: moduleLabel }, { label: localize(lesson.labels) }]} />
       <header className="lesson-header"><p className="kicker">{moduleLabel} · 第 {moduleOrder} 講</p><h1>{localize(lesson.labels)}</h1><p>{localize(lesson.descriptions)}</p></header>
+      {teachingGuide && <GuidedLearning guide={teachingGuide} sources={sources} />}
       <aside className="provenance-note"><strong>內容來源</strong>{lessonSources.map((source) => `${localize(source.title)}（${localize(sourceCategoryLabels[source.category])}）`).join("；")}。{isStructuredLesson ? "本頁以導讀、結構化條目與可重用圖解建立學習路徑；典藏課程頁保留較完整背景。" : "正文依既有課程內容編排，古典引文與導讀文字各自標示。"}</aside>
       {article ? <article className="classic migrated-content" dangerouslySetInnerHTML={{ __html: article }} /> : isStructuredRenjiLesson ? <StructuredRenjiLesson lesson={lesson} relatedEntities={relatedEntities} /> : isStructuredShanghanLesson ? <StructuredShanghanLesson lesson={lesson} relatedEntities={relatedEntities} relations={relations} /> : isStructuredJinguiLesson ? <StructuredJinguiLesson lesson={lesson} relatedEntities={relatedEntities} /> : isStructuredBencaoLesson ? <StructuredBencaoLesson lesson={lesson} relatedEntities={relatedEntities} /> : <StructuredTianjiLesson lesson={lesson} relatedEntities={relatedEntities} />}
       <nav className="lesson-nav" aria-label="課程前後篇">

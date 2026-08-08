@@ -3,9 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { HexagramDiagram } from "@/components/hexagram-diagram";
+import { GuidedLearning } from "@/components/guided-learning";
 import { LocalKnowledgeGraph } from "@/components/local-knowledge-graph";
 import { TrigramDiagram } from "@/components/trigram-diagram";
 import { entities, lessons, relations, sources } from "@/data/knowledge";
+import { getTeachingGuide } from "@/data/teaching";
 import { buildLocalGraph } from "@/lib/local-graph";
 import { displayMetadata, entityTypeLabels, localize, metadataLabels, relationTypeLabels, sourceCategoryLabels } from "@/lib/presentation";
 
@@ -36,6 +38,7 @@ export default async function EntityPage({ params }: { params: Promise<{ id: str
   const entitySources = entity.sourceIds.map((sourceId) => sources.find((source) => source.id === sourceId)).filter((source) => source !== undefined);
   const relatedLessons = entity.relatedLessonIds.map((lessonId) => lessons.find((lesson) => lesson.id === lessonId)).filter((lesson) => lesson !== undefined);
   const localGraph = buildLocalGraph({ centerId: entity.id, nodes: allNodes, relations });
+  const teachingGuide = getTeachingGuide(entity.id);
   const meridianPoints = entity.type === "meridian"
     ? relations.filter((relation) => relation.type === "belongs_to" && relation.to === entity.id)
       .map((relation) => entities.find((candidate) => candidate.id === relation.from))
@@ -61,6 +64,7 @@ export default async function EntityPage({ params }: { params: Promise<{ id: str
     <div className="page-shell entity-page">
       <Breadcrumbs items={[{ label: "首頁", href: "/" }, { label: "知識條目" }, { label: localize(entity.labels) }]} />
       <header className="lesson-header"><p className="kicker">{entity.type === "hexagram" ? `第 ${entity.metadata.hexagramNumber} 卦 · ${localize(entityTypeLabels.hexagram)}` : localize(entityTypeLabels[entity.type])}</p><h1>{localize(entity.labels)}</h1><p>{localize(entity.descriptions)}</p></header>
+      {teachingGuide && <GuidedLearning guide={teachingGuide} sources={sources} />}
       {entity.type === "trigram" && lines && <TrigramDiagram name={localize(entity.labels)} lines={lines} />}
       {entity.type === "hexagram" && lines && <HexagramDiagram name={localize(entity.labels)} lines={lines} />}
       {entity.type === "hexagram" && upperTrigram && lowerTrigram && <section className="entity-details"><h2>卦象構成</h2><div className="trigram-composition">

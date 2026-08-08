@@ -67,6 +67,43 @@ main { min-height: calc(100vh - 130px); }
 .line-figure figcaption { text-align: center; color: var(--soft); font-size: 12px; }
 .hexagram-figure { width: min(300px, 100%); }
 .entity-details { margin-top: 38px; }
+.guided-learning { margin: 28px 0 44px; padding: 28px 30px; border: 1px solid var(--line); border-top: 4px solid var(--jade); background: color-mix(in srgb, var(--card) 92%, #edf3e8); }
+.guided-label { margin: 0 0 4px; color: var(--jade); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.guided-learning h2 { margin: 0; font: 800 30px "Noto Serif TC", serif; }
+.guided-objective { max-width: 740px; margin: 6px 0 22px; color: var(--soft); font-size: 16px; }
+.knowledge-context { padding: 14px 0; border-block: 1px solid var(--line); }
+.knowledge-context > span { display: block; margin-bottom: 7px; color: var(--gold); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.knowledge-context ol { display: flex; flex-wrap: wrap; gap: 5px 0; margin: 0; padding: 0; list-style: none; }
+.knowledge-context li { display: flex; align-items: center; color: var(--soft); font-size: 13px; }
+.knowledge-context li:not(:last-child)::after { content: "→"; margin: 0 9px; color: var(--line); }
+.knowledge-context a { text-underline-offset: 3px; }
+.knowledge-context .is-current span { padding: 2px 7px; background: var(--ink); color: var(--card); font-weight: 700; }
+.guided-core { display: grid; grid-template-columns: 1.2fr 1fr; gap: 26px; margin-top: 22px; }
+.guided-learning h3 { margin: 0 0 7px; font: 800 18px "Noto Serif TC", serif; }
+.guided-learning h4 { margin: 0; font-size: 14px; color: var(--jade); }
+.guided-core p, .guided-core ul, .guided-takeaways ul, .guided-relations p { margin: 0; color: var(--soft); }
+.guided-core ul, .guided-takeaways ul { padding-left: 19px; }
+.guided-takeaways { margin-top: 22px; padding: 15px 18px; border-left: 3px solid var(--gold); background: rgba(255,255,255,.44); }
+.guided-takeaways ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px 28px; }
+.guided-relations { margin-top: 24px; }
+.guided-relations article { padding: 11px 0; border-top: 1px solid var(--line); }
+.guided-relations article p { margin-top: 3px; }
+.concept-comparison { margin-top: 24px; padding: 18px; border: 1px solid var(--gold); background: var(--card); }
+.concept-comparison > p { margin: 4px 0 14px; color: var(--soft); }
+.concept-comparison > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.concept-comparison a { display: grid; gap: 3px; padding: 12px; border-top: 2px solid var(--jade); background: var(--paper); text-decoration: none; }
+.concept-comparison a span, .concept-comparison a small { color: var(--soft); }
+.guided-details { margin-top: 14px; border-top: 1px solid var(--line); }
+.guided-details summary { padding: 12px 0 7px; color: var(--jade); font-weight: 800; cursor: pointer; }
+.guided-details p { margin: 4px 0 10px; color: var(--soft); }
+.guided-details ul { margin: 2px 0 8px; padding: 0; list-style: none; }
+.guided-details li { display: flex; justify-content: space-between; gap: 14px; padding: 6px 0; border-bottom: 1px dotted var(--line); }
+.guided-details li span { flex: none; color: var(--gold); font-size: 12px; }
+.guided-details .evidence-boundary { font-size: 12px; }
+.guided-next { display: grid; gap: 2px; margin-top: 22px; padding: 15px 18px; border-left: 4px solid var(--seal); background: var(--ink); color: var(--card); text-decoration: none; }
+.guided-next span { color: #d5c6a8; font-size: 10px; font-weight: 800; letter-spacing: .1em; }
+.guided-next strong { font: 800 21px "Noto Serif TC", serif; }
+.guided-next small { color: #e2d8c6; }
 .entity-details dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .entity-details dl div { background: var(--card); border: 1px solid var(--line); padding: 10px 14px; }
 .entity-details dt { font-size: 11px; color: var(--gold); }
@@ -220,6 +257,12 @@ main { min-height: calc(100vh - 130px); }
   .migrated-content table { display: block; overflow-x: auto; }
   .migrated-content .hexagram-index, .migrated-content .lesson-toc { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .entity-details dl, .trigram-composition { grid-template-columns: 1fr; }
+  .guided-learning { padding: 22px 18px; }
+  .guided-core, .concept-comparison > div, .guided-takeaways ul { grid-template-columns: 1fr; }
+  .knowledge-context ol { display: grid; grid-template-columns: 1fr; gap: 0; }
+  .knowledge-context li { padding: 3px 0; }
+  .knowledge-context li:not(:last-child)::after { content: none; }
+  .guided-details li { display: grid; gap: 0; }
   .formula-context-summary, .formula-context-links, .herb-context-section .formula-context-summary { grid-template-columns: 1fr; }
   .herb-property-groups { grid-template-columns: 1fr; }
   .bencao-visual { padding: 10px; }

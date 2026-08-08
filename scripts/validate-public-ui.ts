@@ -100,6 +100,19 @@ const bencaoTropismHtml = fs.readFileSync(routeFile("/lessons/renji/bencao/04-tr
 if (!bencaoTropismHtml.includes("cross-domain-visual") || !bencaoTropismHtml.includes("歸經不是穴位")) errors.push("本草歸經頁缺少跨域圖或語意區分");
 const renshenHtml = fs.readFileSync(routeFile("/entities/herb-renshen/"), "utf8");
 if (!renshenHtml.includes("性味、歸經與經典方劑") || !renshenHtml.includes("香港浸會大學") || !renshenHtml.includes("神農本草經") || !renshenHtml.includes("未列警示不表示安全")) errors.push("人參頁未完整呈現屬性衝突、來源或安全邊界");
+const guidedRoutes = [
+  "/entities/element-wood/", "/entities/organ-liver/", "/entities/meridian-liver/", "/entities/acupoint-lr-03/",
+  "/lessons/renji/shanghan/01-overview/", "/entities/shanghan-channel-taiyang/", "/entities/syndrome-taiyang-zhongfeng/",
+  "/entities/formula-guizhi-tang/", "/entities/herb-guizhi/",
+];
+for (const route of guidedRoutes) {
+  const html = fs.readFileSync(routeFile(route), "utf8");
+  if (!html.includes("guided-learning") || !html.includes("Knowledge Context") || !html.includes("建議下一個研讀概念") || !html.includes('aria-current="step"')) errors.push(`${route} 缺少完整 Teaching Layer 導讀`);
+}
+const taiyangHtml = fs.readFileSync(routeFile("/entities/shanghan-channel-taiyang/"), "utf8");
+if (!taiyangHtml.includes("針灸命名層級的太陽") || !taiyangHtml.includes("傷寒六經的太陽") || !taiyangHtml.includes("所屬系統") || !taiyangHtml.includes("知識角色")) errors.push("傷寒太陽頁缺少同名概念混淆解析");
+const guizhiHerbHtml = fs.readFileSync(routeFile("/entities/herb-guizhi/"), "utf8");
+if (!guizhiHerbHtml.includes("Golden Journey C") || !guizhiHerbHtml.includes("查看本段依據") || !guizhiHerbHtml.includes("深入理解")) errors.push("桂枝頁缺少跨語境樞紐與漸進揭露");
 
 if (errors.length) throw new Error(`公開頁驗證失敗：\n${errors.join("\n")}`);
 console.log(JSON.stringify({ routes: expectedRoutes.length, searchIndex: entities.length + lessons.length, brokenLinks: 0, forbiddenPublicText: 0, singleH1: true, structuredVisualLessons: 14 }, null, 2));

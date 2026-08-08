@@ -167,3 +167,14 @@ PRODUCT & CONTENT QUALITY ACCEPTED
 - 人參、大棗、麥門冬的古今藥性差異以分開 relation sourceIds 保存；歸經重用 12 臟腑，不用穴位隸屬關係，也不補藥材五行直連。
 - 新增 5 篇導讀、2 個資料驅動 SVG 與藥材聚合頁。甘草 26 鄰居，圖顯示 18 並報告省略 8；文字關係完整。
 - 全圖為 641 節點、1,933 關係、23 來源，搜尋 641 筆。完整本草、炮製／物種／毒性 ontology、批次匯入與全站 UX 清理均延後。
+
+## 2026-08-08 — V3.0 Guided Learning Experience Prototype
+
+- Knowledge Model 1.5.0 進入 V1 Freeze Candidate；新增治理文件，明確區分 schema review trigger、一般內容延伸與 Teaching Layer。Entity／Relation／Source schema、enum 與知識資料未變。
+- 新增獨立靜態 typed Teaching Layer，只引用既有節點、路由與 source ID；恰好建立三條 Golden Journey、掛載九個受控頁面，不建立虛構 relation 或第二套知識資料庫。
+- Journey A 建立「木 → 肝 → 足厥陰肝經 → 太衝 LR3」四層辨識；Journey B 建立「傷寒六經 → 太陽 → 太陽中風 → 桂枝湯 → 桂枝」經典導讀；Journey C 以單一桂枝 Herb identity 串聯本草、方劑、傷寒、金匱與 provenance。
+- 每頁提供精簡 Knowledge Context、學習目標、先備概念、2–4 個重點、選定關係的人類可讀解釋及附理由的研讀下一步；DEEPER／SOURCE 以原生漸進揭露收納。
+- 傷寒太陽頁並列針灸命名層級與傷寒六經的同名「太陽」，以所屬系統及知識角色辨析；公開文字沒有輸出內部 enum。
+- 新增 Teaching Layer 決定性驗證：三條 journey、九頁 allowlist、目前節點、takeaway 數量、既有路由、來源引用、太陽混淆解析與 641／1,933 基線均受檢查。
+- 兩次最終完整 build 均通過；每次輸出 642 條公開路由、641 筆搜尋、0 斷鏈、0 內部枚舉文字、單一 H1。309 穴六批驗證為 0 errors／0 warnings，local graph 回歸維持決定性。
+- 應用內瀏覽器實測木、傷寒太陽與桂枝頁：0 runtime error overlay、0 桌面橫向溢出；來源 details 可操作。同名概念比較與桂枝並列經典語境經視覺／語意複核。
