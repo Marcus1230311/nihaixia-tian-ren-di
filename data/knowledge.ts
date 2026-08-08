@@ -1,62 +1,154 @@
-import type { KnowledgeEntity, KnowledgeGraph, KnowledgeRelation, Lesson } from "@/lib/knowledge-schema";
+import type { KnowledgeEntity, KnowledgeGraph, KnowledgeRelation, Lesson, Source } from "@/lib/knowledge-schema";
 
-const courseNote = { kind: "course_note" as const, label: "本站 V1 既有課程筆記整理" };
-const classicSource = { kind: "classic_text" as const, label: "《周易》古典原文", url: "https://zh.wikisource.org/zh-hant/周易" };
+const editorialSourceId = "source:project:yijing-notes";
+const classicalSourceId = "source:classical:zhouyi";
+const derivedSourceId = "source:derived:trigram-lines";
 
-export const lessons: Lesson[] = [
-  [1, "陰陽爻與八卦總論", "陰陽爻、八卦取象與六十四卦的基本結構", "01-yinyang-bagua"],
-  [2, "六十四卦詳解（上經30卦）", "乾坤至離，逐卦收錄卦辭、六爻與《彖》《象》導讀", "02-shangjing-30gua"],
-  [3, "六十四卦詳解（下經34卦）", "咸恆至未濟，逐卦收錄卦辭、六爻與《彖》《象》導讀", "03-xiajing-34gua"],
-  [4, "易經占卜方法：筮法", "蓍草與金錢起卦的研讀框架及判讀次序", "04-shifa"],
-  [5, "易經與中醫", "以陰陽、五行、卦象與時位交叉理解天紀和人紀", "05-yijing-yu-zhongyi"],
-].map(([order, title, summary, file]) => ({
-  id: `lesson-tianji-yijing-${String(order).padStart(2, "0")}`,
-  type: "lesson" as const,
-  courseId: "course-tianji",
-  moduleId: "classic-yijing",
-  order: Number(order),
-  title: String(title),
-  summary: String(summary),
-  slug: ["tianji", "yijing", String(file)],
+export const sources: Source[] = [
+  {
+    id: editorialSourceId,
+    category: "editorial",
+    title: { "zh-Hant": "本站《易經》研讀內容整理", "zh-Hans": "本站《易经》研读内容整理" },
+    note: {
+      "zh-Hant": "由既有課程頁重新編排的導讀內容；不是倪海廈老師講課的逐字稿。",
+      "zh-Hans": "由既有课程页重新编排的导读内容；不是倪海厦老师讲课的逐字稿。",
+    },
+  },
+  {
+    id: classicalSourceId,
+    category: "classical",
+    title: { "zh-Hant": "《周易》古典原文", "zh-Hans": "《周易》古典原文" },
+    work: { "zh-Hant": "周易", "zh-Hans": "周易" },
+    url: "https://zh.wikisource.org/zh-hant/%E5%91%A8%E6%98%93",
+  },
+  {
+    id: derivedSourceId,
+    category: "derived",
+    title: { "zh-Hant": "八卦爻形結構化整理", "zh-Hans": "八卦爻形结构化整理" },
+    note: {
+      "zh-Hant": "依八卦通行爻形、卦象與性質整理為機器可讀欄位。",
+      "zh-Hans": "依八卦通行爻形、卦象与性质整理为机器可读字段。",
+    },
+  },
+];
+
+const lessonRows = [
+  [1, "陰陽爻與八卦總論", "阴阳爻与八卦总论", "陰陽爻、八卦取象與六十四卦的基本結構", "阴阳爻、八卦取象与六十四卦的基本结构", "01-yinyang-bagua"],
+  [2, "六十四卦詳解（上經30卦）", "六十四卦详解（上经30卦）", "乾坤至離，逐卦收錄卦辭、六爻與《彖》《象》導讀", "乾坤至离，逐卦收录卦辞、六爻与《彖》《象》导读", "02-shangjing-30gua"],
+  [3, "六十四卦詳解（下經34卦）", "六十四卦详解（下经34卦）", "咸恆至未濟，逐卦收錄卦辭、六爻與《彖》《象》導讀", "咸恒至未济，逐卦收录卦辞、六爻与《彖》《象》导读", "03-xiajing-34gua"],
+  [4, "易經占卜方法：筮法", "易经占卜方法：筮法", "蓍草與金錢起卦的研讀框架及判讀次序", "蓍草与金钱起卦的研读框架及判读次序", "04-shifa"],
+  [5, "易經與中醫", "易经与中医", "以陰陽、五行、卦象與時位交叉理解天紀和人紀", "以阴阳、五行、卦象与时位交叉理解天纪和人纪", "05-yijing-yu-zhongyi"],
+] as const;
+
+const lessonIds = lessonRows.map(([order]) => `lesson:tianji:yijing:${String(order).padStart(2, "0")}`);
+const trigramIds = ["qian", "kun", "zhen", "xun", "kan", "li", "gen", "dui"].map((id) => `trigram:${id}`);
+
+export const lessons: Lesson[] = lessonRows.map(([order, titleHant, titleHans, summaryHant, summaryHans, file]) => ({
+  id: `lesson:tianji:yijing:${String(order).padStart(2, "0")}`,
+  slug: `lesson-tianji-yijing-${String(order).padStart(2, "0")}`,
+  type: "lesson",
+  labels: { "zh-Hant": titleHant, "zh-Hans": titleHans },
+  descriptions: { "zh-Hant": summaryHant, "zh-Hans": summaryHans },
+  aliases: { "zh-Hant": [], "zh-Hans": [] },
+  metadata: { order, module: { "zh-Hant": "易經", "zh-Hans": "易经" } },
+  sourceIds: [editorialSourceId, classicalSourceId],
+  relatedLessonIds: [],
+  courseId: "course:tianji",
+  moduleId: "classic:yijing",
+  order,
+  route: ["tianji", "yijing", file],
   legacyPath: `tianji/yijing/${file}.html`,
-  sources: [courseNote, classicSource],
-  entityIds: order === 1 ? ["classic-yijing", "trigram-qian", "trigram-kun", "trigram-zhen", "trigram-xun", "trigram-kan", "trigram-li", "trigram-gen", "trigram-dui"] : ["classic-yijing"],
+  relatedEntityIds: order === 1 ? ["classic:yijing", ...trigramIds] : ["classic:yijing"],
 }));
 
 const trigramRows = [
-  ["qian", "乾", "☰", "111", "天", "健"], ["kun", "坤", "☷", "000", "地", "順"],
-  ["zhen", "震", "☳", "100", "雷", "動"], ["xun", "巽", "☴", "011", "風", "入"],
-  ["kan", "坎", "☵", "010", "水", "陷"], ["li", "離", "☲", "101", "火", "麗"],
-  ["gen", "艮", "☶", "001", "山", "止"], ["dui", "兌", "☱", "110", "澤", "悅"],
+  ["qian", "乾", "乾", "☰", "111", "天", "天", "健", "健"],
+  ["kun", "坤", "坤", "☷", "000", "地", "地", "順", "顺"],
+  ["zhen", "震", "震", "☳", "100", "雷", "雷", "動", "动"],
+  ["xun", "巽", "巽", "☴", "011", "風", "风", "入", "入"],
+  ["kan", "坎", "坎", "☵", "010", "水", "水", "陷", "陷"],
+  ["li", "離", "离", "☲", "101", "火", "火", "麗", "丽"],
+  ["gen", "艮", "艮", "☶", "001", "山", "山", "止", "止"],
+  ["dui", "兌", "兑", "☱", "110", "澤", "泽", "悅", "悦"],
 ] as const;
 
 export const entities: KnowledgeEntity[] = [
   {
-    id: "course-tianji", type: "course", name: "天紀", aliases: [],
-    description: "本站三條研讀主線之一，涵蓋易經、八字命理與河洛相關內容。",
-    sources: [courseNote], metadata: { order: 1 },
+    id: "course:tianji",
+    slug: "course-tianji",
+    type: "course",
+    labels: { "zh-Hant": "天紀", "zh-Hans": "天纪" },
+    descriptions: {
+      "zh-Hant": "本站三條研讀主線之一，涵蓋易經、八字命理與河洛相關內容。",
+      "zh-Hans": "本站三条研读主线之一，涵盖易经、八字命理与河洛相关内容。",
+    },
+    aliases: { "zh-Hant": [], "zh-Hans": [] },
+    metadata: { order: 1 },
+    sourceIds: [editorialSourceId],
+    relatedLessonIds: lessonIds,
   },
   {
-    id: "classic-yijing", type: "classic", name: "周易", aliases: ["易經"],
-    description: "易學經典；V2 首批以五講課程與六十四卦結構作代表性遷移。",
-    sources: [classicSource, courseNote], metadata: { module: "yijing" },
+    id: "classic:yijing",
+    slug: "classic-yijing",
+    type: "classic",
+    labels: { "zh-Hant": "周易", "zh-Hans": "周易" },
+    descriptions: {
+      "zh-Hant": "以陰陽、八卦與六十四卦展開的經典，也是本站《易經》研讀路徑的核心文本。",
+      "zh-Hans": "以阴阳、八卦与六十四卦展开的经典，也是本站《易经》研读路径的核心文本。",
+    },
+    aliases: { "zh-Hant": ["易經"], "zh-Hans": ["易经"] },
+    metadata: { module: { "zh-Hant": "易經", "zh-Hans": "易经" } },
+    sourceIds: [classicalSourceId, editorialSourceId],
+    relatedLessonIds: lessonIds,
   },
-  ...trigramRows.map(([id, name, symbol, lines, image, virtue]) => ({
-    id: `trigram-${id}`, type: "trigram" as const, name, aliases: [symbol],
-    description: `${name}卦，取象為${image}，核心性質為${virtue}。`,
-    sources: [classicSource, courseNote], metadata: { symbol, lines, image, virtue },
+  ...trigramRows.map(([id, nameHant, nameHans, symbol, lines, imageHant, imageHans, qualityHant, qualityHans]) => ({
+    id: `trigram:${id}`,
+    slug: `trigram-${id}`,
+    type: "trigram" as const,
+    labels: { "zh-Hant": nameHant, "zh-Hans": nameHans },
+    descriptions: {
+      "zh-Hant": `${nameHant}卦，取象為${imageHant}，核心性質為${qualityHant}。`,
+      "zh-Hans": `${nameHans}卦，取象为${imageHans}，核心性质为${qualityHans}。`,
+    },
+    aliases: { "zh-Hant": [symbol], "zh-Hans": [symbol] },
+    metadata: {
+      symbol,
+      linePattern: lines,
+      naturalImage: { "zh-Hant": imageHant, "zh-Hans": imageHans },
+      quality: { "zh-Hant": qualityHant, "zh-Hans": qualityHans },
+    },
+    sourceIds: [classicalSourceId, derivedSourceId],
+    relatedLessonIds: [lessonIds[0]],
   })),
 ];
 
 export const relations: KnowledgeRelation[] = [
-  { id: "rel-yijing-part-tianji", type: "part_of", from: "classic-yijing", to: "course-tianji" },
-  ...lessons.map((lesson) => ({ id: `rel-${lesson.id}-part-yijing`, type: "part_of" as const, from: lesson.id, to: "classic-yijing" })),
-  ...trigramRows.map(([id]) => ({ id: `rel-trigram-${id}-appears-yijing`, type: "appears_in" as const, from: `trigram-${id}`, to: "classic-yijing" })),
+  {
+    id: "relation:classic-yijing:part-of:course-tianji",
+    type: "part_of",
+    from: "classic:yijing",
+    to: "course:tianji",
+    sourceIds: [editorialSourceId],
+  },
+  ...lessons.map((lesson) => ({
+    id: `relation:${lesson.slug}:part-of:classic-yijing`,
+    type: "part_of" as const,
+    from: lesson.id,
+    to: "classic:yijing",
+    sourceIds: [editorialSourceId],
+  })),
+  ...trigramRows.map(([id]) => ({
+    id: `relation:trigram-${id}:appears-in:classic-yijing`,
+    type: "appears_in" as const,
+    from: `trigram:${id}`,
+    to: "classic:yijing",
+    sourceIds: [classicalSourceId],
+  })),
 ];
 
 export const knowledgeGraph: KnowledgeGraph = {
   schemaVersion: "1.0.0",
-  lessons,
-  entities,
+  sources,
+  entities: [...lessons, ...entities],
   relations,
 };

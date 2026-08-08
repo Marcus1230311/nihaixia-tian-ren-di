@@ -1,0 +1,52 @@
+# 知識模型 V1（已凍結）
+
+本文件記錄 1.0.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。現有資料只涵蓋《易經》研讀樣本，不代表其他模組已完成建模。
+
+## Entity Schema V1
+
+所有可進入知識圖譜的項目都是 entity，包含課程 lesson。共同欄位如下：
+
+- `id`：語言無關、具命名空間的穩定識別碼，例如 `trigram:qian`。顯示名稱變更時不得更換 ID。
+- `slug`：Windows 與網址皆安全的 kebab-case 路徑片段；與 ID 分離。
+- `type`：`course | classic | lesson | trigram | hexagram | concept | formula | herb`。
+- `labels`、`descriptions`：本地化文字物件；`zh-Hant` 必填，`zh-Hans` 可選。
+- `aliases`：按語系分組的別名陣列。
+- `metadata`：小型結構化屬性；鍵名必須先有展示名稱對照，禁止把內部鍵直接顯示給讀者。
+- `sourceIds`：至少一筆來源 ID。
+- `relatedLessonIds`：可供延伸研讀的 lesson ID。
+
+lesson 另有 `courseId`、`moduleId`、`order`、`route`、`legacyPath` 與 `relatedEntityIds`。`route` 是課程公開路徑，`legacyPath` 只指向專案內已驗收正文。
+
+## Relation Schema V1
+
+關係是有方向的 edge，固定欄位為 `id`、`type`、`from`、`to`、`sourceIds`，並可選擇加入本地化 `notes` 與 `confidence`。端點必須存在，關係不得指向自身，ID 不得重複。
+
+V1 詞彙固定為：`part_of`、`belongs_to`、`contains`、`appears_in`、`sourced_from`、`contains_herb`、`related_formula`、`corresponds_to`、`element_of`、`upper_trigram`、`lower_trigram`、`related_to`。
+
+公開介面一律使用 `lib/presentation.ts` 的繁簡展示對照，例如 `part_of` 顯示「屬於／属于」、`appears_in` 顯示「見於／见于」；不可直接輸出 enum 值。
+
+## Source / Provenance Schema V1
+
+來源是 graph 頂層的第一級記錄，entity 與 relation 只保存 `sourceIds`。分類固定為：
+
+- `nihaixia`：可直接追溯的倪海廈講授資料；沒有足夠追溯資訊時不得使用。
+- `classical`：古典原文。
+- `editorial`：本站編輯、重排或導讀。
+- `reference`：外部參考資料。
+- `derived`：由已知資料轉成的結構化欄位。
+
+來源可記錄本地化 `title`、`work`、`author`、`note`，以及 `page`、`section`、`chapter`、`url`。不可猜測作者、頁碼或講課歸屬。現有課程整理明示為 editorial，不宣稱是講課逐字稿。
+
+## i18n 合約
+
+預設公開語系為 `zh-Hant`。`zh-Hans` 欄位可逐步補齊，缺少時由 `localize()` 回退至繁體。ID、slug、enum、來源引用與關係端點不得含顯示語言，因此增加簡體資料不會改變連結或圖譜身份。
+
+## 圖譜與搜尋就緒條件
+
+`knowledgeGraph.entities` 是節點集合，`relations` 是邊集合，`sources` 是可獨立查詢的證據集合。`knowledgeGraphSchema` 驗證唯一 ID／slug、端點、來源引用、課程父節點與延伸研讀引用，讓後續圖譜儲存不必重新解釋現有資料。
+
+搜尋索引保存雙語 `labels`、`descriptions`、`keywords`、雙語類型展示名與公開 `href`。索引只依公開 slug 產生連結；穩定 ID 保留給合併、去重與未來資料交換。
+
+## V1 變更規則
+
+允許：補齊 `zh-Hans`、修正文案、增加符合既有詞彙的 entity／relation／source、補充來源定位欄位。禁止：重用 ID 表示不同事物、依名稱改 ID、刪改 enum 語意、把來源內嵌回 entity、讓無來源資料通過驗證。需要禁止事項時，建立下一版本並提供可重現的資料遷移。

@@ -1,43 +1,26 @@
-# V2 遷移紀錄
+# 知識平台建置紀錄
 
 ## 架構決策
 
-V2 採 Next.js App Router、TypeScript、Zod 與靜態導出。V1 的 54 個 HTML 仍保留在專案根目錄作為不可變的內容基線；建置時由 `scripts/sync-v1-public.ts` 複製到 `/v1/`，方便逐頁對帳及回退。
+知識研讀介面採 Next.js App Router、TypeScript、Zod 與靜態導出。原有 54 個 HTML 保留在專案根目錄作為不可變內容基線；建置時由 `scripts/sync-v1-public.ts` 複製至 `/v1/`，供典藏閱讀與內容核對。
 
-遷移頁面不重新生成教育正文。`lib/v1-content.ts` 在建置階段讀取已驗收 V1 的 `<article class="classic">`，由 V2 路由提供新的搜尋、麵包屑、前後篇和知識實體入口。
+課程正文不重新生成。`lib/v1-content.ts` 在建置階段讀取既有 `<article class="classic">`，新的公開路由提供搜尋、麵包屑、前後篇、來源說明和知識條目入口。
 
-## 知識模型 1.0
+## Schema Freeze 1.0.0
 
-`lib/knowledge-schema.ts` 定義以下實體：
+Entity、Relation、Source／Provenance 與 i18n 合約已凍結為 1.0.0。詳細欄位、展示對照、圖譜／搜尋條件及版本規則見 [`KNOWLEDGE_MODEL.md`](KNOWLEDGE_MODEL.md)。後續匯入和引導研讀要求見 [`CONTENT_GUIDELINES.md`](CONTENT_GUIDELINES.md)。
 
-- course、lesson、classic
-- meridian、acupoint、organ、formula、herb、syndrome
-- hexagram、trigram、element、heavenly_stem、earthly_branch、direction
-
-關係類型：part_of、belongs_to、contains、appears_in、sourced_from、contains_herb、related_formula、corresponds_to、element_of、upper_trigram、lower_trigram、related_to。
-
-所有實體和關係必須有穩定 ID；關係兩端必須指向已存在實體。`npm run validate:data` 會檢查結構、重複 ID、孤立關係及 V1 來源檔案。
-
-## 首批代表性遷移
-
-- 易經五講：5 個靜態課程路由。
-- 天紀課程、周易經典與八卦：10 個結構化實體。
-- 已發布關係：14 條。
-- 搜尋索引：15 筆，覆蓋課程正文與結構化實體。
-- 視覺元件：由八卦三爻資料生成的 SVG，含語義化替代說明。
-- V1 對照入口：54 頁原站在 `/v1/` 保持可用。
+目前資料範圍刻意維持《易經》樣本：5 篇研讀課程、天紀課程主線、周易經典、8 個八卦條目、14 條關係與 3 筆獨立來源。沒有在本里程碑擴充其他大型模組或全量卦象。
 
 ## 品質門檻
 
-- `node tools/validate-site.js`：V1 54 頁、0 errors、0 warnings。
-- `npm run validate:data`：模型、關係與來源路徑通過。
-- `npm run build`：18 個 Next.js 靜態輸出路由建置成功。
-- 17 個公開檢查路由在 390×844 視口無頁面級橫向溢出、每頁單一 H1、控制台 0 errors／warnings。
-- 搜尋「乾」可同時找到相關課程與乾卦實體。
+- `node tools/validate-site.js`：典藏基線 54 頁、0 errors、0 warnings。
+- `npm run validate:data`：schema、穩定 ID、來源引用、關係端點與課程引用通過。
+- `npm run build`：搜尋索引及所有靜態公開路由建置成功。
+- 公開頁關係、類型、屬性與來源分類均使用本地化展示名稱，不輸出 enum 或內部進度文字。
+- `zh-Hant` 為預設，缺少可選 `zh-Hans` 時安全回退；加入簡體欄位不改變 ID 或路由。
+- 桌面與 390×844 行動視口檢查單一 H1、無頁面橫向溢出、無壞連結及無控制台錯誤。
 
-## 下一批次
+## 延後事項
 
-1. 從易經頁面抽取並驗證 64 個 hexagram 實體及上下卦關係。
-2. 遷移八字命理與河洛頁面，建立天干、地支、五行及方位關係。
-3. 依醫療安全優先順序遷移人紀；先建立經絡／穴位與方劑／藥物 schema 對應，再公開交叉引用。
-4. 全量遷移完成後對帳 V1 54 頁覆蓋、搜尋、行動端與來源邊界，再建立 PR；不直接合併到 `main`。
+新增大型內容批次、完整六十四卦資料、其他學科 entity 類型，以及需要改動 V1 詞彙的關係，皆留待獨立評估。開始任何一項之前，必須按內容規範先完成來源盤點與小樣本驗證；不得在本次凍結提交中順帶擴量。
