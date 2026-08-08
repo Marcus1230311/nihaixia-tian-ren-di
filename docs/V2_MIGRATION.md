@@ -30,7 +30,7 @@ Entity、Relation、Source／Provenance 與 i18n 合約已凍結為 1.0.0。詳�
 
 品質閘門新增 `npm run validate:graph`，並由靜態公開頁驗證確認所有 74 個 entity 路由都有深度 1 圖、文字關係區與有效連結。建置前後的實際 JavaScript 位元組比較及兩輪完整建置結果記錄於本次驗收日誌。
 
-以泰卦靜態頁實際引用的 JavaScript 檔案計算，接受基線為 572,560 bytes，加入圖譜後為 577,555 bytes，增加 4,995 bytes（未壓縮）；全部靜態 chunk 由 595,329 增至 603,556 bytes。圖譜沒有新增 npm 依賴。
+以泰卦靜態頁實際引用的 JavaScript 檔案計算，接受基線為 572,560 bytes，加入圖譜後為 577,649 bytes，增加 5,089 bytes（未壓縮）；全部靜態 chunk 由 595,329 增至 603,750 bytes。圖譜沒有新增 npm 依賴。
 
 ## 延後事項
 
