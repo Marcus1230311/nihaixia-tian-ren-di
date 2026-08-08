@@ -1,0 +1,521 @@
+{
+  "formatVersion": "1.0",
+  "defaults": {
+    "relatedLessonIds": [
+      "lesson:renji:acupuncture:02"
+    ],
+    "sourceIds": [
+      "source:project:renji-acupuncture-notes",
+      "source:reference:who-acupuncture-nomenclature",
+      "source:derived:renji-acupuncture-pilot"
+    ],
+    "relationSourceIds": {
+      "membership": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "category": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "fiveShu": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    "sourceLocator": [
+      {
+        "sourceId": "source:project:renji-acupuncture-notes",
+        "sourceTitle": "本站人紀針灸既有課程筆記",
+        "section": "renji/zhenjiu/02–03",
+        "localFile": "renji/zhenjiu",
+        "note": "十二正經穴名次序的本站既有編輯表。"
+      },
+      {
+        "sourceId": "source:reference:who-acupuncture-nomenclature",
+        "sourceTitle": "WHO Standard Acupuncture Nomenclature",
+        "section": "twelve primary meridian codes and names",
+        "sourceUrl": "https://iris.who.int/handle/10665/353407",
+        "note": "用於標準代碼、經脈與穴名核對。"
+      },
+      {
+        "sourceId": "source:reference:bucm-five-shu",
+        "sourceTitle": "北京中醫藥大學針灸學：五輸穴",
+        "section": "五輸穴次序與五行配屬",
+        "sourceUrl": "https://jxjyxb.bucm.edu.cn/BZYAttachs/courseware/zhenjiuxue/c1/c1_61a.htm"
+      },
+      {
+        "sourceId": "source:derived:renji-acupuncture-pilot",
+        "section": "V2.5B-2 production expansion",
+        "note": "由受控來源快照和分類映射生成。"
+      }
+    ],
+    "status": "accepted"
+  },
+  "records": [
+    {
+      "sourceKey": "primary:HT1",
+      "canonicalNameHant": "極泉",
+      "canonicalNameHans": "极泉",
+      "standardCode": "HT1",
+      "meridianId": "meridian:heart",
+      "aliasesHant": [
+        "HT1"
+      ],
+      "aliasesHans": [
+        "HT1"
+      ],
+      "sequenceNumber": 1,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:HT2",
+      "canonicalNameHant": "青靈",
+      "canonicalNameHans": "青灵",
+      "standardCode": "HT2",
+      "meridianId": "meridian:heart",
+      "aliasesHant": [
+        "HT2"
+      ],
+      "aliasesHans": [
+        "HT2"
+      ],
+      "sequenceNumber": 2,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:HT3",
+      "canonicalNameHant": "少海",
+      "canonicalNameHans": "少海",
+      "standardCode": "HT3",
+      "meridianId": "meridian:heart",
+      "aliasesHant": [
+        "HT3"
+      ],
+      "aliasesHans": [
+        "HT3"
+      ],
+      "sequenceNumber": 3,
+      "pointCategories": [
+        "point-category:sea"
+      ],
+      "elementId": "element:water"
+    },
+    {
+      "sourceKey": "primary:HT4",
+      "canonicalNameHant": "靈道",
+      "canonicalNameHans": "灵道",
+      "standardCode": "HT4",
+      "meridianId": "meridian:heart",
+      "aliasesHant": [
+        "HT4"
+      ],
+      "aliasesHans": [
+        "HT4"
+      ],
+      "sequenceNumber": 4,
+      "pointCategories": [
+        "point-category:river"
+      ],
+      "elementId": "element:metal"
+    },
+    {
+      "sourceKey": "primary:HT5",
+      "canonicalNameHant": "通里",
+      "canonicalNameHans": "通里",
+      "standardCode": "HT5",
+      "meridianId": "meridian:heart",
+      "aliasesHant": [
+        "HT5"
+      ],
+      "aliasesHans": [
+        "HT5"
+      ],
+      "sequenceNumber": 5,
+      "pointCategories": [
+        "point-category:connecting"
+      ]
+    },
+    {
+      "sourceKey": "primary:HT6",
+      "canonicalNameHant": "陰郄",
+      "canonicalNameHans": "阴郄",
+      "standardCode": "HT6",
+      "meridianId": "meridian:heart",
+      "aliasesHant": [
+        "HT6"
+      ],
+      "aliasesHans": [
+        "HT6"
+      ],
+      "sequenceNumber": 6,
+      "pointCategories": [
+        "point-category:cleft"
+      ]
+    },
+    {
+      "sourceKey": "primary:HT7",
+      "canonicalNameHant": "神門",
+      "canonicalNameHans": "神门",
+      "standardCode": "HT7",
+      "meridianId": "meridian:heart",
+      "aliasesHant": [
+        "HT7"
+      ],
+      "aliasesHans": [
+        "HT7"
+      ],
+      "sequenceNumber": 7,
+      "pointCategories": [
+        "point-category:stream",
+        "point-category:source"
+      ],
+      "elementId": "element:earth"
+    },
+    {
+      "sourceKey": "primary:HT8",
+      "canonicalNameHant": "少府",
+      "canonicalNameHans": "少府",
+      "standardCode": "HT8",
+      "meridianId": "meridian:heart",
+      "aliasesHant": [
+        "HT8"
+      ],
+      "aliasesHans": [
+        "HT8"
+      ],
+      "sequenceNumber": 8,
+      "pointCategories": [
+        "point-category:spring"
+      ],
+      "elementId": "element:fire"
+    },
+    {
+      "sourceKey": "primary:HT9",
+      "canonicalNameHant": "少衝",
+      "canonicalNameHans": "少冲",
+      "standardCode": "HT9",
+      "meridianId": "meridian:heart",
+      "aliasesHant": [
+        "HT9"
+      ],
+      "aliasesHans": [
+        "HT9"
+      ],
+      "sequenceNumber": 9,
+      "pointCategories": [
+        "point-category:well"
+      ],
+      "elementId": "element:wood"
+    },
+    {
+      "sourceKey": "primary:SI1",
+      "canonicalNameHant": "少澤",
+      "canonicalNameHans": "少泽",
+      "standardCode": "SI1",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI1"
+      ],
+      "aliasesHans": [
+        "SI1"
+      ],
+      "sequenceNumber": 1,
+      "pointCategories": [
+        "point-category:well"
+      ],
+      "elementId": "element:metal"
+    },
+    {
+      "sourceKey": "primary:SI2",
+      "canonicalNameHant": "前谷",
+      "canonicalNameHans": "前谷",
+      "standardCode": "SI2",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI2"
+      ],
+      "aliasesHans": [
+        "SI2"
+      ],
+      "sequenceNumber": 2,
+      "pointCategories": [
+        "point-category:spring"
+      ],
+      "elementId": "element:water"
+    },
+    {
+      "sourceKey": "primary:SI3",
+      "canonicalNameHant": "後溪",
+      "canonicalNameHans": "后溪",
+      "standardCode": "SI3",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI3"
+      ],
+      "aliasesHans": [
+        "SI3"
+      ],
+      "sequenceNumber": 3,
+      "pointCategories": [
+        "point-category:stream",
+        "point-category:eight-confluent"
+      ],
+      "elementId": "element:wood"
+    },
+    {
+      "sourceKey": "primary:SI4",
+      "canonicalNameHant": "腕骨",
+      "canonicalNameHans": "腕骨",
+      "standardCode": "SI4",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI4"
+      ],
+      "aliasesHans": [
+        "SI4"
+      ],
+      "sequenceNumber": 4,
+      "pointCategories": [
+        "point-category:source"
+      ]
+    },
+    {
+      "sourceKey": "primary:SI5",
+      "canonicalNameHant": "陽谷",
+      "canonicalNameHans": "阳谷",
+      "standardCode": "SI5",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI5"
+      ],
+      "aliasesHans": [
+        "SI5"
+      ],
+      "sequenceNumber": 5,
+      "pointCategories": [
+        "point-category:river"
+      ],
+      "elementId": "element:fire"
+    },
+    {
+      "sourceKey": "primary:SI6",
+      "canonicalNameHant": "養老",
+      "canonicalNameHans": "养老",
+      "standardCode": "SI6",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI6"
+      ],
+      "aliasesHans": [
+        "SI6"
+      ],
+      "sequenceNumber": 6,
+      "pointCategories": [
+        "point-category:cleft"
+      ]
+    },
+    {
+      "sourceKey": "primary:SI7",
+      "canonicalNameHant": "支正",
+      "canonicalNameHans": "支正",
+      "standardCode": "SI7",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI7"
+      ],
+      "aliasesHans": [
+        "SI7"
+      ],
+      "sequenceNumber": 7,
+      "pointCategories": [
+        "point-category:connecting"
+      ]
+    },
+    {
+      "sourceKey": "primary:SI8",
+      "canonicalNameHant": "小海",
+      "canonicalNameHans": "小海",
+      "standardCode": "SI8",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI8"
+      ],
+      "aliasesHans": [
+        "SI8"
+      ],
+      "sequenceNumber": 8,
+      "pointCategories": [
+        "point-category:sea"
+      ],
+      "elementId": "element:earth"
+    },
+    {
+      "sourceKey": "primary:SI9",
+      "canonicalNameHant": "肩貞",
+      "canonicalNameHans": "肩贞",
+      "standardCode": "SI9",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI9"
+      ],
+      "aliasesHans": [
+        "SI9"
+      ],
+      "sequenceNumber": 9,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI10",
+      "canonicalNameHant": "臑俞",
+      "canonicalNameHans": "臑俞",
+      "standardCode": "SI10",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI10"
+      ],
+      "aliasesHans": [
+        "SI10"
+      ],
+      "sequenceNumber": 10,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI11",
+      "canonicalNameHant": "天宗",
+      "canonicalNameHans": "天宗",
+      "standardCode": "SI11",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI11"
+      ],
+      "aliasesHans": [
+        "SI11"
+      ],
+      "sequenceNumber": 11,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI12",
+      "canonicalNameHant": "秉風",
+      "canonicalNameHans": "秉风",
+      "standardCode": "SI12",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI12"
+      ],
+      "aliasesHans": [
+        "SI12"
+      ],
+      "sequenceNumber": 12,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI13",
+      "canonicalNameHant": "曲垣",
+      "canonicalNameHans": "曲垣",
+      "standardCode": "SI13",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI13"
+      ],
+      "aliasesHans": [
+        "SI13"
+      ],
+      "sequenceNumber": 13,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI14",
+      "canonicalNameHant": "肩外俞",
+      "canonicalNameHans": "肩外俞",
+      "standardCode": "SI14",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI14"
+      ],
+      "aliasesHans": [
+        "SI14"
+      ],
+      "sequenceNumber": 14,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI15",
+      "canonicalNameHant": "肩中俞",
+      "canonicalNameHans": "肩中俞",
+      "standardCode": "SI15",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI15"
+      ],
+      "aliasesHans": [
+        "SI15"
+      ],
+      "sequenceNumber": 15,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI16",
+      "canonicalNameHant": "天窗",
+      "canonicalNameHans": "天窗",
+      "standardCode": "SI16",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI16"
+      ],
+      "aliasesHans": [
+        "SI16"
+      ],
+      "sequenceNumber": 16,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI17",
+      "canonicalNameHant": "天容",
+      "canonicalNameHans": "天容",
+      "standardCode": "SI17",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI17"
+      ],
+      "aliasesHans": [
+        "SI17"
+      ],
+      "sequenceNumber": 17,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI18",
+      "canonicalNameHant": "顴髎",
+      "canonicalNameHans": "颧髎",
+      "standardCode": "SI18",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI18"
+      ],
+      "aliasesHans": [
+        "SI18"
+      ],
+      "sequenceNumber": 18,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SI19",
+      "canonicalNameHant": "聽宮",
+      "canonicalNameHans": "听宫",
+      "standardCode": "SI19",
+      "meridianId": "meridian:small-intestine",
+      "aliasesHant": [
+        "SI19"
+      ],
+      "aliasesHans": [
+        "SI19"
+      ],
+      "sequenceNumber": 19,
+      "pointCategories": []
+    }
+  ]
+}

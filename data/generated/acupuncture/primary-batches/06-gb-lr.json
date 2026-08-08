@@ -1,0 +1,3646 @@
+{
+  "formatVersion": "1.0",
+  "schemaVersion": "1.2.0",
+  "generator": "tools/acupuncture/pipeline.ts",
+  "inputFile": "data/import/acupuncture/primary-batches/06-gb-lr.json",
+  "entities": [
+    {
+      "id": "acupoint:gb-01",
+      "slug": "acupoint-gb-01",
+      "labels": {
+        "zh-Hant": "瞳子髎",
+        "zh-Hans": "瞳子髎"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 1 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 1 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB1"
+        ],
+        "zh-Hans": [
+          "GB1"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB1",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-02",
+      "slug": "acupoint-gb-02",
+      "labels": {
+        "zh-Hant": "聽會",
+        "zh-Hans": "听会"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 2 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 2 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB2"
+        ],
+        "zh-Hans": [
+          "GB2"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB2",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-03",
+      "slug": "acupoint-gb-03",
+      "labels": {
+        "zh-Hant": "上關",
+        "zh-Hans": "上关"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 3 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 3 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB3"
+        ],
+        "zh-Hans": [
+          "GB3"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB3",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-04",
+      "slug": "acupoint-gb-04",
+      "labels": {
+        "zh-Hant": "頷厭",
+        "zh-Hans": "颔厌"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 4 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 4 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB4"
+        ],
+        "zh-Hans": [
+          "GB4"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB4",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-05",
+      "slug": "acupoint-gb-05",
+      "labels": {
+        "zh-Hant": "懸顱",
+        "zh-Hans": "悬颅"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 5 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 5 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB5"
+        ],
+        "zh-Hans": [
+          "GB5"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB5",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-06",
+      "slug": "acupoint-gb-06",
+      "labels": {
+        "zh-Hant": "懸厘",
+        "zh-Hans": "悬厘"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 6 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 6 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB6"
+        ],
+        "zh-Hans": [
+          "GB6"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB6",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-07",
+      "slug": "acupoint-gb-07",
+      "labels": {
+        "zh-Hant": "曲鬢",
+        "zh-Hans": "曲鬓"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 7 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 7 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB7"
+        ],
+        "zh-Hans": [
+          "GB7"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB7",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-08",
+      "slug": "acupoint-gb-08",
+      "labels": {
+        "zh-Hant": "率谷",
+        "zh-Hans": "率谷"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 8 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 8 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB8"
+        ],
+        "zh-Hans": [
+          "GB8"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB8",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-09",
+      "slug": "acupoint-gb-09",
+      "labels": {
+        "zh-Hant": "天衝",
+        "zh-Hans": "天冲"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 9 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 9 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB9"
+        ],
+        "zh-Hans": [
+          "GB9"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB9",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-10",
+      "slug": "acupoint-gb-10",
+      "labels": {
+        "zh-Hant": "浮白",
+        "zh-Hans": "浮白"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 10 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 10 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB10"
+        ],
+        "zh-Hans": [
+          "GB10"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB10",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-11",
+      "slug": "acupoint-gb-11",
+      "labels": {
+        "zh-Hant": "頭竅陰",
+        "zh-Hans": "头窍阴"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 11 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 11 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB11"
+        ],
+        "zh-Hans": [
+          "GB11"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB11",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-12",
+      "slug": "acupoint-gb-12",
+      "labels": {
+        "zh-Hant": "完骨",
+        "zh-Hans": "完骨"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 12 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 12 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB12"
+        ],
+        "zh-Hans": [
+          "GB12"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB12",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-13",
+      "slug": "acupoint-gb-13",
+      "labels": {
+        "zh-Hant": "本神",
+        "zh-Hans": "本神"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 13 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 13 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB13"
+        ],
+        "zh-Hans": [
+          "GB13"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB13",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-14",
+      "slug": "acupoint-gb-14",
+      "labels": {
+        "zh-Hant": "陽白",
+        "zh-Hans": "阳白"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 14 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 14 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB14"
+        ],
+        "zh-Hans": [
+          "GB14"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB14",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-15",
+      "slug": "acupoint-gb-15",
+      "labels": {
+        "zh-Hant": "頭臨泣",
+        "zh-Hans": "头临泣"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 15 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 15 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB15"
+        ],
+        "zh-Hans": [
+          "GB15"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB15",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-16",
+      "slug": "acupoint-gb-16",
+      "labels": {
+        "zh-Hant": "目窗",
+        "zh-Hans": "目窗"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 16 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 16 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB16"
+        ],
+        "zh-Hans": [
+          "GB16"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB16",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-17",
+      "slug": "acupoint-gb-17",
+      "labels": {
+        "zh-Hant": "正營",
+        "zh-Hans": "正营"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 17 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 17 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB17"
+        ],
+        "zh-Hans": [
+          "GB17"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB17",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-18",
+      "slug": "acupoint-gb-18",
+      "labels": {
+        "zh-Hant": "承靈",
+        "zh-Hans": "承灵"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 18 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 18 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB18"
+        ],
+        "zh-Hans": [
+          "GB18"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB18",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-19",
+      "slug": "acupoint-gb-19",
+      "labels": {
+        "zh-Hant": "腦空",
+        "zh-Hans": "脑空"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 19 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 19 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB19"
+        ],
+        "zh-Hans": [
+          "GB19"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB19",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-20",
+      "slug": "acupoint-gb-20",
+      "labels": {
+        "zh-Hant": "風池",
+        "zh-Hans": "风池"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 20 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 20 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB20"
+        ],
+        "zh-Hans": [
+          "GB20"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB20",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-21",
+      "slug": "acupoint-gb-21",
+      "labels": {
+        "zh-Hant": "肩井",
+        "zh-Hans": "肩井"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 21 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 21 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB21"
+        ],
+        "zh-Hans": [
+          "GB21"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB21",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-22",
+      "slug": "acupoint-gb-22",
+      "labels": {
+        "zh-Hant": "淵腋",
+        "zh-Hans": "渊腋"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 22 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 22 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB22"
+        ],
+        "zh-Hans": [
+          "GB22"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB22",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-23",
+      "slug": "acupoint-gb-23",
+      "labels": {
+        "zh-Hant": "輒筋",
+        "zh-Hans": "辄筋"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 23 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 23 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB23"
+        ],
+        "zh-Hans": [
+          "GB23"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB23",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-24",
+      "slug": "acupoint-gb-24",
+      "labels": {
+        "zh-Hant": "日月",
+        "zh-Hans": "日月"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 24 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 24 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB24"
+        ],
+        "zh-Hans": [
+          "GB24"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB24",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-25",
+      "slug": "acupoint-gb-25",
+      "labels": {
+        "zh-Hant": "京門",
+        "zh-Hans": "京门"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 25 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 25 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB25"
+        ],
+        "zh-Hans": [
+          "GB25"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB25",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-26",
+      "slug": "acupoint-gb-26",
+      "labels": {
+        "zh-Hant": "帶脈",
+        "zh-Hans": "带脉"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 26 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 26 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB26"
+        ],
+        "zh-Hans": [
+          "GB26"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB26",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-27",
+      "slug": "acupoint-gb-27",
+      "labels": {
+        "zh-Hant": "五樞",
+        "zh-Hans": "五枢"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 27 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 27 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB27"
+        ],
+        "zh-Hans": [
+          "GB27"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB27",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-28",
+      "slug": "acupoint-gb-28",
+      "labels": {
+        "zh-Hant": "維道",
+        "zh-Hans": "维道"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 28 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 28 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB28"
+        ],
+        "zh-Hans": [
+          "GB28"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB28",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-29",
+      "slug": "acupoint-gb-29",
+      "labels": {
+        "zh-Hant": "居髎",
+        "zh-Hans": "居髎"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 29 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 29 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB29"
+        ],
+        "zh-Hans": [
+          "GB29"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB29",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-30",
+      "slug": "acupoint-gb-30",
+      "labels": {
+        "zh-Hant": "環跳",
+        "zh-Hans": "环跳"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 30 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 30 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB30"
+        ],
+        "zh-Hans": [
+          "GB30"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB30",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-31",
+      "slug": "acupoint-gb-31",
+      "labels": {
+        "zh-Hant": "風市",
+        "zh-Hans": "风市"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 31 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 31 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB31"
+        ],
+        "zh-Hans": [
+          "GB31"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB31",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-32",
+      "slug": "acupoint-gb-32",
+      "labels": {
+        "zh-Hant": "中瀆",
+        "zh-Hans": "中渎"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 32 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 32 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB32"
+        ],
+        "zh-Hans": [
+          "GB32"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB32",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-33",
+      "slug": "acupoint-gb-33",
+      "labels": {
+        "zh-Hant": "膝陽關",
+        "zh-Hans": "膝阳关"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 33 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 33 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB33"
+        ],
+        "zh-Hans": [
+          "GB33"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB33",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-34",
+      "slug": "acupoint-gb-34",
+      "labels": {
+        "zh-Hant": "陽陵泉",
+        "zh-Hans": "阳陵泉"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 34 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 34 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB34"
+        ],
+        "zh-Hans": [
+          "GB34"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB34",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-35",
+      "slug": "acupoint-gb-35",
+      "labels": {
+        "zh-Hant": "陽交",
+        "zh-Hans": "阳交"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 35 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 35 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB35"
+        ],
+        "zh-Hans": [
+          "GB35"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB35",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-36",
+      "slug": "acupoint-gb-36",
+      "labels": {
+        "zh-Hant": "外丘",
+        "zh-Hans": "外丘"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 36 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 36 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB36"
+        ],
+        "zh-Hans": [
+          "GB36"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB36",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-37",
+      "slug": "acupoint-gb-37",
+      "labels": {
+        "zh-Hant": "光明",
+        "zh-Hans": "光明"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 37 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 37 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB37"
+        ],
+        "zh-Hans": [
+          "GB37"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB37",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-38",
+      "slug": "acupoint-gb-38",
+      "labels": {
+        "zh-Hant": "陽輔",
+        "zh-Hans": "阳辅"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 38 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 38 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB38"
+        ],
+        "zh-Hans": [
+          "GB38"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB38",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-39",
+      "slug": "acupoint-gb-39",
+      "labels": {
+        "zh-Hant": "懸鐘",
+        "zh-Hans": "悬钟"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 39 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 39 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB39"
+        ],
+        "zh-Hans": [
+          "GB39"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB39",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-40",
+      "slug": "acupoint-gb-40",
+      "labels": {
+        "zh-Hant": "丘墟",
+        "zh-Hans": "丘墟"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 40 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 40 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB40"
+        ],
+        "zh-Hans": [
+          "GB40"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB40",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-41",
+      "slug": "acupoint-gb-41",
+      "labels": {
+        "zh-Hant": "足臨泣",
+        "zh-Hans": "足临泣"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 41 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 41 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB41"
+        ],
+        "zh-Hans": [
+          "GB41"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB41",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-42",
+      "slug": "acupoint-gb-42",
+      "labels": {
+        "zh-Hant": "地五會",
+        "zh-Hans": "地五会"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 42 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 42 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB42"
+        ],
+        "zh-Hans": [
+          "GB42"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB42",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-43",
+      "slug": "acupoint-gb-43",
+      "labels": {
+        "zh-Hant": "俠谿",
+        "zh-Hans": "侠谿"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 43 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 43 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB43"
+        ],
+        "zh-Hans": [
+          "GB43"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB43",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:gb-44",
+      "slug": "acupoint-gb-44",
+      "labels": {
+        "zh-Hant": "足竅陰",
+        "zh-Hans": "足窍阴"
+      },
+      "descriptions": {
+        "zh-Hant": "足少陽膽經第 44 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足少阳胆经第 44 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "GB44"
+        ],
+        "zh-Hans": [
+          "GB44"
+        ]
+      },
+      "metadata": {
+        "standardCode": "GB44",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-01",
+      "slug": "acupoint-lr-01",
+      "labels": {
+        "zh-Hant": "大敦",
+        "zh-Hans": "大敦"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 1 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 1 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR1"
+        ],
+        "zh-Hans": [
+          "LR1"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR1",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-02",
+      "slug": "acupoint-lr-02",
+      "labels": {
+        "zh-Hant": "行間",
+        "zh-Hans": "行间"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 2 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 2 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR2"
+        ],
+        "zh-Hans": [
+          "LR2"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR2",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-03",
+      "slug": "acupoint-lr-03",
+      "labels": {
+        "zh-Hant": "太衝",
+        "zh-Hans": "太冲"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 3 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 3 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR3"
+        ],
+        "zh-Hans": [
+          "LR3"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR3",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-04",
+      "slug": "acupoint-lr-04",
+      "labels": {
+        "zh-Hant": "中封",
+        "zh-Hans": "中封"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 4 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 4 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR4"
+        ],
+        "zh-Hans": [
+          "LR4"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR4",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-05",
+      "slug": "acupoint-lr-05",
+      "labels": {
+        "zh-Hant": "蠡溝",
+        "zh-Hans": "蠡沟"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 5 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 5 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR5"
+        ],
+        "zh-Hans": [
+          "LR5"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR5",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-06",
+      "slug": "acupoint-lr-06",
+      "labels": {
+        "zh-Hant": "中都",
+        "zh-Hans": "中都"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 6 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 6 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR6"
+        ],
+        "zh-Hans": [
+          "LR6"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR6",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-07",
+      "slug": "acupoint-lr-07",
+      "labels": {
+        "zh-Hant": "膝關",
+        "zh-Hans": "膝关"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 7 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 7 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR7"
+        ],
+        "zh-Hans": [
+          "LR7"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR7",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-08",
+      "slug": "acupoint-lr-08",
+      "labels": {
+        "zh-Hant": "曲泉",
+        "zh-Hans": "曲泉"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 8 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 8 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR8"
+        ],
+        "zh-Hans": [
+          "LR8"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR8",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-09",
+      "slug": "acupoint-lr-09",
+      "labels": {
+        "zh-Hant": "陰包",
+        "zh-Hans": "阴包"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 9 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 9 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR9"
+        ],
+        "zh-Hans": [
+          "LR9"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR9",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-10",
+      "slug": "acupoint-lr-10",
+      "labels": {
+        "zh-Hant": "足五里",
+        "zh-Hans": "足五里"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 10 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 10 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR10"
+        ],
+        "zh-Hans": [
+          "LR10"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR10",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-11",
+      "slug": "acupoint-lr-11",
+      "labels": {
+        "zh-Hant": "陰廉",
+        "zh-Hans": "阴廉"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 11 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 11 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR11"
+        ],
+        "zh-Hans": [
+          "LR11"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR11",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-12",
+      "slug": "acupoint-lr-12",
+      "labels": {
+        "zh-Hant": "急脈",
+        "zh-Hans": "急脉"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 12 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 12 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR12"
+        ],
+        "zh-Hans": [
+          "LR12"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR12",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-13",
+      "slug": "acupoint-lr-13",
+      "labels": {
+        "zh-Hant": "章門",
+        "zh-Hans": "章门"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 13 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 13 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR13"
+        ],
+        "zh-Hans": [
+          "LR13"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR13",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    },
+    {
+      "id": "acupoint:lr-14",
+      "slug": "acupoint-lr-14",
+      "labels": {
+        "zh-Hant": "期門",
+        "zh-Hans": "期门"
+      },
+      "descriptions": {
+        "zh-Hant": "足厥陰肝經第 14 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。",
+        "zh-Hans": "足厥阴肝经第 14 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。"
+      },
+      "aliases": {
+        "zh-Hant": [
+          "LR14"
+        ],
+        "zh-Hans": [
+          "LR14"
+        ]
+      },
+      "metadata": {
+        "standardCode": "LR14",
+        "visualReadiness": {
+          "zh-Hant": "未加入人體座標",
+          "zh-Hans": "未加入人体坐标"
+        }
+      },
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "relatedLessonIds": [
+        "lesson:renji:acupuncture:02"
+      ],
+      "type": "acupoint"
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation:acupoint-gb-01:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-01",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-02:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-02",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-03:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-03",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-04:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-04",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-05:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-05",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-06:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-06",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-07:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-07",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-08:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-08",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-09:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-09",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-10:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-10",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-11:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-11",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-12:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-12",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-13:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-13",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-14:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-14",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-15:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-15",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-16:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-16",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-17:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-17",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-18:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-18",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-19:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-19",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-20:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-20",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-21:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-21",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-22:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-22",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-23:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-23",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-24:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-24",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-24:classified-as:point-category-front-mu",
+      "type": "classified_as",
+      "from": "acupoint:gb-24",
+      "to": "point-category:front-mu",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-25:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-25",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-25:classified-as:point-category-front-mu",
+      "type": "classified_as",
+      "from": "acupoint:gb-25",
+      "to": "point-category:front-mu",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-26:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-26",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-27:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-27",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-28:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-28",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-29:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-29",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-30:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-30",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-31:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-31",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-32:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-32",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-33:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-33",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-34:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-34",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-34:classified-as:point-category-sea",
+      "type": "classified_as",
+      "from": "acupoint:gb-34",
+      "to": "point-category:sea",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-34:element-of:element-earth",
+      "type": "element_of",
+      "from": "acupoint:gb-34",
+      "to": "element:earth",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-35:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-35",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-36:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-36",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-36:classified-as:point-category-cleft",
+      "type": "classified_as",
+      "from": "acupoint:gb-36",
+      "to": "point-category:cleft",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-37:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-37",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-37:classified-as:point-category-connecting",
+      "type": "classified_as",
+      "from": "acupoint:gb-37",
+      "to": "point-category:connecting",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-38:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-38",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-38:classified-as:point-category-river",
+      "type": "classified_as",
+      "from": "acupoint:gb-38",
+      "to": "point-category:river",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-38:element-of:element-fire",
+      "type": "element_of",
+      "from": "acupoint:gb-38",
+      "to": "element:fire",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-39:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-39",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-40:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-40",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-40:classified-as:point-category-source",
+      "type": "classified_as",
+      "from": "acupoint:gb-40",
+      "to": "point-category:source",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-41:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-41",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-41:classified-as:point-category-eight-confluent",
+      "type": "classified_as",
+      "from": "acupoint:gb-41",
+      "to": "point-category:eight-confluent",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-41:classified-as:point-category-stream",
+      "type": "classified_as",
+      "from": "acupoint:gb-41",
+      "to": "point-category:stream",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-41:element-of:element-wood",
+      "type": "element_of",
+      "from": "acupoint:gb-41",
+      "to": "element:wood",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-42:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-42",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-43:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-43",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-43:classified-as:point-category-spring",
+      "type": "classified_as",
+      "from": "acupoint:gb-43",
+      "to": "point-category:spring",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-43:element-of:element-water",
+      "type": "element_of",
+      "from": "acupoint:gb-43",
+      "to": "element:water",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-44:belongs-to:meridian-gallbladder",
+      "type": "belongs_to",
+      "from": "acupoint:gb-44",
+      "to": "meridian:gallbladder",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-44:classified-as:point-category-well",
+      "type": "classified_as",
+      "from": "acupoint:gb-44",
+      "to": "point-category:well",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-gb-44:element-of:element-metal",
+      "type": "element_of",
+      "from": "acupoint:gb-44",
+      "to": "element:metal",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-01:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-01",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-01:classified-as:point-category-well",
+      "type": "classified_as",
+      "from": "acupoint:lr-01",
+      "to": "point-category:well",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-01:element-of:element-wood",
+      "type": "element_of",
+      "from": "acupoint:lr-01",
+      "to": "element:wood",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-02:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-02",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-02:classified-as:point-category-spring",
+      "type": "classified_as",
+      "from": "acupoint:lr-02",
+      "to": "point-category:spring",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-02:element-of:element-fire",
+      "type": "element_of",
+      "from": "acupoint:lr-02",
+      "to": "element:fire",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-03:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-03",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-03:classified-as:point-category-source",
+      "type": "classified_as",
+      "from": "acupoint:lr-03",
+      "to": "point-category:source",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-03:classified-as:point-category-stream",
+      "type": "classified_as",
+      "from": "acupoint:lr-03",
+      "to": "point-category:stream",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-03:element-of:element-earth",
+      "type": "element_of",
+      "from": "acupoint:lr-03",
+      "to": "element:earth",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-04:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-04",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-04:classified-as:point-category-river",
+      "type": "classified_as",
+      "from": "acupoint:lr-04",
+      "to": "point-category:river",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-04:element-of:element-metal",
+      "type": "element_of",
+      "from": "acupoint:lr-04",
+      "to": "element:metal",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-05:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-05",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-05:classified-as:point-category-connecting",
+      "type": "classified_as",
+      "from": "acupoint:lr-05",
+      "to": "point-category:connecting",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-06:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-06",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-06:classified-as:point-category-cleft",
+      "type": "classified_as",
+      "from": "acupoint:lr-06",
+      "to": "point-category:cleft",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-07:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-07",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-08:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-08",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-08:classified-as:point-category-sea",
+      "type": "classified_as",
+      "from": "acupoint:lr-08",
+      "to": "point-category:sea",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-08:element-of:element-water",
+      "type": "element_of",
+      "from": "acupoint:lr-08",
+      "to": "element:water",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-09:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-09",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-10:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-10",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-11:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-11",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-12:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-12",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-13:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-13",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-13:classified-as:point-category-front-mu",
+      "type": "classified_as",
+      "from": "acupoint:lr-13",
+      "to": "point-category:front-mu",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-14:belongs-to:meridian-liver",
+      "type": "belongs_to",
+      "from": "acupoint:lr-14",
+      "to": "meridian:liver",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:acupoint-lr-14:classified-as:point-category-front-mu",
+      "type": "classified_as",
+      "from": "acupoint:lr-14",
+      "to": "point-category:front-mu",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-01",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-01",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-02",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-02",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-03",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-03",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-04",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-04",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-05",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-05",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-06",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-06",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-07",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-07",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-08",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-08",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-09",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-09",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-10",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-10",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-11",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-11",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-12",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-12",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-13",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-13",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-14",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-14",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-15",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-15",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-16",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-16",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-17",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-17",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-18",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-18",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-19",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-19",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-20",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-20",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-21",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-21",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-22",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-22",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-23",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-23",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-24",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-24",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-25",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-25",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-26",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-26",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-27",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-27",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-28",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-28",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-29",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-29",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-30",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-30",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-31",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-31",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-32",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-32",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-33",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-33",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-34",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-34",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-35",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-35",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-36",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-36",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-37",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-37",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-38",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-38",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-39",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-39",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-40",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-40",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-41",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-41",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-42",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-42",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-43",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-43",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-gb-44",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:gb-44",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-01",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-01",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-02",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-02",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-03",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-03",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-04",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-04",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-05",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-05",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-06",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-06",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-07",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-07",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-08",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-08",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-09",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-09",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-10",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-10",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-11",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-11",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-12",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-12",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-13",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-13",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    {
+      "id": "relation:lesson-renji-acupuncture-02:contains:acupoint-lr-14",
+      "type": "contains",
+      "from": "lesson:renji:acupuncture:02",
+      "to": "acupoint:lr-14",
+      "sourceIds": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    }
+  ]
+}

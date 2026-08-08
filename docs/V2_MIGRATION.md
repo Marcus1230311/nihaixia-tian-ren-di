@@ -63,3 +63,9 @@ Schema 由 1.0.0 升至向後相容的 1.1.0：新增 6 個 entity enum 與 `gen
 現有 29 點作為完整 regression fixture；候選輸出全等才可生成，且不會自動替換 production。Schema 維持 1.2.0；公開內容仍是 220 nodes、604 relations、12 sources、29 acupoints。
 
 CI 新增 `acupuncture:validate`，而 `dry-run` 是未來 bulk import 預設模式。PDF/OCR、完整主經穴擴量及 anatomy coordinate population 均未在本里程碑啟動。
+
+## V2.5B-2 十二正經穴位擴量
+
+依 WHO 標準代碼與十二正經範圍、GB/T 12346-2021 狀態頁、本站既有手足經穴位表及繁簡交叉快照，六批納入 LU 11、LI 20、ST 45、SP 21、HT 9、SI 19、BL 67、KI 27、PC 9、TE 23、GB 44、LR 14，共 309 穴。每批均有零錯誤／零警告報告及 SHA-256 checkpoint；全量涵蓋 60 個五輸身份，以及有來源支持的 12 原穴、12 絡穴、12 郄穴、6 募穴、12 背俞穴、8 八脈交會穴與 1 個既有交會分類。
+
+Production 改為讀取確定性 generated aggregate，29 個既有條目的編輯描述保留為 overlay。十二條經脈頁按標準代碼列出完整穴位，搜尋可由穴名、代碼或所屬經脈命中。全圖現為 500 節點、1,292 關係、12 來源；奇經、解剖座標與臨床功能仍不在本輪範圍。

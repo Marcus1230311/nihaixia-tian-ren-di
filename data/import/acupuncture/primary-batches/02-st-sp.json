@@ -1,0 +1,1095 @@
+{
+  "formatVersion": "1.0",
+  "defaults": {
+    "relatedLessonIds": [
+      "lesson:renji:acupuncture:02"
+    ],
+    "sourceIds": [
+      "source:project:renji-acupuncture-notes",
+      "source:reference:who-acupuncture-nomenclature",
+      "source:derived:renji-acupuncture-pilot"
+    ],
+    "relationSourceIds": {
+      "membership": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "category": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "fiveShu": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    "sourceLocator": [
+      {
+        "sourceId": "source:project:renji-acupuncture-notes",
+        "sourceTitle": "本站人紀針灸既有課程筆記",
+        "section": "renji/zhenjiu/02–03",
+        "localFile": "renji/zhenjiu",
+        "note": "十二正經穴名次序的本站既有編輯表。"
+      },
+      {
+        "sourceId": "source:reference:who-acupuncture-nomenclature",
+        "sourceTitle": "WHO Standard Acupuncture Nomenclature",
+        "section": "twelve primary meridian codes and names",
+        "sourceUrl": "https://iris.who.int/handle/10665/353407",
+        "note": "用於標準代碼、經脈與穴名核對。"
+      },
+      {
+        "sourceId": "source:reference:bucm-five-shu",
+        "sourceTitle": "北京中醫藥大學針灸學：五輸穴",
+        "section": "五輸穴次序與五行配屬",
+        "sourceUrl": "https://jxjyxb.bucm.edu.cn/BZYAttachs/courseware/zhenjiuxue/c1/c1_61a.htm"
+      },
+      {
+        "sourceId": "source:derived:renji-acupuncture-pilot",
+        "section": "V2.5B-2 production expansion",
+        "note": "由受控來源快照和分類映射生成。"
+      }
+    ],
+    "status": "accepted"
+  },
+  "records": [
+    {
+      "sourceKey": "primary:ST1",
+      "canonicalNameHant": "承泣",
+      "canonicalNameHans": "承泣",
+      "standardCode": "ST1",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST1"
+      ],
+      "aliasesHans": [
+        "ST1"
+      ],
+      "sequenceNumber": 1,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST2",
+      "canonicalNameHant": "四白",
+      "canonicalNameHans": "四白",
+      "standardCode": "ST2",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST2"
+      ],
+      "aliasesHans": [
+        "ST2"
+      ],
+      "sequenceNumber": 2,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST3",
+      "canonicalNameHant": "巨髎",
+      "canonicalNameHans": "巨髎",
+      "standardCode": "ST3",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST3"
+      ],
+      "aliasesHans": [
+        "ST3"
+      ],
+      "sequenceNumber": 3,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST4",
+      "canonicalNameHant": "地倉",
+      "canonicalNameHans": "地仓",
+      "standardCode": "ST4",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST4"
+      ],
+      "aliasesHans": [
+        "ST4"
+      ],
+      "sequenceNumber": 4,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST5",
+      "canonicalNameHant": "大迎",
+      "canonicalNameHans": "大迎",
+      "standardCode": "ST5",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST5"
+      ],
+      "aliasesHans": [
+        "ST5"
+      ],
+      "sequenceNumber": 5,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST6",
+      "canonicalNameHant": "頰車",
+      "canonicalNameHans": "颊车",
+      "standardCode": "ST6",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST6"
+      ],
+      "aliasesHans": [
+        "ST6"
+      ],
+      "sequenceNumber": 6,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST7",
+      "canonicalNameHant": "下關",
+      "canonicalNameHans": "下关",
+      "standardCode": "ST7",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST7"
+      ],
+      "aliasesHans": [
+        "ST7"
+      ],
+      "sequenceNumber": 7,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST8",
+      "canonicalNameHant": "頭維",
+      "canonicalNameHans": "头维",
+      "standardCode": "ST8",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST8"
+      ],
+      "aliasesHans": [
+        "ST8"
+      ],
+      "sequenceNumber": 8,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST9",
+      "canonicalNameHant": "人迎",
+      "canonicalNameHans": "人迎",
+      "standardCode": "ST9",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST9"
+      ],
+      "aliasesHans": [
+        "ST9"
+      ],
+      "sequenceNumber": 9,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST10",
+      "canonicalNameHant": "水突",
+      "canonicalNameHans": "水突",
+      "standardCode": "ST10",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST10"
+      ],
+      "aliasesHans": [
+        "ST10"
+      ],
+      "sequenceNumber": 10,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST11",
+      "canonicalNameHant": "氣舍",
+      "canonicalNameHans": "气舍",
+      "standardCode": "ST11",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST11"
+      ],
+      "aliasesHans": [
+        "ST11"
+      ],
+      "sequenceNumber": 11,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST12",
+      "canonicalNameHant": "缺盆",
+      "canonicalNameHans": "缺盆",
+      "standardCode": "ST12",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST12"
+      ],
+      "aliasesHans": [
+        "ST12"
+      ],
+      "sequenceNumber": 12,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST13",
+      "canonicalNameHant": "氣戶",
+      "canonicalNameHans": "气户",
+      "standardCode": "ST13",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST13"
+      ],
+      "aliasesHans": [
+        "ST13"
+      ],
+      "sequenceNumber": 13,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST14",
+      "canonicalNameHant": "庫房",
+      "canonicalNameHans": "库房",
+      "standardCode": "ST14",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST14"
+      ],
+      "aliasesHans": [
+        "ST14"
+      ],
+      "sequenceNumber": 14,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST15",
+      "canonicalNameHant": "屋翳",
+      "canonicalNameHans": "屋翳",
+      "standardCode": "ST15",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST15"
+      ],
+      "aliasesHans": [
+        "ST15"
+      ],
+      "sequenceNumber": 15,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST16",
+      "canonicalNameHant": "膺窗",
+      "canonicalNameHans": "膺窗",
+      "standardCode": "ST16",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST16"
+      ],
+      "aliasesHans": [
+        "ST16"
+      ],
+      "sequenceNumber": 16,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST17",
+      "canonicalNameHant": "乳中",
+      "canonicalNameHans": "乳中",
+      "standardCode": "ST17",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST17"
+      ],
+      "aliasesHans": [
+        "ST17"
+      ],
+      "sequenceNumber": 17,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST18",
+      "canonicalNameHant": "乳根",
+      "canonicalNameHans": "乳根",
+      "standardCode": "ST18",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST18"
+      ],
+      "aliasesHans": [
+        "ST18"
+      ],
+      "sequenceNumber": 18,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST19",
+      "canonicalNameHant": "不容",
+      "canonicalNameHans": "不容",
+      "standardCode": "ST19",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST19"
+      ],
+      "aliasesHans": [
+        "ST19"
+      ],
+      "sequenceNumber": 19,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST20",
+      "canonicalNameHant": "承滿",
+      "canonicalNameHans": "承满",
+      "standardCode": "ST20",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST20"
+      ],
+      "aliasesHans": [
+        "ST20"
+      ],
+      "sequenceNumber": 20,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST21",
+      "canonicalNameHant": "梁門",
+      "canonicalNameHans": "梁门",
+      "standardCode": "ST21",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST21"
+      ],
+      "aliasesHans": [
+        "ST21"
+      ],
+      "sequenceNumber": 21,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST22",
+      "canonicalNameHant": "關門",
+      "canonicalNameHans": "关门",
+      "standardCode": "ST22",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST22"
+      ],
+      "aliasesHans": [
+        "ST22"
+      ],
+      "sequenceNumber": 22,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST23",
+      "canonicalNameHant": "太乙",
+      "canonicalNameHans": "太乙",
+      "standardCode": "ST23",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST23"
+      ],
+      "aliasesHans": [
+        "ST23"
+      ],
+      "sequenceNumber": 23,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST24",
+      "canonicalNameHant": "滑肉門",
+      "canonicalNameHans": "滑肉门",
+      "standardCode": "ST24",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST24"
+      ],
+      "aliasesHans": [
+        "ST24"
+      ],
+      "sequenceNumber": 24,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST25",
+      "canonicalNameHant": "天樞",
+      "canonicalNameHans": "天枢",
+      "standardCode": "ST25",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST25"
+      ],
+      "aliasesHans": [
+        "ST25"
+      ],
+      "sequenceNumber": 25,
+      "pointCategories": [
+        "point-category:front-mu"
+      ]
+    },
+    {
+      "sourceKey": "primary:ST26",
+      "canonicalNameHant": "外陵",
+      "canonicalNameHans": "外陵",
+      "standardCode": "ST26",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST26"
+      ],
+      "aliasesHans": [
+        "ST26"
+      ],
+      "sequenceNumber": 26,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST27",
+      "canonicalNameHant": "大巨",
+      "canonicalNameHans": "大巨",
+      "standardCode": "ST27",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST27"
+      ],
+      "aliasesHans": [
+        "ST27"
+      ],
+      "sequenceNumber": 27,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST28",
+      "canonicalNameHant": "水道",
+      "canonicalNameHans": "水道",
+      "standardCode": "ST28",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST28"
+      ],
+      "aliasesHans": [
+        "ST28"
+      ],
+      "sequenceNumber": 28,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST29",
+      "canonicalNameHant": "歸來",
+      "canonicalNameHans": "归来",
+      "standardCode": "ST29",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST29"
+      ],
+      "aliasesHans": [
+        "ST29"
+      ],
+      "sequenceNumber": 29,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST30",
+      "canonicalNameHant": "氣衝",
+      "canonicalNameHans": "气冲",
+      "standardCode": "ST30",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST30"
+      ],
+      "aliasesHans": [
+        "ST30"
+      ],
+      "sequenceNumber": 30,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST31",
+      "canonicalNameHant": "髀關",
+      "canonicalNameHans": "髀关",
+      "standardCode": "ST31",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST31"
+      ],
+      "aliasesHans": [
+        "ST31"
+      ],
+      "sequenceNumber": 31,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST32",
+      "canonicalNameHant": "伏兔",
+      "canonicalNameHans": "伏兔",
+      "standardCode": "ST32",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST32"
+      ],
+      "aliasesHans": [
+        "ST32"
+      ],
+      "sequenceNumber": 32,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST33",
+      "canonicalNameHant": "陰市",
+      "canonicalNameHans": "阴市",
+      "standardCode": "ST33",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST33"
+      ],
+      "aliasesHans": [
+        "ST33"
+      ],
+      "sequenceNumber": 33,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST34",
+      "canonicalNameHant": "梁丘",
+      "canonicalNameHans": "梁丘",
+      "standardCode": "ST34",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST34"
+      ],
+      "aliasesHans": [
+        "ST34"
+      ],
+      "sequenceNumber": 34,
+      "pointCategories": [
+        "point-category:cleft"
+      ]
+    },
+    {
+      "sourceKey": "primary:ST35",
+      "canonicalNameHant": "犢鼻",
+      "canonicalNameHans": "犊鼻",
+      "standardCode": "ST35",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST35"
+      ],
+      "aliasesHans": [
+        "ST35"
+      ],
+      "sequenceNumber": 35,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST36",
+      "canonicalNameHant": "足三里",
+      "canonicalNameHans": "足三里",
+      "standardCode": "ST36",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST36"
+      ],
+      "aliasesHans": [
+        "ST36"
+      ],
+      "sequenceNumber": 36,
+      "pointCategories": [
+        "point-category:sea"
+      ],
+      "elementId": "element:earth"
+    },
+    {
+      "sourceKey": "primary:ST37",
+      "canonicalNameHant": "上巨虛",
+      "canonicalNameHans": "上巨虚",
+      "standardCode": "ST37",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST37"
+      ],
+      "aliasesHans": [
+        "ST37"
+      ],
+      "sequenceNumber": 37,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST38",
+      "canonicalNameHant": "條口",
+      "canonicalNameHans": "条口",
+      "standardCode": "ST38",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST38"
+      ],
+      "aliasesHans": [
+        "ST38"
+      ],
+      "sequenceNumber": 38,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST39",
+      "canonicalNameHant": "下巨虛",
+      "canonicalNameHans": "下巨虚",
+      "standardCode": "ST39",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST39"
+      ],
+      "aliasesHans": [
+        "ST39"
+      ],
+      "sequenceNumber": 39,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:ST40",
+      "canonicalNameHant": "豐隆",
+      "canonicalNameHans": "丰隆",
+      "standardCode": "ST40",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST40"
+      ],
+      "aliasesHans": [
+        "ST40"
+      ],
+      "sequenceNumber": 40,
+      "pointCategories": [
+        "point-category:connecting"
+      ]
+    },
+    {
+      "sourceKey": "primary:ST41",
+      "canonicalNameHant": "解谿",
+      "canonicalNameHans": "解谿",
+      "standardCode": "ST41",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST41"
+      ],
+      "aliasesHans": [
+        "ST41"
+      ],
+      "sequenceNumber": 41,
+      "pointCategories": [
+        "point-category:river"
+      ],
+      "elementId": "element:fire"
+    },
+    {
+      "sourceKey": "primary:ST42",
+      "canonicalNameHant": "衝陽",
+      "canonicalNameHans": "冲阳",
+      "standardCode": "ST42",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST42"
+      ],
+      "aliasesHans": [
+        "ST42"
+      ],
+      "sequenceNumber": 42,
+      "pointCategories": [
+        "point-category:source"
+      ]
+    },
+    {
+      "sourceKey": "primary:ST43",
+      "canonicalNameHant": "陷谷",
+      "canonicalNameHans": "陷谷",
+      "standardCode": "ST43",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST43"
+      ],
+      "aliasesHans": [
+        "ST43"
+      ],
+      "sequenceNumber": 43,
+      "pointCategories": [
+        "point-category:stream"
+      ],
+      "elementId": "element:wood"
+    },
+    {
+      "sourceKey": "primary:ST44",
+      "canonicalNameHant": "內庭",
+      "canonicalNameHans": "内庭",
+      "standardCode": "ST44",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST44"
+      ],
+      "aliasesHans": [
+        "ST44"
+      ],
+      "sequenceNumber": 44,
+      "pointCategories": [
+        "point-category:spring"
+      ],
+      "elementId": "element:water"
+    },
+    {
+      "sourceKey": "primary:ST45",
+      "canonicalNameHant": "厲兌",
+      "canonicalNameHans": "厉兑",
+      "standardCode": "ST45",
+      "meridianId": "meridian:stomach",
+      "aliasesHant": [
+        "ST45"
+      ],
+      "aliasesHans": [
+        "ST45"
+      ],
+      "sequenceNumber": 45,
+      "pointCategories": [
+        "point-category:well"
+      ],
+      "elementId": "element:metal"
+    },
+    {
+      "sourceKey": "primary:SP1",
+      "canonicalNameHant": "隱白",
+      "canonicalNameHans": "隐白",
+      "standardCode": "SP1",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP1"
+      ],
+      "aliasesHans": [
+        "SP1"
+      ],
+      "sequenceNumber": 1,
+      "pointCategories": [
+        "point-category:well"
+      ],
+      "elementId": "element:wood"
+    },
+    {
+      "sourceKey": "primary:SP2",
+      "canonicalNameHant": "大都",
+      "canonicalNameHans": "大都",
+      "standardCode": "SP2",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP2"
+      ],
+      "aliasesHans": [
+        "SP2"
+      ],
+      "sequenceNumber": 2,
+      "pointCategories": [
+        "point-category:spring"
+      ],
+      "elementId": "element:fire"
+    },
+    {
+      "sourceKey": "primary:SP3",
+      "canonicalNameHant": "太白",
+      "canonicalNameHans": "太白",
+      "standardCode": "SP3",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP3"
+      ],
+      "aliasesHans": [
+        "SP3"
+      ],
+      "sequenceNumber": 3,
+      "pointCategories": [
+        "point-category:stream",
+        "point-category:source"
+      ],
+      "elementId": "element:earth"
+    },
+    {
+      "sourceKey": "primary:SP4",
+      "canonicalNameHant": "公孫",
+      "canonicalNameHans": "公孙",
+      "standardCode": "SP4",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP4"
+      ],
+      "aliasesHans": [
+        "SP4"
+      ],
+      "sequenceNumber": 4,
+      "pointCategories": [
+        "point-category:connecting",
+        "point-category:eight-confluent"
+      ]
+    },
+    {
+      "sourceKey": "primary:SP5",
+      "canonicalNameHant": "商丘",
+      "canonicalNameHans": "商丘",
+      "standardCode": "SP5",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP5"
+      ],
+      "aliasesHans": [
+        "SP5"
+      ],
+      "sequenceNumber": 5,
+      "pointCategories": [
+        "point-category:river"
+      ],
+      "elementId": "element:metal"
+    },
+    {
+      "sourceKey": "primary:SP6",
+      "canonicalNameHant": "三陰交",
+      "canonicalNameHans": "三阴交",
+      "standardCode": "SP6",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP6"
+      ],
+      "aliasesHans": [
+        "SP6"
+      ],
+      "sequenceNumber": 6,
+      "pointCategories": [
+        "point-category:crossing"
+      ]
+    },
+    {
+      "sourceKey": "primary:SP7",
+      "canonicalNameHant": "漏谷",
+      "canonicalNameHans": "漏谷",
+      "standardCode": "SP7",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP7"
+      ],
+      "aliasesHans": [
+        "SP7"
+      ],
+      "sequenceNumber": 7,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP8",
+      "canonicalNameHant": "地機",
+      "canonicalNameHans": "地机",
+      "standardCode": "SP8",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP8"
+      ],
+      "aliasesHans": [
+        "SP8"
+      ],
+      "sequenceNumber": 8,
+      "pointCategories": [
+        "point-category:cleft"
+      ]
+    },
+    {
+      "sourceKey": "primary:SP9",
+      "canonicalNameHant": "陰陵泉",
+      "canonicalNameHans": "阴陵泉",
+      "standardCode": "SP9",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP9"
+      ],
+      "aliasesHans": [
+        "SP9"
+      ],
+      "sequenceNumber": 9,
+      "pointCategories": [
+        "point-category:sea"
+      ],
+      "elementId": "element:water"
+    },
+    {
+      "sourceKey": "primary:SP10",
+      "canonicalNameHant": "血海",
+      "canonicalNameHans": "血海",
+      "standardCode": "SP10",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP10"
+      ],
+      "aliasesHans": [
+        "SP10"
+      ],
+      "sequenceNumber": 10,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP11",
+      "canonicalNameHant": "箕門",
+      "canonicalNameHans": "箕门",
+      "standardCode": "SP11",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP11"
+      ],
+      "aliasesHans": [
+        "SP11"
+      ],
+      "sequenceNumber": 11,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP12",
+      "canonicalNameHant": "衝門",
+      "canonicalNameHans": "冲门",
+      "standardCode": "SP12",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP12"
+      ],
+      "aliasesHans": [
+        "SP12"
+      ],
+      "sequenceNumber": 12,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP13",
+      "canonicalNameHant": "府舍",
+      "canonicalNameHans": "府舍",
+      "standardCode": "SP13",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP13"
+      ],
+      "aliasesHans": [
+        "SP13"
+      ],
+      "sequenceNumber": 13,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP14",
+      "canonicalNameHant": "腹結",
+      "canonicalNameHans": "腹结",
+      "standardCode": "SP14",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP14"
+      ],
+      "aliasesHans": [
+        "SP14"
+      ],
+      "sequenceNumber": 14,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP15",
+      "canonicalNameHant": "大橫",
+      "canonicalNameHans": "大横",
+      "standardCode": "SP15",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP15"
+      ],
+      "aliasesHans": [
+        "SP15"
+      ],
+      "sequenceNumber": 15,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP16",
+      "canonicalNameHant": "腹哀",
+      "canonicalNameHans": "腹哀",
+      "standardCode": "SP16",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP16"
+      ],
+      "aliasesHans": [
+        "SP16"
+      ],
+      "sequenceNumber": 16,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP17",
+      "canonicalNameHant": "食竇",
+      "canonicalNameHans": "食窦",
+      "standardCode": "SP17",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP17"
+      ],
+      "aliasesHans": [
+        "SP17"
+      ],
+      "sequenceNumber": 17,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP18",
+      "canonicalNameHant": "天谿",
+      "canonicalNameHans": "天谿",
+      "standardCode": "SP18",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP18"
+      ],
+      "aliasesHans": [
+        "SP18"
+      ],
+      "sequenceNumber": 18,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP19",
+      "canonicalNameHant": "胸鄉",
+      "canonicalNameHans": "胸乡",
+      "standardCode": "SP19",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP19"
+      ],
+      "aliasesHans": [
+        "SP19"
+      ],
+      "sequenceNumber": 19,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP20",
+      "canonicalNameHant": "周榮",
+      "canonicalNameHans": "周荣",
+      "standardCode": "SP20",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP20"
+      ],
+      "aliasesHans": [
+        "SP20"
+      ],
+      "sequenceNumber": 20,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:SP21",
+      "canonicalNameHant": "大包",
+      "canonicalNameHans": "大包",
+      "standardCode": "SP21",
+      "meridianId": "meridian:spleen",
+      "aliasesHant": [
+        "SP21"
+      ],
+      "aliasesHans": [
+        "SP21"
+      ],
+      "sequenceNumber": 21,
+      "pointCategories": []
+    }
+  ]
+}

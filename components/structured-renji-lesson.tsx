@@ -26,12 +26,12 @@ export function StructuredRenjiLesson({ lesson, relatedEntities }: { lesson: Les
   }
 
   const categories = relatedEntities.filter((entity) => entity.type === "point_category");
-  const points = relatedEntities.filter((entity) => entity.type === "acupoint");
+  const meridians = relatedEntities.filter((entity) => entity.type === "meridian");
   return <article className="migrated-content structured-lesson">
     <h2>為什麼分類要成為知識條目？</h2><p>穴位可以同時是輸穴、原穴或八脈交會穴。把分類建成一級條目，再用「分類為」關係連結，才能回答「哪些穴是原穴」及「太衝有哪些分類」，又不製造針灸專用關係類型。</p>
     <FiveShuDiagram />
     <h2>本頁使用的穴位分類</h2><EntityGrid entities={categories} />
-    <h2>29 個代表穴位</h2><p>這組條目涵蓋十二正經、肝經完整五輸，以及原、絡、郄、募、背俞和交會分類；它不是完整穴位表。</p><EntityGrid entities={points} />
+    <h2>十二正經 309 個標準穴位</h2><p>十二條經脈頁各自提供依標準代碼排序的完整穴位清單，並連到每個穴位的經脈隸屬、五輸與有來源支持的原、絡、郄、募、背俞及交會分類。</p><EntityGrid entities={meridians} />
     <p className="medical-boundary"><strong>研讀與安全邊界：</strong>條目頁不新增主治、配穴或操作步驟。若需查看既有定位與課程背景，請閱讀典藏頁，並由合格專業人員處理臨床問題。</p>
     <p><a href={archiveHref}>閱讀典藏課程的足三陰三陽穴位表</a>；亦可<a href="/v1/renji/zhenjiu/02-shou-sanyin-sanyang.html">查看手三陰三陽穴位表</a>。</p>
   </article>;

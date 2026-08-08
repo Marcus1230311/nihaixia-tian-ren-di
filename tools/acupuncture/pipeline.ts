@@ -28,6 +28,11 @@ const expectedFiveShuElements = {
   yin: ["element:wood", "element:fire", "element:earth", "element:metal", "element:water"],
   yang: ["element:metal", "element:water", "element:wood", "element:fire", "element:earth"],
 } as const;
+const expectedPrimaryCounts: Record<string, number> = {
+  "meridian:lung": 11, "meridian:large-intestine": 20, "meridian:stomach": 45, "meridian:spleen": 21,
+  "meridian:heart": 9, "meridian:small-intestine": 19, "meridian:bladder": 67, "meridian:kidney": 27,
+  "meridian:pericardium": 9, "meridian:sanjiao": 23, "meridian:gallbladder": 44, "meridian:liver": 14,
+};
 
 export type GeneratedAcupunctureData = {
   formatVersion: "1.0";
@@ -153,8 +158,8 @@ function transform(record: NormalizedRecord) {
     id: record.stableId, slug: record.stableId.replace(":", "-"), type: "acupoint",
     labels: { "zh-Hant": record.canonicalNameHant, "zh-Hans": record.canonicalNameHans },
     descriptions: {
-      "zh-Hant": `${meridian.labels["zh-Hant"]}的代表穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。`,
-      "zh-Hans": `${meridian.labels["zh-Hans"] ?? meridian.labels["zh-Hant"]}的代表穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。`,
+      "zh-Hant": `${meridian.labels["zh-Hant"]}第 ${record.sequenceNumber} 個標準穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。`,
+      "zh-Hans": `${meridian.labels["zh-Hans"] ?? meridian.labels["zh-Hant"]}第 ${record.sequenceNumber} 个标准穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。`,
     },
     aliases: { "zh-Hant": record.aliasesHant, "zh-Hans": record.aliasesHans },
     metadata: { standardCode: record.standardCode, visualReadiness: { "zh-Hant": "未加入人體座標", "zh-Hans": "未加入人体坐标" } },
@@ -169,22 +174,27 @@ function transform(record: NormalizedRecord) {
   return { entity, relations: generatedRelations };
 }
 
-function stable(value: unknown) { return JSON.stringify(value); }
+function stable(value: unknown): string {
+  if (Array.isArray(value)) return `[${value.map(stable).join(",")}]`;
+  if (value && typeof value === "object") return `{${Object.entries(value as Record<string, unknown>).sort(([a], [b]) => a.localeCompare(b)).map(([key, item]) => `${JSON.stringify(key)}:${stable(item)}`).join(",")}}`;
+  return JSON.stringify(value);
+}
 function compare(record: NormalizedRecord, entity: KnowledgeEntity, generatedRelations: KnowledgeRelation[]) {
   const differences: string[] = [];
   const currentEntity = [...lessons, ...entities].find((item) => item.id === entity.id);
-  if (!currentEntity) return { equivalent: false, differences: [`${record.sourceKey}: production entity ${entity.id} is missing`] };
-  if (stable(currentEntity) !== stable(entity)) differences.push(`${record.sourceKey}: entity differs from production`);
+  if (!currentEntity || currentEntity.type === "lesson") return { equivalent: false, addition: true, differences: [] };
+  const structuralEntity = (value: KnowledgeEntity) => { const { descriptions: _descriptions, ...structural } = value; return structural; };
+  if (stable(structuralEntity(currentEntity)) !== stable(structuralEntity(entity))) differences.push(`${record.sourceKey}: structural entity differs from production`);
   const currentRelations = relations.filter((item) => item.from === entity.id || (item.type === "contains" && item.to === entity.id)).sort((a, b) => a.id.localeCompare(b.id));
   const expectedRelations = generatedRelations.sort((a, b) => a.id.localeCompare(b.id));
   if (stable(currentRelations) !== stable(expectedRelations)) differences.push(`${record.sourceKey}: relation set differs from production`);
-  return { equivalent: differences.length === 0, differences };
+  return { equivalent: differences.length === 0, addition: false, differences };
 }
 
 function markdownReport(report: IngestionReport) {
   const s = report.summary;
   const issueRows = report.records.flatMap((record) => record.issues.map((issue) => `| ${record.sourceKey} | ${issue.severity.toUpperCase()} | ${issue.code} | ${issue.message.replaceAll("|", "\\|")} |`));
-  return `# Acupuncture ingestion report\n\n- Input: \`${report.inputFile}\`\n- Schema target: ${report.schemaVersion}\n- Records: ${s.total}; valid ${s.valid}; invalid ${s.invalid}; duplicate ${s.duplicate}; conflict ${s.conflict}\n- Errors: ${s.errors}; warnings: ${s.warnings}\n- Pilot reconciliation: ${report.reconciliation.equivalent}/${report.reconciliation.checked} equivalent\n\n## Exceptions\n\n| Record | Severity | Code | Message |\n| --- | --- | --- | --- |\n${issueRows.length ? issueRows.join("\n") : "| — | — | — | No exceptions |"}\n`;
+  return `# Acupuncture ingestion report\n\n- Input: \`${report.inputFile}\`\n- Schema target: ${report.schemaVersion}\n- Records: ${s.total}; valid ${s.valid}; invalid ${s.invalid}; duplicate ${s.duplicate}; conflict ${s.conflict}\n- Errors: ${s.errors}; warnings: ${s.warnings}\n- Production reconciliation: ${report.reconciliation.equivalent}/${report.reconciliation.checked} equivalent; ${report.reconciliation.additions} additions; ${report.reconciliation.mismatched} updates\n\n## Exceptions\n\n| Record | Severity | Code | Message |\n| --- | --- | --- | --- |\n${issueRows.length ? issueRows.join("\n") : "| — | — | — | No exceptions |"}\n`;
 }
 
 export function runPipeline(inputPath: string): PipelineResult {
@@ -250,6 +260,29 @@ export function runPipeline(inputPath: string): PipelineResult {
     accepted.forEach(({ record }, index) => { const value = select(record); if (value) buckets.set(value, [...(buckets.get(value) ?? []), index]); });
     buckets.forEach((indexes, value) => { if (indexes.length > 1) indexes.forEach((acceptedIndex) => { const result = results.find((item) => item.sourceKey === accepted[acceptedIndex].record.sourceKey)!; result.status = label.includes("name") ? "conflict" : "duplicate"; result.issues.push({ severity: "error", code: label.includes("name") ? "NAME_CONFLICT" : "DUPLICATE_RECORD", message: `Duplicate ${label}: ${value}` }); }); });
   }
+  const isPrimaryExpansion = inputPath.includes("primary-batches") || path.basename(inputPath) === "primary-meridians.json";
+  if (isPrimaryExpansion) {
+    const acceptedByMeridian = new Map<string, NormalizedRecord[]>();
+    accepted.forEach(({ record }) => acceptedByMeridian.set(record.meridianId, [...(acceptedByMeridian.get(record.meridianId) ?? []), record]));
+    for (const [meridianId, meridianRecords] of acceptedByMeridian) {
+      const expected = expectedPrimaryCounts[meridianId];
+      const first = results.find((item) => item.sourceKey === meridianRecords[0]?.sourceKey);
+      const sequences = meridianRecords.map((record) => record.sequenceNumber).sort((a, b) => a - b);
+      const fiveShuCount = meridianRecords.filter((record) => record.pointCategories.some((id) => fiveShuCategoryIds.has(id))).length;
+      if (first && (meridianRecords.length !== expected || sequences.some((number, index) => number !== index + 1))) {
+        first.status = "invalid";
+        first.issues.push({ severity: "error", code: "MERIDIAN_COVERAGE_INCOMPLETE", message: `${meridianId} requires contiguous 1–${expected}; received ${meridianRecords.length} records` });
+      }
+      if (first && fiveShuCount !== 5) {
+        first.status = "invalid";
+        first.issues.push({ severity: "error", code: "FIVE_SHU_COVERAGE_INCOMPLETE", message: `${meridianId} requires five Five Shu points; received ${fiveShuCount}` });
+      }
+    }
+    if (path.basename(inputPath) === "primary-meridians.json" && (acceptedByMeridian.size !== 12 || accepted.length !== 309)) {
+      const first = results[0];
+      if (first) { first.status = "invalid"; first.issues.push({ severity: "error", code: "PRIMARY_SCOPE_INCOMPLETE", message: `Aggregate requires 12 meridians and 309 points; received ${acceptedByMeridian.size} and ${accepted.length}` }); }
+    }
+  }
   const aliasOwners = new Map<string, string>();
   accepted.forEach(({ record }) => [...record.aliasesHant, ...record.aliasesHans].forEach((alias) => {
     const owner = aliasOwners.get(alias); if (owner && owner !== record.sourceKey) {
@@ -276,7 +309,13 @@ export function runPipeline(inputPath: string): PipelineResult {
       unresolvedSource: allIssues.filter((item) => item.code === "UNRESOLVED_SOURCE").length, unresolvedMeridian: allIssues.filter((item) => item.code === "UNRESOLVED_MERIDIAN").length,
       unresolvedCategory: allIssues.filter((item) => item.code === "UNRESOLVED_CATEGORY").length, normalizationWarnings: results.reduce((sum, item) => sum + item.normalizations.length, 0),
     }, records: results,
-    reconciliation: { checked: reconciliation.length, equivalent: reconciliation.filter((item) => item.equivalent).length, mismatched: reconciliation.filter((item) => !item.equivalent).length, differences: reconciliation.flatMap((item) => item.differences) },
+    reconciliation: {
+      checked: reconciliation.length,
+      equivalent: reconciliation.filter((item) => item.equivalent).length,
+      additions: reconciliation.filter((item) => item.addition).length,
+      mismatched: reconciliation.filter((item) => !item.equivalent && !item.addition).length,
+      differences: reconciliation.flatMap((item) => item.differences),
+    },
   };
   return { generated, report, markdown: markdownReport(report) };
 }

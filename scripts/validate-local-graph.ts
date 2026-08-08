@@ -35,14 +35,14 @@ for (const centerId of ["trigram:qian", "trigram:kan", "trigram:li"]) {
 
 for (const [centerId, expectedNeighbors] of [
   ["heavenly-stem:jia", 3],
-  ["element:wood", 20],
+  ["element:wood", 28],
   ["earthly-branch:zi", 3],
   ["concept:hetu", 12],
   ["concept:luoshu", 11],
 ] as const) {
   const graph = buildLocalGraph({ centerId, nodes, relations });
   assert.equal(graph.directNeighborCount, expectedNeighbors, `${centerId} local graph neighbor count changed unexpectedly`);
-  assert.equal(graph.omittedNodeCount, centerId === "element:wood" ? 2 : 0);
+  assert.equal(graph.omittedNodeCount, centerId === "element:wood" ? 10 : 0);
   assert.ok(graph.nodes.every((node) => node.label && node.typeLabel && node.description && node.href?.startsWith("/")));
 }
 
@@ -50,7 +50,7 @@ for (const [centerId, expectedNeighbors] of [
   ["acupoint:lr-03", 5],
   ["acupoint:li-04", 3],
   ["acupoint:st-36", 4],
-  ["meridian:liver", 9],
+  ["meridian:liver", 18],
   ["organ:liver", 3],
 ] as const) {
   const graph = buildLocalGraph({ centerId, nodes, relations });

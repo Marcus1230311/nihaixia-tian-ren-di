@@ -13,7 +13,7 @@
     "unresolvedSource": 0,
     "unresolvedMeridian": 0,
     "unresolvedCategory": 0,
-    "normalizationWarnings": 61
+    "normalizationWarnings": 63
   },
   "records": [
     {
@@ -255,6 +255,7 @@
       "issues": [],
       "normalizations": [
         "meridianId: 心包经 -> meridian:pericardium",
+        "pointCategories: 絡穴 -> point-category:connecting",
         "pointCategories: 八脉交会穴 -> point-category:eight-confluent"
       ]
     },
@@ -265,7 +266,8 @@
       "standardCode": "TE5",
       "issues": [],
       "normalizations": [
-        "meridianId: 三焦經 -> meridian:sanjiao"
+        "meridianId: 三焦經 -> meridian:sanjiao",
+        "pointCategories: 絡穴 -> point-category:connecting"
       ]
     },
     {
@@ -342,6 +344,7 @@
   "reconciliation": {
     "checked": 29,
     "equivalent": 29,
+    "additions": 0,
     "mismatched": 0,
     "differences": []
   }

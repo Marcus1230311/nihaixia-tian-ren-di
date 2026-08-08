@@ -82,6 +82,12 @@ main { min-height: calc(100vh - 130px); }
 .relation-list { list-style: none; padding: 0; }
 .relation-list li { display: flex; align-items: baseline; gap: 10px; border-top: 1px solid var(--line); padding: 8px 0; }
 .relation-list li span { color: var(--soft); font-size: 13px; }
+.meridian-point-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; list-style: none; padding: 0; }
+.meridian-point-list li { margin: 0; }
+.meridian-point-list a { display: flex; align-items: baseline; gap: 8px; min-height: 44px; padding: 9px 11px; border: 1px solid var(--line); background: var(--card); text-decoration: none; }
+.meridian-point-list a:hover { border-color: var(--jade); }
+.meridian-point-list span { color: var(--gold); font-size: 12px; }
+.meridian-point-list strong { color: var(--ink); font-family: "Noto Serif TC", serif; }
 .local-graph-section > p { color: var(--soft); margin: 5px 0 16px; }
 .local-knowledge-graph { border: 1px solid var(--line); background: var(--card); }
 .graph-toolbar { min-height: 58px; padding: 7px 10px 7px 16px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -166,4 +172,5 @@ main { min-height: calc(100vh - 130px); }
   .graph-node-detail { grid-template-columns: 1fr; min-height: 154px; }
   .graph-node-detail a { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 6px; }
   .learning-entity-grid, .ten-god-grid, .heluo-visuals { grid-template-columns: 1fr; }
+  .meridian-point-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

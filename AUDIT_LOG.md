@@ -131,6 +131,12 @@ PRODUCT & CONTENT QUALITY ACCEPTED
 - 建立與 public Schema 1.2.0 分離的 JSON／CSV／TSV canonical import model，包含 workflow status、可不完整 source locator 與 entity／relation 分用途 provenance；未修改 schema。
 - pipeline 明列 Load、Normalize、Resolve、Validate、Transform、Compare、Report 階段；校驗代碼、唯一主經、分類、lesson/source 端點、五輸陰陽經五行配屬、重複／衝突與輸出 schema。
 - 以既有 29 點建立 regression fixture 及 deterministic generated candidate；production `data/renji-acupuncture.ts` 未被替換，公開節點／關係／來源數不變。
+
+## V2.5B-2 十二正經 309 穴 production expansion
+
+- 以 WHO 標準代碼／命名、GB/T 12346-2021 狀態頁、本站 02–03 課表及繁簡快照交叉核對十二正經範圍；WHO 的 361 總數包含任督，本輪只納入十二正經 309 穴。
+- 六批 canonical import 均為零錯誤、零警告並保存 SHA-256 checkpoint；60 個五輸穴逐經完整，原／絡／郄與其他高價值分類只在來源足夠時加入。
+- Production 改讀 generated aggregate，既有 29 穴只保留描述 overlay；公開圖為 500 節點、1,292 關係，搜索與十二條經脈有序瀏覽同步擴大。
 - 新增 dry-run、generate、validate 指令及 machine/human-readable exception report；CI 在 build 前驗證 committed artifacts。
 - PDF/OCR 只定義 canonical-record 交接界面；anatomy body view、region、normalized x/y、SVG path、laterality、diagram version 設計為未來 linked spatial submodel，未填座標。
 - 文件明訂以程式處理重複轉錄、模型只審核語義例外，並記錄來源 attribution／授權邊界。

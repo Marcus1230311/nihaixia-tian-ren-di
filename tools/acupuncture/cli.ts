@@ -5,9 +5,16 @@ import { runPipeline, serialize, validateInfrastructure } from "./pipeline";
 const root = path.resolve(import.meta.dirname, "../..");
 const command = process.argv[2] ?? "dry-run";
 const inputPath = path.resolve(root, process.argv[3] ?? "data/import/acupuncture/pilot-points.json");
-const generatedPath = path.resolve(root, "data/generated/acupuncture/pilot-points.json");
-const reportJsonPath = path.resolve(root, "reports/acupuncture-ingestion-report.json");
-const reportMarkdownPath = path.resolve(root, "reports/acupuncture-ingestion-report.md");
+const basename = path.basename(inputPath, path.extname(inputPath));
+const isPilot = basename === "pilot-points";
+const isBatch = inputPath.includes("primary-batches");
+const generatedPath = isPilot
+  ? path.resolve(root, "data/generated/acupuncture/pilot-points.json")
+  : path.resolve(root, isBatch ? `data/generated/acupuncture/primary-batches/${basename}.json` : `data/generated/acupuncture/${basename}.json`);
+const reportJsonPath = isPilot
+  ? path.resolve(root, "reports/acupuncture-ingestion-report.json")
+  : path.resolve(root, isBatch ? `reports/acupuncture-batches/${basename}.json` : `reports/acupuncture-${basename}.json`);
+const reportMarkdownPath = reportJsonPath.replace(/\.json$/, ".md");
 
 function write(file: string, contents: string) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -26,7 +33,7 @@ try {
   const reconciliationFailed = result.report.reconciliation.mismatched > 0;
 
   if (command === "generate") {
-    if (hasErrors || reconciliationFailed) throw new Error("Generation refused because validation or pilot reconciliation failed");
+    if (hasErrors || (isPilot && reconciliationFailed)) throw new Error("Generation refused because validation or pilot reconciliation failed");
     write(generatedPath, serialize(result.generated));
     write(reportJsonPath, serialize(result.report));
     write(reportMarkdownPath, result.markdown);

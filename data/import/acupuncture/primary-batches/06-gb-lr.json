@@ -1,0 +1,979 @@
+{
+  "formatVersion": "1.0",
+  "defaults": {
+    "relatedLessonIds": [
+      "lesson:renji:acupuncture:02"
+    ],
+    "sourceIds": [
+      "source:project:renji-acupuncture-notes",
+      "source:reference:who-acupuncture-nomenclature",
+      "source:derived:renji-acupuncture-pilot"
+    ],
+    "relationSourceIds": {
+      "membership": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "category": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "fiveShu": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    "sourceLocator": [
+      {
+        "sourceId": "source:project:renji-acupuncture-notes",
+        "sourceTitle": "本站人紀針灸既有課程筆記",
+        "section": "renji/zhenjiu/02–03",
+        "localFile": "renji/zhenjiu",
+        "note": "十二正經穴名次序的本站既有編輯表。"
+      },
+      {
+        "sourceId": "source:reference:who-acupuncture-nomenclature",
+        "sourceTitle": "WHO Standard Acupuncture Nomenclature",
+        "section": "twelve primary meridian codes and names",
+        "sourceUrl": "https://iris.who.int/handle/10665/353407",
+        "note": "用於標準代碼、經脈與穴名核對。"
+      },
+      {
+        "sourceId": "source:reference:bucm-five-shu",
+        "sourceTitle": "北京中醫藥大學針灸學：五輸穴",
+        "section": "五輸穴次序與五行配屬",
+        "sourceUrl": "https://jxjyxb.bucm.edu.cn/BZYAttachs/courseware/zhenjiuxue/c1/c1_61a.htm"
+      },
+      {
+        "sourceId": "source:derived:renji-acupuncture-pilot",
+        "section": "V2.5B-2 production expansion",
+        "note": "由受控來源快照和分類映射生成。"
+      }
+    ],
+    "status": "accepted"
+  },
+  "records": [
+    {
+      "sourceKey": "primary:GB1",
+      "canonicalNameHant": "瞳子髎",
+      "canonicalNameHans": "瞳子髎",
+      "standardCode": "GB1",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB1"
+      ],
+      "aliasesHans": [
+        "GB1"
+      ],
+      "sequenceNumber": 1,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB2",
+      "canonicalNameHant": "聽會",
+      "canonicalNameHans": "听会",
+      "standardCode": "GB2",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB2"
+      ],
+      "aliasesHans": [
+        "GB2"
+      ],
+      "sequenceNumber": 2,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB3",
+      "canonicalNameHant": "上關",
+      "canonicalNameHans": "上关",
+      "standardCode": "GB3",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB3"
+      ],
+      "aliasesHans": [
+        "GB3"
+      ],
+      "sequenceNumber": 3,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB4",
+      "canonicalNameHant": "頷厭",
+      "canonicalNameHans": "颔厌",
+      "standardCode": "GB4",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB4"
+      ],
+      "aliasesHans": [
+        "GB4"
+      ],
+      "sequenceNumber": 4,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB5",
+      "canonicalNameHant": "懸顱",
+      "canonicalNameHans": "悬颅",
+      "standardCode": "GB5",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB5"
+      ],
+      "aliasesHans": [
+        "GB5"
+      ],
+      "sequenceNumber": 5,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB6",
+      "canonicalNameHant": "懸厘",
+      "canonicalNameHans": "悬厘",
+      "standardCode": "GB6",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB6"
+      ],
+      "aliasesHans": [
+        "GB6"
+      ],
+      "sequenceNumber": 6,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB7",
+      "canonicalNameHant": "曲鬢",
+      "canonicalNameHans": "曲鬓",
+      "standardCode": "GB7",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB7"
+      ],
+      "aliasesHans": [
+        "GB7"
+      ],
+      "sequenceNumber": 7,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB8",
+      "canonicalNameHant": "率谷",
+      "canonicalNameHans": "率谷",
+      "standardCode": "GB8",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB8"
+      ],
+      "aliasesHans": [
+        "GB8"
+      ],
+      "sequenceNumber": 8,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB9",
+      "canonicalNameHant": "天衝",
+      "canonicalNameHans": "天冲",
+      "standardCode": "GB9",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB9"
+      ],
+      "aliasesHans": [
+        "GB9"
+      ],
+      "sequenceNumber": 9,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB10",
+      "canonicalNameHant": "浮白",
+      "canonicalNameHans": "浮白",
+      "standardCode": "GB10",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB10"
+      ],
+      "aliasesHans": [
+        "GB10"
+      ],
+      "sequenceNumber": 10,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB11",
+      "canonicalNameHant": "頭竅陰",
+      "canonicalNameHans": "头窍阴",
+      "standardCode": "GB11",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB11"
+      ],
+      "aliasesHans": [
+        "GB11"
+      ],
+      "sequenceNumber": 11,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB12",
+      "canonicalNameHant": "完骨",
+      "canonicalNameHans": "完骨",
+      "standardCode": "GB12",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB12"
+      ],
+      "aliasesHans": [
+        "GB12"
+      ],
+      "sequenceNumber": 12,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB13",
+      "canonicalNameHant": "本神",
+      "canonicalNameHans": "本神",
+      "standardCode": "GB13",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB13"
+      ],
+      "aliasesHans": [
+        "GB13"
+      ],
+      "sequenceNumber": 13,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB14",
+      "canonicalNameHant": "陽白",
+      "canonicalNameHans": "阳白",
+      "standardCode": "GB14",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB14"
+      ],
+      "aliasesHans": [
+        "GB14"
+      ],
+      "sequenceNumber": 14,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB15",
+      "canonicalNameHant": "頭臨泣",
+      "canonicalNameHans": "头临泣",
+      "standardCode": "GB15",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB15"
+      ],
+      "aliasesHans": [
+        "GB15"
+      ],
+      "sequenceNumber": 15,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB16",
+      "canonicalNameHant": "目窗",
+      "canonicalNameHans": "目窗",
+      "standardCode": "GB16",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB16"
+      ],
+      "aliasesHans": [
+        "GB16"
+      ],
+      "sequenceNumber": 16,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB17",
+      "canonicalNameHant": "正營",
+      "canonicalNameHans": "正营",
+      "standardCode": "GB17",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB17"
+      ],
+      "aliasesHans": [
+        "GB17"
+      ],
+      "sequenceNumber": 17,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB18",
+      "canonicalNameHant": "承靈",
+      "canonicalNameHans": "承灵",
+      "standardCode": "GB18",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB18"
+      ],
+      "aliasesHans": [
+        "GB18"
+      ],
+      "sequenceNumber": 18,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB19",
+      "canonicalNameHant": "腦空",
+      "canonicalNameHans": "脑空",
+      "standardCode": "GB19",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB19"
+      ],
+      "aliasesHans": [
+        "GB19"
+      ],
+      "sequenceNumber": 19,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB20",
+      "canonicalNameHant": "風池",
+      "canonicalNameHans": "风池",
+      "standardCode": "GB20",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB20"
+      ],
+      "aliasesHans": [
+        "GB20"
+      ],
+      "sequenceNumber": 20,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB21",
+      "canonicalNameHant": "肩井",
+      "canonicalNameHans": "肩井",
+      "standardCode": "GB21",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB21"
+      ],
+      "aliasesHans": [
+        "GB21"
+      ],
+      "sequenceNumber": 21,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB22",
+      "canonicalNameHant": "淵腋",
+      "canonicalNameHans": "渊腋",
+      "standardCode": "GB22",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB22"
+      ],
+      "aliasesHans": [
+        "GB22"
+      ],
+      "sequenceNumber": 22,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB23",
+      "canonicalNameHant": "輒筋",
+      "canonicalNameHans": "辄筋",
+      "standardCode": "GB23",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB23"
+      ],
+      "aliasesHans": [
+        "GB23"
+      ],
+      "sequenceNumber": 23,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB24",
+      "canonicalNameHant": "日月",
+      "canonicalNameHans": "日月",
+      "standardCode": "GB24",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB24"
+      ],
+      "aliasesHans": [
+        "GB24"
+      ],
+      "sequenceNumber": 24,
+      "pointCategories": [
+        "point-category:front-mu"
+      ]
+    },
+    {
+      "sourceKey": "primary:GB25",
+      "canonicalNameHant": "京門",
+      "canonicalNameHans": "京门",
+      "standardCode": "GB25",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB25"
+      ],
+      "aliasesHans": [
+        "GB25"
+      ],
+      "sequenceNumber": 25,
+      "pointCategories": [
+        "point-category:front-mu"
+      ]
+    },
+    {
+      "sourceKey": "primary:GB26",
+      "canonicalNameHant": "帶脈",
+      "canonicalNameHans": "带脉",
+      "standardCode": "GB26",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB26"
+      ],
+      "aliasesHans": [
+        "GB26"
+      ],
+      "sequenceNumber": 26,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB27",
+      "canonicalNameHant": "五樞",
+      "canonicalNameHans": "五枢",
+      "standardCode": "GB27",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB27"
+      ],
+      "aliasesHans": [
+        "GB27"
+      ],
+      "sequenceNumber": 27,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB28",
+      "canonicalNameHant": "維道",
+      "canonicalNameHans": "维道",
+      "standardCode": "GB28",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB28"
+      ],
+      "aliasesHans": [
+        "GB28"
+      ],
+      "sequenceNumber": 28,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB29",
+      "canonicalNameHant": "居髎",
+      "canonicalNameHans": "居髎",
+      "standardCode": "GB29",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB29"
+      ],
+      "aliasesHans": [
+        "GB29"
+      ],
+      "sequenceNumber": 29,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB30",
+      "canonicalNameHant": "環跳",
+      "canonicalNameHans": "环跳",
+      "standardCode": "GB30",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB30"
+      ],
+      "aliasesHans": [
+        "GB30"
+      ],
+      "sequenceNumber": 30,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB31",
+      "canonicalNameHant": "風市",
+      "canonicalNameHans": "风市",
+      "standardCode": "GB31",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB31"
+      ],
+      "aliasesHans": [
+        "GB31"
+      ],
+      "sequenceNumber": 31,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB32",
+      "canonicalNameHant": "中瀆",
+      "canonicalNameHans": "中渎",
+      "standardCode": "GB32",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB32"
+      ],
+      "aliasesHans": [
+        "GB32"
+      ],
+      "sequenceNumber": 32,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB33",
+      "canonicalNameHant": "膝陽關",
+      "canonicalNameHans": "膝阳关",
+      "standardCode": "GB33",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB33"
+      ],
+      "aliasesHans": [
+        "GB33"
+      ],
+      "sequenceNumber": 33,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB34",
+      "canonicalNameHant": "陽陵泉",
+      "canonicalNameHans": "阳陵泉",
+      "standardCode": "GB34",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB34"
+      ],
+      "aliasesHans": [
+        "GB34"
+      ],
+      "sequenceNumber": 34,
+      "pointCategories": [
+        "point-category:sea"
+      ],
+      "elementId": "element:earth"
+    },
+    {
+      "sourceKey": "primary:GB35",
+      "canonicalNameHant": "陽交",
+      "canonicalNameHans": "阳交",
+      "standardCode": "GB35",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB35"
+      ],
+      "aliasesHans": [
+        "GB35"
+      ],
+      "sequenceNumber": 35,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB36",
+      "canonicalNameHant": "外丘",
+      "canonicalNameHans": "外丘",
+      "standardCode": "GB36",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB36"
+      ],
+      "aliasesHans": [
+        "GB36"
+      ],
+      "sequenceNumber": 36,
+      "pointCategories": [
+        "point-category:cleft"
+      ]
+    },
+    {
+      "sourceKey": "primary:GB37",
+      "canonicalNameHant": "光明",
+      "canonicalNameHans": "光明",
+      "standardCode": "GB37",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB37"
+      ],
+      "aliasesHans": [
+        "GB37"
+      ],
+      "sequenceNumber": 37,
+      "pointCategories": [
+        "point-category:connecting"
+      ]
+    },
+    {
+      "sourceKey": "primary:GB38",
+      "canonicalNameHant": "陽輔",
+      "canonicalNameHans": "阳辅",
+      "standardCode": "GB38",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB38"
+      ],
+      "aliasesHans": [
+        "GB38"
+      ],
+      "sequenceNumber": 38,
+      "pointCategories": [
+        "point-category:river"
+      ],
+      "elementId": "element:fire"
+    },
+    {
+      "sourceKey": "primary:GB39",
+      "canonicalNameHant": "懸鐘",
+      "canonicalNameHans": "悬钟",
+      "standardCode": "GB39",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB39"
+      ],
+      "aliasesHans": [
+        "GB39"
+      ],
+      "sequenceNumber": 39,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB40",
+      "canonicalNameHant": "丘墟",
+      "canonicalNameHans": "丘墟",
+      "standardCode": "GB40",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB40"
+      ],
+      "aliasesHans": [
+        "GB40"
+      ],
+      "sequenceNumber": 40,
+      "pointCategories": [
+        "point-category:source"
+      ]
+    },
+    {
+      "sourceKey": "primary:GB41",
+      "canonicalNameHant": "足臨泣",
+      "canonicalNameHans": "足临泣",
+      "standardCode": "GB41",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB41"
+      ],
+      "aliasesHans": [
+        "GB41"
+      ],
+      "sequenceNumber": 41,
+      "pointCategories": [
+        "point-category:stream",
+        "point-category:eight-confluent"
+      ],
+      "elementId": "element:wood"
+    },
+    {
+      "sourceKey": "primary:GB42",
+      "canonicalNameHant": "地五會",
+      "canonicalNameHans": "地五会",
+      "standardCode": "GB42",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB42"
+      ],
+      "aliasesHans": [
+        "GB42"
+      ],
+      "sequenceNumber": 42,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:GB43",
+      "canonicalNameHant": "俠谿",
+      "canonicalNameHans": "侠谿",
+      "standardCode": "GB43",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB43"
+      ],
+      "aliasesHans": [
+        "GB43"
+      ],
+      "sequenceNumber": 43,
+      "pointCategories": [
+        "point-category:spring"
+      ],
+      "elementId": "element:water"
+    },
+    {
+      "sourceKey": "primary:GB44",
+      "canonicalNameHant": "足竅陰",
+      "canonicalNameHans": "足窍阴",
+      "standardCode": "GB44",
+      "meridianId": "meridian:gallbladder",
+      "aliasesHant": [
+        "GB44"
+      ],
+      "aliasesHans": [
+        "GB44"
+      ],
+      "sequenceNumber": 44,
+      "pointCategories": [
+        "point-category:well"
+      ],
+      "elementId": "element:metal"
+    },
+    {
+      "sourceKey": "primary:LR1",
+      "canonicalNameHant": "大敦",
+      "canonicalNameHans": "大敦",
+      "standardCode": "LR1",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR1"
+      ],
+      "aliasesHans": [
+        "LR1"
+      ],
+      "sequenceNumber": 1,
+      "pointCategories": [
+        "point-category:well"
+      ],
+      "elementId": "element:wood"
+    },
+    {
+      "sourceKey": "primary:LR2",
+      "canonicalNameHant": "行間",
+      "canonicalNameHans": "行间",
+      "standardCode": "LR2",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR2"
+      ],
+      "aliasesHans": [
+        "LR2"
+      ],
+      "sequenceNumber": 2,
+      "pointCategories": [
+        "point-category:spring"
+      ],
+      "elementId": "element:fire"
+    },
+    {
+      "sourceKey": "primary:LR3",
+      "canonicalNameHant": "太衝",
+      "canonicalNameHans": "太冲",
+      "standardCode": "LR3",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR3"
+      ],
+      "aliasesHans": [
+        "LR3"
+      ],
+      "sequenceNumber": 3,
+      "pointCategories": [
+        "point-category:stream",
+        "point-category:source"
+      ],
+      "elementId": "element:earth"
+    },
+    {
+      "sourceKey": "primary:LR4",
+      "canonicalNameHant": "中封",
+      "canonicalNameHans": "中封",
+      "standardCode": "LR4",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR4"
+      ],
+      "aliasesHans": [
+        "LR4"
+      ],
+      "sequenceNumber": 4,
+      "pointCategories": [
+        "point-category:river"
+      ],
+      "elementId": "element:metal"
+    },
+    {
+      "sourceKey": "primary:LR5",
+      "canonicalNameHant": "蠡溝",
+      "canonicalNameHans": "蠡沟",
+      "standardCode": "LR5",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR5"
+      ],
+      "aliasesHans": [
+        "LR5"
+      ],
+      "sequenceNumber": 5,
+      "pointCategories": [
+        "point-category:connecting"
+      ]
+    },
+    {
+      "sourceKey": "primary:LR6",
+      "canonicalNameHant": "中都",
+      "canonicalNameHans": "中都",
+      "standardCode": "LR6",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR6"
+      ],
+      "aliasesHans": [
+        "LR6"
+      ],
+      "sequenceNumber": 6,
+      "pointCategories": [
+        "point-category:cleft"
+      ]
+    },
+    {
+      "sourceKey": "primary:LR7",
+      "canonicalNameHant": "膝關",
+      "canonicalNameHans": "膝关",
+      "standardCode": "LR7",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR7"
+      ],
+      "aliasesHans": [
+        "LR7"
+      ],
+      "sequenceNumber": 7,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:LR8",
+      "canonicalNameHant": "曲泉",
+      "canonicalNameHans": "曲泉",
+      "standardCode": "LR8",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR8"
+      ],
+      "aliasesHans": [
+        "LR8"
+      ],
+      "sequenceNumber": 8,
+      "pointCategories": [
+        "point-category:sea"
+      ],
+      "elementId": "element:water"
+    },
+    {
+      "sourceKey": "primary:LR9",
+      "canonicalNameHant": "陰包",
+      "canonicalNameHans": "阴包",
+      "standardCode": "LR9",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR9"
+      ],
+      "aliasesHans": [
+        "LR9"
+      ],
+      "sequenceNumber": 9,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:LR10",
+      "canonicalNameHant": "足五里",
+      "canonicalNameHans": "足五里",
+      "standardCode": "LR10",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR10"
+      ],
+      "aliasesHans": [
+        "LR10"
+      ],
+      "sequenceNumber": 10,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:LR11",
+      "canonicalNameHant": "陰廉",
+      "canonicalNameHans": "阴廉",
+      "standardCode": "LR11",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR11"
+      ],
+      "aliasesHans": [
+        "LR11"
+      ],
+      "sequenceNumber": 11,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:LR12",
+      "canonicalNameHant": "急脈",
+      "canonicalNameHans": "急脉",
+      "standardCode": "LR12",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR12"
+      ],
+      "aliasesHans": [
+        "LR12"
+      ],
+      "sequenceNumber": 12,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:LR13",
+      "canonicalNameHant": "章門",
+      "canonicalNameHans": "章门",
+      "standardCode": "LR13",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR13"
+      ],
+      "aliasesHans": [
+        "LR13"
+      ],
+      "sequenceNumber": 13,
+      "pointCategories": [
+        "point-category:front-mu"
+      ]
+    },
+    {
+      "sourceKey": "primary:LR14",
+      "canonicalNameHant": "期門",
+      "canonicalNameHans": "期门",
+      "standardCode": "LR14",
+      "meridianId": "meridian:liver",
+      "aliasesHant": [
+        "LR14"
+      ],
+      "aliasesHans": [
+        "LR14"
+      ],
+      "sequenceNumber": 14,
+      "pointCategories": [
+        "point-category:front-mu"
+      ]
+    }
+  ]
+}

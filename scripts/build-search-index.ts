@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { entities, lessons } from "../data/knowledge";
+import { entities, lessons, relations } from "../data/knowledge";
 import { searchRecordSchema } from "../lib/knowledge-schema";
 import { entityTypeLabels, localize } from "../lib/presentation";
 import { readLegacyArticle, stripHtml } from "../lib/v1-content";
@@ -31,6 +31,10 @@ const records = [
   })),
   ...entities.map((entity) => {
     const relatedLessons = entity.relatedLessonIds.map((lessonId) => lessons.find((lesson) => lesson.id === lessonId)).filter((lesson) => lesson !== undefined);
+    const relatedMeridians = relations
+      .filter((relation) => relation.from === entity.id && relation.type === "belongs_to")
+      .map((relation) => entities.find((candidate) => candidate.id === relation.to))
+      .filter((candidate): candidate is NonNullable<typeof candidate> => candidate?.type === "meridian");
     return {
       id: entity.id,
       type: entity.type,
@@ -43,11 +47,13 @@ const records = [
           ...entity.aliases["zh-Hant"],
           ...metadataKeywords(entity.metadata, "zh-Hant"),
           ...relatedLessons.map((lesson) => localize(lesson.labels)),
+          ...relatedMeridians.flatMap((meridian) => [localize(meridian.labels), ...meridian.aliases["zh-Hant"]]),
         ],
         "zh-Hans": [
           ...(entity.aliases["zh-Hans"] ?? []),
           ...metadataKeywords(entity.metadata, "zh-Hans"),
           ...relatedLessons.map((lesson) => localize(lesson.labels, "zh-Hans")),
+          ...relatedMeridians.flatMap((meridian) => [localize(meridian.labels, "zh-Hans"), ...(meridian.aliases["zh-Hans"] ?? [])]),
         ],
       },
     };

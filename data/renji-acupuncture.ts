@@ -1,4 +1,5 @@
 import type { KnowledgeEntity, KnowledgeRelation, Lesson, Source } from "@/lib/knowledge-schema";
+import primaryMeridianData from "@/data/generated/acupuncture/primary-meridians.json";
 
 const editorialSourceId = "source:project:renji-acupuncture-notes";
 const whoSourceId = "source:reference:who-acupuncture-nomenclature";
@@ -81,7 +82,7 @@ const categoryRows = [
 ] as const;
 
 type PointRow = readonly [string, string, string, string, string, readonly string[], string?];
-const pointRows: PointRow[] = [
+const curatedPointRows: PointRow[] = [
   ["lu-01", "LU1", "中府", "中府", "lung", ["front-mu"]],
   ["lu-05", "LU5", "尺澤", "尺泽", "lung", ["sea"], "water"],
   ["lu-06", "LU6", "孔最", "孔最", "lung", ["cleft"]],
@@ -117,7 +118,9 @@ const meridianIds = meridianRows.map(([id]) => `meridian:${id}`);
 const organIds = organRows.map(([id]) => `organ:${id}`);
 const levelIds = levelRows.map(([id]) => `meridian-level:${id}`);
 const categoryIds = categoryRows.map(([id]) => `point-category:${id}`);
-const pointIds = pointRows.map(([id]) => `acupoint:${id}`);
+const generatedPointEntities = primaryMeridianData.entities as KnowledgeEntity[];
+const generatedPointRelations = primaryMeridianData.relations as KnowledgeRelation[];
+const pointIds = generatedPointEntities.map(({ id }) => id);
 
 export const renjiAcupunctureLessons: Lesson[] = [
   {
@@ -133,14 +136,14 @@ export const renjiAcupunctureLessons: Lesson[] = [
   },
   {
     id: fiveShuLessonId, slug: "lesson-renji-acupuncture-02", type: "lesson",
-    labels: { "zh-Hant": "五輸穴與代表穴位分類", "zh-Hans": "五输穴与代表穴位分类" },
-    descriptions: { "zh-Hant": "以 29 個代表穴位說明經脈隸屬、原絡郄募俞分類、五輸次序與五行配屬。", "zh-Hans": "以 29 个代表穴位说明经脉隶属、原络郄募俞分类、五输次序与五行配属。" },
+    labels: { "zh-Hant": "五輸穴與十二正經穴位分類", "zh-Hans": "五输穴与十二正经穴位分类" },
+    descriptions: { "zh-Hant": "以十二正經 309 個標準穴位說明經脈隸屬，並整理有來源支持的原絡郄募俞分類、五輸次序與五行配屬。", "zh-Hans": "以十二正经 309 个标准穴位说明经脉隶属，并整理有来源支持的原络郄募俞分类、五输次序与五行配属。" },
     aliases: { "zh-Hant": ["五輸穴", "穴位分類"], "zh-Hans": ["五输穴", "穴位分类"] },
     metadata: { order: 2, module: { "zh-Hant": "針灸", "zh-Hans": "针灸" } },
     sourceIds: [editorialSourceId, whoSourceId, fiveShuReferenceSourceId, derivedSourceId], relatedLessonIds: [overviewLessonId],
     courseId: "course:renji", moduleId: "system:acupuncture", order: 2,
     route: ["renji", "acupuncture", "02-five-shu"], legacyPath: "renji/zhenjiu/03-zu-sanyin-sanyang.html",
-    relatedEntityIds: ["concept:five-shu", ...categoryIds, ...pointIds, "element:wood", "element:fire", "element:earth", "element:metal", "element:water"],
+    relatedEntityIds: ["concept:five-shu", ...categoryIds, ...meridianIds, "element:wood", "element:fire", "element:earth", "element:metal", "element:water"],
   },
 ];
 
@@ -183,12 +186,18 @@ export const renjiAcupunctureEntities: KnowledgeEntity[] = [
     aliases: { "zh-Hant": [...aliases], "zh-Hans": [...aliases.map((alias) => alias.replace("輸", "输").replace("滎", "荥").replace("絡", "络").replace("會", "会").replace("經", "经"))] },
     metadata: {}, sourceIds: [editorialSourceId, derivedSourceId], relatedLessonIds: [fiveShuLessonId],
   })),
-  ...pointRows.map(([id, code, hant, hans, meridian, categories, element]) => ({
-    id: `acupoint:${id}`, slug: `acupoint-${id}`, type: "acupoint" as const, labels: { "zh-Hant": hant, "zh-Hans": hans },
-    descriptions: { "zh-Hant": `${meridianRows.find(([key]) => key === meridian)?.[1]}的代表穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。`, "zh-Hans": `${meridianRows.find(([key]) => key === meridian)?.[2]}的代表穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。` },
-    aliases: { "zh-Hant": [code], "zh-Hans": [code] }, metadata: { standardCode: code, visualReadiness: { "zh-Hant": "未加入人體座標", "zh-Hans": "未加入人体坐标" } },
-    sourceIds: [editorialSourceId, whoSourceId, derivedSourceId], relatedLessonIds: [fiveShuLessonId],
-  })),
+  ...generatedPointEntities.map((entity) => {
+    const curated = curatedPointRows.find(([, code]) => code === entity.metadata.standardCode);
+    if (!curated) return entity;
+    const [, , , , meridian] = curated;
+    return {
+      ...entity,
+      descriptions: {
+        "zh-Hant": `${meridianRows.find(([key]) => key === meridian)?.[1]}的代表穴位；本頁只整理經脈隸屬與可追溯分類，不提供自行針刺指示。`,
+        "zh-Hans": `${meridianRows.find(([key]) => key === meridian)?.[2]}的代表穴位；本页只整理经脉隶属与可追溯分类，不提供自行针刺指示。`,
+      },
+    };
+  }),
 ];
 
 const relation = (type: KnowledgeRelation["type"], from: string, to: string, sourceIds: string[]): KnowledgeRelation => ({
@@ -197,7 +206,6 @@ const relation = (type: KnowledgeRelation["type"], from: string, to: string, sou
 });
 
 const coreSources = [editorialSourceId, derivedSourceId];
-const pointSources = [editorialSourceId, whoSourceId, derivedSourceId];
 const fiveShuSources = [editorialSourceId, fiveShuReferenceSourceId, derivedSourceId];
 
 export const renjiAcupunctureRelations: KnowledgeRelation[] = [
@@ -206,7 +214,6 @@ export const renjiAcupunctureRelations: KnowledgeRelation[] = [
   ...meridianIds.map((id) => relation("contains", overviewLessonId, id, coreSources)),
   ...organIds.map((id) => relation("contains", overviewLessonId, id, coreSources)),
   ...levelIds.map((id) => relation("contains", overviewLessonId, id, coreSources)),
-  ...pointIds.map((id) => relation("contains", fiveShuLessonId, id, coreSources)),
   ...categoryIds.map((id) => relation("contains", fiveShuLessonId, id, coreSources)),
   relation("contains", fiveShuLessonId, "concept:five-shu", coreSources),
   ...categoryRows.slice(0, 5).map(([id]) => relation("part_of", `point-category:${id}`, "concept:five-shu", fiveShuSources)),
@@ -217,11 +224,7 @@ export const renjiAcupunctureRelations: KnowledgeRelation[] = [
     relation("corresponds_to", `meridian:${id}`, `meridian-level:${level}`, coreSources),
     relation("corresponds_to", `meridian:${id}`, `yin-yang:${polarity}`, coreSources),
   ]),
-  ...pointRows.flatMap(([id, , , , meridian, categories, element]) => [
-    relation("belongs_to", `acupoint:${id}`, `meridian:${meridian}`, pointSources),
-    ...categories.map((category) => relation("classified_as", `acupoint:${id}`, `point-category:${category}`, category === "well" || category === "spring" || category === "stream" || category === "river" || category === "sea" ? fiveShuSources : coreSources)),
-    ...(element ? [relation("element_of", `acupoint:${id}`, `element:${element}`, fiveShuSources)] : []),
-  ]),
+  ...generatedPointRelations,
 ];
 
 export const renjiPilotCounts = {
@@ -229,5 +232,5 @@ export const renjiPilotCounts = {
   organs: organRows.length,
   meridianLevels: levelRows.length,
   pointCategories: categoryRows.length,
-  acupoints: pointRows.length,
+  acupoints: pointIds.length,
 };

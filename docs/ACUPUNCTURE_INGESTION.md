@@ -1,10 +1,10 @@
 # 針灸結構化資料匯入
 
-V2.5B-1 建立一條與公開 Knowledge Entity Schema 1.2.0 分離的確定性資料邊界。它處理重複轉錄、正規化、引用解析、規則驗證與例外報告；人工或模型只審核語義模糊、別名衝突、來源解讀與關係判斷。現有 29 穴是回歸 fixture，不代表已匯入完整穴位庫。
+V2.5B-1 建立一條與公開 Knowledge Entity Schema 1.2.0 分離的確定性資料邊界。V2.5B-2 已讓十二正經 309 穴通過同一管線；原有 29 穴繼續作回歸 fixture 與編輯說明覆蓋層。
 
 ## 目錄與資料流
 
-`data/import/acupuncture/` 保存人工核准或抽取器輸出的 canonical record；`tools/acupuncture/` 執行 Load → Normalize → Resolve → Validate → Transform → Compare → Report；`data/generated/acupuncture/` 保存通過 Schema 1.2.0 的候選 Entity／Relation；`reports/` 保存 JSON 與 Markdown 例外報告。產生器不改寫 `data/renji-acupuncture.ts`，所以 dry-run 與 generate 都不會發布新公開內容。
+`data/import/acupuncture/` 保存 canonical record；`tools/acupuncture/` 執行 Load → Normalize → Resolve → Validate → Transform → Compare → Report；`data/generated/acupuncture/` 保存通過 Schema 1.2.0 的 Entity／Relation；`reports/` 保存 JSON、Markdown 與批次 SHA-256 檢查點。Production 讀取已提交的 aggregate generated artifact，只在描述等編輯欄位套用 curated overlay；結構身份、經脈隸屬及分類關係不再手寫。
 
 接受 `.json`、`.csv`、`.tsv`。JSON 可為記錄陣列，或 `{ "formatVersion": "1.0", "defaults": {}, "records": [] }`。CSV／TSV 的陣列欄用 `|` 分隔；`locationSummary`、`relationSourceIds`、`sourceLocator` 使用 JSON cell。引號、逗號及雙引號跳脫由內建 parser 處理。格式故意保持小而穩定，未來可加 Markdown 轉換器，但 Markdown 不是驗證合約。
 
@@ -42,13 +42,15 @@ ERROR 會阻止產生：格式錯誤、代碼語法或序號不符、代碼前�
 
 WARNING 不阻止 dry-run：非 accepted 工作流狀態、source locator 不完整或未使用、本地來源不存在、缺少 reference 級來源、alias collision。真重複、名稱衝突與可能別名不會被靜默合併。報告摘要分開計數 valid、invalid、duplicate、conflict、unresolved source／meridian／category、source quality 與 normalization。
 
-Compare 階段把候選 Entity 的 ID、標籤、別名、描述、metadata、source、lesson，以及穴位相關 `contains`／`belongs_to`／`classified_as`／`element_of` 關係逐字對照 production。現有 29 點必須 29/29 equivalent 才能 generate 或 CI validate。
+Compare 階段把候選 Entity 的 ID、標籤、別名、metadata、source、lesson，以及穴位相關 `contains`／`belongs_to`／`classified_as`／`element_of` 關係對照 production；描述是 curated overlay 擁有的欄位，不參與結構對帳。現有 29 點必須 29/29 equivalent，全量必須 309/309 equivalent 才能通過 CI validate。
 
 ## 指令與確定性
 
 - `npm run acupuncture:dry-run`：讀取、正規化、驗證、對帳並只更新報告；預設 bulk workflow。
-- `npm run acupuncture:generate`：零 ERROR 且 pilot 全等時，明確寫入候選 JSON 與報告；仍不發布到 production。
-- `npm run acupuncture:validate`：重算後比對已提交的 generated JSON／兩份報告；任何 stale artifact、錯誤或對帳差異均失敗。
+- `npm run acupuncture:build-imports`：從已提交的 309 穴來源快照重建六批 canonical records 與 aggregate。
+- `npm run acupuncture:run-batches`：依六批生成候選、報告和 SHA-256 檢查點。
+- `npm run acupuncture:generate`：重建 29 穴回歸 fixture；可附 aggregate input 路徑重建全量。
+- `npm run acupuncture:validate`：重算並比對 pilot、六批及 309 穴 aggregate；任何 stale artifact、缺號、五輸缺漏或 production 對帳差異均失敗。
 
 排序固定為經脈順序，再依穴位序號／代碼；relation 依 ID；輸出無時間戳。相同 input 連跑 generate 必須產生 byte-identical 檔案且 `git diff` 為空。GitHub Actions 在 build 前執行 validate，完整 build 也再次執行。
 
@@ -62,4 +64,4 @@ Compare 階段把候選 Entity 的 ID、標籤、別名、描述、metadata、so
 
 ## 模型 token 原則
 
-模型 token 不應用於重複、確定性的逐筆轉錄。大批量工作使用程式抽取 + 正規化 + 驗證；LLM review 只留給章節邊界模糊、未解析別名、來源衝突、關係語義判斷與教育摘要。V2.5B-2 可擴大 primary-meridian records，但仍須先交付結構化來源與例外審核，不得直接啟動完整語料匯入。
+模型 token 不應用於重複、確定性的逐筆轉錄。大批量工作使用程式抽取 + 正規化 + 驗證；LLM review 只留給章節邊界模糊、未解析別名、來源衝突、關係語義判斷與教育摘要。本轮只覆蓋十二正經標準穴位身份；奇經、解剖座標、臨床功能與其他人紀模組仍延後。

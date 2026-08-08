@@ -36,6 +36,12 @@ export default async function EntityPage({ params }: { params: Promise<{ id: str
   const entitySources = entity.sourceIds.map((sourceId) => sources.find((source) => source.id === sourceId)).filter((source) => source !== undefined);
   const relatedLessons = entity.relatedLessonIds.map((lessonId) => lessons.find((lesson) => lesson.id === lessonId)).filter((lesson) => lesson !== undefined);
   const localGraph = buildLocalGraph({ centerId: entity.id, nodes: allNodes, relations });
+  const meridianPoints = entity.type === "meridian"
+    ? relations.filter((relation) => relation.type === "belongs_to" && relation.to === entity.id)
+      .map((relation) => entities.find((candidate) => candidate.id === relation.from))
+      .filter((candidate): candidate is NonNullable<typeof candidate> => candidate?.type === "acupoint")
+      .sort((a, b) => Number(String(a.metadata.standardCode).match(/\d+$/)?.[0]) - Number(String(b.metadata.standardCode).match(/\d+$/)?.[0]))
+    : [];
 
   return (
     <div className="page-shell entity-page">
@@ -48,6 +54,7 @@ export default async function EntityPage({ params }: { params: Promise<{ id: str
         <Link href={`/entities/${lowerTrigram.slug}/`}><span>下卦</span><strong>{localize(lowerTrigram.labels)}</strong><small>{localize(lowerTrigram.descriptions)}</small></Link>
       </div></section>}
       <section className="entity-details"><h2>條目資料</h2><dl>{publicMetadata.map(([key, value]) => <div key={key}><dt>{localize(metadataLabels[key] ?? { "zh-Hant": key })}</dt><dd>{displayMetadata(value)}</dd></div>)}</dl></section>
+      {meridianPoints.length > 0 && <section className="entity-details meridian-point-section"><h2>本經標準穴位</h2><p>共 {meridianPoints.length} 穴，依標準代碼順序排列。</p><ol className="meridian-point-list">{meridianPoints.map((point) => <li key={point.id}><Link href={`/entities/${point.slug}/`}><span>{String(point.metadata.standardCode)}</span><strong>{localize(point.labels)}</strong></Link></li>)}</ol></section>}
       <section className="entity-details local-graph-section" aria-labelledby="local-graph-title">
         <h2 id="local-graph-title">知識連結圖</h2>
         <p>以本條目為中心，呈現一層直接關係；箭頭表示資料中的關係方向。</p>

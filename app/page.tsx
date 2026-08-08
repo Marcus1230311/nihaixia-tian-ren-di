@@ -19,7 +19,7 @@ export default function HomePage() {
       </section>
       <SearchPanel />
       <section className="platform-grid" aria-labelledby="model-title">
-        <div><p className="kicker">研讀架構</p><h2 id="model-title">從天紀走向人紀的共享知識</h2><p>目前有 {lessons.length} 篇引導課程、{trigrams.length} 個八卦、{hexagrams.length} 個六十四卦、{stems.length} 個天干、{branches.length} 個地支，以及 {meridians.length} 條正經與 {acupoints.length} 個針灸代表穴位。五行與陰陽沿用同一批共享條目。</p></div>
+        <div><p className="kicker">研讀架構</p><h2 id="model-title">從天紀走向人紀的共享知識</h2><p>目前有 {lessons.length} 篇引導課程、{trigrams.length} 個八卦、{hexagrams.length} 個六十四卦、{stems.length} 個天干、{branches.length} 個地支，以及 {meridians.length} 條正經與 {acupoints.length} 個十二正經標準穴位。五行與陰陽沿用同一批共享條目。</p></div>
         <div className="metric"><strong>{lessons.length}</strong><span>研讀課程</span></div>
         <div className="metric"><strong>{entities.length}</strong><span>知識條目</span></div>
       </section>

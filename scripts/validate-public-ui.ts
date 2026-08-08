@@ -76,7 +76,7 @@ if (!heluoLessonHtml.includes("heluo-visuals") || !heluoLessonHtml.includes("str
 const meridianLessonHtml = fs.readFileSync(routeFile("/lessons/renji/acupuncture/01-meridians/"), "utf8");
 if (!meridianLessonHtml.includes("acupuncture-visual") || !meridianLessonHtml.includes("medical-boundary")) errors.push("十二正經頁缺少結構圖或醫療安全邊界");
 const fiveShuLessonHtml = fs.readFileSync(routeFile("/lessons/renji/acupuncture/02-five-shu/"), "utf8");
-if (!fiveShuLessonHtml.includes("acupuncture-visual") || !fiveShuLessonHtml.includes("29 個代表穴位")) errors.push("五輸穴頁缺少結構圖或代表穴位說明");
+if (!fiveShuLessonHtml.includes("acupuncture-visual") || !fiveShuLessonHtml.includes("十二正經 309 個標準穴位")) errors.push("五輸穴頁缺少結構圖或完整穴位導覽");
 if (fiveShuLessonHtml.includes("回到易經導覽")) errors.push("人紀課程頁仍使用易經導覽假設");
 
 if (errors.length) throw new Error(`公開頁驗證失敗：\n${errors.join("\n")}`);

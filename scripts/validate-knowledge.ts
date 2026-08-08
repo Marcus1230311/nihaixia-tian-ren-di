@@ -104,7 +104,7 @@ if (graph.entities.some((entity) => entity.id.startsWith("diji:"))) throw new Er
 
 if (meridians.length !== 12) throw new Error(`十二正經數量應為 12，實際為 ${meridians.length}`);
 if (organs.length !== 12) throw new Error(`針灸試點臟腑／系統數量應為 12，實際為 ${organs.length}`);
-if (acupoints.length !== 29) throw new Error(`針灸試點穴位數量應為 29，實際為 ${acupoints.length}`);
+if (acupoints.length !== 309) throw new Error(`十二正經穴位數量應為 309，實際為 ${acupoints.length}`);
 if (pointCategories.length !== 12) throw new Error(`針灸試點穴位分類數量應為 12，實際為 ${pointCategories.length}`);
 if (meridianLevels.length !== 6) throw new Error(`經脈層級數量應為 6，實際為 ${meridianLevels.length}`);
 if (graph.entities.some((entity) => /^(tcm|acupuncture):(element|yin-yang):/.test(entity.id))) throw new Error("針灸不得複製五行或陰陽條目");
@@ -116,6 +116,11 @@ for (const meridian of meridians) {
   if (outgoing.filter((relation) => relation.type === "corresponds_to" && relation.to.startsWith("organ:")).length !== 1) throw new Error(`${meridian.id} 必須對應唯一臟腑／系統`);
   if (outgoing.filter((relation) => relation.type === "corresponds_to" && relation.to.startsWith("meridian-level:")).length !== 1) throw new Error(`${meridian.id} 必須對應唯一經脈層級`);
   if (outgoing.filter((relation) => relation.type === "corresponds_to" && ["yin-yang:yin", "yin-yang:yang"].includes(relation.to)).length !== 1) throw new Error(`${meridian.id} 必須重用唯一陰陽條目`);
+  const prefix = String(meridian.metadata.standardCode);
+  const meridianPoints = acupoints.filter((point) => graph.relations.some((relation) => relation.type === "belongs_to" && relation.from === point.id && relation.to === meridian.id));
+  const expectedCount = ({ LU: 11, LI: 20, ST: 45, SP: 21, HT: 9, SI: 19, BL: 67, KI: 27, PC: 9, TE: 23, GB: 44, LR: 14 } as Record<string, number>)[prefix];
+  const sequences = meridianPoints.map((point) => Number(String(point.metadata.standardCode).match(/\d+$/)?.[0])).sort((a, b) => a - b);
+  if (meridianPoints.length !== expectedCount || sequences.some((number, index) => number !== index + 1)) throw new Error(`${meridian.id} 穴位必須完整覆蓋 1–${expectedCount}`);
 }
 for (const organ of organs) {
   const elementRelations = graph.relations.filter((relation) => relation.from === organ.id && relation.type === "element_of" && expectedElementIds.has(relation.to));
@@ -145,6 +150,11 @@ for (const point of acupoints) {
   const expectedElement = polarity ? `element:${expectedFiveShuElements[polarity][category]}` : null;
   const elementRelations = outgoing.filter((relation) => relation.type === "element_of" && expectedElementIds.has(relation.to));
   if (!expectedElement || elementRelations.length !== 1 || elementRelations[0].to !== expectedElement) throw new Error(`${point.id} 五輸五行配屬不符合陰陽經結構`);
+}
+for (const meridian of meridians) {
+  const meridianPointIds = new Set(graph.relations.filter((relation) => relation.type === "belongs_to" && relation.to === meridian.id).map((relation) => relation.from));
+  const fiveShuCount = graph.relations.filter((relation) => relation.type === "classified_as" && meridianPointIds.has(relation.from) && fiveShuCategoryIds.has(relation.to)).length;
+  if (fiveShuCount !== 5) throw new Error(`${meridian.id} 必須完整提供 5 個五輸穴，實際為 ${fiveShuCount}`);
 }
 
 const relationTriples = new Set<string>();

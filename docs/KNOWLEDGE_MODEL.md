@@ -91,3 +91,7 @@ Schema V1 已用完整 8 個八卦與 64 個六十四卦進行擴量驗證，未
 `tools/acupuncture/` 的 canonical import record、source locator、workflow status、relation-level source purpose 與未來 extractor 訊息全屬匯入層，不是 Entity／Relation／Source 欄位。29 點對帳證明 Schema 1.2.0 可原樣承接候選輸出，因此本里程碑沒有 schema 變更。
 
 未來 anatomy marker／path 亦採 linked spatial submodel；不得為方便 OCR 或繪圖而解除 freeze。完整合約見 [`ACUPUNCTURE_INGESTION.md`](ACUPUNCTURE_INGESTION.md)。
+
+## V2.5B-2 十二正經全量身份
+
+十二正經 309 穴的代碼、名稱、別名、經脈歸屬、序號、來源與分類關係由 `data/generated/acupuncture/primary-meridians.json` 確定性生成；production 只以既有 29 穴的人工說明作 curated overlay，不再於 TypeScript 手工維護穴位結構身份。每條經脈必須代碼連續且恰有五個五輸穴，六批候選各自保存報告與 SHA-256 checkpoint。奇經、解剖座標、經脈路徑與臨床功能仍留待獨立子模型。

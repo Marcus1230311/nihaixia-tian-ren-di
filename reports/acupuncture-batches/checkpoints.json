@@ -1,0 +1,78 @@
+{
+  "formatVersion": "1.0",
+  "generatedBy": "tools/acupuncture/run-primary-batches.ts",
+  "checkpoints": [
+    {
+      "batch": "01-lu-li",
+      "records": 31,
+      "valid": 31,
+      "additions": 0,
+      "updates": 0,
+      "errors": 0,
+      "warnings": 0,
+      "inputSha256": "97cc135457b9389357ea55cd946921da2efd3ac67e971d6bb627e6221c9ddc19",
+      "generatedSha256": "328222d3b39f298014b075423a1662ee6b94a75f3e990add306ba5808509260d",
+      "reportSha256": "25f07dc9735ced3b3677bd036a14b4183d9dcadba5a64bba7069efe59b77182f"
+    },
+    {
+      "batch": "02-st-sp",
+      "records": 66,
+      "valid": 66,
+      "additions": 0,
+      "updates": 0,
+      "errors": 0,
+      "warnings": 0,
+      "inputSha256": "12faa82a269c3933cfa89829063f7ef484d7988302acc130acd4b5e6853231a5",
+      "generatedSha256": "8c6a7436fd5557e96420fe0cbf1445f874309f3a1f1b13f100c49feeb7d1a666",
+      "reportSha256": "026dd02bb14c6d7f0dad96f931e91eba07a59acbac0c2df897a208c3ede99ee9"
+    },
+    {
+      "batch": "03-ht-si",
+      "records": 28,
+      "valid": 28,
+      "additions": 0,
+      "updates": 0,
+      "errors": 0,
+      "warnings": 0,
+      "inputSha256": "a22195d953c8fae4f3b28f17edc3435b885e3e0351f28ad93940ed2eb560afdd",
+      "generatedSha256": "aec216b1f7bfd1caa292c2acfcc3e7de38e12f1b9122be0f67d7a55e6fe811ae",
+      "reportSha256": "99b6cea25135199c6572e8114d7da14d7da4fa8d066bfd63274742f2a85456b3"
+    },
+    {
+      "batch": "04-bl-ki",
+      "records": 94,
+      "valid": 94,
+      "additions": 0,
+      "updates": 0,
+      "errors": 0,
+      "warnings": 0,
+      "inputSha256": "585a00e00c09c311abf702b6259d8165f1d7602370fe730bfb9bd06daf55d2b0",
+      "generatedSha256": "7b0729d128568f78756722acaada658cb25d9c567fbf3896a17bf36f6f2fd930",
+      "reportSha256": "0e0c7e69aed0baf8aa10dda38d96967a09cfec25150ea38d78fd13edd0a3fa1d"
+    },
+    {
+      "batch": "05-pc-te",
+      "records": 32,
+      "valid": 32,
+      "additions": 0,
+      "updates": 0,
+      "errors": 0,
+      "warnings": 0,
+      "inputSha256": "43b6bd45dbcc81f8b5c16131ec63795219a9a42cae6552a21f002fd5869422d7",
+      "generatedSha256": "254975c5ca3928ef410dd305437f848d2b8c212d9af204189e4adf105192f28a",
+      "reportSha256": "8b7219fef75d371b6facc83d31825f6d36216a9354c711bea6c24ed464bb25df"
+    },
+    {
+      "batch": "06-gb-lr",
+      "records": 58,
+      "valid": 58,
+      "additions": 0,
+      "updates": 0,
+      "errors": 0,
+      "warnings": 0,
+      "inputSha256": "b78e4645be319408a99dacc58fd9835a8e7246a504ee357fbd14802fd4846d26",
+      "generatedSha256": "0ba507355646f01df78b579b62cf80c8507878773351bdd4cbfa05136a0b1555",
+      "reportSha256": "70e0b9addcfa30ea28a6ac09a09c9a369829abbf8c13d323179b4cb5c21dabdb"
+    }
+  ]
+}

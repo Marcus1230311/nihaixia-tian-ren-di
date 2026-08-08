@@ -1,0 +1,275 @@
+{
+  "reportVersion": "1.0",
+  "schemaVersion": "1.2.0",
+  "inputFile": "data/import/acupuncture/primary-batches/01-lu-li.json",
+  "summary": {
+    "total": 31,
+    "valid": 31,
+    "invalid": 0,
+    "duplicate": 0,
+    "conflict": 0,
+    "errors": 0,
+    "warnings": 0,
+    "unresolvedSource": 0,
+    "unresolvedMeridian": 0,
+    "unresolvedCategory": 0,
+    "normalizationWarnings": 0
+  },
+  "records": [
+    {
+      "sourceKey": "primary:LU1",
+      "status": "valid",
+      "entityId": "acupoint:lu-01",
+      "standardCode": "LU1",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU2",
+      "status": "valid",
+      "entityId": "acupoint:lu-02",
+      "standardCode": "LU2",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU3",
+      "status": "valid",
+      "entityId": "acupoint:lu-03",
+      "standardCode": "LU3",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU4",
+      "status": "valid",
+      "entityId": "acupoint:lu-04",
+      "standardCode": "LU4",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU5",
+      "status": "valid",
+      "entityId": "acupoint:lu-05",
+      "standardCode": "LU5",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU6",
+      "status": "valid",
+      "entityId": "acupoint:lu-06",
+      "standardCode": "LU6",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU7",
+      "status": "valid",
+      "entityId": "acupoint:lu-07",
+      "standardCode": "LU7",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU8",
+      "status": "valid",
+      "entityId": "acupoint:lu-08",
+      "standardCode": "LU8",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU9",
+      "status": "valid",
+      "entityId": "acupoint:lu-09",
+      "standardCode": "LU9",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU10",
+      "status": "valid",
+      "entityId": "acupoint:lu-10",
+      "standardCode": "LU10",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LU11",
+      "status": "valid",
+      "entityId": "acupoint:lu-11",
+      "standardCode": "LU11",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI1",
+      "status": "valid",
+      "entityId": "acupoint:li-01",
+      "standardCode": "LI1",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI2",
+      "status": "valid",
+      "entityId": "acupoint:li-02",
+      "standardCode": "LI2",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI3",
+      "status": "valid",
+      "entityId": "acupoint:li-03",
+      "standardCode": "LI3",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI4",
+      "status": "valid",
+      "entityId": "acupoint:li-04",
+      "standardCode": "LI4",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI5",
+      "status": "valid",
+      "entityId": "acupoint:li-05",
+      "standardCode": "LI5",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI6",
+      "status": "valid",
+      "entityId": "acupoint:li-06",
+      "standardCode": "LI6",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI7",
+      "status": "valid",
+      "entityId": "acupoint:li-07",
+      "standardCode": "LI7",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI8",
+      "status": "valid",
+      "entityId": "acupoint:li-08",
+      "standardCode": "LI8",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI9",
+      "status": "valid",
+      "entityId": "acupoint:li-09",
+      "standardCode": "LI9",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI10",
+      "status": "valid",
+      "entityId": "acupoint:li-10",
+      "standardCode": "LI10",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI11",
+      "status": "valid",
+      "entityId": "acupoint:li-11",
+      "standardCode": "LI11",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI12",
+      "status": "valid",
+      "entityId": "acupoint:li-12",
+      "standardCode": "LI12",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI13",
+      "status": "valid",
+      "entityId": "acupoint:li-13",
+      "standardCode": "LI13",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI14",
+      "status": "valid",
+      "entityId": "acupoint:li-14",
+      "standardCode": "LI14",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI15",
+      "status": "valid",
+      "entityId": "acupoint:li-15",
+      "standardCode": "LI15",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI16",
+      "status": "valid",
+      "entityId": "acupoint:li-16",
+      "standardCode": "LI16",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI17",
+      "status": "valid",
+      "entityId": "acupoint:li-17",
+      "standardCode": "LI17",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI18",
+      "status": "valid",
+      "entityId": "acupoint:li-18",
+      "standardCode": "LI18",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI19",
+      "status": "valid",
+      "entityId": "acupoint:li-19",
+      "standardCode": "LI19",
+      "issues": [],
+      "normalizations": []
+    },
+    {
+      "sourceKey": "primary:LI20",
+      "status": "valid",
+      "entityId": "acupoint:li-20",
+      "standardCode": "LI20",
+      "issues": [],
+      "normalizations": []
+    }
+  ],
+  "reconciliation": {
+    "checked": 31,
+    "equivalent": 31,
+    "additions": 0,
+    "mismatched": 0,
+    "differences": []
+  }
+}

@@ -1,0 +1,1538 @@
+{
+  "formatVersion": "1.0",
+  "defaults": {
+    "relatedLessonIds": [
+      "lesson:renji:acupuncture:02"
+    ],
+    "sourceIds": [
+      "source:project:renji-acupuncture-notes",
+      "source:reference:who-acupuncture-nomenclature",
+      "source:derived:renji-acupuncture-pilot"
+    ],
+    "relationSourceIds": {
+      "membership": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "category": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "fiveShu": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    "sourceLocator": [
+      {
+        "sourceId": "source:project:renji-acupuncture-notes",
+        "sourceTitle": "本站人紀針灸既有課程筆記",
+        "section": "renji/zhenjiu/02–03",
+        "localFile": "renji/zhenjiu",
+        "note": "十二正經穴名次序的本站既有編輯表。"
+      },
+      {
+        "sourceId": "source:reference:who-acupuncture-nomenclature",
+        "sourceTitle": "WHO Standard Acupuncture Nomenclature",
+        "section": "twelve primary meridian codes and names",
+        "sourceUrl": "https://iris.who.int/handle/10665/353407",
+        "note": "用於標準代碼、經脈與穴名核對。"
+      },
+      {
+        "sourceId": "source:reference:bucm-five-shu",
+        "sourceTitle": "北京中醫藥大學針灸學：五輸穴",
+        "section": "五輸穴次序與五行配屬",
+        "sourceUrl": "https://jxjyxb.bucm.edu.cn/BZYAttachs/courseware/zhenjiuxue/c1/c1_61a.htm"
+      },
+      {
+        "sourceId": "source:derived:renji-acupuncture-pilot",
+        "section": "V2.5B-2 production expansion",
+        "note": "由受控來源快照和分類映射生成。"
+      }
+    ],
+    "status": "accepted"
+  },
+  "records": [
+    {
+      "sourceKey": "primary:BL1",
+      "canonicalNameHant": "睛明",
+      "canonicalNameHans": "睛明",
+      "standardCode": "BL1",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL1"
+      ],
+      "aliasesHans": [
+        "BL1"
+      ],
+      "sequenceNumber": 1,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL2",
+      "canonicalNameHant": "攢竹",
+      "canonicalNameHans": "攒竹",
+      "standardCode": "BL2",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL2"
+      ],
+      "aliasesHans": [
+        "BL2"
+      ],
+      "sequenceNumber": 2,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL3",
+      "canonicalNameHant": "眉衝",
+      "canonicalNameHans": "眉冲",
+      "standardCode": "BL3",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL3"
+      ],
+      "aliasesHans": [
+        "BL3"
+      ],
+      "sequenceNumber": 3,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL4",
+      "canonicalNameHant": "曲差",
+      "canonicalNameHans": "曲差",
+      "standardCode": "BL4",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL4"
+      ],
+      "aliasesHans": [
+        "BL4"
+      ],
+      "sequenceNumber": 4,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL5",
+      "canonicalNameHant": "五處",
+      "canonicalNameHans": "五处",
+      "standardCode": "BL5",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL5"
+      ],
+      "aliasesHans": [
+        "BL5"
+      ],
+      "sequenceNumber": 5,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL6",
+      "canonicalNameHant": "承光",
+      "canonicalNameHans": "承光",
+      "standardCode": "BL6",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL6"
+      ],
+      "aliasesHans": [
+        "BL6"
+      ],
+      "sequenceNumber": 6,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL7",
+      "canonicalNameHant": "通天",
+      "canonicalNameHans": "通天",
+      "standardCode": "BL7",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL7"
+      ],
+      "aliasesHans": [
+        "BL7"
+      ],
+      "sequenceNumber": 7,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL8",
+      "canonicalNameHant": "絡卻",
+      "canonicalNameHans": "络却",
+      "standardCode": "BL8",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL8"
+      ],
+      "aliasesHans": [
+        "BL8"
+      ],
+      "sequenceNumber": 8,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL9",
+      "canonicalNameHant": "玉枕",
+      "canonicalNameHans": "玉枕",
+      "standardCode": "BL9",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL9"
+      ],
+      "aliasesHans": [
+        "BL9"
+      ],
+      "sequenceNumber": 9,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL10",
+      "canonicalNameHant": "天柱",
+      "canonicalNameHans": "天柱",
+      "standardCode": "BL10",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL10"
+      ],
+      "aliasesHans": [
+        "BL10"
+      ],
+      "sequenceNumber": 10,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL11",
+      "canonicalNameHant": "大杼",
+      "canonicalNameHans": "大杼",
+      "standardCode": "BL11",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL11"
+      ],
+      "aliasesHans": [
+        "BL11"
+      ],
+      "sequenceNumber": 11,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL12",
+      "canonicalNameHant": "風門",
+      "canonicalNameHans": "风门",
+      "standardCode": "BL12",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL12"
+      ],
+      "aliasesHans": [
+        "BL12"
+      ],
+      "sequenceNumber": 12,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL13",
+      "canonicalNameHant": "肺俞",
+      "canonicalNameHans": "肺俞",
+      "standardCode": "BL13",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL13"
+      ],
+      "aliasesHans": [
+        "BL13"
+      ],
+      "sequenceNumber": 13,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL14",
+      "canonicalNameHant": "厥陰俞",
+      "canonicalNameHans": "厥阴俞",
+      "standardCode": "BL14",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL14"
+      ],
+      "aliasesHans": [
+        "BL14"
+      ],
+      "sequenceNumber": 14,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL15",
+      "canonicalNameHant": "心俞",
+      "canonicalNameHans": "心俞",
+      "standardCode": "BL15",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL15"
+      ],
+      "aliasesHans": [
+        "BL15"
+      ],
+      "sequenceNumber": 15,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL16",
+      "canonicalNameHant": "督俞",
+      "canonicalNameHans": "督俞",
+      "standardCode": "BL16",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL16"
+      ],
+      "aliasesHans": [
+        "BL16"
+      ],
+      "sequenceNumber": 16,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL17",
+      "canonicalNameHant": "膈俞",
+      "canonicalNameHans": "膈俞",
+      "standardCode": "BL17",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL17"
+      ],
+      "aliasesHans": [
+        "BL17"
+      ],
+      "sequenceNumber": 17,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL18",
+      "canonicalNameHant": "肝俞",
+      "canonicalNameHans": "肝俞",
+      "standardCode": "BL18",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL18"
+      ],
+      "aliasesHans": [
+        "BL18"
+      ],
+      "sequenceNumber": 18,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL19",
+      "canonicalNameHant": "膽俞",
+      "canonicalNameHans": "胆俞",
+      "standardCode": "BL19",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL19"
+      ],
+      "aliasesHans": [
+        "BL19"
+      ],
+      "sequenceNumber": 19,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL20",
+      "canonicalNameHant": "脾俞",
+      "canonicalNameHans": "脾俞",
+      "standardCode": "BL20",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL20"
+      ],
+      "aliasesHans": [
+        "BL20"
+      ],
+      "sequenceNumber": 20,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL21",
+      "canonicalNameHant": "胃俞",
+      "canonicalNameHans": "胃俞",
+      "standardCode": "BL21",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL21"
+      ],
+      "aliasesHans": [
+        "BL21"
+      ],
+      "sequenceNumber": 21,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL22",
+      "canonicalNameHant": "三焦俞",
+      "canonicalNameHans": "三焦俞",
+      "standardCode": "BL22",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL22"
+      ],
+      "aliasesHans": [
+        "BL22"
+      ],
+      "sequenceNumber": 22,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL23",
+      "canonicalNameHant": "腎俞",
+      "canonicalNameHans": "肾俞",
+      "standardCode": "BL23",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL23"
+      ],
+      "aliasesHans": [
+        "BL23"
+      ],
+      "sequenceNumber": 23,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL24",
+      "canonicalNameHant": "氣海俞",
+      "canonicalNameHans": "气海俞",
+      "standardCode": "BL24",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL24"
+      ],
+      "aliasesHans": [
+        "BL24"
+      ],
+      "sequenceNumber": 24,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL25",
+      "canonicalNameHant": "大腸俞",
+      "canonicalNameHans": "大肠俞",
+      "standardCode": "BL25",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL25"
+      ],
+      "aliasesHans": [
+        "BL25"
+      ],
+      "sequenceNumber": 25,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL26",
+      "canonicalNameHant": "關元俞",
+      "canonicalNameHans": "关元俞",
+      "standardCode": "BL26",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL26"
+      ],
+      "aliasesHans": [
+        "BL26"
+      ],
+      "sequenceNumber": 26,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL27",
+      "canonicalNameHant": "小腸俞",
+      "canonicalNameHans": "小肠俞",
+      "standardCode": "BL27",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL27"
+      ],
+      "aliasesHans": [
+        "BL27"
+      ],
+      "sequenceNumber": 27,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL28",
+      "canonicalNameHant": "膀胱俞",
+      "canonicalNameHans": "膀胱俞",
+      "standardCode": "BL28",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL28"
+      ],
+      "aliasesHans": [
+        "BL28"
+      ],
+      "sequenceNumber": 28,
+      "pointCategories": [
+        "point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL29",
+      "canonicalNameHant": "中膂俞",
+      "canonicalNameHans": "中膂俞",
+      "standardCode": "BL29",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL29"
+      ],
+      "aliasesHans": [
+        "BL29"
+      ],
+      "sequenceNumber": 29,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL30",
+      "canonicalNameHant": "白環俞",
+      "canonicalNameHans": "白环俞",
+      "standardCode": "BL30",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL30"
+      ],
+      "aliasesHans": [
+        "BL30"
+      ],
+      "sequenceNumber": 30,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL31",
+      "canonicalNameHant": "上髎",
+      "canonicalNameHans": "上髎",
+      "standardCode": "BL31",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL31"
+      ],
+      "aliasesHans": [
+        "BL31"
+      ],
+      "sequenceNumber": 31,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL32",
+      "canonicalNameHant": "次髎",
+      "canonicalNameHans": "次髎",
+      "standardCode": "BL32",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL32"
+      ],
+      "aliasesHans": [
+        "BL32"
+      ],
+      "sequenceNumber": 32,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL33",
+      "canonicalNameHant": "中髎",
+      "canonicalNameHans": "中髎",
+      "standardCode": "BL33",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL33"
+      ],
+      "aliasesHans": [
+        "BL33"
+      ],
+      "sequenceNumber": 33,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL34",
+      "canonicalNameHant": "下髎",
+      "canonicalNameHans": "下髎",
+      "standardCode": "BL34",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL34"
+      ],
+      "aliasesHans": [
+        "BL34"
+      ],
+      "sequenceNumber": 34,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL35",
+      "canonicalNameHant": "會陽",
+      "canonicalNameHans": "会阳",
+      "standardCode": "BL35",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL35"
+      ],
+      "aliasesHans": [
+        "BL35"
+      ],
+      "sequenceNumber": 35,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL36",
+      "canonicalNameHant": "承扶",
+      "canonicalNameHans": "承扶",
+      "standardCode": "BL36",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL36"
+      ],
+      "aliasesHans": [
+        "BL36"
+      ],
+      "sequenceNumber": 36,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL37",
+      "canonicalNameHant": "殷門",
+      "canonicalNameHans": "殷门",
+      "standardCode": "BL37",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL37"
+      ],
+      "aliasesHans": [
+        "BL37"
+      ],
+      "sequenceNumber": 37,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL38",
+      "canonicalNameHant": "浮郄",
+      "canonicalNameHans": "浮郄",
+      "standardCode": "BL38",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL38"
+      ],
+      "aliasesHans": [
+        "BL38"
+      ],
+      "sequenceNumber": 38,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL39",
+      "canonicalNameHant": "委陽",
+      "canonicalNameHans": "委阳",
+      "standardCode": "BL39",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL39"
+      ],
+      "aliasesHans": [
+        "BL39"
+      ],
+      "sequenceNumber": 39,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL40",
+      "canonicalNameHant": "委中",
+      "canonicalNameHans": "委中",
+      "standardCode": "BL40",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL40"
+      ],
+      "aliasesHans": [
+        "BL40"
+      ],
+      "sequenceNumber": 40,
+      "pointCategories": [
+        "point-category:sea"
+      ],
+      "elementId": "element:earth"
+    },
+    {
+      "sourceKey": "primary:BL41",
+      "canonicalNameHant": "附分",
+      "canonicalNameHans": "附分",
+      "standardCode": "BL41",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL41"
+      ],
+      "aliasesHans": [
+        "BL41"
+      ],
+      "sequenceNumber": 41,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL42",
+      "canonicalNameHant": "魄戶",
+      "canonicalNameHans": "魄户",
+      "standardCode": "BL42",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL42"
+      ],
+      "aliasesHans": [
+        "BL42"
+      ],
+      "sequenceNumber": 42,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL43",
+      "canonicalNameHant": "膏肓",
+      "canonicalNameHans": "膏肓",
+      "standardCode": "BL43",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL43"
+      ],
+      "aliasesHans": [
+        "BL43"
+      ],
+      "sequenceNumber": 43,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL44",
+      "canonicalNameHant": "神堂",
+      "canonicalNameHans": "神堂",
+      "standardCode": "BL44",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL44"
+      ],
+      "aliasesHans": [
+        "BL44"
+      ],
+      "sequenceNumber": 44,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL45",
+      "canonicalNameHant": "譩譆",
+      "canonicalNameHans": "譩譆",
+      "standardCode": "BL45",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL45"
+      ],
+      "aliasesHans": [
+        "BL45"
+      ],
+      "sequenceNumber": 45,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL46",
+      "canonicalNameHant": "膈關",
+      "canonicalNameHans": "膈关",
+      "standardCode": "BL46",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL46"
+      ],
+      "aliasesHans": [
+        "BL46"
+      ],
+      "sequenceNumber": 46,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL47",
+      "canonicalNameHant": "魂門",
+      "canonicalNameHans": "魂门",
+      "standardCode": "BL47",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL47"
+      ],
+      "aliasesHans": [
+        "BL47"
+      ],
+      "sequenceNumber": 47,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL48",
+      "canonicalNameHant": "陽綱",
+      "canonicalNameHans": "阳纲",
+      "standardCode": "BL48",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL48"
+      ],
+      "aliasesHans": [
+        "BL48"
+      ],
+      "sequenceNumber": 48,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL49",
+      "canonicalNameHant": "意舍",
+      "canonicalNameHans": "意舍",
+      "standardCode": "BL49",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL49"
+      ],
+      "aliasesHans": [
+        "BL49"
+      ],
+      "sequenceNumber": 49,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL50",
+      "canonicalNameHant": "胃倉",
+      "canonicalNameHans": "胃仓",
+      "standardCode": "BL50",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL50"
+      ],
+      "aliasesHans": [
+        "BL50"
+      ],
+      "sequenceNumber": 50,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL51",
+      "canonicalNameHant": "肓門",
+      "canonicalNameHans": "肓门",
+      "standardCode": "BL51",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL51"
+      ],
+      "aliasesHans": [
+        "BL51"
+      ],
+      "sequenceNumber": 51,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL52",
+      "canonicalNameHant": "志室",
+      "canonicalNameHans": "志室",
+      "standardCode": "BL52",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL52"
+      ],
+      "aliasesHans": [
+        "BL52"
+      ],
+      "sequenceNumber": 52,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL53",
+      "canonicalNameHant": "胞肓",
+      "canonicalNameHans": "胞肓",
+      "standardCode": "BL53",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL53"
+      ],
+      "aliasesHans": [
+        "BL53"
+      ],
+      "sequenceNumber": 53,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL54",
+      "canonicalNameHant": "秩邊",
+      "canonicalNameHans": "秩边",
+      "standardCode": "BL54",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL54"
+      ],
+      "aliasesHans": [
+        "BL54"
+      ],
+      "sequenceNumber": 54,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL55",
+      "canonicalNameHant": "合陽",
+      "canonicalNameHans": "合阳",
+      "standardCode": "BL55",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL55"
+      ],
+      "aliasesHans": [
+        "BL55"
+      ],
+      "sequenceNumber": 55,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL56",
+      "canonicalNameHant": "承筋",
+      "canonicalNameHans": "承筋",
+      "standardCode": "BL56",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL56"
+      ],
+      "aliasesHans": [
+        "BL56"
+      ],
+      "sequenceNumber": 56,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL57",
+      "canonicalNameHant": "承山",
+      "canonicalNameHans": "承山",
+      "standardCode": "BL57",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL57"
+      ],
+      "aliasesHans": [
+        "BL57"
+      ],
+      "sequenceNumber": 57,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL58",
+      "canonicalNameHant": "飛揚",
+      "canonicalNameHans": "飞扬",
+      "standardCode": "BL58",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL58"
+      ],
+      "aliasesHans": [
+        "BL58"
+      ],
+      "sequenceNumber": 58,
+      "pointCategories": [
+        "point-category:connecting"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL59",
+      "canonicalNameHant": "跗陽",
+      "canonicalNameHans": "跗阳",
+      "standardCode": "BL59",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL59"
+      ],
+      "aliasesHans": [
+        "BL59"
+      ],
+      "sequenceNumber": 59,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL60",
+      "canonicalNameHant": "崑崙",
+      "canonicalNameHans": "昆仑",
+      "standardCode": "BL60",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL60"
+      ],
+      "aliasesHans": [
+        "BL60"
+      ],
+      "sequenceNumber": 60,
+      "pointCategories": [
+        "point-category:river"
+      ],
+      "elementId": "element:fire"
+    },
+    {
+      "sourceKey": "primary:BL61",
+      "canonicalNameHant": "僕參",
+      "canonicalNameHans": "仆参",
+      "standardCode": "BL61",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL61"
+      ],
+      "aliasesHans": [
+        "BL61"
+      ],
+      "sequenceNumber": 61,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:BL62",
+      "canonicalNameHant": "申脈",
+      "canonicalNameHans": "申脉",
+      "standardCode": "BL62",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL62"
+      ],
+      "aliasesHans": [
+        "BL62"
+      ],
+      "sequenceNumber": 62,
+      "pointCategories": [
+        "point-category:eight-confluent"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL63",
+      "canonicalNameHant": "金門",
+      "canonicalNameHans": "金门",
+      "standardCode": "BL63",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL63"
+      ],
+      "aliasesHans": [
+        "BL63"
+      ],
+      "sequenceNumber": 63,
+      "pointCategories": [
+        "point-category:cleft"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL64",
+      "canonicalNameHant": "京骨",
+      "canonicalNameHans": "京骨",
+      "standardCode": "BL64",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL64"
+      ],
+      "aliasesHans": [
+        "BL64"
+      ],
+      "sequenceNumber": 64,
+      "pointCategories": [
+        "point-category:source"
+      ]
+    },
+    {
+      "sourceKey": "primary:BL65",
+      "canonicalNameHant": "束骨",
+      "canonicalNameHans": "束骨",
+      "standardCode": "BL65",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL65"
+      ],
+      "aliasesHans": [
+        "BL65"
+      ],
+      "sequenceNumber": 65,
+      "pointCategories": [
+        "point-category:stream"
+      ],
+      "elementId": "element:wood"
+    },
+    {
+      "sourceKey": "primary:BL66",
+      "canonicalNameHant": "足通谷",
+      "canonicalNameHans": "足通谷",
+      "standardCode": "BL66",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL66"
+      ],
+      "aliasesHans": [
+        "BL66"
+      ],
+      "sequenceNumber": 66,
+      "pointCategories": [
+        "point-category:spring"
+      ],
+      "elementId": "element:water"
+    },
+    {
+      "sourceKey": "primary:BL67",
+      "canonicalNameHant": "至陰",
+      "canonicalNameHans": "至阴",
+      "standardCode": "BL67",
+      "meridianId": "meridian:bladder",
+      "aliasesHant": [
+        "BL67"
+      ],
+      "aliasesHans": [
+        "BL67"
+      ],
+      "sequenceNumber": 67,
+      "pointCategories": [
+        "point-category:well"
+      ],
+      "elementId": "element:metal"
+    },
+    {
+      "sourceKey": "primary:KI1",
+      "canonicalNameHant": "湧泉",
+      "canonicalNameHans": "涌泉",
+      "standardCode": "KI1",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI1"
+      ],
+      "aliasesHans": [
+        "KI1"
+      ],
+      "sequenceNumber": 1,
+      "pointCategories": [
+        "point-category:well"
+      ],
+      "elementId": "element:wood"
+    },
+    {
+      "sourceKey": "primary:KI2",
+      "canonicalNameHant": "然谷",
+      "canonicalNameHans": "然谷",
+      "standardCode": "KI2",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI2"
+      ],
+      "aliasesHans": [
+        "KI2"
+      ],
+      "sequenceNumber": 2,
+      "pointCategories": [
+        "point-category:spring"
+      ],
+      "elementId": "element:fire"
+    },
+    {
+      "sourceKey": "primary:KI3",
+      "canonicalNameHant": "太谿",
+      "canonicalNameHans": "太溪",
+      "standardCode": "KI3",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI3"
+      ],
+      "aliasesHans": [
+        "KI3"
+      ],
+      "sequenceNumber": 3,
+      "pointCategories": [
+        "point-category:stream",
+        "point-category:source"
+      ],
+      "elementId": "element:earth"
+    },
+    {
+      "sourceKey": "primary:KI4",
+      "canonicalNameHant": "大鍾",
+      "canonicalNameHans": "大锺",
+      "standardCode": "KI4",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI4"
+      ],
+      "aliasesHans": [
+        "KI4"
+      ],
+      "sequenceNumber": 4,
+      "pointCategories": [
+        "point-category:connecting"
+      ]
+    },
+    {
+      "sourceKey": "primary:KI5",
+      "canonicalNameHant": "水泉",
+      "canonicalNameHans": "水泉",
+      "standardCode": "KI5",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI5"
+      ],
+      "aliasesHans": [
+        "KI5"
+      ],
+      "sequenceNumber": 5,
+      "pointCategories": [
+        "point-category:cleft"
+      ]
+    },
+    {
+      "sourceKey": "primary:KI6",
+      "canonicalNameHant": "照海",
+      "canonicalNameHans": "照海",
+      "standardCode": "KI6",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI6"
+      ],
+      "aliasesHans": [
+        "KI6"
+      ],
+      "sequenceNumber": 6,
+      "pointCategories": [
+        "point-category:eight-confluent"
+      ]
+    },
+    {
+      "sourceKey": "primary:KI7",
+      "canonicalNameHant": "復溜",
+      "canonicalNameHans": "复溜",
+      "standardCode": "KI7",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI7"
+      ],
+      "aliasesHans": [
+        "KI7"
+      ],
+      "sequenceNumber": 7,
+      "pointCategories": [
+        "point-category:river"
+      ],
+      "elementId": "element:metal"
+    },
+    {
+      "sourceKey": "primary:KI8",
+      "canonicalNameHant": "交信",
+      "canonicalNameHans": "交信",
+      "standardCode": "KI8",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI8"
+      ],
+      "aliasesHans": [
+        "KI8"
+      ],
+      "sequenceNumber": 8,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI9",
+      "canonicalNameHant": "築賓",
+      "canonicalNameHans": "筑宾",
+      "standardCode": "KI9",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI9"
+      ],
+      "aliasesHans": [
+        "KI9"
+      ],
+      "sequenceNumber": 9,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI10",
+      "canonicalNameHant": "陰谷",
+      "canonicalNameHans": "阴谷",
+      "standardCode": "KI10",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI10"
+      ],
+      "aliasesHans": [
+        "KI10"
+      ],
+      "sequenceNumber": 10,
+      "pointCategories": [
+        "point-category:sea"
+      ],
+      "elementId": "element:water"
+    },
+    {
+      "sourceKey": "primary:KI11",
+      "canonicalNameHant": "橫骨",
+      "canonicalNameHans": "横骨",
+      "standardCode": "KI11",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI11"
+      ],
+      "aliasesHans": [
+        "KI11"
+      ],
+      "sequenceNumber": 11,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI12",
+      "canonicalNameHant": "大赫",
+      "canonicalNameHans": "大赫",
+      "standardCode": "KI12",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI12"
+      ],
+      "aliasesHans": [
+        "KI12"
+      ],
+      "sequenceNumber": 12,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI13",
+      "canonicalNameHant": "氣穴",
+      "canonicalNameHans": "气穴",
+      "standardCode": "KI13",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI13"
+      ],
+      "aliasesHans": [
+        "KI13"
+      ],
+      "sequenceNumber": 13,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI14",
+      "canonicalNameHant": "四滿",
+      "canonicalNameHans": "四满",
+      "standardCode": "KI14",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI14"
+      ],
+      "aliasesHans": [
+        "KI14"
+      ],
+      "sequenceNumber": 14,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI15",
+      "canonicalNameHant": "中注",
+      "canonicalNameHans": "中注",
+      "standardCode": "KI15",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI15"
+      ],
+      "aliasesHans": [
+        "KI15"
+      ],
+      "sequenceNumber": 15,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI16",
+      "canonicalNameHant": "肓俞",
+      "canonicalNameHans": "肓俞",
+      "standardCode": "KI16",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI16"
+      ],
+      "aliasesHans": [
+        "KI16"
+      ],
+      "sequenceNumber": 16,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI17",
+      "canonicalNameHant": "商曲",
+      "canonicalNameHans": "商曲",
+      "standardCode": "KI17",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI17"
+      ],
+      "aliasesHans": [
+        "KI17"
+      ],
+      "sequenceNumber": 17,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI18",
+      "canonicalNameHant": "石關",
+      "canonicalNameHans": "石关",
+      "standardCode": "KI18",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI18"
+      ],
+      "aliasesHans": [
+        "KI18"
+      ],
+      "sequenceNumber": 18,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI19",
+      "canonicalNameHant": "陰都",
+      "canonicalNameHans": "阴都",
+      "standardCode": "KI19",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI19"
+      ],
+      "aliasesHans": [
+        "KI19"
+      ],
+      "sequenceNumber": 19,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI20",
+      "canonicalNameHant": "腹通谷",
+      "canonicalNameHans": "腹通谷",
+      "standardCode": "KI20",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI20"
+      ],
+      "aliasesHans": [
+        "KI20"
+      ],
+      "sequenceNumber": 20,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI21",
+      "canonicalNameHant": "幽門",
+      "canonicalNameHans": "幽门",
+      "standardCode": "KI21",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI21"
+      ],
+      "aliasesHans": [
+        "KI21"
+      ],
+      "sequenceNumber": 21,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI22",
+      "canonicalNameHant": "步廊",
+      "canonicalNameHans": "步廊",
+      "standardCode": "KI22",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI22"
+      ],
+      "aliasesHans": [
+        "KI22"
+      ],
+      "sequenceNumber": 22,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI23",
+      "canonicalNameHant": "神封",
+      "canonicalNameHans": "神封",
+      "standardCode": "KI23",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI23"
+      ],
+      "aliasesHans": [
+        "KI23"
+      ],
+      "sequenceNumber": 23,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI24",
+      "canonicalNameHant": "靈墟",
+      "canonicalNameHans": "灵墟",
+      "standardCode": "KI24",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI24"
+      ],
+      "aliasesHans": [
+        "KI24"
+      ],
+      "sequenceNumber": 24,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI25",
+      "canonicalNameHant": "神藏",
+      "canonicalNameHans": "神藏",
+      "standardCode": "KI25",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI25"
+      ],
+      "aliasesHans": [
+        "KI25"
+      ],
+      "sequenceNumber": 25,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI26",
+      "canonicalNameHant": "彧中",
+      "canonicalNameHans": "彧中",
+      "standardCode": "KI26",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI26"
+      ],
+      "aliasesHans": [
+        "KI26"
+      ],
+      "sequenceNumber": 26,
+      "pointCategories": []
+    },
+    {
+      "sourceKey": "primary:KI27",
+      "canonicalNameHant": "俞府",
+      "canonicalNameHans": "俞府",
+      "standardCode": "KI27",
+      "meridianId": "meridian:kidney",
+      "aliasesHant": [
+        "KI27"
+      ],
+      "aliasesHans": [
+        "KI27"
+      ],
+      "sequenceNumber": 27,
+      "pointCategories": []
+    }
+  ]
+}

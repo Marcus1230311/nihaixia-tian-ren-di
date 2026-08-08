@@ -94,6 +94,7 @@ export type IngestionReport = {
   reconciliation: {
     checked: number;
     equivalent: number;
+    additions: number;
     mismatched: number;
     differences: string[];
   };
