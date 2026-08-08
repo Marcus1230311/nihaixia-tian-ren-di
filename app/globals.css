@@ -124,6 +124,7 @@ main { min-height: calc(100vh - 130px); }
 .learning-entity-grid strong, .ten-god-grid strong { font-family: "Noto Serif TC", serif; font-size: 20px; color: var(--ink); }
 .learning-entity-grid span, .ten-god-grid span { color: var(--soft); font-size: 12px; }
 .learning-next { border-left: 4px solid var(--jade); padding: 14px 18px; background: var(--card); }
+.medical-boundary { border: 1px solid var(--line); border-left: 4px solid var(--seal); padding: 14px 18px; background: var(--card); }
 .knowledge-visual { margin: 22px 0 34px; border: 1px solid var(--line); background: #f8f2e5; padding: 14px; }
 .knowledge-visual svg { display: block; width: 100%; height: auto; max-height: 540px; }
 .knowledge-visual figcaption { text-align: center; color: var(--soft); font-size: 12px; }

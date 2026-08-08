@@ -12,10 +12,11 @@ const expectedRoutes = [
 ];
 
 const forbiddenPublicText = [
-  "V2", "分批遷移", "代表性遷移", "首批", "已遷移", "本批次", "內容對帳", "開發中", "pilot",
+  "V2", "分批遷移", "代表性遷移", "首批", "已遷移", "本批次", "內容對帳", "開發中", "pilot", "試點", "试点",
   "part_of", "belongs_to", "appears_in", "sourced_from", "contains_herb", "related_formula",
   "corresponds_to", "element_of", "upper_trigram", "lower_trigram", "related_to",
   "generates", "controls", "heavenly_stem", "earthly_branch", "yin_yang", "ten_god",
+  "classified_as", "meridian_level", "point_category", "acupoint",
 ];
 
 function routeFile(route: string) {
@@ -62,7 +63,7 @@ if (!fs.existsSync(searchIndexFile)) errors.push("缺少公開搜尋索引");
 else {
   const records = JSON.parse(fs.readFileSync(searchIndexFile, "utf8")) as Array<{ labels: Record<string, string>; descriptions: Record<string, string>; keywords: Record<string, string[]> }>;
   if (records.length !== entities.length + lessons.length) errors.push(`搜尋索引數量錯誤：${records.length}`);
-  for (const query of ["甲", "伤官", "河图", "洛书", "北方"]) {
+  for (const query of ["甲", "伤官", "河图", "洛书", "北方", "太衝", "太冲", "肝經", "肝经", "原穴", "五輸穴", "五输穴"]) {
     const found = records.some((record) => JSON.stringify(record).includes(query));
     if (!found) errors.push(`搜尋索引缺少繁簡或別名查找詞：${query}`);
   }
@@ -72,6 +73,11 @@ const baziLessonHtml = fs.readFileSync(routeFile("/lessons/tianji/bazi/01-tianga
 if (!baziLessonHtml.includes("five-element-visual") || !baziLessonHtml.includes("structured-lesson")) errors.push("八字基礎頁缺少結構化導讀或五行圖");
 const heluoLessonHtml = fs.readFileSync(routeFile("/lessons/tianji/heluo/01-hetu-luoshu/"), "utf8");
 if (!heluoLessonHtml.includes("heluo-visuals") || !heluoLessonHtml.includes("structured-lesson")) errors.push("河圖洛書頁缺少結構化導讀或數字圖");
+const meridianLessonHtml = fs.readFileSync(routeFile("/lessons/renji/acupuncture/01-meridians/"), "utf8");
+if (!meridianLessonHtml.includes("acupuncture-visual") || !meridianLessonHtml.includes("medical-boundary")) errors.push("十二正經頁缺少結構圖或醫療安全邊界");
+const fiveShuLessonHtml = fs.readFileSync(routeFile("/lessons/renji/acupuncture/02-five-shu/"), "utf8");
+if (!fiveShuLessonHtml.includes("acupuncture-visual") || !fiveShuLessonHtml.includes("29 個代表穴位")) errors.push("五輸穴頁缺少結構圖或代表穴位說明");
+if (fiveShuLessonHtml.includes("回到易經導覽")) errors.push("人紀課程頁仍使用易經導覽假設");
 
 if (errors.length) throw new Error(`公開頁驗證失敗：\n${errors.join("\n")}`);
-console.log(JSON.stringify({ routes: expectedRoutes.length, searchIndex: entities.length + lessons.length, brokenLinks: 0, forbiddenPublicText: 0, singleH1: true, structuredVisualLessons: 2 }, null, 2));
+console.log(JSON.stringify({ routes: expectedRoutes.length, searchIndex: entities.length + lessons.length, brokenLinks: 0, forbiddenPublicText: 0, singleH1: true, structuredVisualLessons: 4 }, null, 2));

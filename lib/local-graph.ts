@@ -42,8 +42,13 @@ const typePriority: Record<KnowledgeNode["type"], number> = {
   yin_yang: 9,
   ten_god: 10,
   direction: 11,
-  formula: 12,
-  herb: 13,
+  meridian_level: 12,
+  meridian: 13,
+  organ: 14,
+  point_category: 15,
+  acupoint: 16,
+  formula: 17,
+  herb: 18,
 };
 
 function publicHref(node: KnowledgeNode): string | null {

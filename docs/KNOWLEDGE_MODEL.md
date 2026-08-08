@@ -1,6 +1,6 @@
-# 知識模型 V1.1（已凍結）
+# 知識模型 V1.2（已凍結）
 
-本文件記錄 1.1.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。1.1.0 是在 1.0.0 上加入天紀八字／河洛所需 enum 的向後相容小版本，沒有移除欄位或改變既有 ID。現有資料涵蓋易經、八字核心與河圖洛書入門，不代表人紀或地紀已開始建模。
+本文件記錄 1.2.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。1.2.0 在 1.1.0 上加入人紀針灸試點所需 enum 與一個通用分類關係，沒有移除欄位或改變既有 ID。現有資料涵蓋天紀結構化內容及小規模針灸模型試點，不代表完整人紀已建模。
 
 ## Entity Schema V1
 
@@ -8,7 +8,7 @@
 
 - `id`：語言無關、具命名空間的穩定識別碼，例如 `trigram:qian`。顯示名稱變更時不得更換 ID。
 - `slug`：Windows 與網址皆安全的 kebab-case 路徑片段；與 ID 分離。
-- `type`：`course | classic | lesson | trigram | hexagram | heavenly_stem | earthly_branch | element | yin_yang | ten_god | direction | concept | formula | herb`。
+- `type`：`course | classic | lesson | trigram | hexagram | heavenly_stem | earthly_branch | element | yin_yang | ten_god | direction | meridian | meridian_level | organ | acupoint | point_category | concept | formula | herb`。
 - `labels`、`descriptions`：本地化文字物件；`zh-Hant` 必填，`zh-Hans` 可選。
 - `aliases`：按語系分組的別名陣列。
 - `metadata`：小型結構化屬性；鍵名必須先有展示名稱對照，禁止把內部鍵直接顯示給讀者。
@@ -21,7 +21,7 @@ lesson 另有 `courseId`、`moduleId`、`order`、`route`、`legacyPath` 與 `re
 
 關係是有方向的 edge，固定欄位為 `id`、`type`、`from`、`to`、`sourceIds`，並可選擇加入本地化 `notes` 與 `confidence`。端點必須存在，關係不得指向自身，ID 不得重複。
 
-V1.1 詞彙為：`part_of`、`belongs_to`、`contains`、`appears_in`、`sourced_from`、`contains_herb`、`related_formula`、`corresponds_to`、`element_of`、`upper_trigram`、`lower_trigram`、`related_to`、`generates`、`controls`。新增的 `generates`／`controls` 是跨領域且有方向的通用關係；`corresponds_to` 無法清楚區分相生與相剋，因此沒有以模糊標籤取代。
+V1.2 詞彙為：`part_of`、`belongs_to`、`contains`、`appears_in`、`sourced_from`、`contains_herb`、`related_formula`、`corresponds_to`、`element_of`、`upper_trigram`、`lower_trigram`、`related_to`、`generates`、`controls`、`classified_as`。`classified_as` 表達條目與可查詢分類的通用關係，不只適用於針灸；穴位隸屬經脈仍使用 `belongs_to`，不得以分類關係取代。
 
 公開介面一律使用 `lib/presentation.ts` 的繁簡展示對照，例如 `part_of` 顯示「屬於／属于」、`appears_in` 顯示「見於／见于」；不可直接輸出 enum 值。
 
@@ -75,3 +75,13 @@ Schema V1 已用完整 8 個八卦與 64 個六十四卦進行擴量驗證，未
 五行與陰陽各只有一組穩定 ID，易經課程、天干地支、河洛數字、方位與八卦透過同一批節點交叉連結。十神被建模為相對日主的分類概念，未固定綁到某一天干或地支。藏干、五合、六合、三合、三會、沖、刑、害、破及十神推導均刻意延後；現有來源雖提及部分術語，但不足以在同一里程碑建立一致而不誤導的完整關係集。
 
 結論：Schema V1 的共同欄位、來源、i18n、ID 與 generic relation 架構仍可承載第二領域；摩擦集中在 enum 擴充，而非 domain-specific 欄位。以 1.1.0 記錄新增 enum 後，模型仍適合作為人紀小樣本的起點，但人紀開始前仍須先做來源盤點，不能把本次五行對應直接外推為醫療關係。
+
+## V1.2 人紀針灸壓力測試
+
+新增 `meridian`、`meridian_level`、`organ`、`acupoint`、`point_category` 五種 entity type，以及通用 `classified_as` relation。未新增 schema 欄位、metadata value 類型或 source category。穴位分類採第一級 entity 加顯式關係：它能直接回答原穴清單、單穴多重分類、某經五輸穴及與五行相關的穴位；若只存 metadata，圖譜、反向查詢與分類來源都會變弱。
+
+十二臟腑使用 `organ:liver` 等跨模組穩定身份，經脈以 `corresponds_to` 連到臟腑；臟腑再以 `element_of` 連到既有五行。穴位只直接 `belongs_to` 經脈，不為了深度 1 畫面重複連到臟腑或五行（五輸穴本身具有獨立五行分類意義時除外）。因此能形成太衝 → 足厥陰肝經 → 肝 → 木的可追溯多步路徑。
+
+太陰、少陰、厥陰、陽明、太陽、少陽建為 `meridian_level`，各自連到既有陰／陽。這些身份具有搜尋與跨模組重用價值，但目前描述明示它們只是十二正經命名層級；不得由此自動推導《傷寒論》六經辨證。五行與陰陽继续各保持 5／2 個共享身份，没有建立 `tcm:*` 或针灸副本。
+
+醫療領域摩擦有三點：穴位可同時屬多個分類；五輸五行規則取決於陰／陽經；未來解剖視覺需要座標與經脈路徑。前兩者由第一級分類、顯式關係及決定性驗證處理；第三者目前只記錄「尚未加入座標」的呈現狀態，不把未成熟 coordinate 欄位塞入 Entity Schema。結論是 Schema 1.2.0 適合擴大至完整針灸語料，但擴量前仍須建立來源匯入流程、標準化穴位定位資料及視覺座標子模型。

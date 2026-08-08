@@ -35,13 +35,26 @@ for (const centerId of ["trigram:qian", "trigram:kan", "trigram:li"]) {
 
 for (const [centerId, expectedNeighbors] of [
   ["heavenly-stem:jia", 3],
-  ["element:wood", 14],
+  ["element:wood", 20],
   ["earthly-branch:zi", 3],
   ["concept:hetu", 12],
   ["concept:luoshu", 11],
 ] as const) {
   const graph = buildLocalGraph({ centerId, nodes, relations });
   assert.equal(graph.directNeighborCount, expectedNeighbors, `${centerId} local graph neighbor count changed unexpectedly`);
+  assert.equal(graph.omittedNodeCount, centerId === "element:wood" ? 2 : 0);
+  assert.ok(graph.nodes.every((node) => node.label && node.typeLabel && node.description && node.href?.startsWith("/")));
+}
+
+for (const [centerId, expectedNeighbors] of [
+  ["acupoint:lr-03", 5],
+  ["acupoint:li-04", 3],
+  ["acupoint:st-36", 4],
+  ["meridian:liver", 9],
+  ["organ:liver", 3],
+] as const) {
+  const graph = buildLocalGraph({ centerId, nodes, relations });
+  assert.equal(graph.directNeighborCount, expectedNeighbors, `${centerId} acupuncture pilot graph changed unexpectedly`);
   assert.equal(graph.omittedNodeCount, 0);
   assert.ok(graph.nodes.every((node) => node.label && node.typeLabel && node.description && node.href?.startsWith("/")));
 }
@@ -59,13 +72,13 @@ assert.deepEqual(
 const repeated = buildLocalGraph({ centerId: "classic:yijing", nodes, relations });
 assert.deepEqual(classic, repeated, "the same data must always produce the same local graph");
 
-const rawEnums = /part_of|belongs_to|appears_in|upper_trigram|lower_trigram|related_to/;
+const rawEnums = /part_of|belongs_to|appears_in|upper_trigram|lower_trigram|related_to|classified_as/;
 assert.ok(classic.edges.every((edge) => !rawEnums.test(edge.label)), "public edge labels must be human-readable");
 
 console.log(JSON.stringify({
   graphNodesAvailable: nodes.length,
   relationsAvailable: relations.length,
-  representativeCenters: 12,
+  representativeCenters: 17,
   qianVisibleNodes: qian.nodes.length,
   trigramDirectNeighbors: 19,
   classicDirectNeighbors: classic.directNeighborCount,

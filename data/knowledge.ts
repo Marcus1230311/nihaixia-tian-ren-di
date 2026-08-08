@@ -1,6 +1,7 @@
 import type { KnowledgeEntity, KnowledgeGraph, KnowledgeRelation, Lesson, Source } from "@/lib/knowledge-schema";
 import { hexagramRows } from "@/data/yijing-hexagrams";
 import { tianjiStructuredEntities, tianjiStructuredLessons, tianjiStructuredRelations, tianjiStructuredSources } from "@/data/tianji-structured";
+import { renjiAcupunctureEntities, renjiAcupunctureLessons, renjiAcupunctureRelations, renjiAcupunctureSources } from "@/data/renji-acupuncture";
 
 const editorialSourceId = "source:project:yijing-notes";
 const classicalSourceId = "source:classical:zhouyi";
@@ -43,6 +44,7 @@ export const sources: Source[] = [
     },
   },
   ...tianjiStructuredSources,
+  ...renjiAcupunctureSources,
 ];
 
 const lessonRows = [
@@ -83,7 +85,7 @@ const yijingLessons: Lesson[] = lessonRows.map(([order, titleHant, titleHans, su
           : ["classic:yijing"],
 }));
 
-export const lessons: Lesson[] = [...yijingLessons, ...tianjiStructuredLessons];
+export const lessons: Lesson[] = [...yijingLessons, ...tianjiStructuredLessons, ...renjiAcupunctureLessons];
 
 const trigramRows = [
   ["qian", "乾", "乾", "☰", "111", "天", "天", "健", "健"],
@@ -136,7 +138,7 @@ export const entities: KnowledgeEntity[] = [
     aliases: { "zh-Hant": [], "zh-Hans": [] },
     metadata: { order: 1 },
     sourceIds: [editorialSourceId],
-    relatedLessonIds: lessons.map((lesson) => lesson.id),
+    relatedLessonIds: lessons.filter((lesson) => lesson.courseId === "course:tianji").map((lesson) => lesson.id),
   },
   {
     id: "classic:yijing",
@@ -172,6 +174,7 @@ export const entities: KnowledgeEntity[] = [
     relatedLessonIds: [lessonIds[0], "lesson:tianji:heluo:01"],
   })),
   ...tianjiStructuredEntities,
+  ...renjiAcupunctureEntities,
   ...hexagrams,
 ];
 
@@ -238,10 +241,11 @@ export const relations: KnowledgeRelation[] = [
     ];
   }),
   ...tianjiStructuredRelations,
+  ...renjiAcupunctureRelations,
 ];
 
 export const knowledgeGraph: KnowledgeGraph = {
-  schemaVersion: "1.1.0",
+  schemaVersion: "1.2.0",
   sources,
   entities: [...lessons, ...entities],
   relations,

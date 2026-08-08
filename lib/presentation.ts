@@ -18,6 +18,11 @@ export const entityTypeLabels = {
   yin_yang: { "zh-Hant": "陰陽", "zh-Hans": "阴阳" },
   ten_god: { "zh-Hant": "十神", "zh-Hans": "十神" },
   direction: { "zh-Hant": "方位", "zh-Hans": "方位" },
+  meridian: { "zh-Hant": "十二正經", "zh-Hans": "十二正经" },
+  meridian_level: { "zh-Hant": "經脈層級", "zh-Hans": "经脉层级" },
+  organ: { "zh-Hant": "臟腑／系統", "zh-Hans": "脏腑／系统" },
+  acupoint: { "zh-Hant": "穴位", "zh-Hans": "穴位" },
+  point_category: { "zh-Hant": "穴位分類", "zh-Hans": "穴位分类" },
   concept: { "zh-Hant": "概念", "zh-Hans": "概念" },
   formula: { "zh-Hant": "方劑", "zh-Hans": "方剂" },
   herb: { "zh-Hant": "藥材", "zh-Hans": "药材" },
@@ -38,6 +43,7 @@ export const relationTypeLabels = {
   related_to: { "zh-Hant": "相關", "zh-Hans": "相关" },
   generates: { "zh-Hant": "相生", "zh-Hans": "相生" },
   controls: { "zh-Hant": "相剋", "zh-Hans": "相克" },
+  classified_as: { "zh-Hant": "分類為", "zh-Hans": "分类为" },
 } satisfies Record<string, LocalizedText>;
 
 export const sourceCategoryLabels = {
@@ -65,6 +71,9 @@ export const metadataLabels: Record<string, LocalizedText> = {
   relationAxis: { "zh-Hant": "與日主關係", "zh-Hans": "与日主关系" },
   polarityRule: { "zh-Hant": "陰陽判準", "zh-Hans": "阴阳判准" },
   bearing: { "zh-Hant": "方位角", "zh-Hans": "方位角" },
+  standardCode: { "zh-Hant": "國際代碼", "zh-Hans": "国际代码" },
+  bodyDivision: { "zh-Hant": "循行分組", "zh-Hans": "循行分组" },
+  visualReadiness: { "zh-Hant": "視覺資料狀態", "zh-Hans": "视觉资料状态" },
 };
 
 export function displayMetadata(value: unknown, locale: Locale = defaultLocale) {

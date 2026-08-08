@@ -6,9 +6,9 @@
 
 課程正文不重新生成。`lib/v1-content.ts` 在建置階段讀取既有 `<article class="classic">`，新的公開路由提供搜尋、麵包屑、前後篇、來源說明和知識條目入口。
 
-## Schema Freeze 1.1.0
+## Schema Freeze 1.2.0
 
-Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.1.0。1.0.0 的易經資料與 ID 保持不變；小版本只增加八字／河洛所需 entity type 及兩個通用關係。詳細欄位、展示對照、圖譜／搜尋條件及版本規則見 [`KNOWLEDGE_MODEL.md`](KNOWLEDGE_MODEL.md)。後續匯入和引導研讀要求見 [`CONTENT_GUIDELINES.md`](CONTENT_GUIDELINES.md)。
+Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.2.0。1.0.0／1.1.0 的易經、八字與河洛資料和 ID 保持不變；本小版本只增加針灸試點所需 entity type 及 `classified_as` 通用關係。詳細欄位、展示對照、圖譜／搜尋條件及版本規則見 [`KNOWLEDGE_MODEL.md`](KNOWLEDGE_MODEL.md)。後續匯入和引導研讀要求見 [`CONTENT_GUIDELINES.md`](CONTENT_GUIDELINES.md)。
 
 《易經》結構化層目前包含：5 篇研讀課程、天紀課程主線、周易經典、8 個八卦、64 個六十四卦、206 條關係與 4 筆獨立來源。搜尋索引共有 79 筆（5 lessons + 74 non-lesson entities）。本次只擴充卦象結構，沒有開始八字、河洛、人紀、地紀或全域圖譜。
 
@@ -34,7 +34,7 @@ Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.1.0。1.0.0 �
 
 ## 延後事項
 
-全域知識圖譜、八字排盤與個人解讀、曆法換算、藏干／合沖刑害等進階關係、河洛流派延伸、人紀、地紀、資料庫、身份驗證、AI、CMS、完整簡體網站、PDF 批次匯入與經典全文重製均刻意延後。開始任何一項之前，必須按內容規範先完成來源盤點與小樣本驗證。
+全域知識圖譜、八字排盤與個人解讀、曆法換算、藏干／合沖刑害等進階關係、河洛流派延伸、完整針灸擴量與其他人紀模組、地紀結構化、資料庫、身份驗證、AI、CMS、完整簡體網站、PDF 批次匯入與經典全文重製均刻意延後。開始任何一項之前，必須按內容規範先完成來源盤點與小樣本驗證。
 
 ## V2.4 天紀八字與河洛結構化擴充
 
@@ -43,3 +43,15 @@ Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.1.0。1.0.0 �
 新增 `FiveElementCycle` 與 `HeluoDiagrams` 兩個無客戶端 JavaScript 的程式化 SVG。前者只呈現五行相生／相剋，後者分開呈現河圖五方生成數與北方朝上的洛書九宮。來源採既有天紀頁的 editorial 邊界，再以 derived source 記錄表格到穩定 ID／關係的轉換；沒有把廣泛傳統對應標成倪海廈逐字講授。
 
 Schema 由 1.0.0 升至向後相容的 1.1.0：新增 6 個 entity enum 與 `generates`、`controls` 兩個 generic relation enum，未新增欄位、source category 或 domain-specific relation。五行、陰陽、方位與八卦均重用單一身份；河洛 1–10 以 namespaced `concept` 區別於普通數值。
+
+## V2.5A 人紀針灸知識模型試點
+
+來源盤點先覆核 V1 針灸 01–03 課的十二經流注、手足經穴位表及原／絡／郄／募／背俞／五輸分類；它們維持 editorial 身份，不宣稱為倪海廈逐字稿。WHO 標準只核對穴名／代碼，北京中醫藥大學參考頁只核對五輸次序與陰陽經五行配屬，另以 derived source 記錄結構化轉換。沒有新增 `nihaixia` 或 `classical` 來源。
+
+新增 2 篇最小導讀與 74 個非 lesson entity：12 正經、12 臟腑／系統、29 代表穴位、12 穴位分類、6 經脈層級、人紀課程、針灸系統與五輸穴概念。全圖目前為 220 節點、604 關係、12 來源，搜尋索引 220 筆。兩個無額外 client JavaScript 的 SVG 分別呈現十二正經高層組織及陰／陽經五輸五行次序；既有五行生剋圖在臟腑段落直接重用。
+
+29 穴位為：中府、尺澤、孔最、列缺、太淵、少商、商陽、合谷、曲池、足三里、豐隆、公孫、三陰交、陰陵泉、神門、後溪、肺俞、委中、崑崙、湧泉、太谿、內關、外關、陽陵泉、大敦、行間、太衝、中封、曲泉。此組覆蓋十二正經，並完整保留肝經五輸作為結構驗證樣本，不代表完整穴位庫。
+
+穴位分類採 entity + `classified_as`，Schema 升至 1.2.0；沒有新增欄位或 source category。六個經脈層級建為共享 entity 並連到既有陰陽，但不等同或推導《傷寒論》六經辨證。解剖座標、經脈 SVG path 與人體 marker 需求已記錄，待未來視覺子模型成熟後再提案。
+
+課程尾端導覽已改為模組內前後篇及模組名稱，不再把非易經課程送回「易經導覽」。中間麵包屑可點擊性仍列為最後的全站 UX／navigation 清理項，本里程碑不重設整套 breadcrumb。
