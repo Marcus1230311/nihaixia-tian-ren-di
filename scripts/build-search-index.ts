@@ -38,7 +38,7 @@ const records = [
     const relatedKnowledge = relations
       .filter((relation) => relation.from === entity.id || relation.to === entity.id)
       .map((relation) => entities.find((candidate) => candidate.id === (relation.from === entity.id ? relation.to : relation.from)))
-      .filter((candidate): candidate is NonNullable<typeof candidate> => candidate !== undefined && ["shanghan_channel", "condition", "syndrome", "formula", "herb", "classic"].includes(candidate.type));
+      .filter((candidate): candidate is NonNullable<typeof candidate> => candidate !== undefined && ["shanghan_channel", "condition", "syndrome", "formula", "herb", "classic", "organ", "herb_nature", "herb_flavor", "herb_grade"].includes(candidate.type));
     return {
       id: entity.id,
       type: entity.type,

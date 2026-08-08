@@ -18,6 +18,7 @@ const forbiddenPublicText = [
   "generates", "controls", "heavenly_stem", "earthly_branch", "yin_yang", "ten_god",
   "classified_as", "meridian_level", "point_category", "acupoint",
   "shanghan_channel", "condition", "syndrome", "classically_associated_with",
+  "herb_nature", "herb_flavor", "herb_grade", "has_nature", "has_flavor", "has_tropism",
 ];
 
 function routeFile(route: string) {
@@ -64,7 +65,7 @@ if (!fs.existsSync(searchIndexFile)) errors.push("缺少公開搜尋索引");
 else {
   const records = JSON.parse(fs.readFileSync(searchIndexFile, "utf8")) as Array<{ labels: Record<string, string>; descriptions: Record<string, string>; keywords: Record<string, string[]> }>;
   if (records.length !== entities.length + lessons.length) errors.push(`搜尋索引數量錯誤：${records.length}`);
-  for (const query of ["甲", "伤官", "河图", "洛书", "北方", "太衝", "太冲", "肝經", "肝经", "原穴", "五輸穴", "五输穴", "桂枝湯", "桂枝汤", "太陽中風", "太阳中风", "少陰", "少阴", "黃連阿膠湯", "黄连阿胶汤", "金匱要略", "金匮要略", "黃耆桂枝五物湯", "黄芪桂枝五物汤", "婦人臟躁證", "妇人脏躁证", "茯苓", "泽泻"]) {
+  for (const query of ["甲", "伤官", "河图", "洛书", "北方", "太衝", "太冲", "肝經", "肝经", "原穴", "五輸穴", "五输穴", "桂枝湯", "桂枝汤", "太陽中風", "太阳中风", "少陰", "少阴", "黃連阿膠湯", "黄连阿胶汤", "金匱要略", "金匮要略", "黃耆桂枝五物湯", "黄芪桂枝五物汤", "婦人臟躁證", "妇人脏躁证", "茯苓", "泽泻", "神農本草經", "神农本草经", "微寒", "辛", "歸經", "归经", "大棗", "大枣"]) {
     const found = records.some((record) => JSON.stringify(record).includes(query));
     if (!found) errors.push(`搜尋索引缺少繁簡或別名查找詞：${query}`);
   }
@@ -73,6 +74,8 @@ else {
 }
 
 const baziLessonHtml = fs.readFileSync(routeFile("/lessons/tianji/bazi/01-tiangan-dizhi/"), "utf8");
+const homeHtml = fs.readFileSync(routeFile("/"), "utf8");
+if (!homeHtml.includes('/lessons/renji/bencao/01-overview/') || !homeHtml.includes("研讀本草性味") || !textContent(homeHtml).includes("5 種藥性")) errors.push("首頁缺少本草導讀入口或屬性規模說明");
 if (!baziLessonHtml.includes("five-element-visual") || !baziLessonHtml.includes("structured-lesson")) errors.push("八字基礎頁缺少結構化導讀或五行圖");
 const heluoLessonHtml = fs.readFileSync(routeFile("/lessons/tianji/heluo/01-hetu-luoshu/"), "utf8");
 if (!heluoLessonHtml.includes("heluo-visuals") || !heluoLessonHtml.includes("structured-lesson")) errors.push("河圖洛書頁缺少結構化導讀或數字圖");
@@ -91,6 +94,12 @@ const jinguiCrossClassicHtml = fs.readFileSync(routeFile("/lessons/renji/jingui/
 if (!jinguiCrossClassicHtml.includes("cross-classic-visual") || !jinguiCrossClassicHtml.includes("十五張方") || !jinguiCrossClassicHtml.includes("三十四味共享藥材")) errors.push("金匱跨經典導讀缺少身份圖或方藥重用報告");
 const guizhiFormulaHtml = fs.readFileSync(routeFile("/entities/formula-guizhi-tang/"), "utf8");
 if (!guizhiFormulaHtml.includes("傷寒論") || !guizhiFormulaHtml.includes("金匱要略") || !guizhiFormulaHtml.includes("證據：") || !guizhiFormulaHtml.includes("方劑組成與經典語境")) errors.push("桂枝湯公開頁未完整呈現跨經典語境與關係證據");
+const bencaoOverviewHtml = fs.readFileSync(routeFile("/lessons/renji/bencao/01-overview/"), "utf8");
+if (!bencaoOverviewHtml.includes("bencao-visual") || !bencaoOverviewHtml.includes("二十四味受控範圍") || !bencaoOverviewHtml.includes("medical-boundary")) errors.push("本草總覽缺少屬性模型、受控藥材或安全邊界");
+const bencaoTropismHtml = fs.readFileSync(routeFile("/lessons/renji/bencao/04-tropism/"), "utf8");
+if (!bencaoTropismHtml.includes("cross-domain-visual") || !bencaoTropismHtml.includes("歸經不是穴位")) errors.push("本草歸經頁缺少跨域圖或語意區分");
+const renshenHtml = fs.readFileSync(routeFile("/entities/herb-renshen/"), "utf8");
+if (!renshenHtml.includes("性味、歸經與經典方劑") || !renshenHtml.includes("香港浸會大學") || !renshenHtml.includes("神農本草經") || !renshenHtml.includes("未列警示不表示安全")) errors.push("人參頁未完整呈現屬性衝突、來源或安全邊界");
 
 if (errors.length) throw new Error(`公開頁驗證失敗：\n${errors.join("\n")}`);
-console.log(JSON.stringify({ routes: expectedRoutes.length, searchIndex: entities.length + lessons.length, brokenLinks: 0, forbiddenPublicText: 0, singleH1: true, structuredVisualLessons: 9 }, null, 2));
+console.log(JSON.stringify({ routes: expectedRoutes.length, searchIndex: entities.length + lessons.length, brokenLinks: 0, forbiddenPublicText: 0, singleH1: true, structuredVisualLessons: 14 }, null, 2));

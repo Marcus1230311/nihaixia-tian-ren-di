@@ -89,6 +89,26 @@ main { min-height: calc(100vh - 130px); }
 .formula-context-summary strong { font: 800 24px "Noto Serif TC", serif; }
 .formula-context-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .formula-context-links a { display: grid; gap: 2px; padding: 10px 12px; border: 1px solid var(--line); background: var(--card); text-decoration: none; }
+.herb-context-section { background: linear-gradient(150deg, color-mix(in srgb, var(--card) 92%, #dfe8d7), var(--bg)); padding: 18px; border: 1px solid var(--line); }
+.herb-context-section .formula-context-summary { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.herb-property-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 20px 0; }
+.herb-property-groups > div { border: 1px solid var(--line); padding: 14px; background: var(--card); }
+.herb-property-groups h3 { margin: 0 0 10px; font-size: .92rem; color: var(--gold); }
+.herb-property-groups a { display: flex; flex-direction: column; gap: 3px; padding: 8px 10px; color: inherit; text-decoration: none; }
+.herb-property-groups a:hover { background: color-mix(in srgb, var(--gold) 9%, transparent); }
+.herb-property-groups small { color: var(--soft); line-height: 1.45; }
+.bencao-visual { margin: 26px 0; padding: 16px; border: 1px solid var(--line); background: linear-gradient(145deg, #f8f4e8, #edf3e8); overflow-x: auto; }
+.bencao-visual svg { width: 100%; min-width: 600px; height: auto; display: block; }
+.bencao-visual figcaption { color: #5b635c; line-height: 1.65; margin-top: 10px; }
+.bencao-flow, .bencao-path-line { stroke: #75866c; stroke-width: 2.2; fill: none; }
+.bencao-path-line.reverse { stroke: #8a684d; }
+.bencao-property-node, .bencao-path-node { fill: #fffdf6; stroke: #88957d; stroke-width: 1.5; }
+.bencao-herb-node { fill: #335f4b; stroke: #214332; stroke-width: 2; }
+.bencao-node-title, .bencao-path-label { fill: #26392f; font-weight: 700; font-size: 17px; }
+.bencao-herb-title { fill: #fff; font-weight: 700; font-size: 18px; }
+.bencao-node-note { fill: #6a756b; font-size: 12px; }
+.bencao-herb-node + .bencao-herb-title + .bencao-node-note { fill: #e9f0eb; }
+.bencao-edge-label, .bencao-note { fill: #6d665c; font-size: 12px; }
 .meridian-point-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; list-style: none; padding: 0; }
 .meridian-point-list li { margin: 0; }
 .meridian-point-list a { display: flex; align-items: baseline; gap: 8px; min-height: 44px; padding: 9px 11px; border: 1px solid var(--line); background: var(--card); text-decoration: none; }
@@ -200,7 +220,10 @@ main { min-height: calc(100vh - 130px); }
   .migrated-content table { display: block; overflow-x: auto; }
   .migrated-content .hexagram-index, .migrated-content .lesson-toc { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .entity-details dl, .trigram-composition { grid-template-columns: 1fr; }
-  .formula-context-summary, .formula-context-links { grid-template-columns: 1fr; }
+  .formula-context-summary, .formula-context-links, .herb-context-section .formula-context-summary { grid-template-columns: 1fr; }
+  .herb-property-groups { grid-template-columns: 1fr; }
+  .bencao-visual { padding: 10px; }
+  .bencao-visual svg { min-width: 560px; }
   .relation-list li { flex-wrap: wrap; }
   .relation-list li small { width: 100%; margin-left: 0; text-align: left; }
   .lesson-nav a { max-width: 48%; }

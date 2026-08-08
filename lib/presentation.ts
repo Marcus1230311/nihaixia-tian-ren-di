@@ -29,6 +29,9 @@ export const entityTypeLabels = {
   concept: { "zh-Hant": "概念", "zh-Hans": "概念" },
   formula: { "zh-Hant": "方劑", "zh-Hans": "方剂" },
   herb: { "zh-Hant": "藥材", "zh-Hans": "药材" },
+  herb_nature: { "zh-Hant": "藥性", "zh-Hans": "药性" },
+  herb_flavor: { "zh-Hant": "藥味", "zh-Hans": "药味" },
+  herb_grade: { "zh-Hant": "本草品級", "zh-Hans": "本草品级" },
 } satisfies Record<string, LocalizedText>;
 
 export const relationTypeLabels = {
@@ -48,6 +51,9 @@ export const relationTypeLabels = {
   controls: { "zh-Hant": "相剋", "zh-Hans": "相克" },
   classified_as: { "zh-Hant": "分類為", "zh-Hans": "分类为" },
   classically_associated_with: { "zh-Hant": "經典方證關聯", "zh-Hans": "经典方证关联" },
+  has_nature: { "zh-Hant": "藥性為", "zh-Hans": "药性为" },
+  has_flavor: { "zh-Hant": "藥味為", "zh-Hans": "药味为" },
+  has_tropism: { "zh-Hant": "歸經", "zh-Hans": "归经" },
 } satisfies Record<string, LocalizedText>;
 
 export const sourceCategoryLabels = {

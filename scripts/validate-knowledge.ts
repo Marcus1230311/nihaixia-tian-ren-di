@@ -4,6 +4,7 @@ import { knowledgeGraph } from "../data/knowledge";
 import { entityTypes, knowledgeGraphSchema, relationTypes, sourceCategories } from "../lib/knowledge-schema";
 import { entityTypeLabels, localize, relationTypeLabels, sourceCategoryLabels } from "../lib/presentation";
 import { jinguiConditionIds, jinguiExpectedIngredients, jinguiNewFormulaIds, jinguiNewHerbIds, jinguiReusedFormulaIds, jinguiReusedHerbIds, jinguiSyndromeIds, renjiJinguiPilotCounts } from "../data/renji-jingui";
+import { bencaoPilotCounts, bencaoPilotHerbIds } from "../data/renji-bencao";
 
 const graph = knowledgeGraphSchema.parse(knowledgeGraph);
 const lessons = graph.entities.filter((entity) => entity.type === "lesson");
@@ -26,8 +27,12 @@ const conditions = graph.entities.filter((entity) => entity.type === "condition"
 const syndromes = graph.entities.filter((entity) => entity.type === "syndrome");
 const formulas = graph.entities.filter((entity) => entity.type === "formula");
 const herbs = graph.entities.filter((entity) => entity.type === "herb");
+const herbNatures = graph.entities.filter((entity) => entity.type === "herb_nature");
+const herbFlavors = graph.entities.filter((entity) => entity.type === "herb_flavor");
+const herbGrades = graph.entities.filter((entity) => entity.type === "herb_grade");
 const shanghanLessons = graph.entities.filter((entity) => entity.type === "lesson" && entity.moduleId === "classic:shanghan-lun");
 const jinguiLessons = graph.entities.filter((entity) => entity.type === "lesson" && entity.moduleId === "classic:jingui-yaolue");
+const bencaoLessons = graph.entities.filter((entity) => entity.type === "lesson" && entity.moduleId === "classic:shennong-bencao-jing");
 const shanghanSyndromes = syndromes.filter((entity) => !entity.id.startsWith("syndrome:jingui-"));
 const jinguiSyndromes = syndromes.filter((entity) => entity.id.startsWith("syndrome:jingui-"));
 const shanghanFormulaIds = new Set(["guizhi-tang", "mahuang-tang", "baihu-tang", "dachengqi-tang", "xiaochengqi-tang", "tiaowei-chengqi-tang", "xiaochaihu-tang", "lizhong-tang", "sini-tang", "huanglian-ejiao-tang", "wumei-wan"].map((id) => `formula:${id}`));
@@ -251,6 +256,36 @@ for (const group of [formulas, herbs]) {
     }
   }
 }
+if (bencaoLessons.length !== 5) throw new Error(`本草導讀應為 5 講，實際為 ${bencaoLessons.length}`);
+if (!graph.entities.some((entity) => entity.id === "classic:shennong-bencao-jing" && entity.type === "classic")) throw new Error("缺少唯一《神農本草經》經典身份");
+if (bencaoPilotHerbIds.length !== 24 || bencaoPilotCounts.newHerbs !== 0) throw new Error("本草範圍必須重用 24 味既有藥材且不新增藥材身份");
+for (const herbId of bencaoPilotHerbIds) if (herbs.filter((herb) => herb.id === herbId).length !== 1) throw new Error(`${herbId} 必須維持單一全域身份`);
+if (herbNatures.length !== 5 || herbFlavors.length !== 5 || herbGrades.length !== 3) throw new Error("本草屬性實體應為 5 藥性、5 藥味、3 品級");
+const propertyRelations = graph.relations.filter((relation) => ["has_nature", "has_flavor", "has_tropism"].includes(relation.type));
+for (const relation of propertyRelations) {
+  const from = graph.entities.find((entity) => entity.id === relation.from);
+  const to = graph.entities.find((entity) => entity.id === relation.to);
+  if (from?.type !== "herb") throw new Error(`${relation.id} 屬性來源必須是 herb`);
+  const expectedType = relation.type === "has_nature" ? "herb_nature" : relation.type === "has_flavor" ? "herb_flavor" : "organ";
+  if (to?.type !== expectedType) throw new Error(`${relation.id} 屬性目標應為 ${expectedType}`);
+  if (!relation.sourceIds.length) throw new Error(`${relation.id} 必須保留 relation-level provenance`);
+}
+for (const herbId of bencaoPilotHerbIds) {
+  for (const type of ["has_nature", "has_flavor", "has_tropism"] as const) {
+    if (!graph.relations.some((relation) => relation.from === herbId && relation.type === type && relation.sourceIds.includes("source:reference:hkbu-cmed-herbs"))) throw new Error(`${herbId} 缺少可追溯的 ${type} 現代規範化關係`);
+  }
+}
+if (graph.relations.filter((relation) => relation.type === "has_tropism").length !== bencaoPilotCounts.tropismRelations) throw new Error("歸經關係數與受控資料不一致");
+if (graph.relations.some((relation) => relation.from.startsWith("herb:") && relation.type === "belongs_to")) throw new Error("藥材歸經不得誤用穴位／經脈 belongs_to");
+if (graph.relations.some((relation) => relation.from.startsWith("herb:") && relation.type === "element_of")) throw new Error("藥材不得製造冗餘五行直連");
+const gradeRelations = graph.relations.filter((relation) => relation.from.startsWith("herb:") && relation.type === "classified_as" && relation.to.startsWith("herb-grade:"));
+if (gradeRelations.length !== 12 || gradeRelations.some((relation) => !relation.sourceIds.includes("source:project:renji-bencao-notes"))) throw new Error("三品只應結構化本站明確講授的 12 味代表藥");
+for (const herbId of ["herb:renshen", "herb:dazao", "herb:maimendong"]) {
+  const claims = graph.relations.filter((relation) => relation.from === herbId && relation.type === "has_nature");
+  if (claims.length !== 2 || !claims.some((relation) => relation.sourceIds.length === 1 && relation.sourceIds[0] === "source:classical:shennong-bencao-jing")) throw new Error(`${herbId} 必須分開保留古今藥性衝突證據`);
+}
+const bencaoNodeIds = new Set(["classic:shennong-bencao-jing", ...bencaoPilotHerbIds, ...herbNatures.map((item) => item.id), ...herbFlavors.map((item) => item.id), ...herbGrades.map((item) => item.id), ...bencaoLessons.map((item) => item.id)]);
+if (graph.entities.filter((entity) => bencaoNodeIds.has(entity.id)).some((entity) => entity.sourceIds.some((sourceId) => graph.sources.find((source) => source.id === sourceId)?.category === "nihaixia"))) throw new Error("無直接追溯依據的本草內容不得標為倪海廈講授資料");
 const jinguiNodeIds = new Set(["classic:jingui-yaolue", ...jinguiConditionIds, ...jinguiSyndromeIds, ...jinguiNewFormulaIds, ...jinguiNewHerbIds, ...jinguiLessons.map((lesson) => lesson.id)]);
 if (graph.entities.filter((entity) => jinguiNodeIds.has(entity.id)).some((entity) => entity.sourceIds.some((sourceId) => graph.sources.find((source) => source.id === sourceId)?.category === "nihaixia"))) throw new Error("無直接追溯依據的金匱內容不得標為倪海廈講授資料");
 for (const organ of organs) {
@@ -325,6 +360,12 @@ console.log(JSON.stringify({
   jinguiReusedFormulas: jinguiReusedFormulaIds.length,
   jinguiNewHerbs: jinguiNewHerbIds.length,
   jinguiReusedHerbs: jinguiReusedHerbIds.length,
+  bencaoLessons: bencaoLessons.length,
+  bencaoHerbs: bencaoPilotHerbIds.length,
+  herbNatures: herbNatures.length,
+  herbFlavors: herbFlavors.length,
+  herbGrades: herbGrades.length,
+  herbTropisms: bencaoPilotCounts.tropismRelations,
   relations: graph.relations.length,
   legacySourcesPresent: lessons.length,
 }, null, 2));

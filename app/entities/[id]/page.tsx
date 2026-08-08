@@ -45,6 +45,16 @@ export default async function EntityPage({ params }: { params: Promise<{ id: str
   const formulaIngredients = entity.type === "formula" ? outgoing.filter((relation) => relation.type === "contains_herb").map((relation) => entities.find((candidate) => candidate.id === relation.to)).filter((candidate): candidate is NonNullable<typeof candidate> => candidate?.type === "herb") : [];
   const formulaSyndromes = entity.type === "formula" ? outgoing.filter((relation) => relation.type === "classically_associated_with").map((relation) => entities.find((candidate) => candidate.id === relation.to)).filter((candidate): candidate is NonNullable<typeof candidate> => candidate?.type === "syndrome") : [];
   const formulaClassics = entity.type === "formula" ? outgoing.filter((relation) => relation.type === "appears_in").map((relation) => entities.find((candidate) => candidate.id === relation.to)).filter((candidate): candidate is NonNullable<typeof candidate> => candidate?.type === "classic") : [];
+  const herbTargets = (relationType: "has_nature" | "has_flavor" | "has_tropism" | "classified_as", targetType: "herb_nature" | "herb_flavor" | "organ" | "herb_grade") => entity.type === "herb" ? outgoing
+    .filter((relation) => relation.type === relationType)
+    .map((relation) => ({ relation, target: entities.find((candidate) => candidate.id === relation.to) }))
+    .filter((item): item is { relation: typeof item.relation; target: NonNullable<typeof item.target> } => item.target?.type === targetType) : [];
+  const herbNatures = herbTargets("has_nature", "herb_nature");
+  const herbFlavors = herbTargets("has_flavor", "herb_flavor");
+  const herbTropisms = herbTargets("has_tropism", "organ");
+  const herbGrades = herbTargets("classified_as", "herb_grade");
+  const herbClassics = entity.type === "herb" ? outgoing.filter((relation) => relation.type === "appears_in").map((relation) => entities.find((candidate) => candidate.id === relation.to)).filter((candidate): candidate is NonNullable<typeof candidate> => candidate?.type === "classic") : [];
+  const herbFormulas = entity.type === "herb" ? incoming.filter((relation) => relation.type === "contains_herb").map((relation) => entities.find((candidate) => candidate.id === relation.from)).filter((candidate): candidate is NonNullable<typeof candidate> => candidate?.type === "formula") : [];
   const evidenceTitles = (sourceIds: string[]) => sourceIds.map((sourceId) => sources.find((source) => source.id === sourceId)).filter((source) => source !== undefined).map((source) => localize(source.title)).join("、");
 
   return (
@@ -66,6 +76,20 @@ export default async function EntityPage({ params }: { params: Promise<{ id: str
           {formulaIngredients.map((herb) => <Link key={herb.id} href={`/entities/${herb.slug}/`}><span>藥材</span><strong>{localize(herb.labels)}</strong></Link>)}
         </div>
         <p className="medical-boundary"><strong>研讀與安全邊界：</strong>本頁呈現經典方劑身份、文獻關係與藥味組成，不提供個人診斷、劑量、藥材替換、自行購藥或處方調整建議。</p>
+      </section>}
+      {entity.type === "herb" && <section className="entity-details herb-context-section"><h2>性味、歸經與經典方劑</h2>
+        <div className="formula-context-summary"><div><span>藥性主張</span><strong>{herbNatures.length}</strong></div><div><span>藥味</span><strong>{herbFlavors.length}</strong></div><div><span>歸經</span><strong>{herbTropisms.length}</strong></div><div><span>相關方劑</span><strong>{herbFormulas.length}</strong></div></div>
+        <div className="herb-property-groups">
+          {herbNatures.length > 0 && <div><h3>藥性</h3>{herbNatures.map(({ relation, target }) => <Link key={relation.id} href={`/entities/${target.slug}/`}><strong>{localize(target.labels)}</strong><small>證據：{evidenceTitles(relation.sourceIds)}</small></Link>)}</div>}
+          {herbFlavors.length > 0 && <div><h3>藥味</h3>{herbFlavors.map(({ relation, target }) => <Link key={relation.id} href={`/entities/${target.slug}/`}><strong>{localize(target.labels)}</strong><small>證據：{evidenceTitles(relation.sourceIds)}</small></Link>)}</div>}
+          {herbTropisms.length > 0 && <div><h3>歸經</h3>{herbTropisms.map(({ relation, target }) => <Link key={relation.id} href={`/entities/${target.slug}/`}><strong>{localize(target.labels)}</strong><small>證據：{evidenceTitles(relation.sourceIds)}</small></Link>)}</div>}
+          {herbGrades.length > 0 && <div><h3>古典品級</h3>{herbGrades.map(({ relation, target }) => <Link key={relation.id} href={`/entities/${target.slug}/`}><strong>{localize(target.labels)}</strong><small>證據：{evidenceTitles(relation.sourceIds)}</small></Link>)}</div>}
+        </div>
+        {(herbClassics.length > 0 || herbFormulas.length > 0) && <div className="formula-context-links">
+          {herbClassics.map((classic) => <Link key={classic.id} href={`/entities/${classic.slug}/`}><span>經典</span><strong>{localize(classic.labels)}</strong></Link>)}
+          {herbFormulas.map((formula) => <Link key={formula.id} href={`/entities/${formula.slug}/`}><span>方劑</span><strong>{localize(formula.labels)}</strong></Link>)}
+        </div>}
+        <p className="medical-boundary"><strong>研讀與安全邊界：</strong>本頁彙整傳統藥材身份與有來源的分類，不代表個人適用性；不提供劑量、替換、炮製、自行購藥或處方建議。未列警示不表示安全。</p>
       </section>}
       {meridianPoints.length > 0 && <section className="entity-details meridian-point-section"><h2>本經標準穴位</h2><p>共 {meridianPoints.length} 穴，依標準代碼順序排列。</p><ol className="meridian-point-list">{meridianPoints.map((point) => <li key={point.id}><Link href={`/entities/${point.slug}/`}><span>{String(point.metadata.standardCode)}</span><strong>{localize(point.labels)}</strong></Link></li>)}</ol></section>}
       <section className="entity-details local-graph-section" aria-labelledby="local-graph-title">

@@ -49,7 +49,7 @@ for (const [centerId, expectedNeighbors] of [
 for (const [centerId, expectedNeighbors, expectedOmitted] of [
   ["formula:guizhi-tang", 13, 0],
   ["syndrome:taiyang-zhongfeng", 3, 0],
-  ["herb:guizhi", 9, 0],
+  ["herb:guizhi", 21, 3],
   ["shanghan-channel:taiyang", 4, 0],
   ["classic:shanghan-lun", 23, 5],
 ] as const) {
@@ -66,7 +66,7 @@ assert.equal(guizhiFormula.nodes.filter((node) => node.type === "herb").length, 
 
 for (const [centerId, expectedNeighbors, expectedOmitted] of [
   ["formula:huangqi-guizhi-wuwu-tang", 9, 0],
-  ["herb:huangqi", 2, 0],
+  ["herb:huangqi", 13, 0],
   ["syndrome:jingui-blood-bi-qi-blood-deficiency", 4, 0],
   ["classic:jingui-yaolue", 28, 10],
 ] as const) {
@@ -81,7 +81,7 @@ for (const [centerId, expectedNeighbors] of [
   ["acupoint:li-04", 3],
   ["acupoint:st-36", 4],
   ["meridian:liver", 18],
-  ["organ:liver", 3],
+  ["organ:liver", 9],
 ] as const) {
   const graph = buildLocalGraph({ centerId, nodes, relations });
   assert.equal(graph.directNeighborCount, expectedNeighbors, `${centerId} acupuncture pilot graph changed unexpectedly`);
@@ -105,10 +105,27 @@ assert.deepEqual(classic, repeated, "the same data must always produce the same 
 const rawEnums = /part_of|belongs_to|appears_in|upper_trigram|lower_trigram|related_to|classified_as|contains_herb|classically_associated_with/;
 assert.ok(classic.edges.every((edge) => !rawEnums.test(edge.label)), "public edge labels must be human-readable");
 
+for (const [centerId, expectedNeighbors, expectedOmitted] of [
+  ["herb:gancao", 26, 8],
+  ["herb:shengjiang", 18, 0],
+  ["herb:fuzi", 16, 0],
+  ["herb:danggui", 15, 0],
+] as const) {
+  const graph = buildLocalGraph({ centerId, nodes, relations });
+  assert.equal(graph.directNeighborCount, expectedNeighbors, `${centerId} must retain complete herb degree`);
+  assert.equal(graph.omittedNodeCount, expectedOmitted, `${centerId} hub truncation changed unexpectedly`);
+  assert.ok(graph.nodes.some((node) => node.type === "herb_nature"), `${centerId} local graph must expose medicinal nature`);
+  assert.ok(graph.nodes.some((node) => node.type === "herb_flavor"), `${centerId} local graph must expose medicinal flavor`);
+  assert.ok(graph.nodes.some((node) => node.type === "organ"), `${centerId} local graph must expose tropism targets`);
+}
+const gancao = buildLocalGraph({ centerId: "herb:gancao", nodes, relations });
+assert.equal(gancao.nodes.length, 19, "high-degree herb graph must preserve the 18-neighbor visual limit");
+assert.ok(gancao.directNeighborCount > gancao.nodes.length - 1, "high-degree herb must report omitted neighbors instead of deleting relations");
+
 console.log(JSON.stringify({
   graphNodesAvailable: nodes.length,
   relationsAvailable: relations.length,
-  representativeCenters: 26,
+  representativeCenters: 30,
   qianVisibleNodes: qian.nodes.length,
   trigramDirectNeighbors: 19,
   classicDirectNeighbors: classic.directNeighborCount,

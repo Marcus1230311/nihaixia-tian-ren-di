@@ -4,6 +4,7 @@ import { tianjiStructuredEntities, tianjiStructuredLessons, tianjiStructuredRela
 import { renjiAcupunctureEntities, renjiAcupunctureLessons, renjiAcupunctureRelations, renjiAcupunctureSources } from "@/data/renji-acupuncture";
 import { renjiShanghanEntities, renjiShanghanLessons, renjiShanghanRelations, renjiShanghanSources } from "@/data/renji-shanghan";
 import { augmentJinguiSharedEntity, renjiJinguiEntities, renjiJinguiLessons, renjiJinguiRelations, renjiJinguiSources } from "@/data/renji-jingui";
+import { augmentBencaoHerb, renjiBencaoEntities, renjiBencaoLessons, renjiBencaoRelations, renjiBencaoSources } from "@/data/renji-bencao";
 
 const editorialSourceId = "source:project:yijing-notes";
 const classicalSourceId = "source:classical:zhouyi";
@@ -49,6 +50,7 @@ export const sources: Source[] = [
   ...renjiAcupunctureSources,
   ...renjiShanghanSources,
   ...renjiJinguiSources,
+  ...renjiBencaoSources,
 ];
 
 const lessonRows = [
@@ -89,7 +91,7 @@ const yijingLessons: Lesson[] = lessonRows.map(([order, titleHant, titleHans, su
           : ["classic:yijing"],
 }));
 
-export const lessons: Lesson[] = [...yijingLessons, ...tianjiStructuredLessons, ...renjiAcupunctureLessons, ...renjiShanghanLessons, ...renjiJinguiLessons];
+export const lessons: Lesson[] = [...yijingLessons, ...tianjiStructuredLessons, ...renjiAcupunctureLessons, ...renjiShanghanLessons, ...renjiJinguiLessons, ...renjiBencaoLessons];
 
 const trigramRows = [
   ["qian", "乾", "乾", "☰", "111", "天", "天", "健", "健"],
@@ -178,9 +180,10 @@ export const entities: KnowledgeEntity[] = [
     relatedLessonIds: [lessonIds[0], "lesson:tianji:heluo:01"],
   })),
   ...tianjiStructuredEntities,
-  ...renjiAcupunctureEntities.map((entity) => entity.id === "course:renji" ? { ...entity, relatedLessonIds: [...entity.relatedLessonIds, ...renjiShanghanLessons.map((lesson) => lesson.id), ...renjiJinguiLessons.map((lesson) => lesson.id)] } : entity),
-  ...renjiShanghanEntities.map(augmentJinguiSharedEntity),
-  ...renjiJinguiEntities,
+  ...renjiAcupunctureEntities.map((entity) => entity.id === "course:renji" ? { ...entity, relatedLessonIds: [...entity.relatedLessonIds, ...renjiShanghanLessons.map((lesson) => lesson.id), ...renjiJinguiLessons.map((lesson) => lesson.id), ...renjiBencaoLessons.map((lesson) => lesson.id)] } : entity),
+  ...renjiShanghanEntities.map(augmentJinguiSharedEntity).map(augmentBencaoHerb),
+  ...renjiJinguiEntities.map(augmentBencaoHerb),
+  ...renjiBencaoEntities,
   ...hexagrams,
 ];
 
@@ -250,10 +253,11 @@ export const relations: KnowledgeRelation[] = [
   ...renjiAcupunctureRelations,
   ...renjiShanghanRelations,
   ...renjiJinguiRelations,
+  ...renjiBencaoRelations,
 ];
 
 export const knowledgeGraph: KnowledgeGraph = {
-  schemaVersion: "1.4.0",
+  schemaVersion: "1.5.0",
   sources,
   entities: [...lessons, ...entities],
   relations,

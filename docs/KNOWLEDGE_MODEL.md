@@ -1,6 +1,6 @@
 # 知識模型 V1.4（已凍結）
 
-本文件記錄 1.4.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。1.4.0 在 1.3.0 上加入通用 `condition`，用來區分金匱的章篇／疾病組織入口與具體 `syndrome`；沒有移除欄位、改變既有 ID、新增 relation type 或來源分類。現有資料涵蓋天紀、十二正經穴位、受控傷寒及金匱模型，不代表完整人紀已建模。
+本文件記錄 1.5.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。1.5.0 在金匱 1.4.0 上加入本草藥性、藥味、品級及三個精確關係；沒有移除欄位、改變既有 ID 或新增來源分類。現有資料涵蓋天紀、十二正經穴位、受控傷寒、金匱及 24 味本草模型，不代表完整人紀已建模。
 
 ## Entity Schema V1
 
@@ -8,7 +8,7 @@
 
 - `id`：語言無關、具命名空間的穩定識別碼，例如 `trigram:qian`。顯示名稱變更時不得更換 ID。
 - `slug`：Windows 與網址皆安全的 kebab-case 路徑片段；與 ID 分離。
-- `type`：`course | classic | lesson | trigram | hexagram | heavenly_stem | earthly_branch | element | yin_yang | ten_god | direction | meridian | meridian_level | organ | acupoint | point_category | shanghan_channel | syndrome | concept | formula | herb`。
+- `type`：除既有課程、經典、天紀、針灸、傷寒、金匱與方藥類型外，1.5.0 增加 `herb_nature | herb_flavor | herb_grade`；完整受控列舉以 `lib/knowledge-schema.ts` 為準。
 - `labels`、`descriptions`：本地化文字物件；`zh-Hant` 必填，`zh-Hans` 可選。
 - `aliases`：按語系分組的別名陣列。
 - `metadata`：小型結構化屬性；鍵名必須先有展示名稱對照，禁止把內部鍵直接顯示給讀者。
@@ -21,7 +21,7 @@ lesson 另有 `courseId`、`moduleId`、`order`、`route`、`legacyPath` 與 `re
 
 關係是有方向的 edge，固定欄位為 `id`、`type`、`from`、`to`、`sourceIds`，並可選擇加入本地化 `notes` 與 `confidence`。端點必須存在，關係不得指向自身，ID 不得重複。
 
-V1.3 詞彙為：`part_of`、`belongs_to`、`contains`、`appears_in`、`sourced_from`、`contains_herb`、`related_formula`、`corresponds_to`、`element_of`、`upper_trigram`、`lower_trigram`、`related_to`、`generates`、`controls`、`classified_as`、`classically_associated_with`。`classically_associated_with` 表達經典醫學框架中的方證關聯，不等於個人診斷或處方建議；藥味組成仍使用既有 `contains_herb`。
+1.5.0 詞彙在既有關係上增加 `has_nature`、`has_flavor`、`has_tropism`。三者分別回答藥性、藥味與歸經，不與穴位 `belongs_to` 或方劑 `contains_herb` 混用；完整受控列舉以 Schema 為準。
 
 公開介面一律使用 `lib/presentation.ts` 的繁簡展示對照，例如 `part_of` 顯示「屬於／属于」、`appears_in` 顯示「見於／见于」；不可直接輸出 enum 值。
 
@@ -107,3 +107,9 @@ Schema V1 已用完整 8 個八卦與 64 個六十四卦進行擴量驗證，未
 新增通用 `condition`，因《金匱要略》的血痹、虛勞、痰飲、婦人病等可作章篇／疾病組織入口，而具體方證仍應是 `syndrome`。`syndrome belongs_to condition` 表示研讀分層；方劑只以 `classically_associated_with` 指向 syndrome，不直接指向 condition。這項區分有跨醫學經典的語意價值，因此 Schema 升至 1.4.0；relation、欄位、metadata value 與 source category 均不變。
 
 方劑和藥材身份維持全域唯一。桂枝湯、大承氣湯、小柴胡湯沿用傷寒建立的 ID、slug、組成邊與公開頁，再各自增加金匱 `appears_in` 及方證關係。每條 relation 自帶 `sourceIds`，所以同一方劑的傷寒主張只連傷寒來源，金匱主張只連金匱來源；entity 的來源合集不替代 claim-level evidence。十八味新增藥材與十六味既有藥材共用同一 `herb:*` 命名空間。完整決策、重用清單與本草準備度見 [`JINGUI_MODEL.md`](JINGUI_MODEL.md)。
+
+## V2.7A 本草藥材模型壓力測試
+
+Schema 升至 1.5.0，新增 `herb_nature`、`herb_flavor`、`herb_grade` 與三個精確關係；Entity、Relation、Source 欄位及 source category 均不變。24 味藥全部重用既有 `herb:*`，藥材身份表示傳統醫藥使用的藥材，不等同植物物種或全部炮製品。
+
+歸經以 `has_tropism` 指向既有 `organ:*`，不指向 meridian、不使用 `belongs_to`。因此可沿 Herb → Organ ← Meridian ← Acupoint 及 Organ → Element 探索，但不加入冗餘 Herb → Element。三品只結構化本站舊課明確講授的 12 味；古典傳本、本站整理與現代規範不一致的藥性使用不同 relation 與 sourceIds 保留。完整決策見 [`BENCAO_MODEL.md`](BENCAO_MODEL.md)。

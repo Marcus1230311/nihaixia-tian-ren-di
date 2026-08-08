@@ -6,9 +6,9 @@
 
 課程正文不重新生成。`lib/v1-content.ts` 在建置階段讀取既有 `<article class="classic">`，新的公開路由提供搜尋、麵包屑、前後篇、來源說明和知識條目入口。
 
-## Schema Freeze 1.4.0
+## Schema Freeze 1.5.0
 
-Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.4.0。1.0.0–1.3.0 的易經、八字、河洛、針灸與傷寒資料和 ID 保持不變；後續小版本依序增加針灸、傷寒與金匱所需的通用 enum。本版以 `condition` 區分疾病／章篇入口與具體 `syndrome`，relation-level `sourceIds` 繼續保存每條主張證據。詳細欄位、展示對照、圖譜／搜尋條件及版本規則見 [`KNOWLEDGE_MODEL.md`](KNOWLEDGE_MODEL.md)。後續匯入和引導研讀要求見 [`CONTENT_GUIDELINES.md`](CONTENT_GUIDELINES.md)。
+Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.5.0。既有 ID 與資料保持不變；本版增加本草藥性、藥味、品級三種通用 entity 及 `has_nature`、`has_flavor`、`has_tropism`，relation-level `sourceIds` 繼續保存每條主張證據。詳細決策見 [`KNOWLEDGE_MODEL.md`](KNOWLEDGE_MODEL.md) 與 [`BENCAO_MODEL.md`](BENCAO_MODEL.md)。
 
 《易經》結構化層目前包含：5 篇研讀課程、天紀課程主線、周易經典、8 個八卦、64 個六十四卦、206 條關係與 4 筆獨立來源。搜尋索引共有 79 筆（5 lessons + 74 non-lesson entities）。本次只擴充卦象結構，沒有開始八字、河洛、人紀、地紀或全域圖譜。
 
@@ -35,6 +35,12 @@ Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.4.0。1.0.0�
 ## 延後事項
 
 全域知識圖譜、八字排盤與個人解讀、曆法換算、藏干／合沖刑害等進階關係、河洛流派延伸、完整針灸擴量與其他人紀模組、地紀結構化、資料庫、身份驗證、AI、CMS、完整簡體網站、PDF 批次匯入與經典全文重製均刻意延後。開始任何一項之前，必須按內容規範先完成來源盤點與小樣本驗證。
+
+## V2.7A 本草藥材知識模型
+
+新增 5 篇引導研讀、1 個《神農本草經》經典身份、5 藥性、5 藥味與 3 品級，共使用 24 味既有 Herb，沒有新增 Herb。全圖為 641 節點、1,933 關係、23 來源，搜尋索引 641 筆。藥材頁彙整性味、歸經、古典、方劑、課程、局部圖與逐條證據；兩個程式化 SVG 說明藥材屬性模型與穴位—經脈—臟腑—藥材—方劑路徑。
+
+完整本草文本、功效／主治 ontology、炮製、物種、藥用部位、毒性、交互作用、劑量與批次匯入管線仍延後。中間麵包屑可點擊、最終導覽與視覺一致性仍列為全站 UX 收尾，不在本輪處理。
 
 ## V2.4 天紀八字與河洛結構化擴充
 
