@@ -125,3 +125,12 @@ PRODUCT & CONTENT QUALITY ACCEPTED
 - 分類採第一級 entity＋關係；五行與陰陽沿用既有共享 ID。六個經脈層級可供後續共用，但明示不等同《傷寒論》六經辨證。
 - 新增十二正經與五輸五行結構圖，保留醫療安全界線；完整穴位擴量、解剖座標、人體圖、臨床資料及其他人紀模組延後。
 - 修正課程尾端固定「回到易經導覽」假設；中間麵包屑可點擊性留待最後全站 UX／navigation 清理。
+
+## 2026-08-07 — V2.5B-1 針灸結構化資料匯入
+
+- 建立與 public Schema 1.2.0 分離的 JSON／CSV／TSV canonical import model，包含 workflow status、可不完整 source locator 與 entity／relation 分用途 provenance；未修改 schema。
+- pipeline 明列 Load、Normalize、Resolve、Validate、Transform、Compare、Report 階段；校驗代碼、唯一主經、分類、lesson/source 端點、五輸陰陽經五行配屬、重複／衝突與輸出 schema。
+- 以既有 29 點建立 regression fixture 及 deterministic generated candidate；production `data/renji-acupuncture.ts` 未被替換，公開節點／關係／來源數不變。
+- 新增 dry-run、generate、validate 指令及 machine/human-readable exception report；CI 在 build 前驗證 committed artifacts。
+- PDF/OCR 只定義 canonical-record 交接界面；anatomy body view、region、normalized x/y、SVG path、laterality、diagram version 設計為未來 linked spatial submodel，未填座標。
+- 文件明訂以程式處理重複轉錄、模型只審核語義例外，並記錄來源 attribution／授權邊界。

@@ -85,3 +85,9 @@ Schema V1 已用完整 8 個八卦與 64 個六十四卦進行擴量驗證，未
 太陰、少陰、厥陰、陽明、太陽、少陽建為 `meridian_level`，各自連到既有陰／陽。這些身份具有搜尋與跨模組重用價值，但目前描述明示它們只是十二正經命名層級；不得由此自動推導《傷寒論》六經辨證。五行與陰陽继续各保持 5／2 個共享身份，没有建立 `tcm:*` 或针灸副本。
 
 醫療領域摩擦有三點：穴位可同時屬多個分類；五輸五行規則取決於陰／陽經；未來解剖視覺需要座標與經脈路徑。前兩者由第一級分類、顯式關係及決定性驗證處理；第三者目前只記錄「尚未加入座標」的呈現狀態，不把未成熟 coordinate 欄位塞入 Entity Schema。結論是 Schema 1.2.0 適合擴大至完整針灸語料，但擴量前仍須建立來源匯入流程、標準化穴位定位資料及視覺座標子模型。
+
+## V2.5B-1 匯入層與 Schema freeze
+
+`tools/acupuncture/` 的 canonical import record、source locator、workflow status、relation-level source purpose 與未來 extractor 訊息全屬匯入層，不是 Entity／Relation／Source 欄位。29 點對帳證明 Schema 1.2.0 可原樣承接候選輸出，因此本里程碑沒有 schema 變更。
+
+未來 anatomy marker／path 亦採 linked spatial submodel；不得為方便 OCR 或繪圖而解除 freeze。完整合約見 [`ACUPUNCTURE_INGESTION.md`](ACUPUNCTURE_INGESTION.md)。

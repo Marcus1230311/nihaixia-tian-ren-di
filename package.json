@@ -10,7 +10,10 @@
     "validate:graph": "tsx scripts/validate-local-graph.ts",
     "validate:public": "tsx scripts/validate-public-ui.ts",
     "validate:v1": "node tools/validate-site.js",
-    "build": "npm run validate:v1 && npm run validate:data && npm run validate:graph && npm run prepare:v1 && npm run build:search && next build && npm run validate:public",
+    "acupuncture:validate": "tsx tools/acupuncture/cli.ts validate",
+    "acupuncture:dry-run": "tsx tools/acupuncture/cli.ts dry-run",
+    "acupuncture:generate": "tsx tools/acupuncture/cli.ts generate",
+    "build": "npm run validate:v1 && npm run validate:data && npm run validate:graph && npm run acupuncture:validate && npm run prepare:v1 && npm run build:search && next build && npm run validate:public",
     "start": "next start"
   },
   "dependencies": {

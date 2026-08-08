@@ -55,3 +55,11 @@ Schema 由 1.0.0 升至向後相容的 1.1.0：新增 6 個 entity enum 與 `gen
 穴位分類採 entity + `classified_as`，Schema 升至 1.2.0；沒有新增欄位或 source category。六個經脈層級建為共享 entity 並連到既有陰陽，但不等同或推導《傷寒論》六經辨證。解剖座標、經脈 SVG path 與人體 marker 需求已記錄，待未來視覺子模型成熟後再提案。
 
 課程尾端導覽已改為模組內前後篇及模組名稱，不再把非易經課程送回「易經導覽」。中間麵包屑可點擊性仍列為最後的全站 UX／navigation 清理項，本里程碑不重設整套 breadcrumb。
+
+## V2.5B-1 針灸結構化資料匯入
+
+新增 JSON／CSV／TSV canonical import boundary、明列繁簡／經脈／分類／五行 alias maps、Zod 格式驗證、引用解析、標準代碼／經脈／五輸五行規則、重複與衝突檢查、Entity／Relation 轉換、production compare 及 JSON／Markdown exception reports。
+
+現有 29 點作為完整 regression fixture；候選輸出全等才可生成，且不會自動替換 production。Schema 維持 1.2.0；公開內容仍是 220 nodes、604 relations、12 sources、29 acupoints。
+
+CI 新增 `acupuncture:validate`，而 `dry-run` 是未來 bulk import 預設模式。PDF/OCR、完整主經穴擴量及 anatomy coordinate population 均未在本里程碑啟動。

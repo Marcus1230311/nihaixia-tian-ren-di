@@ -1,0 +1,348 @@
+{
+  "reportVersion": "1.0",
+  "schemaVersion": "1.2.0",
+  "inputFile": "data/import/acupuncture/pilot-points.json",
+  "summary": {
+    "total": 29,
+    "valid": 29,
+    "invalid": 0,
+    "duplicate": 0,
+    "conflict": 0,
+    "errors": 0,
+    "warnings": 0,
+    "unresolvedSource": 0,
+    "unresolvedMeridian": 0,
+    "unresolvedCategory": 0,
+    "normalizationWarnings": 61
+  },
+  "records": [
+    {
+      "sourceKey": "pilot:lu-01",
+      "status": "valid",
+      "entityId": "acupoint:lu-01",
+      "standardCode": "LU1",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 肺經 -> meridian:lung",
+        "pointCategories: 募穴 -> point-category:front-mu"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lu-05",
+      "status": "valid",
+      "entityId": "acupoint:lu-05",
+      "standardCode": "LU5",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 合穴 -> point-category:sea",
+        "elementId: 水 -> element:water"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lu-06",
+      "status": "valid",
+      "entityId": "acupoint:lu-06",
+      "standardCode": "LU6",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 郄穴 -> point-category:cleft"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lu-07",
+      "status": "valid",
+      "entityId": "acupoint:lu-07",
+      "standardCode": "LU7",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 絡穴 -> point-category:connecting",
+        "pointCategories: 八脈交會穴 -> point-category:eight-confluent"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lu-09",
+      "status": "valid",
+      "entityId": "acupoint:lu-09",
+      "standardCode": "LU9",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 輸穴 -> point-category:stream",
+        "pointCategories: 原穴 -> point-category:source",
+        "elementId: 土 -> element:earth"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lu-11",
+      "status": "valid",
+      "entityId": "acupoint:lu-11",
+      "standardCode": "LU11",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 井穴 -> point-category:well",
+        "elementId: 木 -> element:wood"
+      ]
+    },
+    {
+      "sourceKey": "pilot:li-01",
+      "status": "valid",
+      "entityId": "acupoint:li-01",
+      "standardCode": "LI1",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 大肠经 -> meridian:large-intestine",
+        "pointCategories: 井 -> point-category:well",
+        "elementId: 金 -> element:metal"
+      ]
+    },
+    {
+      "sourceKey": "pilot:li-04",
+      "status": "valid",
+      "entityId": "acupoint:li-04",
+      "standardCode": "LI4",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 原 -> point-category:source"
+      ]
+    },
+    {
+      "sourceKey": "pilot:li-11",
+      "status": "valid",
+      "entityId": "acupoint:li-11",
+      "standardCode": "LI11",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 合 -> point-category:sea"
+      ]
+    },
+    {
+      "sourceKey": "pilot:st-36",
+      "status": "valid",
+      "entityId": "acupoint:st-36",
+      "standardCode": "ST36",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 胃经 -> meridian:stomach"
+      ]
+    },
+    {
+      "sourceKey": "pilot:st-40",
+      "status": "valid",
+      "entityId": "acupoint:st-40",
+      "standardCode": "ST40",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 絡穴 -> point-category:connecting"
+      ]
+    },
+    {
+      "sourceKey": "pilot:sp-04",
+      "status": "valid",
+      "entityId": "acupoint:sp-04",
+      "standardCode": "SP4",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 八脉交会穴 -> point-category:eight-confluent"
+      ]
+    },
+    {
+      "sourceKey": "pilot:sp-06",
+      "status": "valid",
+      "entityId": "acupoint:sp-06",
+      "standardCode": "SP6",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 三經交會穴 -> point-category:crossing"
+      ]
+    },
+    {
+      "sourceKey": "pilot:sp-09",
+      "status": "valid",
+      "entityId": "acupoint:sp-09",
+      "standardCode": "SP9",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 合穴 -> point-category:sea",
+        "elementId: 水 -> element:water"
+      ]
+    },
+    {
+      "sourceKey": "pilot:ht-07",
+      "status": "valid",
+      "entityId": "acupoint:ht-07",
+      "standardCode": "HT7",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 心經 -> meridian:heart",
+        "pointCategories: 腧穴 -> point-category:stream",
+        "pointCategories: 原穴 -> point-category:source",
+        "elementId: 土 -> element:earth"
+      ]
+    },
+    {
+      "sourceKey": "pilot:si-03",
+      "status": "valid",
+      "entityId": "acupoint:si-03",
+      "standardCode": "SI3",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 輸穴 -> point-category:stream",
+        "pointCategories: 八脈交會穴 -> point-category:eight-confluent",
+        "elementId: 木 -> element:wood"
+      ]
+    },
+    {
+      "sourceKey": "pilot:bl-13",
+      "status": "valid",
+      "entityId": "acupoint:bl-13",
+      "standardCode": "BL13",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 膀胱经 -> meridian:bladder",
+        "pointCategories: 俞穴 -> point-category:back-shu"
+      ]
+    },
+    {
+      "sourceKey": "pilot:bl-40",
+      "status": "valid",
+      "entityId": "acupoint:bl-40",
+      "standardCode": "BL40",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 合穴 -> point-category:sea",
+        "elementId: 土 -> element:earth"
+      ]
+    },
+    {
+      "sourceKey": "pilot:bl-60",
+      "status": "valid",
+      "entityId": "acupoint:bl-60",
+      "standardCode": "BL60",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 經穴 -> point-category:river",
+        "elementId: 火 -> element:fire"
+      ]
+    },
+    {
+      "sourceKey": "pilot:ki-01",
+      "status": "valid",
+      "entityId": "acupoint:ki-01",
+      "standardCode": "KI1",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 肾经 -> meridian:kidney",
+        "pointCategories: 井穴 -> point-category:well",
+        "elementId: 木 -> element:wood"
+      ]
+    },
+    {
+      "sourceKey": "pilot:ki-03",
+      "status": "valid",
+      "entityId": "acupoint:ki-03",
+      "standardCode": "KI3",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 輸穴 -> point-category:stream",
+        "pointCategories: 原穴 -> point-category:source",
+        "elementId: 土 -> element:earth"
+      ]
+    },
+    {
+      "sourceKey": "pilot:pc-06",
+      "status": "valid",
+      "entityId": "acupoint:pc-06",
+      "standardCode": "PC6",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 心包经 -> meridian:pericardium",
+        "pointCategories: 八脉交会穴 -> point-category:eight-confluent"
+      ]
+    },
+    {
+      "sourceKey": "pilot:te-05",
+      "status": "valid",
+      "entityId": "acupoint:te-05",
+      "standardCode": "TE5",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 三焦經 -> meridian:sanjiao"
+      ]
+    },
+    {
+      "sourceKey": "pilot:gb-34",
+      "status": "valid",
+      "entityId": "acupoint:gb-34",
+      "standardCode": "GB34",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 胆经 -> meridian:gallbladder",
+        "pointCategories: 合穴 -> point-category:sea",
+        "elementId: 土 -> element:earth"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lr-01",
+      "status": "valid",
+      "entityId": "acupoint:lr-01",
+      "standardCode": "LR1",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 足厥陰肝經 -> meridian:liver",
+        "pointCategories: 井穴 -> point-category:well",
+        "elementId: 木 -> element:wood"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lr-02",
+      "status": "valid",
+      "entityId": "acupoint:lr-02",
+      "standardCode": "LR2",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 滎穴 -> point-category:spring",
+        "elementId: 火 -> element:fire"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lr-03",
+      "status": "valid",
+      "entityId": "acupoint:lr-03",
+      "standardCode": "LR3",
+      "issues": [],
+      "normalizations": [
+        "meridianId: 肝经 -> meridian:liver",
+        "pointCategories: 輸穴 -> point-category:stream",
+        "pointCategories: 原穴 -> point-category:source",
+        "elementId: 土 -> element:earth"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lr-04",
+      "status": "valid",
+      "entityId": "acupoint:lr-04",
+      "standardCode": "LR4",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 經穴 -> point-category:river",
+        "elementId: 金 -> element:metal"
+      ]
+    },
+    {
+      "sourceKey": "pilot:lr-08",
+      "status": "valid",
+      "entityId": "acupoint:lr-08",
+      "standardCode": "LR8",
+      "issues": [],
+      "normalizations": [
+        "pointCategories: 合穴 -> point-category:sea",
+        "elementId: 水 -> element:water"
+      ]
+    }
+  ],
+  "reconciliation": {
+    "checked": 29,
+    "equivalent": 29,
+    "mismatched": 0,
+    "differences": []
+  }
+}

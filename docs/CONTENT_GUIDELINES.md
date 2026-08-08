@@ -40,3 +40,10 @@
 - relation 方向正確、端點存在、展示名稱自然。
 - 搜尋可以由標籤、別名和正文關鍵詞找到內容。
 - 課程、條目、來源與延伸研讀連結皆可到達。
+
+## 程式化匯入與 token 使用
+
+- 大量穴位不得由模型逐筆重寫；先轉成 `docs/ACUPUNCTURE_INGESTION.md` 的 canonical record，再用程式正規化、驗證與產生。模型只審核模糊章節、未解析別名、來源衝突、關係判斷與教育摘要。
+- bulk import 一律先跑 `npm run acupuncture:dry-run` 並審查 exception report；只有明確接受的資料才可 generate，且 generate 不等於發布。
+- 來源 locator 不得杜撰頁碼。不得不必要地複製大型受版權保護表格或提交來源 PDF；採最小事實轉換並保存 attribution／license 判斷。
+- 空間座標、人體 marker 與 SVG path 使用獨立 linked submodel，不得塞入 Entity 1.2.0。

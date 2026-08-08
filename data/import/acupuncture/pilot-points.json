@@ -1,0 +1,86 @@
+{
+  "formatVersion": "1.0",
+  "defaults": {
+    "relatedLessonIds": ["lesson:renji:acupuncture:02"],
+    "sourceIds": [
+      "source:project:renji-acupuncture-notes",
+      "source:reference:who-acupuncture-nomenclature",
+      "source:derived:renji-acupuncture-pilot"
+    ],
+    "relationSourceIds": {
+      "membership": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:who-acupuncture-nomenclature",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "category": [
+        "source:project:renji-acupuncture-notes",
+        "source:derived:renji-acupuncture-pilot"
+      ],
+      "fiveShu": [
+        "source:project:renji-acupuncture-notes",
+        "source:reference:bucm-five-shu",
+        "source:derived:renji-acupuncture-pilot"
+      ]
+    },
+    "sourceLocator": [
+      {
+        "sourceId": "source:project:renji-acupuncture-notes",
+        "sourceTitle": "本站人紀針灸既有課程筆記",
+        "section": "renji/zhenjiu/01–03",
+        "localFile": "renji/zhenjiu",
+        "note": "課程放置與既有編輯整理；非逐字稿。"
+      },
+      {
+        "sourceId": "source:reference:who-acupuncture-nomenclature",
+        "sourceTitle": "WHO Standard Acupuncture Point Locations in the Western Pacific Region",
+        "section": "standard codes and names",
+        "sourceUrl": "https://iris.who.int/handle/10665/353407",
+        "note": "只用於標準代碼與命名正規化。"
+      },
+      {
+        "sourceId": "source:reference:bucm-five-shu",
+        "sourceTitle": "北京中醫藥大學針灸學：五輸穴",
+        "section": "五輸穴次序與五行配屬",
+        "sourceUrl": "https://jxjyxb.bucm.edu.cn/BZYAttachs/courseware/zhenjiuxue/c1/c1_61a.htm"
+      },
+      {
+        "sourceId": "source:derived:renji-acupuncture-pilot",
+        "section": "V2.5A structured pilot",
+        "note": "由已接受的穴位、分類與關係結構轉換。"
+      }
+    ],
+    "status": "accepted"
+  },
+  "records": [
+    { "sourceKey": "pilot:lu-01", "canonicalNameHant": "中府", "canonicalNameHans": "中府", "standardCode": "LU1", "meridianId": "肺經", "aliasesHant": ["LU1"], "aliasesHans": ["LU1"], "sequenceNumber": 1, "pointCategories": ["募穴"] },
+    { "sourceKey": "pilot:lu-05", "canonicalNameHant": "尺澤", "canonicalNameHans": "尺泽", "standardCode": "LU5", "meridianId": "meridian:lung", "aliasesHant": ["LU5"], "aliasesHans": ["LU5"], "sequenceNumber": 5, "pointCategories": ["合穴"], "elementId": "水" },
+    { "sourceKey": "pilot:lu-06", "canonicalNameHant": "孔最", "canonicalNameHans": "孔最", "standardCode": "LU6", "meridianId": "meridian:lung", "aliasesHant": ["LU6"], "aliasesHans": ["LU6"], "sequenceNumber": 6, "pointCategories": ["郄穴"] },
+    { "sourceKey": "pilot:lu-07", "canonicalNameHant": "列缺", "canonicalNameHans": "列缺", "standardCode": "LU7", "meridianId": "meridian:lung", "aliasesHant": ["LU7"], "aliasesHans": ["LU7"], "sequenceNumber": 7, "pointCategories": ["絡穴", "八脈交會穴"] },
+    { "sourceKey": "pilot:lu-09", "canonicalNameHant": "太淵", "canonicalNameHans": "太渊", "standardCode": "LU9", "meridianId": "meridian:lung", "aliasesHant": ["LU9"], "aliasesHans": ["LU9"], "sequenceNumber": 9, "pointCategories": ["輸穴", "原穴"], "elementId": "土" },
+    { "sourceKey": "pilot:lu-11", "canonicalNameHant": "少商", "canonicalNameHans": "少商", "standardCode": "LU11", "meridianId": "meridian:lung", "aliasesHant": ["LU11"], "aliasesHans": ["LU11"], "sequenceNumber": 11, "pointCategories": ["井穴"], "elementId": "木" },
+    { "sourceKey": "pilot:li-01", "canonicalNameHant": "商陽", "canonicalNameHans": "商阳", "standardCode": "LI1", "meridianId": "大肠经", "aliasesHant": ["LI1"], "aliasesHans": ["LI1"], "sequenceNumber": 1, "pointCategories": ["井"], "elementId": "金" },
+    { "sourceKey": "pilot:li-04", "canonicalNameHant": "合谷", "canonicalNameHans": "合谷", "standardCode": "LI4", "meridianId": "meridian:large-intestine", "aliasesHant": ["LI4"], "aliasesHans": ["LI4"], "sequenceNumber": 4, "pointCategories": ["原"] },
+    { "sourceKey": "pilot:li-11", "canonicalNameHant": "曲池", "canonicalNameHans": "曲池", "standardCode": "LI11", "meridianId": "meridian:large-intestine", "aliasesHant": ["LI11"], "aliasesHans": ["LI11"], "sequenceNumber": 11, "pointCategories": ["合"], "elementId": "element:earth" },
+    { "sourceKey": "pilot:st-36", "canonicalNameHant": "足三里", "canonicalNameHans": "足三里", "standardCode": "ST36", "meridianId": "胃经", "aliasesHant": ["ST36"], "aliasesHans": ["ST36"], "sequenceNumber": 36, "pointCategories": ["point-category:sea"], "elementId": "element:earth" },
+    { "sourceKey": "pilot:st-40", "canonicalNameHant": "豐隆", "canonicalNameHans": "丰隆", "standardCode": "ST40", "meridianId": "meridian:stomach", "aliasesHant": ["ST40"], "aliasesHans": ["ST40"], "sequenceNumber": 40, "pointCategories": ["絡穴"] },
+    { "sourceKey": "pilot:sp-04", "canonicalNameHant": "公孫", "canonicalNameHans": "公孙", "standardCode": "SP4", "meridianId": "meridian:spleen", "aliasesHant": ["SP4"], "aliasesHans": ["SP4"], "sequenceNumber": 4, "pointCategories": ["point-category:connecting", "八脉交会穴"] },
+    { "sourceKey": "pilot:sp-06", "canonicalNameHant": "三陰交", "canonicalNameHans": "三阴交", "standardCode": "SP6", "meridianId": "meridian:spleen", "aliasesHant": ["SP6"], "aliasesHans": ["SP6"], "sequenceNumber": 6, "pointCategories": ["三經交會穴"] },
+    { "sourceKey": "pilot:sp-09", "canonicalNameHant": "陰陵泉", "canonicalNameHans": "阴陵泉", "standardCode": "SP9", "meridianId": "meridian:spleen", "aliasesHant": ["SP9"], "aliasesHans": ["SP9"], "sequenceNumber": 9, "pointCategories": ["合穴"], "elementId": "水" },
+    { "sourceKey": "pilot:ht-07", "canonicalNameHant": "神門", "canonicalNameHans": "神门", "standardCode": "HT7", "meridianId": "心經", "aliasesHant": ["HT7"], "aliasesHans": ["HT7"], "sequenceNumber": 7, "pointCategories": ["腧穴", "原穴"], "elementId": "土" },
+    { "sourceKey": "pilot:si-03", "canonicalNameHant": "後溪", "canonicalNameHans": "后溪", "standardCode": "SI3", "meridianId": "meridian:small-intestine", "aliasesHant": ["SI3"], "aliasesHans": ["SI3"], "sequenceNumber": 3, "pointCategories": ["輸穴", "八脈交會穴"], "elementId": "木" },
+    { "sourceKey": "pilot:bl-13", "canonicalNameHant": "肺俞", "canonicalNameHans": "肺俞", "standardCode": "BL13", "meridianId": "膀胱经", "aliasesHant": ["BL13"], "aliasesHans": ["BL13"], "sequenceNumber": 13, "pointCategories": ["俞穴"] },
+    { "sourceKey": "pilot:bl-40", "canonicalNameHant": "委中", "canonicalNameHans": "委中", "standardCode": "BL40", "meridianId": "meridian:bladder", "aliasesHant": ["BL40"], "aliasesHans": ["BL40"], "sequenceNumber": 40, "pointCategories": ["合穴"], "elementId": "土" },
+    { "sourceKey": "pilot:bl-60", "canonicalNameHant": "崑崙", "canonicalNameHans": "昆仑", "standardCode": "BL60", "meridianId": "meridian:bladder", "aliasesHant": ["BL60"], "aliasesHans": ["BL60"], "sequenceNumber": 60, "pointCategories": ["經穴"], "elementId": "火" },
+    { "sourceKey": "pilot:ki-01", "canonicalNameHant": "湧泉", "canonicalNameHans": "涌泉", "standardCode": "KI1", "meridianId": "肾经", "aliasesHant": ["KI1"], "aliasesHans": ["KI1"], "sequenceNumber": 1, "pointCategories": ["井穴"], "elementId": "木" },
+    { "sourceKey": "pilot:ki-03", "canonicalNameHant": "太谿", "canonicalNameHans": "太溪", "standardCode": "KI3", "meridianId": "meridian:kidney", "aliasesHant": ["KI3"], "aliasesHans": ["KI3"], "sequenceNumber": 3, "pointCategories": ["輸穴", "原穴"], "elementId": "土" },
+    { "sourceKey": "pilot:pc-06", "canonicalNameHant": "內關", "canonicalNameHans": "内关", "standardCode": "PC6", "meridianId": "心包经", "aliasesHant": ["PC6"], "aliasesHans": ["PC6"], "sequenceNumber": 6, "pointCategories": ["八脉交会穴"] },
+    { "sourceKey": "pilot:te-05", "canonicalNameHant": "外關", "canonicalNameHans": "外关", "standardCode": "TE5", "meridianId": "三焦經", "aliasesHant": ["TE5"], "aliasesHans": ["TE5"], "sequenceNumber": 5, "pointCategories": ["point-category:eight-confluent"] },
+    { "sourceKey": "pilot:gb-34", "canonicalNameHant": "陽陵泉", "canonicalNameHans": "阳陵泉", "standardCode": "GB34", "meridianId": "胆经", "aliasesHant": ["GB34"], "aliasesHans": ["GB34"], "sequenceNumber": 34, "pointCategories": ["合穴"], "elementId": "土" },
+    { "sourceKey": "pilot:lr-01", "canonicalNameHant": "大敦", "canonicalNameHans": "大敦", "standardCode": "LR1", "meridianId": "足厥陰肝經", "aliasesHant": ["LR1"], "aliasesHans": ["LR1"], "sequenceNumber": 1, "pointCategories": ["井穴"], "elementId": "木" },
+    { "sourceKey": "pilot:lr-02", "canonicalNameHant": "行間", "canonicalNameHans": "行间", "standardCode": "LR2", "meridianId": "meridian:liver", "aliasesHant": ["LR2"], "aliasesHans": ["LR2"], "sequenceNumber": 2, "pointCategories": ["滎穴"], "elementId": "火" },
+    { "sourceKey": "pilot:lr-03", "canonicalNameHant": "太衝", "canonicalNameHans": "太冲", "standardCode": "LR3", "meridianId": "肝经", "aliasesHant": ["LR3"], "aliasesHans": ["LR3"], "sequenceNumber": 3, "locationSummary": { "zh-Hant": "位置摘要可由未來抽取器提供；本欄不進入公共 Entity。", "zh-Hans": "位置摘要可由未来提取器提供；本栏不进入公共 Entity。" }, "pointCategories": ["輸穴", "原穴"], "elementId": "土", "notes": "示範繁簡名稱、位置摘要與工作流備註。" },
+    { "sourceKey": "pilot:lr-04", "canonicalNameHant": "中封", "canonicalNameHans": "中封", "standardCode": "LR4", "meridianId": "meridian:liver", "aliasesHant": ["LR4"], "aliasesHans": ["LR4"], "sequenceNumber": 4, "pointCategories": ["經穴"], "elementId": "金" },
+    { "sourceKey": "pilot:lr-08", "canonicalNameHant": "曲泉", "canonicalNameHans": "曲泉", "standardCode": "LR8", "meridianId": "meridian:liver", "aliasesHant": ["LR8"], "aliasesHans": ["LR8"], "sequenceNumber": 8, "pointCategories": ["合穴"], "elementId": "水" }
+  ]
+}
