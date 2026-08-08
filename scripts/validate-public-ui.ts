@@ -1,26 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
+import { entities, lessons } from "../data/knowledge";
 
 const root = path.resolve(process.cwd(), "out");
 if (!fs.existsSync(root)) throw new Error("缺少 out；請先執行靜態建置");
 
 const expectedRoutes = [
   "/",
-  "/lessons/tianji/yijing/01-yinyang-bagua/",
-  "/lessons/tianji/yijing/02-shangjing-30gua/",
-  "/lessons/tianji/yijing/03-xiajing-34gua/",
-  "/lessons/tianji/yijing/04-shifa/",
-  "/lessons/tianji/yijing/05-yijing-yu-zhongyi/",
-  "/entities/course-tianji/",
-  "/entities/classic-yijing/",
-  "/entities/trigram-qian/",
-  "/entities/trigram-kun/",
-  "/entities/trigram-zhen/",
-  "/entities/trigram-xun/",
-  "/entities/trigram-kan/",
-  "/entities/trigram-li/",
-  "/entities/trigram-gen/",
-  "/entities/trigram-dui/",
+  ...lessons.map((lesson) => `/lessons/${lesson.route.join("/")}/`),
+  ...entities.map((entity) => `/entities/${entity.slug}/`),
 ];
 
 const forbiddenPublicText = [

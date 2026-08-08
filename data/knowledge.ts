@@ -1,8 +1,10 @@
 import type { KnowledgeEntity, KnowledgeGraph, KnowledgeRelation, Lesson, Source } from "@/lib/knowledge-schema";
+import { hexagramRows } from "@/data/yijing-hexagrams";
 
 const editorialSourceId = "source:project:yijing-notes";
 const classicalSourceId = "source:classical:zhouyi";
 const derivedSourceId = "source:derived:trigram-lines";
+const hexagramDerivedSourceId = "source:derived:hexagram-lines";
 
 export const sources: Source[] = [
   {
@@ -30,6 +32,15 @@ export const sources: Source[] = [
       "zh-Hans": "依八卦通行爻形、卦象与性质整理为机器可读字段。",
     },
   },
+  {
+    id: hexagramDerivedSourceId,
+    category: "derived",
+    title: { "zh-Hant": "六十四卦爻形與上下卦結構化整理", "zh-Hans": "六十四卦爻形与上下卦结构化整理" },
+    note: {
+      "zh-Hant": "依《周易》通行卦序與上下卦組合，將六爻由下而上轉為機器可讀結構；精簡說明沿用本站既有《易經》課程導讀。",
+      "zh-Hans": "依《周易》通行卦序与上下卦组合，将六爻由下而上转为机器可读结构；精简说明沿用本站既有《易经》课程导读。",
+    },
+  },
 ];
 
 const lessonRows = [
@@ -42,6 +53,7 @@ const lessonRows = [
 
 const lessonIds = lessonRows.map(([order]) => `lesson:tianji:yijing:${String(order).padStart(2, "0")}`);
 const trigramIds = ["qian", "kun", "zhen", "xun", "kan", "li", "gen", "dui"].map((id) => `trigram:${id}`);
+const hexagramIds = hexagramRows.map(([number]) => `hexagram:${String(number).padStart(2, "0")}`);
 
 export const lessons: Lesson[] = lessonRows.map(([order, titleHant, titleHans, summaryHant, summaryHans, file]) => ({
   id: `lesson:tianji:yijing:${String(order).padStart(2, "0")}`,
@@ -58,7 +70,13 @@ export const lessons: Lesson[] = lessonRows.map(([order, titleHant, titleHans, s
   order,
   route: ["tianji", "yijing", file],
   legacyPath: `tianji/yijing/${file}.html`,
-  relatedEntityIds: order === 1 ? ["classic:yijing", ...trigramIds] : ["classic:yijing"],
+  relatedEntityIds: order === 1
+    ? ["classic:yijing", ...trigramIds]
+    : order === 2
+      ? ["classic:yijing", ...hexagramIds.slice(0, 30)]
+      : order === 3
+        ? ["classic:yijing", ...hexagramIds.slice(30)]
+        : ["classic:yijing"],
 }));
 
 const trigramRows = [
@@ -71,6 +89,33 @@ const trigramRows = [
   ["gen", "艮", "艮", "☶", "001", "山", "山", "止", "止"],
   ["dui", "兌", "兑", "☱", "110", "澤", "泽", "悅", "悦"],
 ] as const;
+
+const trigramLinePatterns = Object.fromEntries(trigramRows.map(([id, , , , lines]) => [id, lines]));
+
+export const hexagrams: KnowledgeEntity[] = hexagramRows.map(([number, slugKey, nameHant, nameHans, upper, lower, summaryHant]) => {
+  const paddedNumber = String(number).padStart(2, "0");
+  const symbol = String.fromCodePoint(0x4dc0 + number - 1);
+  return {
+    id: `hexagram:${paddedNumber}`,
+    slug: `hexagram-${paddedNumber}-${slugKey}`,
+    type: "hexagram",
+    labels: { "zh-Hant": nameHant, "zh-Hans": nameHans },
+    descriptions: { "zh-Hant": summaryHant },
+    aliases: {
+      "zh-Hant": [symbol, `${nameHant}卦`, `第${number}卦`],
+      "zh-Hans": [symbol, `${nameHans}卦`, `第${number}卦`],
+    },
+    metadata: {
+      hexagramNumber: number,
+      unicodeSymbol: symbol,
+      upperTrigramId: `trigram:${upper}`,
+      lowerTrigramId: `trigram:${lower}`,
+      linePattern: `${trigramLinePatterns[lower]}${trigramLinePatterns[upper]}`,
+    },
+    sourceIds: [classicalSourceId, editorialSourceId, hexagramDerivedSourceId],
+    relatedLessonIds: [lessonIds[0], number <= 30 ? lessonIds[1] : lessonIds[2]],
+  };
+});
 
 export const entities: KnowledgeEntity[] = [
   {
@@ -120,6 +165,7 @@ export const entities: KnowledgeEntity[] = [
     sourceIds: [classicalSourceId, derivedSourceId],
     relatedLessonIds: [lessonIds[0]],
   })),
+  ...hexagrams,
 ];
 
 export const relations: KnowledgeRelation[] = [
@@ -144,6 +190,32 @@ export const relations: KnowledgeRelation[] = [
     to: "classic:yijing",
     sourceIds: [classicalSourceId],
   })),
+  ...hexagramRows.flatMap(([number, , , , upper, lower]) => {
+    const paddedNumber = String(number).padStart(2, "0");
+    return [
+      {
+        id: `relation:hexagram-${paddedNumber}:appears-in:classic-yijing`,
+        type: "appears_in" as const,
+        from: `hexagram:${paddedNumber}`,
+        to: "classic:yijing",
+        sourceIds: [classicalSourceId],
+      },
+      {
+        id: `relation:hexagram-${paddedNumber}:upper-trigram:trigram-${upper}`,
+        type: "upper_trigram" as const,
+        from: `hexagram:${paddedNumber}`,
+        to: `trigram:${upper}`,
+        sourceIds: [classicalSourceId, hexagramDerivedSourceId],
+      },
+      {
+        id: `relation:hexagram-${paddedNumber}:lower-trigram:trigram-${lower}`,
+        type: "lower_trigram" as const,
+        from: `hexagram:${paddedNumber}`,
+        to: `trigram:${lower}`,
+        sourceIds: [classicalSourceId, hexagramDerivedSourceId],
+      },
+    ];
+  }),
 ];
 
 export const knowledgeGraph: KnowledgeGraph = {

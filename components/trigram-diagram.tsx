@@ -1,8 +1,9 @@
 export function TrigramDiagram({ name, lines }: { name: string; lines: string }) {
-  const bits = [...lines].reverse();
+  const bits = [...lines];
+  const lineNames = bits.map((bit) => bit === "1" ? "陽" : "陰").join("、");
   return (
-    <figure className="trigram-figure">
-      <svg viewBox="0 0 180 130" role="img" aria-label={`${name}卦三爻圖：由下向上為 ${lines}`}>
+    <figure className="line-figure trigram-figure">
+      <svg viewBox="0 0 180 130" role="img" aria-label={`${name}卦三爻圖：由下向上為${lineNames}`}>
         {bits.map((bit, index) => {
           const y = 92 - index * 34;
           return bit === "1" ? (

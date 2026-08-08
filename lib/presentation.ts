@@ -47,6 +47,10 @@ export const metadataLabels: Record<string, LocalizedText> = {
   linePattern: { "zh-Hant": "爻形（自下而上）", "zh-Hans": "爻形（自下而上）" },
   naturalImage: { "zh-Hant": "自然取象", "zh-Hans": "自然取象" },
   quality: { "zh-Hant": "核心性質", "zh-Hans": "核心性质" },
+  hexagramNumber: { "zh-Hant": "通行卦序", "zh-Hans": "通行卦序" },
+  unicodeSymbol: { "zh-Hant": "卦符", "zh-Hans": "卦符" },
+  upperTrigramId: { "zh-Hant": "上卦", "zh-Hans": "上卦" },
+  lowerTrigramId: { "zh-Hant": "下卦", "zh-Hans": "下卦" },
 };
 
 export function displayMetadata(value: unknown, locale: Locale = defaultLocale) {

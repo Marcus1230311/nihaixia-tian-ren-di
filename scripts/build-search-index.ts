@@ -2,8 +2,19 @@ import fs from "node:fs";
 import path from "node:path";
 import { entities, lessons } from "../data/knowledge";
 import { searchRecordSchema } from "../lib/knowledge-schema";
-import { entityTypeLabels } from "../lib/presentation";
+import { entityTypeLabels, localize } from "../lib/presentation";
 import { readLegacyArticle, stripHtml } from "../lib/v1-content";
+
+function metadataKeywords(metadata: Record<string, unknown>, locale: "zh-Hant" | "zh-Hans") {
+  return Object.values(metadata).flatMap((value) => {
+    if (Array.isArray(value)) return value.map(String);
+    if (value && typeof value === "object") {
+      const localized = value as { "zh-Hant"?: string; "zh-Hans"?: string };
+      return [localized[locale] ?? localized["zh-Hant"]].filter((item): item is string => Boolean(item));
+    }
+    return [String(value)];
+  });
+}
 
 const records = [
   ...lessons.map((lesson) => ({
@@ -18,18 +29,29 @@ const records = [
       "zh-Hans": lesson.aliases["zh-Hans"] ?? [],
     },
   })),
-  ...entities.map((entity) => ({
-    id: entity.id,
-    type: entity.type,
-    typeLabels: entityTypeLabels[entity.type],
-    labels: entity.labels,
-    descriptions: entity.descriptions,
-    href: `/entities/${entity.slug}/`,
-    keywords: {
-      "zh-Hant": [...entity.aliases["zh-Hant"], ...Object.values(entity.metadata).map((value) => typeof value === "object" && !Array.isArray(value) ? value["zh-Hant"] : String(value))],
-      "zh-Hans": entity.aliases["zh-Hans"] ?? [],
-    },
-  })),
+  ...entities.map((entity) => {
+    const relatedLessons = entity.relatedLessonIds.map((lessonId) => lessons.find((lesson) => lesson.id === lessonId)).filter((lesson) => lesson !== undefined);
+    return {
+      id: entity.id,
+      type: entity.type,
+      typeLabels: entityTypeLabels[entity.type],
+      labels: entity.labels,
+      descriptions: entity.descriptions,
+      href: `/entities/${entity.slug}/`,
+      keywords: {
+        "zh-Hant": [
+          ...entity.aliases["zh-Hant"],
+          ...metadataKeywords(entity.metadata, "zh-Hant"),
+          ...relatedLessons.map((lesson) => localize(lesson.labels)),
+        ],
+        "zh-Hans": [
+          ...(entity.aliases["zh-Hans"] ?? []),
+          ...metadataKeywords(entity.metadata, "zh-Hans"),
+          ...relatedLessons.map((lesson) => localize(lesson.labels, "zh-Hans")),
+        ],
+      },
+    };
+  }),
 ].map((record) => searchRecordSchema.parse(record));
 
 const publicDir = path.resolve(process.cwd(), "public");

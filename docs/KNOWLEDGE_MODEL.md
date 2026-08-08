@@ -1,6 +1,6 @@
 # 知識模型 V1（已凍結）
 
-本文件記錄 1.0.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。現有資料只涵蓋《易經》研讀樣本，不代表其他模組已完成建模。
+本文件記錄 1.0.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。現有資料涵蓋《易經》5 篇研讀課程、8 個八卦與 64 個六十四卦條目，不代表其他模組已完成建模。
 
 ## Entity Schema V1
 
@@ -46,6 +46,17 @@ V1 詞彙固定為：`part_of`、`belongs_to`、`contains`、`appears_in`、`sou
 `knowledgeGraph.entities` 是節點集合，`relations` 是邊集合，`sources` 是可獨立查詢的證據集合。`knowledgeGraphSchema` 驗證唯一 ID／slug、端點、來源引用、課程父節點與延伸研讀引用，讓後續圖譜儲存不必重新解釋現有資料。
 
 搜尋索引保存雙語 `labels`、`descriptions`、`keywords`、雙語類型展示名與公開 `href`。索引只依公開 slug 產生連結；穩定 ID 保留給合併、去重與未來資料交換。
+
+## 六十四卦擴量驗證
+
+Schema V1 已用完整 8 個八卦與 64 個六十四卦進行擴量驗證，未新增 entity 欄位、relation type、source category 或特例 schema。六十四卦沿用一般 `hexagram` entity：
+
+- `id` 使用語言無關的通行卦序，例如 `hexagram:01`；slug 與顯示名稱分離。
+- `metadata` 保存 `hexagramNumber`、`unicodeSymbol`、上下卦穩定 ID 與自下而上的六爻 `linePattern`；公開頁只透過展示層輸出人可讀欄位。
+- 每卦各有一條 `upper_trigram` 與 `lower_trigram` 關係，因此圖譜不必解析 metadata 才能建立邊。
+- 六爻結構由下卦三爻接上上卦三爻程式化生成，驗證器會反向核對兩個八卦引用。
+
+結論：V1 在本次 64 卦擴量中沒有出現顯著特殊案例。上下卦 ID 同時存在 metadata 與 relation，是為了滿足條目自描述與圖譜直接取邊兩種用途，語意一致性由確定性驗證保證。
 
 ## V1 變更規則
 
