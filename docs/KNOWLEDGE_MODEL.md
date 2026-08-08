@@ -1,6 +1,6 @@
-# 知識模型 V1.2（已凍結）
+# 知識模型 V1.3（已凍結）
 
-本文件記錄 1.2.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。1.2.0 在 1.1.0 上加入人紀針灸試點所需 enum 與一個通用分類關係，沒有移除欄位或改變既有 ID。現有資料涵蓋天紀結構化內容及小規模針灸模型試點，不代表完整人紀已建模。
+本文件記錄 1.3.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。1.3.0 在 1.2.0 上加入傷寒診斷六經、病證與明確的經典方證關聯，沒有移除欄位、改變既有 ID 或新增來源分類。現有資料涵蓋天紀、十二正經穴位及受控傷寒模型，不代表完整人紀已建模。
 
 ## Entity Schema V1
 
@@ -8,7 +8,7 @@
 
 - `id`：語言無關、具命名空間的穩定識別碼，例如 `trigram:qian`。顯示名稱變更時不得更換 ID。
 - `slug`：Windows 與網址皆安全的 kebab-case 路徑片段；與 ID 分離。
-- `type`：`course | classic | lesson | trigram | hexagram | heavenly_stem | earthly_branch | element | yin_yang | ten_god | direction | meridian | meridian_level | organ | acupoint | point_category | concept | formula | herb`。
+- `type`：`course | classic | lesson | trigram | hexagram | heavenly_stem | earthly_branch | element | yin_yang | ten_god | direction | meridian | meridian_level | organ | acupoint | point_category | shanghan_channel | syndrome | concept | formula | herb`。
 - `labels`、`descriptions`：本地化文字物件；`zh-Hant` 必填，`zh-Hans` 可選。
 - `aliases`：按語系分組的別名陣列。
 - `metadata`：小型結構化屬性；鍵名必須先有展示名稱對照，禁止把內部鍵直接顯示給讀者。
@@ -21,7 +21,7 @@ lesson 另有 `courseId`、`moduleId`、`order`、`route`、`legacyPath` 與 `re
 
 關係是有方向的 edge，固定欄位為 `id`、`type`、`from`、`to`、`sourceIds`，並可選擇加入本地化 `notes` 與 `confidence`。端點必須存在，關係不得指向自身，ID 不得重複。
 
-V1.2 詞彙為：`part_of`、`belongs_to`、`contains`、`appears_in`、`sourced_from`、`contains_herb`、`related_formula`、`corresponds_to`、`element_of`、`upper_trigram`、`lower_trigram`、`related_to`、`generates`、`controls`、`classified_as`。`classified_as` 表達條目與可查詢分類的通用關係，不只適用於針灸；穴位隸屬經脈仍使用 `belongs_to`，不得以分類關係取代。
+V1.3 詞彙為：`part_of`、`belongs_to`、`contains`、`appears_in`、`sourced_from`、`contains_herb`、`related_formula`、`corresponds_to`、`element_of`、`upper_trigram`、`lower_trigram`、`related_to`、`generates`、`controls`、`classified_as`、`classically_associated_with`。`classically_associated_with` 表達經典醫學框架中的方證關聯，不等於個人診斷或處方建議；藥味組成仍使用既有 `contains_herb`。
 
 公開介面一律使用 `lib/presentation.ts` 的繁簡展示對照，例如 `part_of` 顯示「屬於／属于」、`appears_in` 顯示「見於／见于」；不可直接輸出 enum 值。
 
@@ -95,3 +95,9 @@ Schema V1 已用完整 8 個八卦與 64 個六十四卦進行擴量驗證，未
 ## V2.5B-2 十二正經全量身份
 
 十二正經 309 穴的代碼、名稱、別名、經脈歸屬、序號、來源與分類關係由 `data/generated/acupuncture/primary-meridians.json` 確定性生成；production 只以既有 29 穴的人工說明作 curated overlay，不再於 TypeScript 手工維護穴位結構身份。每條經脈必須代碼連續且恰有五個五輸穴，六批候選各自保存報告與 SHA-256 checkpoint。奇經、解剖座標、經脈路徑與臨床功能仍留待獨立子模型。
+
+## V2.6A 傷寒模型壓力測試
+
+傷寒太陽、陽明、少陽、太陰、少陰、厥陰使用 `shanghan_channel:*`，類型為 `shanghan_channel`；同名的 `meridian-level:*` 仍只表示針灸經脈命名層級。兩組可共享顯示標籤，但 ID、類型、描述與關係網路均不同，禁止依標籤合併。代表病證使用可跨傷寒、金匱與方劑主治語境重用的 `syndrome`；方劑、藥材沿用 1.2.0 已預留的 `formula`、`herb`。
+
+方劑以 `contains_herb` 指向共享藥材身份，以 `classically_associated_with` 指向病證；前者是組成事實，後者是有來源的經典方證關聯，兩者都不產生個人化診療結論。十一方、二十九味藥、十二病證與六個診斷六經證明共同欄位仍足夠，摩擦集中在 enum 語意：若用 `concept` 承載六經／病證會失去類型驗證並造成同名混淆，因此升至 1.3.0。完整決策見 [`SHANGHAN_MODEL.md`](SHANGHAN_MODEL.md)。

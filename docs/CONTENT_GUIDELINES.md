@@ -7,7 +7,7 @@
 1. 先確認原始材料可追溯，建立或重用 source。若只有本站整理稿，分類為 `editorial`，不可推定為 `nihaixia`。
 2. 為每個概念選定語言無關的 namespaced ID，另建 URL-safe slug。先查重，名稱相近不等於同一 entity。
 3. 填寫繁體標籤、描述、別名與最少一筆來源；簡體欄位可同批加入，但不得用機器轉換結果覆蓋人工校對內容。
-4. 只使用 V1 關係詞彙。每條關係需確認方向、兩端 entity 和證據來源；不確定時先不建立關係。
+4. 只使用目前 Schema 1.3 關係詞彙。每條關係需確認方向、兩端 entity 和證據來源；不確定時先不建立關係。
 5. 將 entity 連到最適合的 `relatedLessonIds`，讓讀者能從條目回到完整上下文；不要只為增加連結數量而掛課程。
 6. 執行 schema、搜尋索引、靜態建置與公開頁檢查。驗證通過後才可提交。
 
@@ -31,6 +31,9 @@
 - 穴位分類用 `point_category` + `classified_as`；五輸分類、穴位身份、經脈隸屬與五行關係不得合併成單一欄位。
 - 解剖座標、marker 與經脈路徑需另有可驗證來源、座標系及視覺版本規則。在此之前不得把猜測座標加入 schema。
 - 所有公開針灸導讀保留教育用途及專業施術邊界；結構化關係不得轉換為自我診療或緊急處置建議。
+- 傷寒六經使用 `shanghan_channel`，不得與同名 `meridian_level` 依標籤合併；方證使用 `syndrome`，不可把症狀關鍵字做成自動診斷規則。
+- 方劑 `contains_herb` 只表示有來源的藥味身份；`classically_associated_with` 只表示所研經典框架中的方證關聯。公開內容不得因此產生「有症狀就服方」、劑量、替代藥、禁忌判斷或處方調整建議。
+- `herb:*` 是跨傷寒、金匱、本草可重用的藥材身份；同名藥不得按方劑複製。炮製、劑量、藥理與安全屬性需另有來源與模型提案，不可臨時塞入描述。
 
 ## 編輯檢查表
 
@@ -46,4 +49,4 @@
 - 大量穴位不得由模型逐筆重寫；先轉成 `docs/ACUPUNCTURE_INGESTION.md` 的 canonical record，再用程式正規化、驗證與產生。模型只審核模糊章節、未解析別名、來源衝突、關係判斷與教育摘要。
 - bulk import 一律先跑 `npm run acupuncture:dry-run` 並審查 exception report；只有明確接受的資料才可 generate，且 generate 不等於發布。
 - 來源 locator 不得杜撰頁碼。不得不必要地複製大型受版權保護表格或提交來源 PDF；採最小事實轉換並保存 attribution／license 判斷。
-- 空間座標、人體 marker 與 SVG path 使用獨立 linked submodel，不得塞入 Entity 1.2.0。
+- 空間座標、人體 marker 與 SVG path 使用獨立 linked submodel，不得塞入 Entity 1.3.0。

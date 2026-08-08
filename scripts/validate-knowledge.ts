@@ -20,6 +20,11 @@ const meridianLevels = graph.entities.filter((entity) => entity.type === "meridi
 const organs = graph.entities.filter((entity) => entity.type === "organ");
 const acupoints = graph.entities.filter((entity) => entity.type === "acupoint");
 const pointCategories = graph.entities.filter((entity) => entity.type === "point_category");
+const shanghanChannels = graph.entities.filter((entity) => entity.type === "shanghan_channel");
+const syndromes = graph.entities.filter((entity) => entity.type === "syndrome");
+const formulas = graph.entities.filter((entity) => entity.type === "formula");
+const herbs = graph.entities.filter((entity) => entity.type === "herb");
+const shanghanLessons = graph.entities.filter((entity) => entity.type === "lesson" && entity.moduleId === "classic:shanghan-lun");
 const missingLegacy = lessons.filter((lesson) => !fs.existsSync(path.resolve(process.cwd(), lesson.legacyPath)));
 if (missingLegacy.length) throw new Error(`缺少既有內容來源：${missingLegacy.map((lesson) => lesson.legacyPath).join("、")}`);
 
@@ -122,6 +127,64 @@ for (const meridian of meridians) {
   const sequences = meridianPoints.map((point) => Number(String(point.metadata.standardCode).match(/\d+$/)?.[0])).sort((a, b) => a - b);
   if (meridianPoints.length !== expectedCount || sequences.some((number, index) => number !== index + 1)) throw new Error(`${meridian.id} 穴位必須完整覆蓋 1–${expectedCount}`);
 }
+
+const shanghanClassic = graph.entities.find((entity) => entity.id === "classic:shanghan-lun");
+if (shanghanClassic?.type !== "classic") throw new Error("《傷寒論》必須使用唯一 first-class classic 身份");
+if (shanghanChannels.length !== 6) throw new Error(`傷寒診斷六經數量應為 6，實際為 ${shanghanChannels.length}`);
+if (syndromes.length !== 12) throw new Error(`傷寒代表病證數量應為 12，實際為 ${syndromes.length}`);
+if (formulas.length !== 11) throw new Error(`傷寒代表方數量應為 11，實際為 ${formulas.length}`);
+if (herbs.length !== 29) throw new Error(`傷寒試點藥材數量應為 29，實際為 ${herbs.length}`);
+if (shanghanLessons.length !== 5) throw new Error(`傷寒結構化導讀數量應為 5，實際為 ${shanghanLessons.length}`);
+
+const expectedChannelIds = new Set(["taiyang", "yangming", "shaoyang", "taiyin", "shaoyin", "jueyin"].map((id) => `shanghan-channel:${id}`));
+if (shanghanChannels.some((channel) => !expectedChannelIds.has(channel.id))) throw new Error("傷寒六經穩定 ID 集合不完整");
+for (const channel of shanghanChannels) {
+  const sameLabelMeridianLevel = meridianLevels.find((level) => level.labels["zh-Hant"] === channel.labels["zh-Hant"]);
+  if (!sameLabelMeridianLevel || sameLabelMeridianLevel.id === channel.id) throw new Error(`${channel.id} 必須與同名針灸經脈層級保持不同身份`);
+  if (channel.metadata.domainContext && localize(channel.metadata.domainContext as { "zh-Hant": string }) !== "傷寒六經辨證") throw new Error(`${channel.id} 語意領域不明確`);
+}
+
+const channelIdSet = new Set(shanghanChannels.map((entity) => entity.id));
+const syndromeIdSet = new Set(syndromes.map((entity) => entity.id));
+const herbIdSet = new Set(herbs.map((entity) => entity.id));
+for (const syndrome of syndromes) {
+  const memberships = graph.relations.filter((relation) => relation.from === syndrome.id && relation.type === "belongs_to" && channelIdSet.has(relation.to));
+  if (memberships.length !== 1) throw new Error(`${syndrome.id} 必須隸屬唯一傷寒診斷六經`);
+}
+for (const subtype of ["severe", "moderate", "mild"]) {
+  const id = `syndrome:yangming-bowel-${subtype}`;
+  if (!graph.relations.some((relation) => relation.from === id && relation.to === "syndrome:yangming-bowel" && relation.type === "part_of")) throw new Error(`${id} 必須保留陽明腑證層次`);
+}
+
+const expectedIngredients: Record<string, string[]> = {
+  "formula:guizhi-tang": ["guizhi", "shaoyao", "shengjiang", "dazao", "gancao"],
+  "formula:mahuang-tang": ["mahuang", "guizhi", "xingren", "gancao"],
+  "formula:baihu-tang": ["shigao", "zhimu", "gancao", "jingmi"],
+  "formula:dachengqi-tang": ["dahuang", "houpo", "zhishi", "mangxiao"],
+  "formula:xiaochengqi-tang": ["dahuang", "houpo", "zhishi"],
+  "formula:tiaowei-chengqi-tang": ["dahuang", "mangxiao", "gancao"],
+  "formula:xiaochaihu-tang": ["chaihu", "huangqin", "banxia", "shengjiang", "renshen", "dazao", "gancao"],
+  "formula:lizhong-tang": ["renshen", "baizhu", "ganjiang", "gancao"],
+  "formula:sini-tang": ["fuzi", "ganjiang", "gancao"],
+  "formula:huanglian-ejiao-tang": ["huanglian", "huangqin", "shaoyao", "ejiao", "jizihuang"],
+  "formula:wumei-wan": ["wumei", "xixin", "ganjiang", "huanglian", "danggui", "fuzi", "shujiao", "guizhi", "renshen", "huangbai"],
+};
+for (const formula of formulas) {
+  const ingredientRelations = graph.relations.filter((relation) => relation.from === formula.id && relation.type === "contains_herb");
+  const actual = ingredientRelations.map((relation) => relation.to).sort();
+  const expected = (expectedIngredients[formula.id] ?? []).map((id) => `herb:${id}`).sort();
+  if (actual.join("|") !== expected.join("|")) throw new Error(`${formula.id} 藥味組成與接受的試點來源資料不一致`);
+  if (formula.metadata.ingredientCount !== expected.length) throw new Error(`${formula.id} ingredientCount 與關係數不一致`);
+  if (ingredientRelations.some((relation) => !herbIdSet.has(relation.to))) throw new Error(`${formula.id} 組成關係必須只指向 herb`);
+  const associations = graph.relations.filter((relation) => relation.from === formula.id && relation.type === "classically_associated_with" && syndromeIdSet.has(relation.to));
+  if (associations.length !== 1) throw new Error(`${formula.id} 必須有唯一且明確的經典方證關聯`);
+  if (!graph.relations.some((relation) => relation.from === formula.id && relation.to === "classic:shanghan-lun" && relation.type === "appears_in")) throw new Error(`${formula.id} 必須可追溯至《傷寒論》classic`);
+}
+const herbLabels = herbs.flatMap((herb) => [herb.labels["zh-Hant"], herb.labels["zh-Hans"]]).filter(Boolean);
+if (new Set(herbLabels).size !== herbLabels.length - herbs.filter((herb) => herb.labels["zh-Hant"] === herb.labels["zh-Hans"]).length) throw new Error("試點藥材出現可避免的重複語意身份");
+if (formulas.some((formula) => Object.keys(formula.metadata).some((key) => /dose|dosage|contraindication|recommendation/i.test(key)))) throw new Error("方劑 metadata 不得包含劑量、禁忌判斷或推薦欄位");
+const shanghanNodeIds = new Set(["classic:shanghan-lun", ...shanghanChannels.map((entity) => entity.id), ...syndromes.map((entity) => entity.id), ...formulas.map((entity) => entity.id), ...herbs.map((entity) => entity.id), ...shanghanLessons.map((entity) => entity.id)]);
+if (graph.entities.filter((entity) => shanghanNodeIds.has(entity.id)).some((entity) => entity.sourceIds.some((sourceId) => graph.sources.find((source) => source.id === sourceId)?.category === "nihaixia"))) throw new Error("無直接追溯依據的傷寒試點內容不得標為倪海廈講授資料");
 for (const organ of organs) {
   const elementRelations = graph.relations.filter((relation) => relation.from === organ.id && relation.type === "element_of" && expectedElementIds.has(relation.to));
   if (elementRelations.length !== 1) throw new Error(`${organ.id} 必須重用唯一五行條目`);
@@ -183,6 +246,10 @@ console.log(JSON.stringify({
   organs: organs.length,
   acupoints: acupoints.length,
   pointCategories: pointCategories.length,
+  shanghanChannels: shanghanChannels.length,
+  syndromes: syndromes.length,
+  formulas: formulas.length,
+  herbs: herbs.length,
   relations: graph.relations.length,
   legacySourcesPresent: lessons.length,
 }, null, 2));

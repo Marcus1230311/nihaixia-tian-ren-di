@@ -140,3 +140,12 @@ PRODUCT & CONTENT QUALITY ACCEPTED
 - 新增 dry-run、generate、validate 指令及 machine/human-readable exception report；CI 在 build 前驗證 committed artifacts。
 - PDF/OCR 只定義 canonical-record 交接界面；anatomy body view、region、normalized x/y、SVG path、laterality、diagram version 設計為未來 linked spatial submodel，未填座標。
 - 文件明訂以程式處理重複轉錄、模型只審核語義例外，並記錄來源 attribution／授權邊界。
+
+## 2026-08-07 — V2.6A 人紀傷寒知識模型試點
+
+- 審計 V1 傷寒 01–07 與本草 05，分開建立 classical、editorial、reference、derived 來源；未建立無法直接追溯的 `nihaixia` 歸屬。
+- Schema 升至 1.3.0，只新增 `shanghan_channel`、`syndrome` 與 `classically_associated_with` enum；欄位與來源分類不變。
+- 傷寒六經使用獨立 `shanghan-channel:*`，與同名針灸 `meridian-level:*` 保持不同語意身份；新增 12 病證、11 方、29 共享藥材及 5 篇導讀。
+- 52 條 `contains_herb` 關係逐方核對接受的來源組成，11 條經典方證關聯均唯一；沒有加入劑量、煎服法、禁忌判斷、個人診斷或推薦規則。
+- 新增六經分組圖與桂枝湯組成圖；Local Graph 代表路徑自然形成，沒有視覺專用 edge。全圖為 564 節點、1,431 關係、16 來源，搜尋 564 筆。
+- 完整傷寒方庫、逐條原文、金匱、內經、本草擴量、方劑匯入管線、全域圖與已記錄的全站麵包屑清理均延後。

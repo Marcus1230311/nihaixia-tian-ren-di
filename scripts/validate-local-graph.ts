@@ -46,6 +46,22 @@ for (const [centerId, expectedNeighbors] of [
   assert.ok(graph.nodes.every((node) => node.label && node.typeLabel && node.description && node.href?.startsWith("/")));
 }
 
+for (const [centerId, expectedNeighbors, expectedOmitted] of [
+  ["formula:guizhi-tang", 9, 0],
+  ["syndrome:taiyang-zhongfeng", 3, 0],
+  ["herb:guizhi", 3, 0],
+  ["shanghan-channel:taiyang", 4, 0],
+  ["classic:shanghan-lun", 23, 5],
+] as const) {
+  const graph = buildLocalGraph({ centerId, nodes, relations });
+  assert.equal(graph.directNeighborCount, expectedNeighbors, `${centerId} Shanghan graph degree changed unexpectedly`);
+  assert.equal(graph.omittedNodeCount, expectedOmitted);
+  assert.ok(graph.nodes.every((node) => node.label && node.typeLabel && node.description && node.href?.startsWith("/")));
+}
+const guizhiFormula = buildLocalGraph({ centerId: "formula:guizhi-tang", nodes, relations });
+assert.ok(guizhiFormula.nodes.some((node) => node.id === "syndrome:taiyang-zhongfeng"), "formula graph must expose its classical pattern association");
+assert.equal(guizhiFormula.nodes.filter((node) => node.type === "herb").length, 5, "Gui Zhi Tang graph must expose all five ingredient identities");
+
 for (const [centerId, expectedNeighbors] of [
   ["acupoint:lr-03", 5],
   ["acupoint:li-04", 3],
@@ -72,13 +88,13 @@ assert.deepEqual(
 const repeated = buildLocalGraph({ centerId: "classic:yijing", nodes, relations });
 assert.deepEqual(classic, repeated, "the same data must always produce the same local graph");
 
-const rawEnums = /part_of|belongs_to|appears_in|upper_trigram|lower_trigram|related_to|classified_as/;
+const rawEnums = /part_of|belongs_to|appears_in|upper_trigram|lower_trigram|related_to|classified_as|contains_herb|classically_associated_with/;
 assert.ok(classic.edges.every((edge) => !rawEnums.test(edge.label)), "public edge labels must be human-readable");
 
 console.log(JSON.stringify({
   graphNodesAvailable: nodes.length,
   relationsAvailable: relations.length,
-  representativeCenters: 17,
+  representativeCenters: 22,
   qianVisibleNodes: qian.nodes.length,
   trigramDirectNeighbors: 19,
   classicDirectNeighbors: classic.directNeighborCount,

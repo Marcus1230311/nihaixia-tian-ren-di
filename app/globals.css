@@ -131,6 +131,19 @@ main { min-height: calc(100vh - 130px); }
 .learning-entity-grid span, .ten-god-grid span { color: var(--soft); font-size: 12px; }
 .learning-next { border-left: 4px solid var(--jade); padding: 14px 18px; background: var(--card); }
 .medical-boundary { border: 1px solid var(--line); border-left: 4px solid var(--seal); padding: 14px 18px; background: var(--card); }
+.shanghan-visual { margin: 22px 0 34px; border: 1px solid var(--line); background: #f8f2e5; padding: 14px; }
+.shanghan-visual svg { display: block; width: 100%; height: auto; }
+.shanghan-visual figcaption { text-align: center; color: var(--soft); font-size: 12px; }
+.channel-group { fill: rgba(255,255,255,.48); stroke: var(--line); stroke-width: 2; }
+.channel-card { fill: var(--card); stroke: var(--jade); stroke-width: 1.5; }
+.channel-group-title { fill: var(--seal); font: 700 20px "Noto Serif TC", serif; }
+.channel-name { fill: var(--ink); font: 700 18px "Noto Serif TC", serif; }
+.channel-note { fill: var(--soft); font-size: 13px; }
+.formula-link { stroke: var(--gold); stroke-width: 2; }
+.formula-node { fill: var(--seal); stroke: #fff; stroke-width: 3; }
+.formula-label { fill: #fff; font: 700 20px "Noto Serif TC", serif; }
+.herb-node { fill: var(--card); stroke: var(--jade); stroke-width: 2; }
+.herb-label { fill: var(--ink); font: 700 16px "Noto Serif TC", serif; }
 .knowledge-visual { margin: 22px 0 34px; border: 1px solid var(--line); background: #f8f2e5; padding: 14px; }
 .knowledge-visual svg { display: block; width: 100%; height: auto; max-height: 540px; }
 .knowledge-visual figcaption { text-align: center; color: var(--soft); font-size: 12px; }

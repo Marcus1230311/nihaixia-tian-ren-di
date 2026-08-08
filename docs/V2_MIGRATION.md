@@ -69,3 +69,11 @@ CI 新增 `acupuncture:validate`，而 `dry-run` 是未來 bulk import 預設模
 依 WHO 標準代碼與十二正經範圍、GB/T 12346-2021 狀態頁、本站既有手足經穴位表及繁簡交叉快照，六批納入 LU 11、LI 20、ST 45、SP 21、HT 9、SI 19、BL 67、KI 27、PC 9、TE 23、GB 44、LR 14，共 309 穴。每批均有零錯誤／零警告報告及 SHA-256 checkpoint；全量涵蓋 60 個五輸身份，以及有來源支持的 12 原穴、12 絡穴、12 郄穴、6 募穴、12 背俞穴、8 八脈交會穴與 1 個既有交會分類。
 
 Production 改為讀取確定性 generated aggregate，29 個既有條目的編輯描述保留為 overlay。十二條經脈頁按標準代碼列出完整穴位，搜尋可由穴名、代碼或所屬經脈命中。全圖現為 500 節點、1,292 關係、12 來源；奇經、解剖座標與臨床功能仍不在本輪範圍。
+
+## V2.6A 人紀傷寒知識模型試點
+
+來源先覆核 V1 傷寒 01–07 與本草 05：六經、十二個代表病證、十一方及二十九味組成均能回到本站 editorial 內容、《傷寒論》classical 身份或廣西中醫藥大學 reference 校正頁。沒有新增 `nihaixia` 歸屬，也未重製全文、劑量、煎服法或診療建議。
+
+Schema 升至 1.3.0：新增 `shanghan_channel`、`syndrome` 與 `classically_associated_with` enum，未新增欄位或 source category。傷寒六經使用獨立 `shanghan-channel:*`，不與同名 `meridian-level:*` 合併；方劑以既有 `contains_herb` 指向共享藥材，以新關係指向病證。全圖為 564 節點、1,431 關係、16 來源，搜尋 564 筆。
+
+新增五篇導讀、六經三陽／三陰分組 SVG 與桂枝湯五味組成 SVG。完整傷寒方庫、條文全文、劑量資料、推薦系統、金匱／內經／本草擴量、方劑匯入管線與全域圖均延後；中間麵包屑可點擊性仍保留為最後的全站 UX 清理項。

@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const supportedLocales = ["zh-Hant", "zh-Hans"] as const;
-export const entityTypes = ["course", "classic", "lesson", "trigram", "hexagram", "heavenly_stem", "earthly_branch", "element", "yin_yang", "ten_god", "direction", "meridian", "meridian_level", "organ", "acupoint", "point_category", "concept", "formula", "herb"] as const;
-export const nonLessonEntityTypes = ["course", "classic", "trigram", "hexagram", "heavenly_stem", "earthly_branch", "element", "yin_yang", "ten_god", "direction", "meridian", "meridian_level", "organ", "acupoint", "point_category", "concept", "formula", "herb"] as const;
+export const entityTypes = ["course", "classic", "lesson", "trigram", "hexagram", "heavenly_stem", "earthly_branch", "element", "yin_yang", "ten_god", "direction", "meridian", "meridian_level", "organ", "acupoint", "point_category", "shanghan_channel", "syndrome", "concept", "formula", "herb"] as const;
+export const nonLessonEntityTypes = ["course", "classic", "trigram", "hexagram", "heavenly_stem", "earthly_branch", "element", "yin_yang", "ten_god", "direction", "meridian", "meridian_level", "organ", "acupoint", "point_category", "shanghan_channel", "syndrome", "concept", "formula", "herb"] as const;
 export const relationTypes = [
   "part_of",
   "belongs_to",
@@ -19,6 +19,7 @@ export const relationTypes = [
   "generates",
   "controls",
   "classified_as",
+  "classically_associated_with",
 ] as const;
 export const sourceCategories = ["nihaixia", "classical", "editorial", "reference", "derived"] as const;
 
@@ -98,7 +99,7 @@ export const relationSchema = z.object({
 }).strict();
 
 export const knowledgeGraphSchema = z.object({
-  schemaVersion: z.literal("1.2.0"),
+  schemaVersion: z.literal("1.3.0"),
   sources: z.array(sourceSchema),
   entities: z.array(knowledgeNodeSchema),
   relations: z.array(relationSchema),

@@ -2,6 +2,7 @@ import type { KnowledgeEntity, KnowledgeGraph, KnowledgeRelation, Lesson, Source
 import { hexagramRows } from "@/data/yijing-hexagrams";
 import { tianjiStructuredEntities, tianjiStructuredLessons, tianjiStructuredRelations, tianjiStructuredSources } from "@/data/tianji-structured";
 import { renjiAcupunctureEntities, renjiAcupunctureLessons, renjiAcupunctureRelations, renjiAcupunctureSources } from "@/data/renji-acupuncture";
+import { renjiShanghanEntities, renjiShanghanLessons, renjiShanghanRelations, renjiShanghanSources } from "@/data/renji-shanghan";
 
 const editorialSourceId = "source:project:yijing-notes";
 const classicalSourceId = "source:classical:zhouyi";
@@ -45,6 +46,7 @@ export const sources: Source[] = [
   },
   ...tianjiStructuredSources,
   ...renjiAcupunctureSources,
+  ...renjiShanghanSources,
 ];
 
 const lessonRows = [
@@ -85,7 +87,7 @@ const yijingLessons: Lesson[] = lessonRows.map(([order, titleHant, titleHans, su
           : ["classic:yijing"],
 }));
 
-export const lessons: Lesson[] = [...yijingLessons, ...tianjiStructuredLessons, ...renjiAcupunctureLessons];
+export const lessons: Lesson[] = [...yijingLessons, ...tianjiStructuredLessons, ...renjiAcupunctureLessons, ...renjiShanghanLessons];
 
 const trigramRows = [
   ["qian", "乾", "乾", "☰", "111", "天", "天", "健", "健"],
@@ -174,7 +176,8 @@ export const entities: KnowledgeEntity[] = [
     relatedLessonIds: [lessonIds[0], "lesson:tianji:heluo:01"],
   })),
   ...tianjiStructuredEntities,
-  ...renjiAcupunctureEntities,
+  ...renjiAcupunctureEntities.map((entity) => entity.id === "course:renji" ? { ...entity, relatedLessonIds: [...entity.relatedLessonIds, ...renjiShanghanLessons.map((lesson) => lesson.id)] } : entity),
+  ...renjiShanghanEntities,
   ...hexagrams,
 ];
 
@@ -242,10 +245,11 @@ export const relations: KnowledgeRelation[] = [
   }),
   ...tianjiStructuredRelations,
   ...renjiAcupunctureRelations,
+  ...renjiShanghanRelations,
 ];
 
 export const knowledgeGraph: KnowledgeGraph = {
-  schemaVersion: "1.2.0",
+  schemaVersion: "1.3.0",
   sources,
   entities: [...lessons, ...entities],
   relations,

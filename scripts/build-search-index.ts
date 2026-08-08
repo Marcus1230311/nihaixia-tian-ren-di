@@ -35,6 +35,10 @@ const records = [
       .filter((relation) => relation.from === entity.id && relation.type === "belongs_to")
       .map((relation) => entities.find((candidate) => candidate.id === relation.to))
       .filter((candidate): candidate is NonNullable<typeof candidate> => candidate?.type === "meridian");
+    const relatedKnowledge = relations
+      .filter((relation) => relation.from === entity.id || relation.to === entity.id)
+      .map((relation) => entities.find((candidate) => candidate.id === (relation.from === entity.id ? relation.to : relation.from)))
+      .filter((candidate): candidate is NonNullable<typeof candidate> => candidate !== undefined && ["shanghan_channel", "syndrome", "formula", "herb"].includes(candidate.type));
     return {
       id: entity.id,
       type: entity.type,
@@ -48,12 +52,14 @@ const records = [
           ...metadataKeywords(entity.metadata, "zh-Hant"),
           ...relatedLessons.map((lesson) => localize(lesson.labels)),
           ...relatedMeridians.flatMap((meridian) => [localize(meridian.labels), ...meridian.aliases["zh-Hant"]]),
+          ...relatedKnowledge.flatMap((candidate) => [localize(candidate.labels), ...candidate.aliases["zh-Hant"]]),
         ],
         "zh-Hans": [
           ...(entity.aliases["zh-Hans"] ?? []),
           ...metadataKeywords(entity.metadata, "zh-Hans"),
           ...relatedLessons.map((lesson) => localize(lesson.labels, "zh-Hans")),
           ...relatedMeridians.flatMap((meridian) => [localize(meridian.labels, "zh-Hans"), ...(meridian.aliases["zh-Hans"] ?? [])]),
+          ...relatedKnowledge.flatMap((candidate) => [localize(candidate.labels, "zh-Hans"), ...(candidate.aliases["zh-Hans"] ?? [])]),
         ],
       },
     };
