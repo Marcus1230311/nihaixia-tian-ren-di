@@ -16,10 +16,12 @@ coverage/
 *.log
 *.tmp
 .cache/
+.npm-cache/
+public/v1/
+public/search-index.json
 
 # Editor and operating-system files
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
-

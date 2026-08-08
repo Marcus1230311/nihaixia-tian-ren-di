@@ -3,7 +3,7 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
-  if (entry.name === '.git' || entry.name === 'tools') return [];
+  if (['.git', '.next', 'node_modules', 'out', 'public', 'tools'].includes(entry.name)) return [];
   const full = path.join(dir, entry.name);
   return entry.isDirectory() ? walk(full) : [full];
 });
