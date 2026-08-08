@@ -82,6 +82,40 @@ main { min-height: calc(100vh - 130px); }
 .relation-list { list-style: none; padding: 0; }
 .relation-list li { display: flex; align-items: baseline; gap: 10px; border-top: 1px solid var(--line); padding: 8px 0; }
 .relation-list li span { color: var(--soft); font-size: 13px; }
+.local-graph-section > p { color: var(--soft); margin: 5px 0 16px; }
+.local-knowledge-graph { border: 1px solid var(--line); background: var(--card); }
+.graph-toolbar { min-height: 58px; padding: 7px 10px 7px 16px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.graph-toolbar p { margin: 0; color: var(--soft); font-size: 12px; }
+.graph-toolbar > div { display: flex; gap: 6px; }
+.graph-toolbar button { min-width: 44px; min-height: 44px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: inherit; cursor: pointer; }
+.graph-toolbar button:hover { border-color: var(--jade); }
+.graph-toolbar button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.graph-viewport { height: 500px; overflow: hidden; background-color: #f8f2e5; background-image: radial-gradient(var(--line) .7px, transparent .7px); background-size: 20px 20px; }
+.graph-viewport svg { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.graph-viewport svg.is-dragging { cursor: grabbing; }
+.graph-viewport svg:focus-visible { outline: 3px solid var(--gold); outline-offset: -4px; }
+.graph-edges line { stroke: #8b806d; stroke-width: 2; }
+.graph-edges marker path, #graph-arrow path { fill: #8b806d; }
+.graph-edges text { font-size: 11px; font-weight: 700; fill: var(--soft); paint-order: stroke; stroke: #f8f2e5; stroke-width: 5px; stroke-linejoin: round; }
+.graph-node rect { fill: #fffdf6; stroke: var(--gold); stroke-width: 2px; transition: stroke-width .15s ease, filter .15s ease; }
+.graph-node-trigram rect { fill: #eef4ed; stroke: var(--jade); }
+.graph-node-hexagram rect { fill: #f8eee7; stroke: var(--seal); }
+.graph-node-classic rect, .graph-node-course rect { fill: #f4ead7; stroke: var(--gold); }
+.graph-node-lesson rect { fill: #f0eee8; stroke: var(--soft); }
+.graph-node.is-center rect { stroke: var(--ink); stroke-width: 4px; paint-order: stroke; filter: drop-shadow(0 4px 3px rgba(37, 31, 24, .18)); }
+.graph-nodes a { text-decoration: none; }
+.graph-nodes a:hover .graph-node rect, .graph-nodes a:focus .graph-node rect { stroke-width: 5px; }
+.graph-nodes a:focus { outline: none; }
+.graph-node-label { font-family: "Noto Serif TC", serif; font-weight: 800; font-size: 16px; fill: var(--ink); pointer-events: none; }
+.graph-node-type, .graph-node-current { font-size: 10px; font-weight: 700; fill: var(--soft); pointer-events: none; }
+.graph-node-current { fill: var(--seal); letter-spacing: .1em; }
+.graph-node-detail { min-height: 122px; padding: 14px 16px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 2px 18px; align-items: start; }
+.graph-node-detail span { color: var(--gold); font-size: 11px; }
+.graph-node-detail strong { grid-column: 1; font-family: "Noto Serif TC", serif; font-size: 19px; }
+.graph-node-detail p { grid-column: 1; margin: 1px 0; color: var(--soft); font-size: 13px; }
+.graph-node-detail a { grid-column: 2; grid-row: 1 / 4; align-self: center; padding: 8px 12px; border: 1px solid var(--seal); color: var(--seal); text-decoration: none; }
+.graph-keyboard-hint { margin: 0 !important; padding: 8px 16px; border-top: 1px solid var(--line); color: var(--soft); font-size: 11px; }
+.graph-limit-note { border-left: 3px solid var(--gold); padding-left: 12px; font-size: 13px; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 @media (max-width: 760px) {
@@ -98,4 +132,10 @@ main { min-height: calc(100vh - 130px); }
   .migrated-content .hexagram-index, .migrated-content .lesson-toc { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .entity-details dl, .trigram-composition { grid-template-columns: 1fr; }
   .lesson-nav a { max-width: 48%; }
+  .graph-toolbar { align-items: flex-start; padding-left: 12px; }
+  .graph-toolbar p { max-width: 145px; padding-top: 4px; }
+  .graph-viewport { height: 430px; }
+  .graph-viewport svg { width: 650px; max-width: none; position: relative; left: 50%; transform: translateX(-50%); }
+  .graph-node-detail { grid-template-columns: 1fr; min-height: 154px; }
+  .graph-node-detail a { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 6px; }
 }

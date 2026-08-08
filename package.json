@@ -7,9 +7,10 @@
     "build:search": "tsx scripts/build-search-index.ts",
     "prepare:v1": "tsx scripts/sync-v1-public.ts",
     "validate:data": "tsx scripts/validate-knowledge.ts",
+    "validate:graph": "tsx scripts/validate-local-graph.ts",
     "validate:public": "tsx scripts/validate-public-ui.ts",
     "validate:v1": "node tools/validate-site.js",
-    "build": "npm run validate:v1 && npm run validate:data && npm run prepare:v1 && npm run build:search && next build && npm run validate:public",
+    "build": "npm run validate:v1 && npm run validate:data && npm run validate:graph && npm run prepare:v1 && npm run build:search && next build && npm run validate:public",
     "start": "next start"
   },
   "dependencies": {

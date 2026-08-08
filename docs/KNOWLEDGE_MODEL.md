@@ -58,6 +58,12 @@ Schema V1 已用完整 8 個八卦與 64 個六十四卦進行擴量驗證，未
 
 結論：V1 在本次 64 卦擴量中沒有出現顯著特殊案例。上下卦 ID 同時存在 metadata 與 relation，是為了滿足條目自描述與圖譜直接取邊兩種用途，語意一致性由確定性驗證保證。
 
+## 本地圖譜 Adapter 合約
+
+`lib/local-graph.ts` 是 Schema V1 上方的唯讀呈現 adapter，不是新 schema。它接受中心 ID、完整節點與關係陣列，只輸出深度 1 的直接鄰接圖；排序固定、預設最多 18 個鄰居、所有顯示文字經 i18n 對照、所有可導航節點使用既有公開路由。同方向同端點的關係可聚合顯示，但輸出保留全部 relation IDs。adapter 不讀 `metadata` 推導邊，也不把 `relatedLessonIds` 轉為關係。
+
+其決定性、端點錯誤、hub 上限、公開標籤與代表性乾／坤／泰／否／坎／離／周易結果由 `npm run validate:graph` 獨立驗證。
+
 ## V1 變更規則
 
 允許：補齊 `zh-Hans`、修正文案、增加符合既有詞彙的 entity／relation／source、補充來源定位欄位。禁止：重用 ID 表示不同事物、依名稱改 ID、刪改 enum 語意、把來源內嵌回 entity、讓無來源資料通過驗證。需要禁止事項時，建立下一版本並提供可重現的資料遷移。

@@ -3,8 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { HexagramDiagram } from "@/components/hexagram-diagram";
+import { LocalKnowledgeGraph } from "@/components/local-knowledge-graph";
 import { TrigramDiagram } from "@/components/trigram-diagram";
 import { entities, lessons, relations, sources } from "@/data/knowledge";
+import { buildLocalGraph } from "@/lib/local-graph";
 import { displayMetadata, entityTypeLabels, localize, metadataLabels, relationTypeLabels, sourceCategoryLabels } from "@/lib/presentation";
 
 export const dynamicParams = false;
@@ -33,6 +35,7 @@ export default async function EntityPage({ params }: { params: Promise<{ id: str
   const publicMetadata = Object.entries(entity.metadata).filter(([key]) => key !== "upperTrigramId" && key !== "lowerTrigramId");
   const entitySources = entity.sourceIds.map((sourceId) => sources.find((source) => source.id === sourceId)).filter((source) => source !== undefined);
   const relatedLessons = entity.relatedLessonIds.map((lessonId) => lessons.find((lesson) => lesson.id === lessonId)).filter((lesson) => lesson !== undefined);
+  const localGraph = buildLocalGraph({ centerId: entity.id, nodes: allNodes, relations });
 
   return (
     <div className="page-shell entity-page">
@@ -45,6 +48,12 @@ export default async function EntityPage({ params }: { params: Promise<{ id: str
         <Link href={`/entities/${lowerTrigram.slug}/`}><span>下卦</span><strong>{localize(lowerTrigram.labels)}</strong><small>{localize(lowerTrigram.descriptions)}</small></Link>
       </div></section>}
       <section className="entity-details"><h2>條目資料</h2><dl>{publicMetadata.map(([key, value]) => <div key={key}><dt>{localize(metadataLabels[key] ?? { "zh-Hant": key })}</dt><dd>{displayMetadata(value)}</dd></div>)}</dl></section>
+      <section className="entity-details local-graph-section" aria-labelledby="local-graph-title">
+        <h2 id="local-graph-title">知識連結圖</h2>
+        <p>以本條目為中心，呈現一層直接關係；箭頭表示資料中的關係方向。</p>
+        <LocalKnowledgeGraph graph={localGraph} />
+        {localGraph.omittedNodeCount > 0 && <p className="graph-limit-note">本條目共有 {localGraph.directNeighborCount} 個直接相鄰條目；為維持可讀性，圖中顯示前 {localGraph.nodes.length - 1} 個。完整關係仍列於下方。</p>}
+      </section>
       <section className="entity-details"><h2>知識關係</h2>{displayOutgoing.length || incoming.length ? <ul className="relation-list">
         {displayOutgoing.map((relation) => { const target = allNodes.find((item) => item.id === relation.to); if (!target) return null; const href = target.type === "lesson" ? `/lessons/${target.route.join("/")}/` : `/entities/${target.slug}/`; return <li key={relation.id}><span>{localize(relationTypeLabels[relation.type])}</span><Link href={href}>{localize(target.labels)}</Link></li>; })}
         {incoming.map((relation) => { const target = allNodes.find((item) => item.id === relation.from); if (!target) return null; const href = target.type === "lesson" ? `/lessons/${target.route.join("/")}/` : `/entities/${target.slug}/`; return <li key={relation.id}><Link href={href}>{localize(target.labels)}</Link><span>{localize(relationTypeLabels[relation.type])}本條目</span></li>; })}

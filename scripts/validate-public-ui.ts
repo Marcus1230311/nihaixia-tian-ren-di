@@ -46,6 +46,8 @@ for (const route of expectedRoutes) {
   const visible = textContent(html);
   const h1Count = (html.match(/<h1(?:\s|>)/g) ?? []).length;
   if (h1Count !== 1) errors.push(`${route} H1 數量為 ${h1Count}`);
+  if (route.startsWith("/entities/") && !html.includes('data-local-graph="depth-1"')) errors.push(`${route} 缺少一層知識連結圖`);
+  if (route.startsWith("/entities/") && !visible.includes("知識關係")) errors.push(`${route} 缺少文字知識關係列表`);
   for (const word of forbiddenPublicText) {
     if (visible.toLocaleLowerCase().includes(word.toLocaleLowerCase())) errors.push(`${route} 顯示內部文字：${word}`);
   }
