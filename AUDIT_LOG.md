@@ -178,3 +178,16 @@ PRODUCT & CONTENT QUALITY ACCEPTED
 - 新增 Teaching Layer 決定性驗證：三條 journey、九頁 allowlist、目前節點、takeaway 數量、既有路由、來源引用、太陽混淆解析與 641／1,933 基線均受檢查。
 - 兩次最終完整 build 均通過；每次輸出 642 條公開路由、641 筆搜尋、0 斷鏈、0 內部枚舉文字、單一 H1。309 穴六批驗證為 0 errors／0 warnings，local graph 回歸維持決定性。
 - 應用內瀏覽器實測木、傷寒太陽與桂枝頁：0 runtime error overlay、0 桌面橫向溢出；來源 details 可操作。同名概念比較與桂枝並列經典語境經視覺／語意複核。
+
+## 2026-08-08 — V4.0 Interactive Frontend Vertical Slice
+
+- 公開首頁主體改為「中醫／Traditional Chinese Medicine」，使用深墨展場、瓷白中性 SVG 載體、克制舊金光與原生排版；不再以倪海廈作首屏主品牌，也不在 hero 展示資料庫數量。
+- 只實作手太陰肺經 LU1–LU11：11 個穴位名稱、繁體、標準代碼、次序、描述與連結全部由既有 canonical entity 產生；沒有新增 entity、relation、source、schema 或醫療內容。
+- 互動元件實作 VISIBLE／PROXIMITY／AWAKEN／FOCUS／ENTER／RETURN 六態 grammar，具指標接近感知、整體喚醒、穴位 focus、點擊鎖定、Escape／返回及 session-only explored state。
+- 局部 next 只使用舊金呼吸亮度、微小明度差與序列線連續性，不顯示推薦、分數、演算法或強制順序文案。
+- 醫學幾何維持 blocked：倉庫及既有 WHO 來源可核對名稱、代碼與文字位置，但沒有帶座標系、視圖版本與人工醫學審核的可重現 SVG mapping；因此人體層沒有經脈 path 或穴位 marker，LU1–LU11 只出現在明確非解剖的序列層。
+- Touch 第一次點按 focus、第二次鎖定，再由明確連結進入條目；鍵盤支援 Tab、Enter／Space、Escape 與 `aria-pressed`。`prefers-reduced-motion` 停止粒子、呼吸與過場，mobile 使用六欄分行 sequence，不模擬 hover。
+- 沒有新增 raster、外部字型、GSAP、Three.js 或 WebGL；固定 5 個粒子，pointer move 經 `requestAnimationFrame` 合併並只更新 CSS variables。
+- 搜尋保留在 hero 下方並實測「桂枝湯」可命中；首頁只保留經絡、經典、本草三個低噪音入口。既有 641 筆搜尋與所有 entity／lesson 路由保持不變。
+- 應用內瀏覽器於 1280×720 實測：接近、喚醒、LU1 鎖定、離開保持、Escape 返回、鍵盤 Enter、next 呼吸 animation 與搜尋均通過；整頁橫向溢出為 0，body context 在進入條目時保持可見。
+- 兩次最終 production build 均通過：642 路由、641 搜尋、0 斷鏈、0 internal enum、單一 H1；Knowledge Model 1.5.0 維持 641 entity／1,933 relation，309 穴六批驗證 0 errors／0 warnings，V1 54 頁 intact。

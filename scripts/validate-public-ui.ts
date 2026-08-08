@@ -75,7 +75,11 @@ else {
 
 const baziLessonHtml = fs.readFileSync(routeFile("/lessons/tianji/bazi/01-tiangan-dizhi/"), "utf8");
 const homeHtml = fs.readFileSync(routeFile("/"), "utf8");
-if (!homeHtml.includes('/lessons/renji/bencao/01-overview/') || !homeHtml.includes("研讀本草性味") || !textContent(homeHtml).includes("5 種藥性")) errors.push("首頁缺少本草導讀入口或屬性規模說明");
+if (!homeHtml.includes("TRADITIONAL CHINESE MEDICINE") || !homeHtml.includes('data-interaction-mode="visible"') || !homeHtml.includes("手太陰肺經") || !homeHtml.includes("LU11")) errors.push("首頁缺少中醫品牌首屏或肺經互動原型");
+if (!homeHtml.includes('/lessons/renji/bencao/01-overview/') || !homeHtml.includes('/lessons/renji/acupuncture/01-meridians/')) errors.push("首頁知識索引缺少經絡或本草入口");
+if (["641", "1,933", "309 acupuncture"].some((value) => textContent(homeHtml).includes(value))) errors.push("首頁首屏不應展示資料庫規模指標");
+for (const [index, name] of ["中府", "雲門", "天府", "俠白", "尺澤", "孔最", "列缺", "經渠", "太淵", "魚際", "少商"].entries()) if (!homeHtml.includes(name) || !homeHtml.includes(`LU${index + 1}`)) errors.push(`首頁肺經序列缺少 ${name} LU${index + 1}`);
+if (!homeHtml.includes("解剖座標與循行路徑尚無可重現的視覺映射") || /meridianPath|bodyCoordinates/.test(textContent(homeHtml))) errors.push("首頁未清楚守住醫學幾何準確性邊界");
 if (!baziLessonHtml.includes("five-element-visual") || !baziLessonHtml.includes("structured-lesson")) errors.push("八字基礎頁缺少結構化導讀或五行圖");
 const heluoLessonHtml = fs.readFileSync(routeFile("/lessons/tianji/heluo/01-hetu-luoshu/"), "utf8");
 if (!heluoLessonHtml.includes("heluo-visuals") || !heluoLessonHtml.includes("structured-lesson")) errors.push("河圖洛書頁缺少結構化導讀或數字圖");
