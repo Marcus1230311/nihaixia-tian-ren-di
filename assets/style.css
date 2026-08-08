@@ -1,0 +1,223 @@
+/* ==========================================================
+   倪海廈醫道傳習網　共用樣式
+   設計基調：古籍紙本 + 硃砂印 + 竹青，供全站各批次頁面共用
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root{
+  --ink:#201d18;
+  --ink-soft:#3a352c;
+  --ink-faint:#5c5648;
+  --paper:#ece3cd;
+  --paper-deep:#ddd0ac;
+  --paper-card:#fff8ea;
+  --paper-line:#c9b98c;
+  --seal:#9c2b26;
+  --seal-soft:#c1544c;
+  --bamboo:#4b5a42;
+  --gold:#a9813f;
+  --max:960px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(169,129,63,0.08), transparent 45%),
+    radial-gradient(ellipse at 80% 100%, rgba(75,90,66,0.08), transparent 45%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Noto Sans SC', sans-serif;
+  line-height:1.8;
+}
+a{color:var(--seal); text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 24px 100px;}
+.wrap.narrow{max-width:760px;}
+
+/* ---------- 頂部導覽 ---------- */
+.topnav{
+  border-bottom:1px solid var(--paper-line);
+  background:rgba(236,227,205,0.92);
+  backdrop-filter:blur(4px);
+  position:sticky; top:0; z-index:10;
+}
+.topnav .inner{
+  max-width:var(--max); margin:0 auto; padding:14px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  flex-wrap:wrap;
+}
+.brand{
+  font-family:'Noto Serif SC', serif; font-weight:900; font-size:18px;
+  letter-spacing:0.05em; color:var(--ink);
+}
+.brand a{color:inherit;}
+.topnav .lines{ display:flex; gap:10px; }
+.topnav .lines a{
+  font-family:'Noto Serif SC', serif; font-size:14px; font-weight:700;
+  color:var(--ink-soft); padding:5px 12px; border:1px solid transparent; border-radius:20px;
+}
+.topnav .lines a.on, .topnav .lines a:hover{
+  color:var(--seal); border-color:var(--seal-soft); text-decoration:none;
+}
+
+/* ---------- 麵包屑 ---------- */
+.crumb{
+  font-size:12.5px; color:var(--ink-faint); margin:22px 0 8px; letter-spacing:0.02em;
+}
+.crumb a{color:var(--bamboo);}
+.crumb .sep{margin:0 6px; opacity:0.5;}
+
+/* ---------- HERO ---------- */
+.hero{ position:relative; padding:56px 0 34px; text-align:center; }
+.eyebrow{
+  font-family:'Noto Serif SC', serif; font-size:13px; letter-spacing:0.5em;
+  color:var(--bamboo); margin-bottom:16px;
+}
+.hero h1{
+  font-family:'Noto Serif SC', serif; font-weight:900;
+  font-size:clamp(30px,6vw,52px); margin:0 0 10px; letter-spacing:0.05em;
+}
+.hero .sub{ font-family:'Noto Serif SC', serif; font-size:15.5px; color:var(--ink-soft); letter-spacing:0.1em;}
+
+/* ---------- 印章角標 ---------- */
+.seal-mark{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:52px; height:52px; border:3px solid var(--seal); border-radius:6px;
+  color:var(--seal); font-family:'Noto Serif SC', serif; font-weight:700; font-size:18px;
+  writing-mode:vertical-rl; transform:rotate(2deg); opacity:0.88;
+}
+
+/* ---------- 三線卡片 (首頁) ---------- */
+.pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:40px 0 60px; }
+.pillar{
+  background:var(--paper-deep); border:1px solid var(--paper-line); border-radius:2px;
+  padding:26px 22px; display:flex; flex-direction:column; gap:10px;
+}
+.pillar .ph{ font-family:'Noto Serif SC', serif; font-weight:900; font-size:28px; }
+.pillar .pd{ font-size:12px; letter-spacing:0.06em; color:var(--bamboo); }
+.pillar p{ font-size:13.5px; margin:0; color:var(--ink-soft); flex:1;}
+.pillar .go{
+  align-self:flex-start; font-family:'Noto Serif SC', serif; font-weight:700; font-size:13px;
+  color:var(--seal); border-bottom:1px solid var(--seal-soft); padding-bottom:2px;
+}
+
+/* ---------- 區塊標題 ---------- */
+.section-title{
+  font-family:'Noto Serif SC', serif; font-weight:700; font-size:24px;
+  margin:56px 0 8px; display:flex; align-items:baseline; gap:12px;
+}
+.section-title .tag{ font-size:11.5px; letter-spacing:0.2em; color:var(--gold); font-family:'Noto Sans SC', sans-serif; font-weight:500;}
+.section-lede{ color:var(--ink-soft); font-size:14.5px; max-width:680px; margin:0 0 30px;}
+
+/* ---------- 模組 / 目錄卡 ---------- */
+.module{
+  background:var(--paper-card); border:1px solid var(--paper-line); border-left:4px solid var(--seal-soft);
+  border-radius:2px; padding:24px 26px; margin-bottom:22px;
+}
+.module h2{
+  font-family:'Noto Serif SC', serif; font-size:20px; margin:0 0 4px; font-weight:700;
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+}
+.module .m-alt{ font-size:12.5px; color:var(--gold); margin-bottom:14px; }
+.module .m-desc{ font-size:13.5px; color:var(--ink-soft); margin:0 0 16px; }
+.toc-list{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.toc-item{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:10px 14px; background:var(--paper); border:1px solid var(--paper-line); border-radius:2px;
+  font-size:13.5px;
+}
+.toc-item .t-name a{ color:var(--ink); font-weight:500; }
+.toc-item .t-name a:hover{ color:var(--seal); }
+.toc-item .t-desc{ display:block; font-size:12px; color:var(--ink-faint); margin-top:2px; }
+
+/* ---------- 內文文章樣式 (供各批次內容頁使用) ---------- */
+article.classic{ max-width:760px; margin:0 auto; }
+article.classic h2{
+  font-family:'Noto Serif SC', serif; font-size:26px; font-weight:700;
+  margin:46px 0 14px; padding-bottom:10px; border-bottom:2px solid var(--paper-line);
+}
+article.classic h3{
+  font-family:'Noto Serif SC', serif; font-size:19px; font-weight:700; margin:32px 0 10px; color:var(--seal);
+}
+article.classic p{ font-size:15px; color:var(--ink-soft); margin:0 0 16px; }
+article.classic .original{
+  background:var(--paper-card); border-left:4px solid var(--gold); padding:16px 20px;
+  font-family:'Noto Serif SC', serif; font-size:15.5px; color:var(--ink); margin:18px 0; border-radius:2px;
+}
+article.classic .original .cite{ display:block; margin-top:8px; font-size:12px; color:var(--ink-faint); font-family:'Noto Sans SC', sans-serif;}
+article.classic table{ width:100%; border-collapse:collapse; margin:20px 0; font-size:13.5px;}
+article.classic th, article.classic td{ border-bottom:1px solid var(--paper-line); padding:10px 8px; text-align:left; vertical-align:top;}
+article.classic th{ font-family:'Noto Serif SC', serif; color:var(--seal); font-weight:700; font-size:13px;}
+article.classic ul, article.classic ol{ font-size:14.5px; color:var(--ink-soft); padding-left:22px;}
+article.classic li{ margin-bottom:6px; }
+.hexagram-index{
+  display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:7px;
+  margin:26px 0 34px;
+}
+.hexagram-index a{
+  padding:7px 8px; border:1px solid var(--paper-line); background:var(--paper-card);
+  color:var(--ink-soft); font-size:12px; text-align:center;
+}
+.hexagram-entry{ scroll-margin-top:86px; }
+.hexagram-meta{
+  display:flex; gap:10px; align-items:flex-start; margin:-4px 0 16px; color:var(--ink-faint); font-size:13px;
+}
+.hexagram-meta span:first-child{
+  flex:none; color:var(--seal); border:1px solid var(--seal-soft); border-radius:20px; padding:2px 10px;
+}
+article.classic details{
+  border:1px solid var(--paper-line); background:rgba(255,248,234,0.55); padding:12px 16px; margin:16px 0;
+}
+article.classic summary{ cursor:pointer; color:var(--seal); font-family:'Noto Serif SC',serif; font-weight:700; }
+.source-note{ font-size:12px !important; color:var(--ink-faint) !important; }
+.source-box{ border-top:2px solid var(--paper-line); margin-top:46px; padding-top:4px; }
+.source-box a{ overflow-wrap:anywhere; }
+.provenance-note{
+  display:block; margin:0 0 28px; padding:15px 18px; border:1px solid var(--paper-line);
+  border-left:4px solid var(--bamboo); background:rgba(255,248,234,0.72);
+  color:var(--ink-soft); font-size:13px; line-height:1.75;
+}
+.provenance-note strong{ display:block; color:var(--ink); font-family:'Noto Serif SC',serif; margin-bottom:3px; }
+.source-key{ display:inline-block; color:var(--seal); font-weight:700; margin:0 3px; }
+.lesson-toc{
+  display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:0 0 34px;
+  padding:12px 14px; border:1px solid var(--paper-line); background:var(--paper-card);
+}
+.lesson-toc strong{ font-size:12px; color:var(--ink); margin-right:4px; }
+.lesson-toc a{ font-size:12px; color:var(--seal); border-bottom:1px solid var(--seal-soft); }
+article.classic h2[id]{ scroll-margin-top:86px; }
+.callout{
+  background:var(--ink); color:var(--paper); padding:18px 22px; border-radius:2px; font-size:13.5px; margin:28px 0;
+}
+.callout h4{ font-family:'Noto Serif SC', serif; color:#e8c9a0; margin:0 0 8px; font-size:15px;}
+
+/* ---------- 上下篇導覽 ---------- */
+.pager{
+  display:flex; justify-content:space-between; gap:16px; margin-top:56px;
+  border-top:1px solid var(--paper-line); padding-top:20px;
+}
+.pager a{
+  font-size:13px; color:var(--ink-soft); max-width:45%;
+}
+.pager a .dir{ display:block; font-size:11px; color:var(--gold); letter-spacing:0.1em; margin-bottom:2px;}
+.pager .next{ text-align:right; margin-left:auto; }
+
+/* ---------- 頁尾 / 提醒 ---------- */
+.note{
+  background:var(--ink); color:var(--paper); padding:26px 26px; border-radius:2px;
+  font-size:13px; line-height:1.9; margin:60px 0 20px;
+}
+.note h4{ font-family:'Noto Serif SC', serif; color:#e8c9a0; margin:0 0 8px; font-size:15px; }
+footer{ text-align:center; margin-top:40px; font-size:12px; color:var(--ink-faint); letter-spacing:0.06em; }
+
+@media (max-width:760px){
+  .pillars{ grid-template-columns:1fr; }
+  .toc-item{ flex-direction:column; align-items:flex-start; gap:4px; }
+  .hexagram-index{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .hexagram-meta{ flex-direction:column; }
+  article.classic table{ display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .lesson-toc{ align-items:flex-start; }
+}

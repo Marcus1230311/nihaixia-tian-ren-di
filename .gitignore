@@ -1,0 +1,25 @@
+# Dependencies and generated builds
+node_modules/
+.next/
+out/
+dist/
+coverage/
+
+# Local environment and deployment state
+.env
+.env.*
+!.env.example
+.vercel/
+.openai/
+
+# Logs and temporary files
+*.log
+*.tmp
+.cache/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
