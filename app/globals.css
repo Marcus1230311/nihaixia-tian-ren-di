@@ -82,6 +82,13 @@ main { min-height: calc(100vh - 130px); }
 .relation-list { list-style: none; padding: 0; }
 .relation-list li { display: flex; align-items: baseline; gap: 10px; border-top: 1px solid var(--line); padding: 8px 0; }
 .relation-list li span { color: var(--soft); font-size: 13px; }
+.relation-list li small { margin-left: auto; color: var(--gold); font-size: 11px; text-align: right; }
+.formula-context-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 16px 0; }
+.formula-context-summary div { display: grid; gap: 3px; padding: 12px 14px; border: 1px solid var(--line); background: var(--card); }
+.formula-context-summary span, .formula-context-links span { color: var(--gold); font-size: 11px; }
+.formula-context-summary strong { font: 800 24px "Noto Serif TC", serif; }
+.formula-context-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.formula-context-links a { display: grid; gap: 2px; padding: 10px 12px; border: 1px solid var(--line); background: var(--card); text-decoration: none; }
 .meridian-point-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; list-style: none; padding: 0; }
 .meridian-point-list li { margin: 0; }
 .meridian-point-list a { display: flex; align-items: baseline; gap: 8px; min-height: 44px; padding: 9px 11px; border: 1px solid var(--line); background: var(--card); text-decoration: none; }
@@ -144,6 +151,22 @@ main { min-height: calc(100vh - 130px); }
 .formula-label { fill: #fff; font: 700 20px "Noto Serif TC", serif; }
 .herb-node { fill: var(--card); stroke: var(--jade); stroke-width: 2; }
 .herb-label { fill: var(--ink); font: 700 16px "Noto Serif TC", serif; }
+.jingui-visual { margin: 22px 0 34px; border: 1px solid var(--line); background: #f8f2e5; padding: 14px; }
+.jingui-visual svg { display: block; width: 100%; height: auto; }
+.jingui-visual figcaption { text-align: center; color: var(--soft); font-size: 12px; }
+.jingui-condition, .classic-source-node { fill: #f4ead7; stroke: var(--gold); stroke-width: 2; }
+.jingui-syndrome { fill: var(--card); stroke: var(--jade); stroke-width: 2; }
+.jingui-formula, .shared-formula-node { fill: var(--seal); stroke: #fff; stroke-width: 3; }
+.jingui-flow { stroke: var(--gold); stroke-width: 2; fill: none; }
+#jingui-arrow path { fill: var(--gold); }
+.jingui-primary-label { fill: var(--ink); font: 800 19px "Noto Serif TC", serif; }
+.jingui-secondary-label { fill: var(--ink); font: 700 15px "Noto Serif TC", serif; }
+.jingui-formula-label { fill: #fff; font: 700 17px "Noto Serif TC", serif; }
+.shared-id-label { fill: #fff; font-size: 10px; }
+.cross-source-line { stroke-width: 3; fill: none; }
+.cross-source-line.shanghan { stroke: var(--gold); }
+.cross-source-line.jingui { stroke: var(--jade); }
+.evidence-label { fill: var(--soft); font-size: 12px; }
 .knowledge-visual { margin: 22px 0 34px; border: 1px solid var(--line); background: #f8f2e5; padding: 14px; }
 .knowledge-visual svg { display: block; width: 100%; height: auto; max-height: 540px; }
 .knowledge-visual figcaption { text-align: center; color: var(--soft); font-size: 12px; }
@@ -177,6 +200,9 @@ main { min-height: calc(100vh - 130px); }
   .migrated-content table { display: block; overflow-x: auto; }
   .migrated-content .hexagram-index, .migrated-content .lesson-toc { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .entity-details dl, .trigram-composition { grid-template-columns: 1fr; }
+  .formula-context-summary, .formula-context-links { grid-template-columns: 1fr; }
+  .relation-list li { flex-wrap: wrap; }
+  .relation-list li small { width: 100%; margin-left: 0; text-align: left; }
   .lesson-nav a { max-width: 48%; }
   .graph-toolbar { align-items: flex-start; padding-left: 12px; }
   .graph-toolbar p { max-width: 145px; padding-top: 4px; }

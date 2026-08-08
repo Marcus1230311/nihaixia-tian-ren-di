@@ -47,9 +47,9 @@ for (const [centerId, expectedNeighbors] of [
 }
 
 for (const [centerId, expectedNeighbors, expectedOmitted] of [
-  ["formula:guizhi-tang", 9, 0],
+  ["formula:guizhi-tang", 13, 0],
   ["syndrome:taiyang-zhongfeng", 3, 0],
-  ["herb:guizhi", 3, 0],
+  ["herb:guizhi", 9, 0],
   ["shanghan-channel:taiyang", 4, 0],
   ["classic:shanghan-lun", 23, 5],
 ] as const) {
@@ -60,7 +60,21 @@ for (const [centerId, expectedNeighbors, expectedOmitted] of [
 }
 const guizhiFormula = buildLocalGraph({ centerId: "formula:guizhi-tang", nodes, relations });
 assert.ok(guizhiFormula.nodes.some((node) => node.id === "syndrome:taiyang-zhongfeng"), "formula graph must expose its classical pattern association");
+assert.ok(guizhiFormula.nodes.some((node) => node.id === "syndrome:jingui-pregnancy-guizhi"), "reused formula graph must expose its separate Jingui pattern association");
+assert.ok(guizhiFormula.nodes.some((node) => node.id === "classic:jingui-yaolue"), "reused formula graph must expose both classic contexts");
 assert.equal(guizhiFormula.nodes.filter((node) => node.type === "herb").length, 5, "Gui Zhi Tang graph must expose all five ingredient identities");
+
+for (const [centerId, expectedNeighbors, expectedOmitted] of [
+  ["formula:huangqi-guizhi-wuwu-tang", 9, 0],
+  ["herb:huangqi", 2, 0],
+  ["syndrome:jingui-blood-bi-qi-blood-deficiency", 4, 0],
+  ["classic:jingui-yaolue", 28, 10],
+] as const) {
+  const graph = buildLocalGraph({ centerId, nodes, relations });
+  assert.equal(graph.directNeighborCount, expectedNeighbors, `${centerId} Jingui graph degree changed unexpectedly`);
+  assert.equal(graph.omittedNodeCount, expectedOmitted);
+  assert.ok(graph.nodes.every((node) => node.label && node.typeLabel && node.description && node.href?.startsWith("/")));
+}
 
 for (const [centerId, expectedNeighbors] of [
   ["acupoint:lr-03", 5],
@@ -94,7 +108,7 @@ assert.ok(classic.edges.every((edge) => !rawEnums.test(edge.label)), "public edg
 console.log(JSON.stringify({
   graphNodesAvailable: nodes.length,
   relationsAvailable: relations.length,
-  representativeCenters: 22,
+  representativeCenters: 26,
   qianVisibleNodes: qian.nodes.length,
   trigramDirectNeighbors: 19,
   classicDirectNeighbors: classic.directNeighborCount,

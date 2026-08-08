@@ -24,6 +24,7 @@ export const entityTypeLabels = {
   acupoint: { "zh-Hant": "穴位", "zh-Hans": "穴位" },
   point_category: { "zh-Hant": "穴位分類", "zh-Hans": "穴位分类" },
   shanghan_channel: { "zh-Hant": "傷寒六經", "zh-Hans": "伤寒六经" },
+  condition: { "zh-Hant": "病類", "zh-Hans": "病类" },
   syndrome: { "zh-Hant": "病證", "zh-Hans": "病证" },
   concept: { "zh-Hant": "概念", "zh-Hans": "概念" },
   formula: { "zh-Hant": "方劑", "zh-Hans": "方剂" },
@@ -80,6 +81,7 @@ export const metadataLabels: Record<string, LocalizedText> = {
   domainContext: { "zh-Hant": "語意領域", "zh-Hans": "语意领域" },
   modelScope: { "zh-Hant": "模型範圍", "zh-Hans": "模型范围" },
   ingredientCount: { "zh-Hant": "藥味數", "zh-Hans": "药味数" },
+  classicReuse: { "zh-Hant": "跨經典共用身份", "zh-Hans": "跨经典共用身份" },
 };
 
 export function displayMetadata(value: unknown, locale: Locale = defaultLocale) {

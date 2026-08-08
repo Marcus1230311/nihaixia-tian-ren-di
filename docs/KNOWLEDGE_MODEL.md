@@ -1,6 +1,6 @@
-# 知識模型 V1.3（已凍結）
+# 知識模型 V1.4（已凍結）
 
-本文件記錄 1.3.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。1.3.0 在 1.2.0 上加入傷寒診斷六經、病證與明確的經典方證關聯，沒有移除欄位、改變既有 ID 或新增來源分類。現有資料涵蓋天紀、十二正經穴位及受控傷寒模型，不代表完整人紀已建模。
+本文件記錄 1.4.0 知識資料合約。凍結表示既有欄位語意、ID 與關係名稱不得在一般內容匯入中改動；新增或破壞性變更必須另開 schema 版本並提供遷移說明。1.4.0 在 1.3.0 上加入通用 `condition`，用來區分金匱的章篇／疾病組織入口與具體 `syndrome`；沒有移除欄位、改變既有 ID、新增 relation type 或來源分類。現有資料涵蓋天紀、十二正經穴位、受控傷寒及金匱模型，不代表完整人紀已建模。
 
 ## Entity Schema V1
 
@@ -101,3 +101,9 @@ Schema V1 已用完整 8 個八卦與 64 個六十四卦進行擴量驗證，未
 傷寒太陽、陽明、少陽、太陰、少陰、厥陰使用 `shanghan_channel:*`，類型為 `shanghan_channel`；同名的 `meridian-level:*` 仍只表示針灸經脈命名層級。兩組可共享顯示標籤，但 ID、類型、描述與關係網路均不同，禁止依標籤合併。代表病證使用可跨傷寒、金匱與方劑主治語境重用的 `syndrome`；方劑、藥材沿用 1.2.0 已預留的 `formula`、`herb`。
 
 方劑以 `contains_herb` 指向共享藥材身份，以 `classically_associated_with` 指向病證；前者是組成事實，後者是有來源的經典方證關聯，兩者都不產生個人化診療結論。十一方、二十九味藥、十二病證與六個診斷六經證明共同欄位仍足夠，摩擦集中在 enum 語意：若用 `concept` 承載六經／病證會失去類型驗證並造成同名混淆，因此升至 1.3.0。完整決策見 [`SHANGHAN_MODEL.md`](SHANGHAN_MODEL.md)。
+
+## V2.6B 金匱跨經典身份壓力測試
+
+新增通用 `condition`，因《金匱要略》的血痹、虛勞、痰飲、婦人病等可作章篇／疾病組織入口，而具體方證仍應是 `syndrome`。`syndrome belongs_to condition` 表示研讀分層；方劑只以 `classically_associated_with` 指向 syndrome，不直接指向 condition。這項區分有跨醫學經典的語意價值，因此 Schema 升至 1.4.0；relation、欄位、metadata value 與 source category 均不變。
+
+方劑和藥材身份維持全域唯一。桂枝湯、大承氣湯、小柴胡湯沿用傷寒建立的 ID、slug、組成邊與公開頁，再各自增加金匱 `appears_in` 及方證關係。每條 relation 自帶 `sourceIds`，所以同一方劑的傷寒主張只連傷寒來源，金匱主張只連金匱來源；entity 的來源合集不替代 claim-level evidence。十八味新增藥材與十六味既有藥材共用同一 `herb:*` 命名空間。完整決策、重用清單與本草準備度見 [`JINGUI_MODEL.md`](JINGUI_MODEL.md)。

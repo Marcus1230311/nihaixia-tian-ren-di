@@ -6,9 +6,9 @@
 
 課程正文不重新生成。`lib/v1-content.ts` 在建置階段讀取既有 `<article class="classic">`，新的公開路由提供搜尋、麵包屑、前後篇、來源說明和知識條目入口。
 
-## Schema Freeze 1.2.0
+## Schema Freeze 1.4.0
 
-Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.2.0。1.0.0／1.1.0 的易經、八字與河洛資料和 ID 保持不變；本小版本只增加針灸試點所需 entity type 及 `classified_as` 通用關係。詳細欄位、展示對照、圖譜／搜尋條件及版本規則見 [`KNOWLEDGE_MODEL.md`](KNOWLEDGE_MODEL.md)。後續匯入和引導研讀要求見 [`CONTENT_GUIDELINES.md`](CONTENT_GUIDELINES.md)。
+Entity、Relation、Source／Provenance 與 i18n 合約目前為 1.4.0。1.0.0–1.3.0 的易經、八字、河洛、針灸與傷寒資料和 ID 保持不變；後續小版本依序增加針灸、傷寒與金匱所需的通用 enum。本版以 `condition` 區分疾病／章篇入口與具體 `syndrome`，relation-level `sourceIds` 繼續保存每條主張證據。詳細欄位、展示對照、圖譜／搜尋條件及版本規則見 [`KNOWLEDGE_MODEL.md`](KNOWLEDGE_MODEL.md)。後續匯入和引導研讀要求見 [`CONTENT_GUIDELINES.md`](CONTENT_GUIDELINES.md)。
 
 《易經》結構化層目前包含：5 篇研讀課程、天紀課程主線、周易經典、8 個八卦、64 個六十四卦、206 條關係與 4 筆獨立來源。搜尋索引共有 79 筆（5 lessons + 74 non-lesson entities）。本次只擴充卦象結構，沒有開始八字、河洛、人紀、地紀或全域圖譜。
 
@@ -77,3 +77,9 @@ Production 改為讀取確定性 generated aggregate，29 個既有條目的編�
 Schema 升至 1.3.0：新增 `shanghan_channel`、`syndrome` 與 `classically_associated_with` enum，未新增欄位或 source category。傷寒六經使用獨立 `shanghan-channel:*`，不與同名 `meridian-level:*` 合併；方劑以既有 `contains_herb` 指向共享藥材，以新關係指向病證。全圖為 564 節點、1,431 關係、16 來源，搜尋 564 筆。
 
 新增五篇導讀、六經三陽／三陰分組 SVG 與桂枝湯五味組成 SVG。完整傷寒方庫、條文全文、劑量資料、推薦系統、金匱／內經／本草擴量、方劑匯入管線與全域圖均延後；中間麵包屑可點擊性仍保留為最後的全站 UX 清理項。
+
+## V2.6B 人紀金匱跨經典知識模型試點
+
+來源盤點覆核 V1 金匱 01–06 與《金匱要略》古典原文。新增 7 個 `condition`、15 個 `syndrome`、12 個新方劑、18 味新藥材與 5 篇導讀；桂枝湯、大承氣湯、小柴胡湯及 16 味既有藥材直接重用，沒有經典專用副本。全圖為 622 節點、1,649 關係、19 來源，搜尋 622 筆。
+
+Schema 升至 1.4.0，只新增通用 `condition` entity type。`belongs_to`、`appears_in`、`contains_herb`、`classically_associated_with` 及 relation `sourceIds` 已能表達病類分層、跨經典出處、唯一組成及逐條主張證據，所以沒有新增關係、欄位或來源分類。新增病類→病證→方劑與跨經典方劑身份兩個 SVG；完整金匱語料、全文、劑量、推薦、方藥 bulk ingestion 與麵包屑全站清理仍延後。

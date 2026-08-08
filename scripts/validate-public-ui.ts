@@ -17,7 +17,7 @@ const forbiddenPublicText = [
   "corresponds_to", "element_of", "upper_trigram", "lower_trigram", "related_to",
   "generates", "controls", "heavenly_stem", "earthly_branch", "yin_yang", "ten_god",
   "classified_as", "meridian_level", "point_category", "acupoint",
-  "shanghan_channel", "syndrome", "classically_associated_with",
+  "shanghan_channel", "condition", "syndrome", "classically_associated_with",
 ];
 
 function routeFile(route: string) {
@@ -64,10 +64,12 @@ if (!fs.existsSync(searchIndexFile)) errors.push("缺少公開搜尋索引");
 else {
   const records = JSON.parse(fs.readFileSync(searchIndexFile, "utf8")) as Array<{ labels: Record<string, string>; descriptions: Record<string, string>; keywords: Record<string, string[]> }>;
   if (records.length !== entities.length + lessons.length) errors.push(`搜尋索引數量錯誤：${records.length}`);
-  for (const query of ["甲", "伤官", "河图", "洛书", "北方", "太衝", "太冲", "肝經", "肝经", "原穴", "五輸穴", "五输穴", "桂枝湯", "桂枝汤", "太陽中風", "太阳中风", "少陰", "少阴", "黃連阿膠湯", "黄连阿胶汤"]) {
+  for (const query of ["甲", "伤官", "河图", "洛书", "北方", "太衝", "太冲", "肝經", "肝经", "原穴", "五輸穴", "五输穴", "桂枝湯", "桂枝汤", "太陽中風", "太阳中风", "少陰", "少阴", "黃連阿膠湯", "黄连阿胶汤", "金匱要略", "金匮要略", "黃耆桂枝五物湯", "黄芪桂枝五物汤", "婦人臟躁證", "妇人脏躁证", "茯苓", "泽泻"]) {
     const found = records.some((record) => JSON.stringify(record).includes(query));
     if (!found) errors.push(`搜尋索引缺少繁簡或別名查找詞：${query}`);
   }
+  if (records.filter((record) => JSON.stringify(record).includes("formula:guizhi-tang")).length < 1) errors.push("搜尋索引缺少桂枝湯 canonical identity");
+  if (records.filter((record: { labels: Record<string, string> }) => record.labels["zh-Hant"] === "桂枝湯").length !== 1) errors.push("跨經典桂枝湯搜尋結果必須只有一個 canonical 方劑條目");
 }
 
 const baziLessonHtml = fs.readFileSync(routeFile("/lessons/tianji/bazi/01-tiangan-dizhi/"), "utf8");
@@ -83,6 +85,12 @@ const shanghanOverviewHtml = fs.readFileSync(routeFile("/lessons/renji/shanghan/
 if (!shanghanOverviewHtml.includes("shanghan-visual") || !shanghanOverviewHtml.includes("同名不等於同一概念") || !shanghanOverviewHtml.includes("medical-boundary")) errors.push("傷寒六經總覽缺少分組圖、語意辨識或醫療安全邊界");
 const shanghanFormulaHtml = fs.readFileSync(routeFile("/lessons/renji/shanghan/05-formula-links/"), "utf8");
 if (!shanghanFormulaHtml.includes("formula-node") || !shanghanFormulaHtml.includes("二十九味共享藥材") || !shanghanFormulaHtml.includes("不提供個人診斷")) errors.push("傷寒方劑導讀缺少組成圖、共享藥材或安全說明");
+const jinguiOverviewHtml = fs.readFileSync(routeFile("/lessons/renji/jingui/01-overview/"), "utf8");
+if (!jinguiOverviewHtml.includes("jingui-visual") || !jinguiOverviewHtml.includes("病類不是病證") || !jinguiOverviewHtml.includes("medical-boundary")) errors.push("金匱總覽缺少病類分層圖、語意辨識或醫療安全邊界");
+const jinguiCrossClassicHtml = fs.readFileSync(routeFile("/lessons/renji/jingui/05-cross-classic/"), "utf8");
+if (!jinguiCrossClassicHtml.includes("cross-classic-visual") || !jinguiCrossClassicHtml.includes("十五張方") || !jinguiCrossClassicHtml.includes("三十四味共享藥材")) errors.push("金匱跨經典導讀缺少身份圖或方藥重用報告");
+const guizhiFormulaHtml = fs.readFileSync(routeFile("/entities/formula-guizhi-tang/"), "utf8");
+if (!guizhiFormulaHtml.includes("傷寒論") || !guizhiFormulaHtml.includes("金匱要略") || !guizhiFormulaHtml.includes("證據：") || !guizhiFormulaHtml.includes("方劑組成與經典語境")) errors.push("桂枝湯公開頁未完整呈現跨經典語境與關係證據");
 
 if (errors.length) throw new Error(`公開頁驗證失敗：\n${errors.join("\n")}`);
-console.log(JSON.stringify({ routes: expectedRoutes.length, searchIndex: entities.length + lessons.length, brokenLinks: 0, forbiddenPublicText: 0, singleH1: true, structuredVisualLessons: 6 }, null, 2));
+console.log(JSON.stringify({ routes: expectedRoutes.length, searchIndex: entities.length + lessons.length, brokenLinks: 0, forbiddenPublicText: 0, singleH1: true, structuredVisualLessons: 9 }, null, 2));

@@ -47,10 +47,11 @@ const typePriority: Record<KnowledgeNode["type"], number> = {
   organ: 14,
   point_category: 15,
   shanghan_channel: 16,
-  syndrome: 17,
-  acupoint: 18,
-  formula: 19,
-  herb: 20,
+  condition: 17,
+  syndrome: 18,
+  acupoint: 19,
+  formula: 20,
+  herb: 21,
 };
 
 function publicHref(node: KnowledgeNode): string | null {

@@ -34,6 +34,9 @@
 - 傷寒六經使用 `shanghan_channel`，不得與同名 `meridian_level` 依標籤合併；方證使用 `syndrome`，不可把症狀關鍵字做成自動診斷規則。
 - 方劑 `contains_herb` 只表示有來源的藥味身份；`classically_associated_with` 只表示所研經典框架中的方證關聯。公開內容不得因此產生「有症狀就服方」、劑量、替代藥、禁忌判斷或處方調整建議。
 - `herb:*` 是跨傷寒、金匱、本草可重用的藥材身份；同名藥不得按方劑複製。炮製、劑量、藥理與安全屬性需另有來源與模型提案，不可臨時塞入描述。
+- `condition` 表示疾病／章篇組織入口，`syndrome` 表示具體病機與方證語境；不得為維持舊版本而把金匱病類硬塞成病證，也不得把名稱相近的兩個病證自動合併。
+- 方劑與藥材 ID 全域唯一。新增經典前先比較繁簡、別名、組成及現有 entity；語意相同即重用原 ID、slug、組成邊和頁面，經典出處及新方證另加有來源 relation。
+- Entity `sourceIds` 只回答條目整體參考來源；每一條方證、出處、組成或病類隸屬主張仍須在 relation `sourceIds` 保存自己的證據。不可把 entity 的來源合集當作所有關係的共同出處。
 
 ## 編輯檢查表
 
@@ -49,4 +52,4 @@
 - 大量穴位不得由模型逐筆重寫；先轉成 `docs/ACUPUNCTURE_INGESTION.md` 的 canonical record，再用程式正規化、驗證與產生。模型只審核模糊章節、未解析別名、來源衝突、關係判斷與教育摘要。
 - bulk import 一律先跑 `npm run acupuncture:dry-run` 並審查 exception report；只有明確接受的資料才可 generate，且 generate 不等於發布。
 - 來源 locator 不得杜撰頁碼。不得不必要地複製大型受版權保護表格或提交來源 PDF；採最小事實轉換並保存 attribution／license 判斷。
-- 空間座標、人體 marker 與 SVG path 使用獨立 linked submodel，不得塞入 Entity 1.3.0。
+- 空間座標、人體 marker 與 SVG path 使用獨立 linked submodel，不得塞入 Entity 1.4.0。

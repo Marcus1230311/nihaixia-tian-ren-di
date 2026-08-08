@@ -3,6 +3,7 @@ import path from "node:path";
 import { knowledgeGraph } from "../data/knowledge";
 import { entityTypes, knowledgeGraphSchema, relationTypes, sourceCategories } from "../lib/knowledge-schema";
 import { entityTypeLabels, localize, relationTypeLabels, sourceCategoryLabels } from "../lib/presentation";
+import { jinguiConditionIds, jinguiExpectedIngredients, jinguiNewFormulaIds, jinguiNewHerbIds, jinguiReusedFormulaIds, jinguiReusedHerbIds, jinguiSyndromeIds, renjiJinguiPilotCounts } from "../data/renji-jingui";
 
 const graph = knowledgeGraphSchema.parse(knowledgeGraph);
 const lessons = graph.entities.filter((entity) => entity.type === "lesson");
@@ -21,10 +22,16 @@ const organs = graph.entities.filter((entity) => entity.type === "organ");
 const acupoints = graph.entities.filter((entity) => entity.type === "acupoint");
 const pointCategories = graph.entities.filter((entity) => entity.type === "point_category");
 const shanghanChannels = graph.entities.filter((entity) => entity.type === "shanghan_channel");
+const conditions = graph.entities.filter((entity) => entity.type === "condition");
 const syndromes = graph.entities.filter((entity) => entity.type === "syndrome");
 const formulas = graph.entities.filter((entity) => entity.type === "formula");
 const herbs = graph.entities.filter((entity) => entity.type === "herb");
 const shanghanLessons = graph.entities.filter((entity) => entity.type === "lesson" && entity.moduleId === "classic:shanghan-lun");
+const jinguiLessons = graph.entities.filter((entity) => entity.type === "lesson" && entity.moduleId === "classic:jingui-yaolue");
+const shanghanSyndromes = syndromes.filter((entity) => !entity.id.startsWith("syndrome:jingui-"));
+const jinguiSyndromes = syndromes.filter((entity) => entity.id.startsWith("syndrome:jingui-"));
+const shanghanFormulaIds = new Set(["guizhi-tang", "mahuang-tang", "baihu-tang", "dachengqi-tang", "xiaochengqi-tang", "tiaowei-chengqi-tang", "xiaochaihu-tang", "lizhong-tang", "sini-tang", "huanglian-ejiao-tang", "wumei-wan"].map((id) => `formula:${id}`));
+const shanghanFormulas = formulas.filter((entity) => shanghanFormulaIds.has(entity.id));
 const missingLegacy = lessons.filter((lesson) => !fs.existsSync(path.resolve(process.cwd(), lesson.legacyPath)));
 if (missingLegacy.length) throw new Error(`缺少既有內容來源：${missingLegacy.map((lesson) => lesson.legacyPath).join("、")}`);
 
@@ -131,9 +138,8 @@ for (const meridian of meridians) {
 const shanghanClassic = graph.entities.find((entity) => entity.id === "classic:shanghan-lun");
 if (shanghanClassic?.type !== "classic") throw new Error("《傷寒論》必須使用唯一 first-class classic 身份");
 if (shanghanChannels.length !== 6) throw new Error(`傷寒診斷六經數量應為 6，實際為 ${shanghanChannels.length}`);
-if (syndromes.length !== 12) throw new Error(`傷寒代表病證數量應為 12，實際為 ${syndromes.length}`);
-if (formulas.length !== 11) throw new Error(`傷寒代表方數量應為 11，實際為 ${formulas.length}`);
-if (herbs.length !== 29) throw new Error(`傷寒試點藥材數量應為 29，實際為 ${herbs.length}`);
+if (shanghanSyndromes.length !== 12) throw new Error(`傷寒代表病證數量應為 12，實際為 ${shanghanSyndromes.length}`);
+if (shanghanFormulas.length !== 11) throw new Error(`傷寒代表方數量應為 11，實際為 ${shanghanFormulas.length}`);
 if (shanghanLessons.length !== 5) throw new Error(`傷寒結構化導讀數量應為 5，實際為 ${shanghanLessons.length}`);
 
 const expectedChannelIds = new Set(["taiyang", "yangming", "shaoyang", "taiyin", "shaoyin", "jueyin"].map((id) => `shanghan-channel:${id}`));
@@ -145,9 +151,9 @@ for (const channel of shanghanChannels) {
 }
 
 const channelIdSet = new Set(shanghanChannels.map((entity) => entity.id));
-const syndromeIdSet = new Set(syndromes.map((entity) => entity.id));
+const syndromeIdSet = new Set(shanghanSyndromes.map((entity) => entity.id));
 const herbIdSet = new Set(herbs.map((entity) => entity.id));
-for (const syndrome of syndromes) {
+for (const syndrome of shanghanSyndromes) {
   const memberships = graph.relations.filter((relation) => relation.from === syndrome.id && relation.type === "belongs_to" && channelIdSet.has(relation.to));
   if (memberships.length !== 1) throw new Error(`${syndrome.id} 必須隸屬唯一傷寒診斷六經`);
 }
@@ -169,7 +175,7 @@ const expectedIngredients: Record<string, string[]> = {
   "formula:huanglian-ejiao-tang": ["huanglian", "huangqin", "shaoyao", "ejiao", "jizihuang"],
   "formula:wumei-wan": ["wumei", "xixin", "ganjiang", "huanglian", "danggui", "fuzi", "shujiao", "guizhi", "renshen", "huangbai"],
 };
-for (const formula of formulas) {
+for (const formula of shanghanFormulas) {
   const ingredientRelations = graph.relations.filter((relation) => relation.from === formula.id && relation.type === "contains_herb");
   const actual = ingredientRelations.map((relation) => relation.to).sort();
   const expected = (expectedIngredients[formula.id] ?? []).map((id) => `herb:${id}`).sort();
@@ -183,8 +189,70 @@ for (const formula of formulas) {
 const herbLabels = herbs.flatMap((herb) => [herb.labels["zh-Hant"], herb.labels["zh-Hans"]]).filter(Boolean);
 if (new Set(herbLabels).size !== herbLabels.length - herbs.filter((herb) => herb.labels["zh-Hant"] === herb.labels["zh-Hans"]).length) throw new Error("試點藥材出現可避免的重複語意身份");
 if (formulas.some((formula) => Object.keys(formula.metadata).some((key) => /dose|dosage|contraindication|recommendation/i.test(key)))) throw new Error("方劑 metadata 不得包含劑量、禁忌判斷或推薦欄位");
-const shanghanNodeIds = new Set(["classic:shanghan-lun", ...shanghanChannels.map((entity) => entity.id), ...syndromes.map((entity) => entity.id), ...formulas.map((entity) => entity.id), ...herbs.map((entity) => entity.id), ...shanghanLessons.map((entity) => entity.id)]);
+const shanghanNodeIds = new Set(["classic:shanghan-lun", ...shanghanChannels.map((entity) => entity.id), ...shanghanSyndromes.map((entity) => entity.id), ...shanghanFormulas.map((entity) => entity.id), ...shanghanLessons.map((entity) => entity.id)]);
 if (graph.entities.filter((entity) => shanghanNodeIds.has(entity.id)).some((entity) => entity.sourceIds.some((sourceId) => graph.sources.find((source) => source.id === sourceId)?.category === "nihaixia"))) throw new Error("無直接追溯依據的傷寒試點內容不得標為倪海廈講授資料");
+
+const jinguiClassic = graph.entities.find((entity) => entity.id === "classic:jingui-yaolue");
+if (jinguiClassic?.type !== "classic") throw new Error("《金匱要略》必須使用唯一 first-class classic 身份");
+if (conditions.length !== renjiJinguiPilotCounts.conditions || conditions.some((entity) => !jinguiConditionIds.includes(entity.id))) throw new Error("金匱病類身份集合不完整");
+if (jinguiSyndromes.length !== renjiJinguiPilotCounts.syndromes || jinguiSyndromes.some((entity) => !jinguiSyndromeIds.includes(entity.id))) throw new Error("金匱代表病證身份集合不完整");
+if (jinguiLessons.length !== 5) throw new Error(`金匱結構化導讀數量應為 5，實際為 ${jinguiLessons.length}`);
+if (formulas.length !== 23) throw new Error(`全站方劑應為 23 個唯一身份，實際為 ${formulas.length}`);
+if (herbs.length !== 47) throw new Error(`全站藥材應為 47 個唯一身份，實際為 ${herbs.length}`);
+if (jinguiNewFormulaIds.some((id) => !formulas.some((formula) => formula.id === id))) throw new Error("金匱新增方劑身份不完整");
+if (jinguiNewHerbIds.some((id) => !herbs.some((herb) => herb.id === id))) throw new Error("金匱新增藥材身份不完整");
+if (jinguiReusedFormulaIds.some((id) => formulas.filter((formula) => formula.id === id).length !== 1)) throw new Error("跨經典方劑必須維持單一 canonical 身份");
+if (jinguiReusedHerbIds.some((id) => herbs.filter((herb) => herb.id === id).length !== 1)) throw new Error("跨經典藥材必須維持單一 canonical 身份");
+
+const conditionIdSet = new Set(conditions.map((entity) => entity.id));
+for (const condition of conditions) {
+  if (!graph.relations.some((relation) => relation.from === condition.id && relation.type === "part_of" && relation.to === "classic:jingui-yaolue")) throw new Error(`${condition.id} 必須屬於金匱經典`);
+}
+for (const syndrome of jinguiSyndromes) {
+  const memberships = graph.relations.filter((relation) => relation.from === syndrome.id && relation.type === "belongs_to" && conditionIdSet.has(relation.to));
+  if (memberships.length !== 1) throw new Error(`${syndrome.id} 必須隸屬唯一金匱病類`);
+}
+if (graph.relations.some((relation) => relation.type === "classically_associated_with" && conditionIdSet.has(relation.to))) throw new Error("方證關係不得直接指向病類；病類與病證必須保持語意分層");
+
+for (const formulaId of jinguiNewFormulaIds) {
+  const formula = formulas.find((entity) => entity.id === formulaId);
+  if (!formula) throw new Error(`缺少金匱方劑：${formulaId}`);
+  const actualIngredients = graph.relations.filter((relation) => relation.from === formulaId && relation.type === "contains_herb").map((relation) => relation.to).sort();
+  const expected = [...(jinguiExpectedIngredients[formulaId] ?? [])].sort();
+  if (actualIngredients.join("|") !== expected.join("|")) throw new Error(`${formulaId} 藥味組成與金匱接受來源不一致`);
+  if (formula.metadata.ingredientCount !== expected.length) throw new Error(`${formulaId} ingredientCount 與組成關係不一致`);
+  const association = graph.relations.filter((relation) => relation.from === formulaId && relation.type === "classically_associated_with" && jinguiSyndromeIds.includes(relation.to));
+  if (association.length !== 1 || !association[0].sourceIds.includes("source:classical:jingui-yaolue")) throw new Error(`${formulaId} 必須有唯一且可追溯的金匱方證關係`);
+  const appearance = graph.relations.filter((relation) => relation.from === formulaId && relation.type === "appears_in" && relation.to === "classic:jingui-yaolue");
+  if (appearance.length !== 1 || !appearance[0].sourceIds.includes("source:classical:jingui-yaolue")) throw new Error(`${formulaId} 必須可追溯至《金匱要略》`);
+}
+
+for (const formulaId of jinguiReusedFormulaIds) {
+  const appearances = graph.relations.filter((relation) => relation.from === formulaId && relation.type === "appears_in");
+  const classicTargets = new Set(appearances.map((relation) => relation.to));
+  if (!classicTargets.has("classic:shanghan-lun") || !classicTargets.has("classic:jingui-yaolue") || classicTargets.size !== 2) throw new Error(`${formulaId} 必須以同一身份連到兩部經典`);
+  const jinguiAssociation = graph.relations.filter((relation) => relation.from === formulaId && relation.type === "classically_associated_with" && jinguiSyndromeIds.includes(relation.to));
+  const shanghanAssociation = graph.relations.filter((relation) => relation.from === formulaId && relation.type === "classically_associated_with" && syndromeIdSet.has(relation.to));
+  if (jinguiAssociation.length !== 1 || shanghanAssociation.length !== 1) throw new Error(`${formulaId} 必須分別保留傷寒與金匱方證主張`);
+  if (!jinguiAssociation[0].sourceIds.includes("source:classical:jingui-yaolue") || jinguiAssociation[0].sourceIds.includes("source:classical:shanghan-lun")) throw new Error(`${formulaId} 金匱方證關係來源被錯誤污染`);
+  if (!shanghanAssociation[0].sourceIds.includes("source:classical:shanghan-lun") || shanghanAssociation[0].sourceIds.includes("source:classical:jingui-yaolue")) throw new Error(`${formulaId} 傷寒方證關係來源被錯誤污染`);
+}
+
+const normalizeIdentity = (value: string) => value.normalize("NFKC").replace(/[《》\s]/g, "").toLocaleLowerCase("zh-Hant");
+for (const group of [formulas, herbs]) {
+  const identityOwners = new Map<string, string>();
+  for (const entity of group) {
+    const names = [entity.labels["zh-Hant"], entity.labels["zh-Hans"], ...entity.aliases["zh-Hant"], ...(entity.aliases["zh-Hans"] ?? [])].filter((value): value is string => Boolean(value));
+    for (const name of names) {
+      const normalized = normalizeIdentity(name);
+      const owner = identityOwners.get(normalized);
+      if (owner && owner !== entity.id) throw new Error(`可避免的方藥身份碰撞：${name} 同時屬於 ${owner} 與 ${entity.id}`);
+      identityOwners.set(normalized, entity.id);
+    }
+  }
+}
+const jinguiNodeIds = new Set(["classic:jingui-yaolue", ...jinguiConditionIds, ...jinguiSyndromeIds, ...jinguiNewFormulaIds, ...jinguiNewHerbIds, ...jinguiLessons.map((lesson) => lesson.id)]);
+if (graph.entities.filter((entity) => jinguiNodeIds.has(entity.id)).some((entity) => entity.sourceIds.some((sourceId) => graph.sources.find((source) => source.id === sourceId)?.category === "nihaixia"))) throw new Error("無直接追溯依據的金匱內容不得標為倪海廈講授資料");
 for (const organ of organs) {
   const elementRelations = graph.relations.filter((relation) => relation.from === organ.id && relation.type === "element_of" && expectedElementIds.has(relation.to));
   if (elementRelations.length !== 1) throw new Error(`${organ.id} 必須重用唯一五行條目`);
@@ -247,9 +315,16 @@ console.log(JSON.stringify({
   acupoints: acupoints.length,
   pointCategories: pointCategories.length,
   shanghanChannels: shanghanChannels.length,
+  conditions: conditions.length,
   syndromes: syndromes.length,
   formulas: formulas.length,
   herbs: herbs.length,
+  jinguiLessons: jinguiLessons.length,
+  jinguiSyndromes: jinguiSyndromes.length,
+  jinguiNewFormulas: jinguiNewFormulaIds.length,
+  jinguiReusedFormulas: jinguiReusedFormulaIds.length,
+  jinguiNewHerbs: jinguiNewHerbIds.length,
+  jinguiReusedHerbs: jinguiReusedHerbIds.length,
   relations: graph.relations.length,
   legacySourcesPresent: lessons.length,
 }, null, 2));
